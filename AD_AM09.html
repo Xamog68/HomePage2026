@@ -1,362 +1,134 @@
-<HTML> 
+<!DOCTYPE html>
+<html lang="it">
 
-<HEAD>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analisi Matematica I - 2008/2009</title>
+  <link rel="stylesheet" href="css/stile.css">
+  <script src="js/config-media.js"></script>
+  <script src="js/sito.js"></script>
+  <script src="js/corsi/am1-2008-09.js"></script>
+  <script>
+    /* Costruisce la piccola tabella storica dei ricevimenti del 2008/09. */
+    function generaTabellaRicevimento() {
+      const corpo = document.getElementById("tabella-ricevimento");
+      if (!corpo || typeof Ricevimento === "undefined") return;
 
-<TITLE>Analisi Matematica I - 2008/2009</TITLE>
+      const intestazione = document.createElement("tr");
+      ["Numero", "Data", "Argomento sommario", "AVI", "PDF"].forEach(function (testo) {
+        const cella = document.createElement("th");
+        cella.textContent = testo;
+        intestazione.appendChild(cella);
+      });
+      corpo.appendChild(intestazione);
 
-<meta charset="UTF-8">
+      for (let i = 1; i < Ricevimento.length; i += 1) {
+        if (!Ricevimento[i]) continue;
+        const incontro = Ricevimento[i];
+        const numeroFile = String(incontro[0]).padStart(2, "0");
+        const riga = document.createElement("tr");
 
-<style>
-td {text-align:center}
-</style>
+        [incontro[0], incontro[1], incontro[2]].forEach(function (testo) {
+          const cella = document.createElement("td");
+          cella.textContent = testo;
+          riga.appendChild(cella);
+        });
 
+        const cellaAvi = document.createElement("td");
+        if (incontro[3] === "m") {
+          const linkMissing = document.createElement("a");
+          linkMissing.href = "AD_Video.html#missing";
+          linkMissing.textContent = "Missing!";
+          cellaAvi.appendChild(linkMissing);
+        } else {
+          const linkAvi = document.createElement("a");
+          linkAvi.href = PercorsoRicevimento + numeroFile + ".avi";
+          linkAvi.target = "_blank";
+          linkAvi.rel = "noopener";
+          linkAvi.textContent = "avi";
+          linkAvi.addEventListener("click", function () {
+            registraDownload("avi", "ricevimento-" + numeroFile);
+          });
+          cellaAvi.appendChild(linkAvi);
+        }
+        riga.appendChild(cellaAvi);
 
-<script>
+        const cellaPdf = document.createElement("td");
+        const linkPdf = document.createElement("a");
+        linkPdf.href = PercorsoRicevimento + numeroFile + ".pdf";
+        linkPdf.target = "_blank";
+        linkPdf.rel = "noopener";
+        linkPdf.textContent = "pdf";
+        linkPdf.addEventListener("click", function () {
+          registraDownload("pdf", "ricevimento-" + numeroFile);
+        });
+        cellaPdf.appendChild(linkPdf);
+        riga.appendChild(cellaPdf);
 
-var NomeCorso = "Analisi Matematica 1 - 2008/2009"
+        corpo.appendChild(riga);
+      }
+    }
 
-var Percorso = "https://pagine.dm.unipi.it/gobbino/Tablet/AM09/AM09_L"
+    document.addEventListener("DOMContentLoaded", generaTabellaRicevimento);
+  </script>
+  <script src="js/analytics.js"></script>
+</head>
 
-var PercorsoRic = "https://pagine.dm.unipi.it/gobbino/Tablet/AM09/AM09_R"
+<body class="pagina-corso">
 
-var Lezioni = new Array();
+  <nav aria-label="Percorso di navigazione">
+    <a href="nuova-home.html">Home</a>
+    <span>›</span>
+    <a href="didattica.html">Didattica</a>
+    <span>›</span>
+    <a href="archivio-didattico.html">Archivio didattico</a>
+    <span>›</span>
+    <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
+  </nav>
 
-var Ricevimento = new Array();
+  <h1>Analisi Matematica I — 2008/2009</h1>
 
-Lezioni[1] = [ "1","30/09/2008","08:30", "09:30", "Insiemi - Notazioni, unione, intersezione, differenza"];
-Lezioni[2] = [ "2","30/09/2008","09:30", "10:30", "Insieme delle parti e prodotto cartesiano, funzioni tra insiemi, grafico di una funzione"];
-Lezioni[3] = [ "3","30/09/2008","10:30", "11:30", "Funzioni: iniettività, surgettività, invertibilità"];
-Lezioni[4] = [ "4","01/10/2008","10:30", "11:30", "Immagine e controimmagine di una funzione. Insiemi numerici. Proprietà di simmetria per funzioni reali (pari, dispari, periodiche)"];
-Lezioni[5] = [ "5","01/10/2008","11:30", "12:30", "Monotonia per funzioni reali. Relazioni conseguenze di monotonia e iniettività nello studio di equazioni e disequazioni (il video è mooolto incompleto, il pdf è ok)"];
-Lezioni[6] = [ "6","01/10/2008","12:30", "13:30", "Funzioni reali: potenze, radici, esponenziali, logaritmi, seno, coseno, arcoseno, arcocoseno"];
-Lezioni[7] = [ "7","02/10/2008","13:30", "14:30", "Principio di induzione - Esercizi"];
-Lezioni[8] = [ "8","02/10/2008","14:30", "15:30", "Esercizi sull'induzione. Fattoriale, binomiale, binomio di Newton"];
-Lezioni[9] = [ "9","30/09/2008","08:30", "09:30", "Esercizi su funzioni pari e dispari. Funzioni e funzioni inverse trigonometriche."];
-Lezioni[10] = [ "10","07/10/2008","08:30", "09:30", "Definizione assiomatica dei numeri reali. Assioma di continuità. Insiemi limitati, maggioranti, minoranti. Massimo e minimo di un sottoinsieme dei reali."];
-Lezioni[11] = [ "11","07/10/2008","09:30", "10:30", "Estremo inferiore e superiore. Caratterizzazione di inf e sup."];
-Lezioni[12] = [ "12","07/10/2008","10:30", "11:30", "Proprietà dei binomiali e relative interpretazioni algebriche e combinatorie"];
-Lezioni[13] = [ "13","09/10/2008","13:30", "14:30", "Operazioni sui grafici: passaggio dal grafico di f(x) a quello di f(x)+a, f(x+a), af(x), f(ax), -f(x), f(-x), |f(x)|, f(|x|). Interpretazione grafica di equazioni e disequazioni."];
-Lezioni[14] = [ "14","09/10/2008","14:30", "15:30", "Interpretazione grafica di immagine e controimmagine. Esercizi su inf, sup, max, min."];
-Lezioni[15] = [ "15","10/10/2008","08:30", "09:30", "Limiti di successioni - Prime definizioni"];
-Lezioni[16] = [ "16","10/10/2008","09:30", "10:30", "Limiti di successioni - Teoremi algebrici e di confronto"];
-Lezioni[17] = [ "17","14/10/2008","08:30", "09:30", "Esempi di limiti di successioni ottenuti mediante confronti e teoremi algebrici"];
-Lezioni[18] = [ "18","14/10/2008","09:30", "10:30", "Criterio della radice, del rapporto, del rapporto -> radice"];
-Lezioni[19] = [ "19","14/10/2008","10:30", "11:30", "Esempi di limiti calcolati mediante i criteri precedenti"];
-Lezioni[20] = [ "20","16/10/2008","08:30", "09:30", "Limiti di funzioni - Definizioni"];
-Lezioni[21] = [ "21","16/10/2008","09:30", "10:30", "Calcolo di limiti di funzioni mediante limiti notevoli e cambi di variabile"];
-Lezioni[22] = [ "22","17/10/2008","08:30", "09:30", "Dimostrazione dei principali limiti notevoli di funzioni"];
-Lezioni[23] = [ "23","17/10/2008","09:30", "10:30", "Criterio funzioni -> successioni - Esercizi sui limiti di funzioni e di successioni"];
-Lezioni[24] = [ "24","21/10/2008","08:30", "09:30", "Linguaggio degli infinitesimi: o piccolo, O grande, equivalenza asintotica. Principali proprietà di o piccolo"];
-Lezioni[25] = [ "25","21/10/2008","09:30", "10:30", "Sviluppini e loro utilizzo nel calcolo di limiti"];
-Lezioni[26] = [ "26","21/10/2008","10:30", "11:30", "Sottosuccessioni e loro utilizzo per mostrare la non esistenza di determinati limiti"];
-Lezioni[27] = [ "27","22/10/2008","10:30", "11:30", "Definizione di derivata - Calcolo della derivata di alcune funzioni elementari"];
-Lezioni[28] = [ "28","22/10/2008","11:30", "12:30", "Teoremi algebrici sulle derivate"];
-Lezioni[29] = [ "29","22/10/2008","12:30", "13:30", "Derivate delle funzioni trigonometriche inverse - Esempi di calcolo di derivate - Esempi di limiti di successioni"];
-Lezioni[30] = [ "30","23/10/2008","13:30", "14:30", "Teorema di De L'Hôpital e suo utilizzo nel calcolo dei limiti"];
-Lezioni[31] = [ "31","24/10/2008","08:30", "09:30", "Formula di Taylor. Calcolo dei polinomi di Taylor di alcune funzioni elementari"];
-Lezioni[32] = [ "32","24/10/2008","09:30", "10:30", "Utilizzo operativo dei polinomi di Taylor. Calcolo del polinomio di Taylor del prodotto e della composizione."];
-Lezioni[33] = [ "33","28/10/2008","08:30", "09:30", "Esempi di utilizzo della formula di Taylor (audio parzialmente incompleto)"];
-Lezioni[34] = [ "34","28/10/2008","09:30", "10:30", "Funzioni iperboliche"];
-Lezioni[35] = [ "35","28/10/2008","10:30", "11:30", "Formula di Taylor con centro diverso dall'origine. Esempi di calcolo di sviluppi di Taylor."];
-Lezioni[36] = [ "36","29/10/2008","10:30", "11:30", "Teorema sulle successioni monotone. Il numero e."];
-Lezioni[37] = [ "37","29/10/2008","11:30", "12:30", "Serie - Introduzione, somme parziali, serie geometriche e telescopiche, proprietà algebriche"];
-Lezioni[38] = [ "38","29/10/2008","12:30", "13:30", "Serie - Condizione necessaria, criteri della radice, del rapporto, del confronto"];
-Lezioni[39] = [ "39","30/10/2008","13:30", "14:30", "Serie - Criterio del confronto asintotico: casi standard"];
-Lezioni[40] = [ "40","30/10/2008","14:30", "15:30", "Serie - Criterio del confronto asintotico: casi limite"];
-Lezioni[41] = [ "41","31/10/2008","08:30", "09:30", "Serie a segno variabile: criterio di Leibnitz"];
-Lezioni[42] = [ "42","31/10/2008","09:30", "10:30", "Serie a segno variabile: criterio dell'assoluta convergenza"];
-Lezioni[43] = [ "43","04/11/2008","08:30", "09:30", "Dimostrazione del criterio della radice e del rapporto. Esempi di studio della convergenza di serie parametriche"];
-Lezioni[44] = [ "44","04/11/2008","09:30", "10:30", "Serie di potenze e raggio di convergenza"];
-Lezioni[45] = [ "45","04/11/2008","10:30", "11:30", "Serie di Taylor e loro utilizzo per il calcolo della somma di particolari serie numeriche"];
-Lezioni[46] = [ "46","05/11/2008","10:30", "11:30", "Teorema di esistenza degli zeri e sue varianti"];
-Lezioni[47] = [ "47","05/11/2008","11:30", "12:30", "Teorema di Weierstrass e sue varianti"];
-Lezioni[48] = [ "48","05/11/2008","12:30", "13:30", "Ricerca dei punti di massimo e di minimo di una funzione su un insieme"];
-Lezioni[49] = [ "49","06/11/2008","13:30", "14:30", "Studio locale di funzioni"];
-Lezioni[50] = [ "50","06/11/2008","14:30", "15:30", "Ordini di infinitesimo, di infinito, e relative parti principali"];
-Lezioni[51] = [ "51","07/11/2008","08:30", "09:30", "Teoremi di Rolle, Cauchy, Lagrange."];
-Lezioni[52] = [ "52","07/11/2008","09:30", "10:30", "Dimostrazione di un caso del teorema di De L'Hôpital. Teoremi che legano la monotonia di una funzione ed il segno della sua derivata."];
-Lezioni[53] = [ "53","11/11/2008","08:30", "09:30", "Primi esempi di studio di funzione"];
-Lezioni[54] = [ "54","11/11/2008","09:30", "10:30", "Asintoti orizzontali e verticali. Esempi di studio di funzione."];
-Lezioni[55] = [ "55","11/11/2008","10:30", "11:30", "Asintoti obliqui. Esempi di studio di funzione."];
-Lezioni[56] = [ "56","12/11/2008","10:30", "11:30", "Funzioni Lipschitziane"];
-Lezioni[57] = [ "57","12/11/2008","11:30", "12:30", "Convessità e segno della derivata seconda"];
-Lezioni[58] = [ "58","12/11/2008","12:30", "13:30", "Esercizi sullo studio di funzione"];
-Lezioni[59] = [ "59","13/11/2008","13:30", "14:30", "Formula di Taylor con resto di Lagrange (vedi anche inizio lezione successiva)"];
-Lezioni[60] = [ "60","14/11/2008","08:30", "09:30", "Postilla alla lezione precedente. Introduzione e primi esempi di successione per ricorrenza"];
-Lezioni[61] = [ "61","14/11/2008","09:30", "10:30", "Successioni per ricorrenza autonome monotone. Interpretazione grafica di una successione per ricorrenza autonoma."];
-Lezioni[62] = [ "62","18/11/2008","08:30", "09:30", "Successioni per ricorrenza spiraleggianti: studio mediante la monotonia di due sottosuccessioni"];
-Lezioni[63] = [ "63","18/11/2008","09:30", "10:30", "Successioni per ricorrenza spiraleggianti: studio mediante la distanza dal presunto limite"];
-Lezioni[64] = [ "64","18/11/2008","10:30", "11:30", "Ulteriori esempi di successioni per ricorrenza autonome"];
-Lezioni[65] = [ "65","19/11/2008","10:30", "11:30", "Successioni per ricorrenza non autonome - Primi esempi"];
-Lezioni[66] = [ "66","19/11/2008","11:30", "12:30", "Successioni per ricorrenza non autonome - Studio mediante confronti"];
-Lezioni[67] = [ "67","19/11/2008","12:30", "13:30", "Successioni per ricorrenza non autonome - Ulteriori esempi"];
-Lezioni[68] = [ "68","20/11/2008","13:30", "14:30", "Esercizi su studio di funzioni e successioni per ricorrenza"];
-Lezioni[69] = [ "69","20/11/2008","14:30", "15:30", "Esercizi su studio di funzioni e successioni per ricorrenza"];
-Lezioni[70] = [ "70","21/11/2008","08:30", "09:30", "Integrali - Prime definizioni e somme di Riemann"];
-Lezioni[71] = [ "71","21/11/2008","09:30", "10:30", "Integrabilità delle funzioni monotone. Primi esempi. Proprietà delle funzioni integrabili."];
-Lezioni[72] = [ "72","25/11/2008","08:30", "09:30", "Primitive e funzione integrale"];
-Lezioni[73] = [ "73","25/11/2008","09:30", "10:30", "Teorema della media integrale e teorema fondamentale del calcolo integrale"];
-Lezioni[74] = [ "74","25/11/2008","10:30", "11:30", "Primi esempi di calcolo di integrali"];
-Lezioni[75] = [ "75","26/11/2008","10:30", "11:30", "Formule di integrazione per parti e per sostituzione. Primi esempi di integrazione per parti."];
-Lezioni[76] = [ "76","26/11/2008","11:30", "12:30", "Ulteriori esempi di integrazione per parti"];
-Lezioni[77] = [ "77","26/11/2008","12:30", "13:30", "Esempi di integrazione per sostituzione"];
-Lezioni[78] = [ "78","27/11/2008","13:30", "14:30", "Integrazione funzioni razionali (prima parte)"];
-Lezioni[79] = [ "79","27/11/2008","14:30", "15:30", "Integrazione funzioni razionali (seconda parte)"];
-Lezioni[80] = [ "80","28/11/2008","08:30", "09:30", "Integrazione mediante sostituzioni razionalizzanti (prima parte)"];
-Lezioni[81] = [ "81","28/11/2008","09:30", "10:30", "Integrazione mediante sostituzioni razionalizzanti (seconda parte)"];
-Lezioni[82] = [ "82","02/12/2008","08:30", "09:30", "Integrali impropri - Definizioni"];
-Lezioni[83] = [ "83","02/12/2008","09:30", "10:30", "Integrali impropri - Criteri di convergenza"];
-Lezioni[84] = [ "84","02/12/2008","10:30", "11:30", "Esempi di studio della convergenza di integrali impropri"];
-Lezioni[85] = [ "85","03/12/2008","10:30", "11:30", "Integrali impropri studiati mediante integrazione per parti"];
-Lezioni[86] = [ "86","03/12/2008","11:30", "12:30", "Confronti tra serie ed integrali impropri"];
-Lezioni[87] = [ "87","03/12/2008","12:30", "13:30", "Integrali impropri con problemi in punti diversi da 0 o infinito"];
-Lezioni[88] = [ "88","04/12/2008","13:30", "14:30", "Esercizi misti con integrali impropri e funzioni integrali"];
-Lezioni[89] = [ "89","04/12/2008","14:30", "15:30", "Esercizi misti con studio di funzioni integrali"];
-Lezioni[90] = [ "90","05/12/2008","08:30", "09:30", "Numeri complessi: prime definizioni e operazioni in forma cartesiana"];
-Lezioni[91] = [ "91","05/12/2008","09:30", "10:30", "Numeri complessi: proprietà del coniugato e del modulo. Coordinate polari nel piano e forma trigonometrica."];
-Lezioni[92] = [ "92","09/12/2008","08:30", "09:30", "Numeri complessi: operazioni in forma trigonometrica"];
-Lezioni[93] = [ "93","09/12/2008","09:30", "10:30", "Numeri complessi: forma esponenziale, potenze e radici n-esime"];
-Lezioni[94] = [ "94","09/12/2008","10:30", "11:30", "Esercizi sulle radici n-esime di numeri complessi. Rapporto tra serie di Taylor e forma esponenziale."];
-Lezioni[95] = [ "95","10/12/2008","10:30", "11:30", "Polinomi a coefficienti complessi e relativa fattorizzazione. Teorema fondamentale dell'algebra."];
-Lezioni[96] = [ "96","10/12/2008","11:30", "12:30", "Esercizi sulla fattorizzazione di polinomi. Esponenziale e logaritmo sui complessi."];
-Lezioni[97] = [ "97","10/12/2008","12:30", "13:30", "Metodi per calcolare la somma di serie di potenze"];
-Lezioni[98] = [ "98","11/12/2008","13:30", "14:30", "Equazioni differenziali: nomenclatura"];
-Lezioni[99] = [ "99","11/12/2008","14:30", "15:30", "Problema di Cauchy. Metodo di risoluzione per equazioni differenziali a variabili separabili."];
-Lezioni[100] = [ "100","16/12/2008","08:30", "09:30", "Teorema di esistenza ed unicità per il problema di Cauchy. Intervallo massimale di esistenza, tempo di vita, blow-up, break-down."];
-Lezioni[101] = [ "101","16/12/2008","09:30", "10:30", "Esercizi sul problema di Cauchy per equazioni differenziali a variabili separabili"];
-Lezioni[102] = [ "102","16/12/2008","10:30", "11:30", "Equazioni differenziali lineari omogenee"];
-Lezioni[103] = [ "103","17/12/2008","10:30", "11:30", "Equazioni differenziali lineari non omogenee: teoria generale. Ricerca per tentativi di una soluzione (prima parte)"];
-Lezioni[104] = [ "104","17/12/2008","11:30", "12:30", "Equazioni differenziali lineari non omogenee: ricerca per tentativi di una soluzione (seconda parte)"];
-Lezioni[105] = [ "105","17/12/2008","12:30", "13:30", "Equazioni differenziali lineari non omogenee: metodo di variazione delle costanti"];
-Lezioni[106] = [ "106","18/12/2008","13:30", "14:30", "Equazioni differenziali lineari del primo ordine"];
-Lezioni[107] = [ "107","18/12/2008","14:30", "15:30", "Seno e coseno di numeri complessi"];
-Lezioni[108] = [ "108","19/12/2008","08:30", "09:30", "Esercizi misti di ricapitolazione"];
-Lezioni[109] = [ "109","19/12/2008","09:30", "10:30", "Esercizi misti di ricapitolazione"];
+  <details class="sezione-corso" open>
+    <summary>Scheda del corso</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Scheda">Scheda di presentazione</h2>
+      <table><tbody id="scheda-corso"></tbody></table>
+      <p id="avviso-corso"></p>
+    </div>
+  </details>
 
-Ricevimento[1] = ["1","16/10/08","Esercizio \"burocratico\" sugli insiemi","m"];
-Ricevimento[2] = ["2","23/10/08","Limiti"];
-Ricevimento[3] = ["3","30/10/08","Limiti"];
-Ricevimento[4] = ["4","06/11/08","Limiti e Serie"];
-Ricevimento[5] = ["5","13/11/08","Limiti, Serie, max e min"];
-Ricevimento[6] = ["6","20/11/08","Serie e successioni per ricorrenza"];
-Ricevimento[7] = ["7","27/11/08","Funzioni e successioni per ricorrenza"];
-Ricevimento[8] = ["8","04/12/08","Serie, limiti, sviluppi di Taylor, successioni per ricorrenza"];
-Ricevimento[9] = ["9","11/12/08","Un po di tutto"];
-Ricevimento[10] = ["10","18/12/08","Un po di tutto"];
-Ricevimento[2] = ["2","23/10/08","Limiti"];
-Ricevimento[3] = ["3","30/10/08","Limiti"];
-Ricevimento[4] = ["4","06/11/08","Limiti e Serie"];
-Ricevimento[5] = ["5","13/11/08","Limiti, Serie, max e min"];
-Ricevimento[6] = ["6","20/11/08","Serie e successioni per ricorrenza"];
-Ricevimento[7] = ["7","27/11/08","Funzioni e successioni per ricorrenza"];
-Ricevimento[8] = ["8","04/12/08","Serie, limiti, sviluppi di Taylor, successioni per ricorrenza"];
-Ricevimento[9] = ["9","11/12/08","Un po di tutto"];
-Ricevimento[10] = ["10","18/12/08","Un po di tutto"];
-
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-47224301-1', 'unipi.it');
-  ga('send', 'pageview');
-
-</script>
-
-</HEAD>
-
-<BODY BGCOLOR="aqua">
-
-<H1 ALIGN="CENTER"><A NAME="OT_Inizio"></A>Corso di Analisi Matematica I - A.A. 2008/2009</H1>
-
-<UL TYPE="DISC">
-    <LI><A HREF="#Scheda">Scheda di presentazione</A>
-    <LI><A HREF="#Burocrazia">Burocrazia</A>
-    <LI><A HREF="#Lezioni">Lezioni</A>
-    <LI><A HREF="#Ricevimento">Ricevimento Studenti</A>
-</UL>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Scheda"></A>Scheda di presentazione</H2>
-
-<CENTER>
-<TABLE BORDER="1">
-    
-    <TR ALIGN="CENTER">
-    <TH>Nome corso</TH>
-    <TD>Analisi Matematica I</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Anno Accademico</TH>
-    <TD>2008/09</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Crediti</TH>
-    <TD>12</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Ore di lezione</TH>
-    <TD>120 (ufficialmente, 109 realisticamente)</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Target</TH>
-    <TD>Ingegneria Elettronica/Telecomunicazioni</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Anno</TH>
-    <TD>Primo</TD>
-    </TR>
-    
-    <TR ALIGN="CENTER">
-    <TH>Periodo</TH>
-    <TD>Ottobre/Dicembre</TD>
-    </TR>
-    
-</TABLE>
-</CENTER>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Burocrazia"></A>Burocrazia</H2>
-
-<P>
-Il file seguente contiene tutte le informazioni inerenti il programma, le
-modalit&agrave; di svolgimento, le regole d'esame.
-<CENTER>
-
-<TABLE BORDER="1">
-    
-    <TR>
-		<TD><A target="_blank"
-		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2008/2009', 'Pdf', 'Burocrazia');"
-		HREF="Files/HP_AD/AM09_Burocrazia.pdf">Informazioni burocratiche</A></TD>
-    </TR>
-    
-</TABLE>
-
-</CENTER>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Lezioni"></A>Lezioni</H2>
-
-<P>
-Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per 
-maggiori informazioni sulle modalit&agrave; di utilizzo si prega di
-consultare <A HREF="AD_Video.html">questa pagina</A>.
-</P>
-
-<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
-
-<TR ALIGN="CENTER">
-<TH>Lezione</TH>
-<TH>Data</TH>
-<TH COLSPAN=2>Ora</TH>
-<TH>Argomento sommario</TH>
-<TH COLSPAN=2>Download</TH>
-</TR>
-
-<script>
-for (var i=1;i<Lezioni.length;i++)
-{
-	var NumeroOra = Lezioni[i][0];
-	var NumeroOraMod = (NumeroOra>99)?NumeroOra:"0"+NumeroOra;
-	var NumeroOraMod = (NumeroOra<10)?"00"+NumeroOra:NumeroOraMod;
-	var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
-	var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
-	var LinkAvi = (Lezioni[i][5]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
-	
-	document.write("<TR><TD>" + 
-	Lezioni[i][0] + 
-	"</TD><TD>" + 
-	Lezioni[i][1] + 
-	"</TD><TD>" + 
-	Lezioni[i][2] + 
-	"</TD><TD>" + 
-	Lezioni[i][3] + 
-	"</TD><TD>" + 
-	Lezioni[i][4] + 
-	"</TD><TD>" +
-	LinkAvi +
-	"</TD><TD>" + "<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " + 
-	"onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Lezione " + NumeroOraMod + "')\">pdf</A>" +
-	"</TD></TR>");
-}
-</script>
-
-</TABLE>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Ricevimento"></A>Ricevimento Studenti</H2>
-
-<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
-
-<TR ALIGN="CENTER">
-<TH>Numero</TH>
-<TH>Data</TH>
-<TH>Argomento sommario</TH>
-<TH COLSPAN=2>Download</TH>
-</TR>
-
-<script>
-for (var i=1;i<Ricevimento.length;i++)
-{
-	var NumeroOra = Ricevimento[i][0];
-	var NumeroOraMod = (NumeroOra<10)?"0"+NumeroOra:NumeroOra;
-	var IndirizzoAvi = PercorsoRic + NumeroOraMod + ".avi";
-	var IndirizzoPdf = PercorsoRic + NumeroOraMod + ".pdf";
-	var LinkAvi = (Ricevimento[i][3]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Ricevimento " + NumeroOraMod + "')\">avi</A>";
-	
-	document.write("<TR><TD>" + 
-	Ricevimento[i][0] + 
-	"</TD><TD>" + 
-	Ricevimento[i][1] + 
-	"</TD><TD>" + 
-	Ricevimento[i][2] + 
-	"</TD><TD>" + 
-	LinkAvi +
-	"</TD><TD>" + "<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " + 
-	"onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Ricevimento " + NumeroOraMod + "')\">pdf</A>" +
-	"</TD></TR>");
-}
-</script>
-
-</TABLE>
+  <details class="sezione-corso">
+    <summary>Burocrazia</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Burocrazia">Burocrazia</h2>
+      <table><tbody id="documenti-burocrazia"></tbody></table>
+    </div>
+  </details>
 
 
+  <details class="sezione-corso">
+    <summary>Lezioni</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Lezioni">Lezioni</h2>
+      <p id="testo-lezioni"></p>
+      <div class="tabella-scroll">
+        <table><tbody id="tabella-lezioni"></tbody></table>
+      </div>
+    </div>
+  </details>
 
-<HR>
+  <details class="sezione-corso">
+    <summary>Ricevimento studenti</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Ricevimento">Ricevimento studenti</h2>
+      <div class="tabella-scroll">
+        <table><tbody id="tabella-ricevimento"></tbody></table>
+      </div>
+    </div>
+  </details>
 
-<CENTER>
+  <footer id="licenza-sito"></footer>
 
-<a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-alt="Licenza Creative Commons" style="border-width:0"
-src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
-Quest'opera di <span xmlns:cc="http://creativecommons.org/ns#"
-property="cc:attributionName">Massimo Gobbino</span> è distribuita con
-Licenza <a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
-Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
-Internazionale</a>.
-
-</CENTER>
-
-
-
-<HR>
-
-
-
-</BODY>
-</HTML>
+</body>
+</html>
