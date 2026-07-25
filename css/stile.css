@@ -1,0 +1,52 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.5;
+  background: #eef1f4;
+  color: #222;
+}
+
+header {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #184d73;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+.accessi-principali {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.accessi-principali article {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.accessi-principali h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 750px) {
+  .accessi-principali {
+    grid-template-columns: 1fr;
+  }
+}
