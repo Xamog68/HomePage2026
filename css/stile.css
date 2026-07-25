@@ -264,3 +264,30 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   PAGINA INTRODUTTIVA DI ANALISI MATEMATICA 1
+   ========================================================= */
+
+.griglia-corsi-am1 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.griglia-corsi-am1 .sezione-corso {
+  margin-top: 0;
+}
+
+@media (max-width: 1050px) {
+  .griglia-corsi-am1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 750px) {
+  .griglia-corsi-am1 {
+    grid-template-columns: 1fr;
+  }
+}
