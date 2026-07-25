@@ -207,16 +207,41 @@ function generaTabellaLezioni() {
   Le intestazioni "Ora" e "Download" occupano due colonne,
   grazie alla proprietà colspan.
 */
+/*
+  Genera l'intestazione della tabella delle lezioni.
+
+  Normalmente la tabella contiene due colonne per gli orari.
+  Alcuni corsi storici non dispongono di questa informazione:
+  in tal caso il file dati può impostare
+
+    const MostraOrariLezioni = false;
+*/
 function generaIntestazioneLezioni(corpoTabella) {
   const rigaIntestazione = document.createElement("tr");
 
-  const intestazioni = [
-    { testo: "N." },
-    { testo: "Data" },
-    { testo: "Ora", colspan: 2 },
-    { testo: "Argomento sommario" },
-    { testo: "Download", colspan: 2 }
-  ];
+  /*
+    Se la variabile non è definita, gli orari vengono mostrati.
+    Questo conserva il comportamento di tutte le pagine esistenti.
+  */
+  const mostraOrari =
+    typeof MostraOrariLezioni === "undefined"
+      ? true
+      : MostraOrariLezioni;
+
+  const intestazioni = mostraOrari
+    ? [
+        { testo: "N." },
+        { testo: "Data" },
+        { testo: "Ora", colspan: 2 },
+        { testo: "Argomento sommario" },
+        { testo: "Download", colspan: 2 }
+      ]
+    : [
+        { testo: "N." },
+        { testo: "Data" },
+        { testo: "Argomento sommario" },
+        { testo: "Download", colspan: 2 }
+      ];
 
   for (const intestazione of intestazioni) {
     const cella = document.createElement("th");
@@ -236,8 +261,24 @@ function generaIntestazioneLezioni(corpoTabella) {
 
 /*
   Genera una riga per ogni lezione presente nell'array Lezioni.
+
+  Con gli orari, ogni elemento dell'array ha la forma
+
+    [numero, data, oraInizio, oraFine, argomento, statoAvi, statoPdf]
+
+  Senza gli orari, ha invece la forma
+
+    [numero, data, argomento, statoAvi, statoPdf]
 */
 function generaRigheLezioni(corpoTabella) {
+  /*
+    Se la variabile non è definita, gli orari vengono mostrati.
+  */
+  const mostraOrari =
+    typeof MostraOrariLezioni === "undefined"
+      ? true
+      : MostraOrariLezioni;
+
   /*
     L'indice 0 non viene usato: in questo modo il numero
     dell'indice coincide con il numero della lezione.
@@ -255,7 +296,10 @@ function generaRigheLezioni(corpoTabella) {
     const numeroLezione = lezione[0];
 
     /*
-      I nomi dei file usano numeri di tre cifre:
+      Il numero di cifre usato nei nomi dei file può essere
+      specificato nel file dati del corso.
+
+      Se non viene specificato, si usano tre cifre:
       1 diventa 001, 12 diventa 012, e così via.
     */
     const cifreNumeroLezione =
@@ -267,21 +311,43 @@ function generaRigheLezioni(corpoTabella) {
       cifreNumeroLezione,
       "0"
     );
+
     const indirizzoAvi = Percorso + numeroFile + ".avi";
     const indirizzoPdf = Percorso + numeroFile + ".pdf";
 
     const riga = document.createElement("tr");
 
+    /*
+      Numero e data occupano sempre le prime due posizioni.
+    */
     aggiungiCellaTesto(riga, lezione[0]);
     aggiungiCellaTesto(riga, lezione[1]);
-    aggiungiCellaTesto(riga, lezione[2]);
-    aggiungiCellaTesto(riga, lezione[3]);
-    aggiungiCellaTesto(riga, lezione[4]);
 
     /*
-      Il sesto elemento segnala che il video manca.
+      La posizione dell'argomento e degli indicatori di file
+      mancanti dipende dalla presenza o meno degli orari.
     */
-    if (lezione[5] === "m") {
+    let statoAvi;
+    let statoPdf;
+
+    if (mostraOrari) {
+      aggiungiCellaTesto(riga, lezione[2]);
+      aggiungiCellaTesto(riga, lezione[3]);
+      aggiungiCellaTesto(riga, lezione[4]);
+
+      statoAvi = lezione[5];
+      statoPdf = lezione[6];
+    } else {
+      aggiungiCellaTesto(riga, lezione[2]);
+
+      statoAvi = lezione[3];
+      statoPdf = lezione[4];
+    }
+
+    /*
+      Genera la cella relativa al video.
+    */
+    if (statoAvi === "m") {
       aggiungiCellaMissing(riga);
     } else {
       aggiungiCellaDownload(
@@ -294,9 +360,9 @@ function generaRigheLezioni(corpoTabella) {
     }
 
     /*
-      Il settimo elemento segnala che il PDF manca.
+      Genera la cella relativa al PDF.
     */
-    if (lezione[6] === "m") {
+    if (statoPdf === "m") {
       aggiungiCellaMissing(riga);
     } else {
       aggiungiCellaDownload(
@@ -311,7 +377,6 @@ function generaRigheLezioni(corpoTabella) {
     corpoTabella.appendChild(riga);
   }
 }
-
 
 /*
   Aggiunge a una riga una semplice cella di testo.
