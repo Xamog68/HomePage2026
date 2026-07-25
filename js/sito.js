@@ -6,6 +6,47 @@ function registraDownload(formato, numeroLezione) {
   });
 }
 
+function generaSchedaCorso() {
+  if (typeof SchedaCorso === "undefined") {
+    return;
+  }
+
+  const contenitore = document.getElementById("scheda-corso");
+  const avviso = document.getElementById("avviso-corso");
+
+  if (!contenitore) {
+    return;
+  }
+
+  const righe = [
+    ["Nome corso", SchedaCorso.nome],
+    ["Anno Accademico", SchedaCorso.annoAccademico],
+    ["Crediti", SchedaCorso.crediti],
+    ["Ore di lezione", SchedaCorso.ore],
+    ["Target", SchedaCorso.target],
+    ["Anno", SchedaCorso.anno],
+    ["Periodo", SchedaCorso.periodo]
+  ];
+
+  for (const [etichetta, valore] of righe) {
+    const riga = document.createElement("tr");
+    const intestazione = document.createElement("th");
+    const cella = document.createElement("td");
+
+    intestazione.textContent = etichetta;
+    cella.textContent = valore;
+
+    riga.appendChild(intestazione);
+    riga.appendChild(cella);
+    contenitore.appendChild(riga);
+  }
+
+  if (avviso && SchedaCorso.avviso) {
+    avviso.innerHTML =
+      "<strong>Achtung!</strong> " + SchedaCorso.avviso;
+  }
+}
+
 function generaDocumentiCorso() {
   if (typeof DocumentiCorso === "undefined") {
     return;
@@ -132,5 +173,6 @@ function generaTabellaLezioni() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  generaSchedaCorso();
   generaDocumentiCorso();
 });

@@ -1,5 +1,20 @@
 var NomeCorso = "Analisi Matematica 1 - 2025/2026"
 var Percorso = MEDIA.lezioni + "AM1_26/AM1_26_L";
+
+var SchedaCorso = {
+  nome: "Analisi Matematica 1",
+  annoAccademico: "2025/2026",
+  crediti: "15",
+  ore: "120 (ufficialmente, ??? quest’anno)",
+  target: "Matematica",
+  anno: "Primo",
+  periodo: "fine settembre / fine maggio",
+  avviso:
+    "Questo corso sarà una riedizione del corso 2016/2017. " +
+    "Per versioni più edulcorate si consigliano i corsi 2024/25 " +
+    "o, ancora più edulcorata, 2012/13."
+};
+
 var DocumentiCorso = [
   {
     sezione: "burocrazia",
@@ -16,6 +31,24 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "AM1_26_Programma.pdf",
     titolo: "Programma dettagliato"
+  },
+  {
+    sezione: "book",
+    file: "AM1_26_Book1.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 1 — Lezioni 1–50"
+  },
+  {
+    sezione: "book",
+    file: "AM1_26_Book2.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 2 — Lezioni 51–90"
+  },
+  {
+    sezione: "book",
+    file: "AM1_26_Book3.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 3 — Lezioni 91–130"
   }
 ];
 
