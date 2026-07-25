@@ -282,7 +282,7 @@ function generaRigheLezioni(corpoTabella) {
       Il sesto elemento segnala che il video manca.
     */
     if (lezione[5] === "m") {
-      aggiungiCellaTesto(riga, "Missing!");
+      aggiungiCellaMissing(riga);
     } else {
       aggiungiCellaDownload(
         riga,
@@ -297,7 +297,7 @@ function generaRigheLezioni(corpoTabella) {
       Il settimo elemento segnala che il PDF manca.
     */
     if (lezione[6] === "m") {
-      aggiungiCellaTesto(riga, "Missing!");
+      aggiungiCellaMissing(riga);
     } else {
       aggiungiCellaDownload(
         riga,
@@ -323,6 +323,28 @@ function aggiungiCellaTesto(riga, testo) {
   riga.appendChild(cella);
 }
 
+
+function aggiungiCellaMissing(riga) {
+  const cella = document.createElement("td");
+  const link = document.createElement("a");
+
+  link.href = "AD_Video.html#missing";
+  link.textContent = "Missing!";
+
+  cella.appendChild(link);
+  riga.appendChild(cella);
+}
+
+
+function aggiungiCellaDownload(
+  riga,
+  indirizzo,
+  testoLink,
+  formato,
+  numeroLezione
+) {
+  // ...
+}
 
 /*
   Aggiunge a una riga una cella contenente un collegamento
