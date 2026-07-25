@@ -1,152 +1,94 @@
-<HTML>
+<!DOCTYPE html>
+<html lang="it">
 
-<HEAD>
-<link rel="stylesheet" href="css/stile.css">
-<title>Analisi Matematica 1 - 2025/2026</title>
-<meta charset="UTF-8">
-<style>
-td {text-align:center}
-</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Analisi Matematica 1 - 2025/2026</title>
 
-<script src="js/config-media.js"></script>
-<script src="js/sito.js"></script>
-<script src="js/corsi/am1-2025-26.js"></script>
-<script src="js/analytics.js"></script>
+  <link rel="stylesheet" href="css/stile.css">
 
+  <script src="js/config-media.js"></script>
+  <script src="js/sito.js"></script>
+  <script src="js/corsi/am1-2025-26.js"></script>
+  <script src="js/analytics.js"></script>
 </head>
 
-<body>
+<body class="pagina-corso">
 
-<nav aria-label="Percorso di navigazione">
-  <a href="nuova-home.html">Home</a>
-  <span>›</span>
-  <a href="didattica.html">Didattica</a>
-  <span>›</span>
-  <a href="archivio-didattico.html">Archivio didattico</a>
-  <span>›</span>
-  <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
-</nav>
+  <nav aria-label="Percorso di navigazione">
+    <a href="nuova-home.html">Home</a>
+    <span>›</span>
+    <a href="didattica.html">Didattica</a>
+    <span>›</span>
+    <a href="archivio-didattico.html">Archivio didattico</a>
+    <span>›</span>
+    <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
+  </nav>
 
-<h1>
-  <a id="OT_Inizio"></a>
-  Analisi Matematica 1 — 2025/2026
-</h1>
+  <h1>Analisi Matematica 1 — 2025/2026</h1>
 
-<ul>
-  <li><a href="#Scheda">Scheda di presentazione</a></li>
-  <li><a href="#Burocrazia">Burocrazia</a></li>
-  <li><a href="#Book">Book</a></li>
-  <li><a href="#Lezioni">Lezioni</a></li>
-</ul>
+  <details class="sezione-corso" open>
+    <summary>Scheda del corso</summary>
 
-<hr>
+    <div class="contenuto-sezione">
+      <h2 id="Scheda">Scheda di presentazione</h2>
 
-<details class="sezione-corso" open>
-  <summary>Scheda del corso</summary>
+      <table>
+        <tbody id="scheda-corso"></tbody>
+      </table>
 
-  <div class="contenuto-sezione">
-    <h2 id="Scheda">Scheda di presentazione</h2>
+      <p id="avviso-corso"></p>
+    </div>
+  </details>
 
-    <table border="1">
-      <tbody id="scheda-corso"></tbody>
-    </table>
+  <details class="sezione-corso">
+    <summary>Burocrazia</summary>
 
-    <p id="avviso-corso"></p>
-  </div>
-</details>
+    <div class="contenuto-sezione">
+      <h2 id="Burocrazia">Burocrazia</h2>
 
-<details class="sezione-corso">
-  <summary>Burocrazia</summary>
+      <table>
+        <tbody id="documenti-burocrazia"></tbody>
+      </table>
+    </div>
+  </details>
 
-  <div class="contenuto-sezione">
-    <h2 id="Burocrazia">Burocrazia</h2>
+  <details class="sezione-corso">
+    <summary>Book e materiali</summary>
 
-    <table border="1">
-      <tbody id="documenti-burocrazia"></tbody>
-    </table>
-  </div>
-</details>
+    <div class="contenuto-sezione">
+      <h2 id="Book">Book</h2>
 
-<details class="sezione-corso">
-  <summary>Book e materiali</summary>
+      <p id="testo-book"></p>
 
-  <div class="contenuto-sezione">
-    <h2 id="Book">Book</h2>
+      <table>
+        <tbody id="documenti-book"></tbody>
+      </table>
+    </div>
+  </details>
 
-    <p>
-      I seguenti file PDF, piuttosto pesanti, contengono lo stampato
-      integrale delle lezioni: sostanzialmente sono l’unione dei PDF
-      delle singole lezioni.
-    </p>
+  <details class="sezione-corso">
+    <summary>Lezioni</summary>
 
-    <table border="1">
-      <tbody id="documenti-book"></tbody>
-    </table>
- </div>
-</details>
+    <div class="contenuto-sezione">
+      <h2 id="Lezioni">Lezioni</h2>
 
-<details class="sezione-corso">
-  <summary>Lezioni</summary>
+      <p id="testo-lezioni"></p>
 
-  <div class="contenuto-sezione">
-    <h2 id="Lezioni">Lezioni</h2>
+      <div class="tabella-scroll">
+        <table>
+          <tbody id="tabella-lezioni"></tbody>
+        </table>
+      </div>
 
-    <p>
-      Di ogni lezione vengono forniti un file PDF e un video in formato
-      AVI. Per maggiori informazioni sulle modalità di utilizzo si
-      prega di consultare
-      <a href="AD_Video.html">questa pagina</a>.
-    </p>
+      <script>
+        generaTabellaLezioni();
+      </script>
+    </div>
+  </details>
 
-    <table border="1">
-      <tbody id="tabella-lezioni">
-        <tr>
-          <th>Lezione</th>
-          <th>Data</th>
-          <th colspan="2">Ora</th>
-          <th>Argomento sommario</th>
-          <th colspan="2">Download</th>
-        </tr>
-      </tbody>
-    </table>
-
-    <script>
-      generaTabellaLezioni();
-    </script>
-
-    </tbody>
-    </table>
-  </div>
-</details>
-
-<hr>
-
-<footer>
-  <p>
-    <a
-      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-      target="_blank"
-      rel="license"
-    >
-      <img
-        src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
-        alt="Licenza Creative Commons"
-      >
-    </a>
-  </p>
-
-  <p>
-    Quest’opera di Massimo Gobbino è distribuita con Licenza
-    <a
-      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-      target="_blank"
-      rel="license"
-    >
-      Creative Commons Attribuzione — Non commerciale —
-      Condividi allo stesso modo 4.0 Internazionale
-    </a>.
-  </p>
-</footer>
+  <footer id="licenza-sito"></footer>
 
 </body>
+
 </html>

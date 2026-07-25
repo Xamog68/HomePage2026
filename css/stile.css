@@ -1,33 +1,64 @@
+/* =========================================================
+   IMPOSTAZIONI GENERALI DELLA PAGINA
+   ========================================================= */
+
 body {
   font-family: system-ui, sans-serif;
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+
   line-height: 1.5;
   background: #eef1f4;
   color: #222;
 }
 
+/*
+  Le pagine dei corsi hanno bisogno di più spazio,
+  soprattutto per la tabella delle lezioni.
+*/
+body.pagina-corso {
+  max-width: 1500px;
+}
+
+
+/* =========================================================
+   INTESTAZIONE
+   ========================================================= */
+
 header {
-  background: white;
   padding: 2rem;
+  background: white;
   border-radius: 12px;
 }
+
+
+/* =========================================================
+   NAVIGAZIONE
+   ========================================================= */
+
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
 }
 
 nav a {
-  text-decoration: none;
-  font-weight: 600;
   color: #184d73;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
+
+
+/* =========================================================
+   RIQUADRI PRINCIPALI DELLA HOME
+   ========================================================= */
+
 .accessi-principali {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -36,8 +67,8 @@ nav a:hover {
 }
 
 .accessi-principali article {
-  background: white;
   padding: 1.5rem;
+  background: white;
   border-radius: 12px;
 }
 
@@ -45,41 +76,72 @@ nav a:hover {
   margin-top: 0;
 }
 
-@media (max-width: 750px) {
-  .accessi-principali {
-    grid-template-columns: 1fr;
-  }
-}
+
+/* =========================================================
+   SEZIONI ESPANDIBILI DELLE PAGINE DEI CORSI
+   ========================================================= */
+
 .sezione-corso {
   margin-top: 1.25rem;
+  overflow: hidden;
+
   background: white;
   border-radius: 12px;
-  overflow: hidden;
 }
 
 .sezione-corso summary {
   padding: 1rem 1.25rem;
+
+  background: #f3f5f7;
   font-weight: 700;
   cursor: pointer;
-  background: #f3f5f7;
 }
 
 .contenuto-sezione {
   padding: 1.25rem;
 }
+
+
+/* =========================================================
+   TABELLE
+   ========================================================= */
+
+/*
+  Il contenitore permette alle tabelle larghe di scorrere
+  orizzontalmente sugli schermi piccoli.
+*/
+.tabella-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .contenuto-sezione table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 1rem;
+
   background: white;
+  border: 1px solid #d8dde2;
+  border-collapse: collapse;
+  table-layout: auto;
 }
 
 .contenuto-sezione th,
 .contenuto-sezione td {
   padding: 0.75rem 0.9rem;
+
   border-bottom: 1px solid #d8dde2;
   text-align: left;
   vertical-align: top;
+}
+
+/*
+  Il bordo inferiore esterno è già disegnato dalla tabella.
+  L'ultima riga non deve quindi aggiungerne un secondo.
+*/
+.contenuto-sezione tr:last-child th,
+.contenuto-sezione tr:last-child td {
+  border-bottom: 0;
 }
 
 .contenuto-sezione th {
@@ -102,4 +164,94 @@ nav a:hover {
 
 .contenuto-sezione td a:hover {
   text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABELLA DELLE LEZIONI
+   ========================================================= */
+
+   /* Padding generale delle celle. */
+   .contenuto-sezione th,
+   .contenuto-sezione td {
+     padding: 0.75rem 0.9rem;
+     border-bottom: 1px solid #d8dde2;
+     text-align: left;
+     vertical-align: top;
+   }
+
+   /* Le colonne brevi della tabella lezioni hanno meno spazio laterale. */
+   #tabella-lezioni th:nth-child(1),
+   #tabella-lezioni td:nth-child(1),
+   #tabella-lezioni th:nth-child(2),
+   #tabella-lezioni td:nth-child(2),
+   #tabella-lezioni th:nth-child(3),
+   #tabella-lezioni td:nth-child(3),
+   #tabella-lezioni th:nth-child(4),
+   #tabella-lezioni td:nth-child(4),
+   #tabella-lezioni th:nth-child(6),
+   #tabella-lezioni td:nth-child(6),
+   #tabella-lezioni th:nth-child(7),
+   #tabella-lezioni td:nth-child(7) {
+     padding-left: 0.45rem;
+     padding-right: 0.45rem;
+     white-space: nowrap;
+   }LICENZA E PIEDE DI PAGINA
+========================================================= */
+
+#licenza-sito {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+
+  border-top: 1px solid #cbd2d8;
+  color: #56616a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+#licenza-sito p {
+  margin: 0.5rem 0;
+}
+
+#licenza-sito img {
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+#licenza-sito a {
+  color: #315f7d;
+}
+
+
+/* =========================================================
+   SCHERMI MEDI E PICCOLI
+   ========================================================= */
+
+@media (max-width: 750px) {
+  body,
+  body.pagina-corso {
+    padding: 1rem;
+  }
+
+  .accessi-principali {
+    grid-template-columns: 1fr;
+  }
+
+  .contenuto-sezione {
+    padding: 0.9rem;
+  }
+
+  .contenuto-sezione th,
+  .contenuto-sezione td {
+    padding: 0.55rem 0.65rem;
+  }
+
+  /*
+    Su uno schermo stretto lasciamo che le celle possano
+    andare a capo. La tabella resta comunque scorrevole.
+  */
+  #tabella-lezioni th,
+  #tabella-lezioni td {
+    white-space: normal;
+  }
 }

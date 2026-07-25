@@ -99,6 +99,30 @@ function generaTabellaLezioni() {
     return;
   }
 
+  const rigaIntestazione = document.createElement("tr");
+
+  const intestazioni = [
+    { testo: "N." },
+    { testo: "Data" },
+    { testo: "Ora", colspan: 2 },
+    { testo: "Argomento sommario" },
+    { testo: "Download", colspan: 2 }
+  ];
+
+  for (const intestazione of intestazioni) {
+    const cella = document.createElement("th");
+
+    cella.textContent = intestazione.testo;
+
+    if (intestazione.colspan) {
+      cella.colSpan = intestazione.colspan;
+    }
+
+    rigaIntestazione.appendChild(cella);
+  }
+
+  corpoTabella.appendChild(rigaIntestazione);
+
   for (let i = 1; i < Lezioni.length; i++) {
     if (!Lezioni[i]) {
       continue;
@@ -172,7 +196,63 @@ function generaTabellaLezioni() {
   }
 }
 
+// Inserisce i testi introduttivi comuni delle sezioni Book e Lezioni
+function generaTestiComuni() {
+  const testoBook = document.getElementById("testo-book");
+  const testoLezioni = document.getElementById("testo-lezioni");
+
+  if (testoBook) {
+    testoBook.textContent =
+      "I volumi raccolgono in un unico file i PDF delle singole lezioni " +
+      "disponibili nella sezione sottostante. Per questo possono avere " +
+      "dimensioni piuttosto grandi.";
+  }
+
+  if (testoLezioni) {
+    testoLezioni.innerHTML =
+      'Per ogni lezione sono disponibili, quando presenti, il PDF e la ' +
+      'registrazione video. Per informazioni sui formati e sulla ' +
+      'riproduzione dei video, consulta ' +
+      '<a href="AD_Video.html">le note tecniche</a>.';
+  }
+}
+
+function generaLicenza() {
+  const contenitore = document.getElementById("licenza-sito");
+
+  if (!contenitore) {
+    return;
+  }
+
+  contenitore.innerHTML = `
+    <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      target="_blank"
+      rel="license noopener"
+    >
+      <img
+        src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+        alt="Licenza Creative Commons BY-NC-SA 4.0"
+      >
+    </a>
+
+    <p>
+      I contenuti di questo sito sono distribuiti con licenza
+      <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        target="_blank"
+        rel="license noopener"
+      >
+        Creative Commons BY-NC-SA 4.0
+      </a>,
+      salvo diversa indicazione.
+    </p>
+  `;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   generaSchedaCorso();
   generaDocumentiCorso();
+  generaTestiComuni();
+  generaLicenza();
 });
