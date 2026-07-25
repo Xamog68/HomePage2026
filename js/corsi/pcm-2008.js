@@ -8,6 +8,14 @@ const CifreNumeroLezione = 2;
 
 const Percorso = MEDIA.lezioni + "PCM/PCM08/PCM_08_L";
 
+var DocumentiCorso = [
+  {
+    sezione: "book",
+    file: "PCM_08_Book.pdf",
+    titolo: "Stampato integrale delle lezioni"
+  }
+];
+
 const Lezioni = [
   null,
 
