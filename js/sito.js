@@ -272,11 +272,7 @@ function generaRigheLezioni(corpoTabella) {
     aggiungiCellaTesto(riga, lezione[4]);
 
     /*
-      Il sesto elemento della lezione segnala eventuali
-      situazioni particolari del video.
-
-      Per ora il valore "m" significa che il video manca.
-      In futuro potremo rendere questa gestione più generale.
+      Il sesto elemento segnala che il video manca.
     */
     if (lezione[5] === "m") {
       aggiungiCellaTesto(riga, "Missing!");
@@ -291,15 +287,19 @@ function generaRigheLezioni(corpoTabella) {
     }
 
     /*
-      Per il momento si presume che il PDF esista sempre.
+      Il settimo elemento segnala che il PDF manca.
     */
-    aggiungiCellaDownload(
-      riga,
-      indirizzoPdf,
-      "pdf",
-      "pdf",
-      numeroFile
-    );
+    if (lezione[6] === "m") {
+      aggiungiCellaTesto(riga, "Missing!");
+    } else {
+      aggiungiCellaDownload(
+        riga,
+        indirizzoPdf,
+        "pdf",
+        "pdf",
+        numeroFile
+      );
+    }
 
     corpoTabella.appendChild(riga);
   }
@@ -343,7 +343,6 @@ function aggiungiCellaDownload(
   cella.appendChild(link);
   riga.appendChild(cella);
 }
-
 
 /* =========================================================
    TESTI COMUNI ALLE PAGINE DEI CORSI
