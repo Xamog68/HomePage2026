@@ -243,3 +243,24 @@ nav a:hover {
     white-space: normal;
   }
 }
+
+/* =========================================================
+   PAGINA INTRODUTTIVA DI ALGEBRA LINEARE
+   ========================================================= */
+
+.griglia-corsi-al {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.griglia-corsi-al .sezione-corso {
+  margin-top: 0;
+}
+
+@media (max-width: 750px) {
+  .griglia-corsi-al {
+    grid-template-columns: 1fr;
+  }
+}
