@@ -196,33 +196,21 @@ nav a:hover {
      padding-left: 0.45rem;
      padding-right: 0.45rem;
      white-space: nowrap;
-   }LICENZA E PIEDE DI PAGINA
-========================================================= */
+   }
 
-#licenza-sito {
-  margin-top: 2.5rem;
-  padding: 1.25rem 1.5rem;
+   /* =========================================================
+      LICENZA E PIEDE DI PAGINA
+      ========================================================= */
 
-  border-top: 1px solid #cbd2d8;
-  color: #56616a;
-  font-size: 0.9rem;
-  text-align: center;
-}
+      #licenza-sito {
+        margin-top: 2rem;
+        padding: 1.25rem 1.5rem;
 
-#licenza-sito p {
-  margin: 0.5rem 0;
-}
-
-#licenza-sito img {
-  display: block;
-  margin: 0 auto 0.75rem;
-}
-
-#licenza-sito a {
-  color: #315f7d;
-}
-
-
+        border-top: 1px solid #cbd2d8;
+        color: #56616a;
+        font-size: 0.9rem;
+        text-align: center;
+      }
 /* =========================================================
    SCHERMI MEDI E PICCOLI
    ========================================================= */
