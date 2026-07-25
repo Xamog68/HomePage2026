@@ -1,4 +1,19 @@
+/* =========================================================
+   REGISTRAZIONE DEI DOWNLOAD
+   ========================================================= */
+
+/*
+  Comunica a Google Analytics il download di una lezione.
+
+  La funzione gtag viene definita in analytics.js.
+  In locale analytics.js non invia dati reali, ma scrive
+  l'evento nella console del browser.
+*/
 function registraDownload(formato, numeroLezione) {
+  if (typeof gtag !== "function") {
+    return;
+  }
+
   gtag("event", "download_lezione", {
     corso: NomeCorso,
     formato: formato,
@@ -6,6 +21,20 @@ function registraDownload(formato, numeroLezione) {
   });
 }
 
+
+/* =========================================================
+   SCHEDA DEL CORSO
+   ========================================================= */
+
+/*
+  Costruisce la tabella iniziale con le informazioni generali
+  del corso.
+
+  I dati provengono dall'oggetto SchedaCorso, definito nel file
+  specifico del corso, per esempio:
+
+      js/corsi/am1-2025-26.js
+*/
 function generaSchedaCorso() {
   if (typeof SchedaCorso === "undefined") {
     return;
@@ -14,10 +43,18 @@ function generaSchedaCorso() {
   const contenitore = document.getElementById("scheda-corso");
   const avviso = document.getElementById("avviso-corso");
 
+  /*
+    Alcune pagine potrebbero caricare questo file JavaScript
+    senza avere una scheda del corso nell'HTML.
+  */
   if (!contenitore) {
     return;
   }
 
+  /*
+    Ogni elemento dell'array rappresenta una riga della tabella:
+    il primo valore è l'etichetta, il secondo è il contenuto.
+  */
   const righe = [
     ["Nome corso", SchedaCorso.nome],
     ["Anno Accademico", SchedaCorso.annoAccademico],
@@ -41,12 +78,41 @@ function generaSchedaCorso() {
     contenitore.appendChild(riga);
   }
 
+  /*
+    L'avviso è facoltativo. Usiamo innerHTML perché vogliamo
+    inserire anche la parola "Achtung!" in grassetto.
+  */
   if (avviso && SchedaCorso.avviso) {
     avviso.innerHTML =
       "<strong>Achtung!</strong> " + SchedaCorso.avviso;
   }
 }
 
+
+/* =========================================================
+   DOCUMENTI DEL CORSO
+   ========================================================= */
+
+/*
+  Genera i collegamenti ai documenti del corso.
+
+  Ogni documento deve indicare almeno:
+
+      sezione
+      file
+      titolo
+
+  Può inoltre avere una nota facoltativa.
+
+  La proprietà "sezione" determina in quale tabella viene
+  inserito il documento. Per esempio:
+
+      sezione: "book"
+
+  corrisponde all'elemento HTML:
+
+      id="documenti-book"
+*/
 function generaDocumentiCorso() {
   if (typeof DocumentiCorso === "undefined") {
     return;
@@ -57,6 +123,10 @@ function generaDocumentiCorso() {
       "documenti-" + documento.sezione
     );
 
+    /*
+      Se nella pagina non esiste la sezione richiesta,
+      saltiamo il documento e passiamo al successivo.
+    */
     if (!contenitore) {
       continue;
     }
@@ -65,12 +135,23 @@ function generaDocumentiCorso() {
     const cella = document.createElement("td");
     const link = document.createElement("a");
 
+    /*
+      MEDIA.documenti contiene l'indirizzo comune della cartella.
+      documento.file contiene soltanto il nome del singolo file.
+    */
     link.href = MEDIA.documenti + documento.file;
     link.target = "_blank";
     link.rel = "noopener";
     link.textContent = documento.titolo;
 
+    /*
+      Registra il clic sul documento in Google Analytics.
+    */
     link.addEventListener("click", function () {
+      if (typeof gtag !== "function") {
+        return;
+      }
+
       gtag("event", "download_documento", {
         corso: NomeCorso,
         file: documento.file,
@@ -89,16 +170,44 @@ function generaDocumentiCorso() {
   }
 }
 
-function generaTabellaLezioni() {
-  const corpoTabella = document.getElementById("tabella-lezioni");
 
-  if (!corpoTabella) {
-    console.error(
-      'Impossibile generare la tabella: manca l’elemento con id="tabella-lezioni".'
-    );
+/* =========================================================
+   TABELLA DELLE LEZIONI
+   ========================================================= */
+
+/*
+  Costruisce sia l'intestazione sia le righe della tabella
+  delle lezioni.
+
+  I dati provengono dall'array Lezioni definito nel file
+  specifico del corso.
+*/
+function generaTabellaLezioni() {
+  if (
+    typeof Lezioni === "undefined" ||
+    typeof Percorso === "undefined"
+  ) {
     return;
   }
 
+  const corpoTabella = document.getElementById("tabella-lezioni");
+
+  if (!corpoTabella) {
+    return;
+  }
+
+  generaIntestazioneLezioni(corpoTabella);
+  generaRigheLezioni(corpoTabella);
+}
+
+
+/*
+  Genera la prima riga della tabella.
+
+  Le intestazioni "Ora" e "Download" occupano due colonne,
+  grazie alla proprietà colspan.
+*/
+function generaIntestazioneLezioni(corpoTabella) {
   const rigaIntestazione = document.createElement("tr");
 
   const intestazioni = [
@@ -122,81 +231,129 @@ function generaTabellaLezioni() {
   }
 
   corpoTabella.appendChild(rigaIntestazione);
+}
 
+
+/*
+  Genera una riga per ogni lezione presente nell'array Lezioni.
+*/
+function generaRigheLezioni(corpoTabella) {
+  /*
+    L'indice 0 non viene usato: in questo modo il numero
+    dell'indice coincide con il numero della lezione.
+  */
   for (let i = 1; i < Lezioni.length; i++) {
-    if (!Lezioni[i]) {
+    const lezione = Lezioni[i];
+
+    /*
+      Nell'array possono esserci posizioni vuote.
+    */
+    if (!lezione) {
       continue;
     }
 
-    const numeroOra = Lezioni[i][0];
-    const numeroOraMod = String(numeroOra).padStart(3, "0");
+    const numeroLezione = lezione[0];
 
-    const indirizzoAvi = Percorso + numeroOraMod + ".avi";
-    const indirizzoPdf = Percorso + numeroOraMod + ".pdf";
+    /*
+      I nomi dei file usano numeri di tre cifre:
+      1 diventa 001, 12 diventa 012, e così via.
+    */
+    const numeroFile = String(numeroLezione).padStart(3, "0");
+
+    const indirizzoAvi = Percorso + numeroFile + ".avi";
+    const indirizzoPdf = Percorso + numeroFile + ".pdf";
 
     const riga = document.createElement("tr");
 
-    const cellaNumero = document.createElement("td");
-    cellaNumero.textContent = Lezioni[i][0];
+    aggiungiCellaTesto(riga, lezione[0]);
+    aggiungiCellaTesto(riga, lezione[1]);
+    aggiungiCellaTesto(riga, lezione[2]);
+    aggiungiCellaTesto(riga, lezione[3]);
+    aggiungiCellaTesto(riga, lezione[4]);
 
-    const cellaData = document.createElement("td");
-    cellaData.textContent = Lezioni[i][1];
+    /*
+      Il sesto elemento della lezione segnala eventuali
+      situazioni particolari del video.
 
-    const cellaOraInizio = document.createElement("td");
-    cellaOraInizio.textContent = Lezioni[i][2];
-
-    const cellaOraFine = document.createElement("td");
-    cellaOraFine.textContent = Lezioni[i][3];
-
-    const cellaArgomento = document.createElement("td");
-    cellaArgomento.textContent = Lezioni[i][4];
-
-    const cellaAvi = document.createElement("td");
-
-    if (Lezioni[i][5] === "m") {
-      cellaAvi.textContent = "Missing!";
+      Per ora il valore "m" significa che il video manca.
+      In futuro potremo rendere questa gestione più generale.
+    */
+    if (lezione[5] === "m") {
+      aggiungiCellaTesto(riga, "Missing!");
     } else {
-      const linkAvi = document.createElement("a");
-
-      linkAvi.href = indirizzoAvi;
-      linkAvi.target = "_blank";
-      linkAvi.rel = "noopener";
-      linkAvi.textContent = "avi";
-
-      linkAvi.addEventListener("click", function () {
-        registraDownload("avi", numeroOraMod);
-      });
-
-      cellaAvi.appendChild(linkAvi);
+      aggiungiCellaDownload(
+        riga,
+        indirizzoAvi,
+        "avi",
+        "avi",
+        numeroFile
+      );
     }
 
-    const cellaPdf = document.createElement("td");
-    const linkPdf = document.createElement("a");
-
-    linkPdf.href = indirizzoPdf;
-    linkPdf.target = "_blank";
-    linkPdf.rel = "noopener";
-    linkPdf.textContent = "pdf";
-
-    linkPdf.addEventListener("click", function () {
-      registraDownload("pdf", numeroOraMod);
-    });
-
-    cellaPdf.appendChild(linkPdf);
-
-    riga.appendChild(cellaNumero);
-    riga.appendChild(cellaData);
-    riga.appendChild(cellaOraInizio);
-    riga.appendChild(cellaOraFine);
-    riga.appendChild(cellaArgomento);
-    riga.appendChild(cellaAvi);
-    riga.appendChild(cellaPdf);
+    /*
+      Per il momento si presume che il PDF esista sempre.
+    */
+    aggiungiCellaDownload(
+      riga,
+      indirizzoPdf,
+      "pdf",
+      "pdf",
+      numeroFile
+    );
 
     corpoTabella.appendChild(riga);
   }
 }
 
-// Inserisce i testi introduttivi comuni delle sezioni Book e Lezioni
+
+/*
+  Aggiunge a una riga una semplice cella di testo.
+*/
+function aggiungiCellaTesto(riga, testo) {
+  const cella = document.createElement("td");
+
+  cella.textContent = testo;
+  riga.appendChild(cella);
+}
+
+
+/*
+  Aggiunge a una riga una cella contenente un collegamento
+  a un file della lezione.
+*/
+function aggiungiCellaDownload(
+  riga,
+  indirizzo,
+  testoLink,
+  formato,
+  numeroLezione
+) {
+  const cella = document.createElement("td");
+  const link = document.createElement("a");
+
+  link.href = indirizzo;
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = testoLink;
+
+  link.addEventListener("click", function () {
+    registraDownload(formato, numeroLezione);
+  });
+
+  cella.appendChild(link);
+  riga.appendChild(cella);
+}
+
+
+/* =========================================================
+   TESTI COMUNI ALLE PAGINE DEI CORSI
+   ========================================================= */
+
+/*
+  Inserisce i testi introduttivi delle sezioni Book e Lezioni.
+
+  Tenendoli qui evitiamo di copiarli in ogni pagina di corso.
+*/
 function generaTestiComuni() {
   const testoBook = document.getElementById("testo-book");
   const testoLezioni = document.getElementById("testo-lezioni");
@@ -208,6 +365,9 @@ function generaTestiComuni() {
       "dimensioni piuttosto grandi.";
   }
 
+  /*
+    Qui usiamo innerHTML perché il testo contiene un collegamento.
+  */
   if (testoLezioni) {
     testoLezioni.innerHTML =
       'Per ogni lezione sono disponibili, quando presenti, il PDF e la ' +
@@ -217,6 +377,14 @@ function generaTestiComuni() {
   }
 }
 
+
+/* =========================================================
+   LICENZA DEL SITO
+   ========================================================= */
+
+/*
+  Inserisce il blocco della licenza nel piè di pagina.
+*/
 function generaLicenza() {
   const contenitore = document.getElementById("licenza-sito");
 
@@ -250,9 +418,19 @@ function generaLicenza() {
   `;
 }
 
+
+/* =========================================================
+   AVVIO DELLA GENERAZIONE DELLA PAGINA
+   ========================================================= */
+
+/*
+  Attendiamo che il documento HTML sia stato letto completamente,
+  poi generiamo tutte le parti dinamiche della pagina.
+*/
 document.addEventListener("DOMContentLoaded", function () {
   generaSchedaCorso();
   generaDocumentiCorso();
   generaTestiComuni();
+  generaTabellaLezioni();
   generaLicenza();
 });

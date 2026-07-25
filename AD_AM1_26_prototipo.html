@@ -3,17 +3,43 @@
 
 <head>
   <meta charset="UTF-8">
+
+  <!-- Titolo mostrato nella scheda del browser -->
   <title>Analisi Matematica 1 - 2025/2026</title>
 
+  <!-- Foglio di stile comune a tutto il sito -->
   <link rel="stylesheet" href="css/stile.css">
 
+  <!--
+    Configurazione degli indirizzi comuni dei file multimediali
+    e dei documenti ospitati sul server dell'Università.
+  -->
   <script src="js/config-media.js"></script>
+
+  <!--
+    Funzioni comuni che costruiscono dinamicamente
+    le varie parti delle pagine dei corsi.
+  -->
   <script src="js/sito.js"></script>
+
+  <!--
+    Dati specifici di questo corso:
+    scheda, documenti e lezioni.
+  -->
   <script src="js/corsi/am1-2025-26.js"></script>
+
+  <!--
+    Configurazione di Google Analytics.
+    In locale gli eventi vengono soltanto mostrati nella console.
+  -->
   <script src="js/analytics.js"></script>
 </head>
 
 <body class="pagina-corso">
+
+  <!-- =====================================================
+       PERCORSO DI NAVIGAZIONE
+       ===================================================== -->
 
   <nav aria-label="Percorso di navigazione">
     <a href="nuova-home.html">Home</a>
@@ -25,7 +51,21 @@
     <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
   </nav>
 
+
+  <!-- =====================================================
+       TITOLO DELLA PAGINA
+       ===================================================== -->
+
   <h1>Analisi Matematica 1 — 2025/2026</h1>
+
+
+  <!-- =====================================================
+       SCHEDA DEL CORSO
+
+       Il contenuto della tabella e l'eventuale avviso
+       vengono generati da sito.js usando i dati contenuti
+       nel file specifico del corso.
+       ===================================================== -->
 
   <details class="sezione-corso" open>
     <summary>Scheda del corso</summary>
@@ -41,17 +81,28 @@
     </div>
   </details>
 
+
+  <!-- =====================================================
+       DOCUMENTI BUROCRATICI
+       ===================================================== -->
+
   <details class="sezione-corso">
     <summary>Burocrazia</summary>
 
     <div class="contenuto-sezione">
       <h2 id="Burocrazia">Burocrazia</h2>
 
+      <!-- I collegamenti vengono generati da sito.js -->
       <table>
         <tbody id="documenti-burocrazia"></tbody>
       </table>
     </div>
   </details>
+
+
+  <!-- =====================================================
+       BOOK E ALTRI MATERIALI
+       ===================================================== -->
 
   <details class="sezione-corso">
     <summary>Book e materiali</summary>
@@ -59,13 +110,25 @@
     <div class="contenuto-sezione">
       <h2 id="Book">Book</h2>
 
+      <!-- Testo introduttivo comune alle pagine dei corsi -->
       <p id="testo-book"></p>
 
+      <!-- Elenco dei volumi e degli altri materiali -->
       <table>
         <tbody id="documenti-book"></tbody>
       </table>
     </div>
   </details>
+
+
+  <!-- =====================================================
+       LEZIONI
+
+       La tabella viene costruita da sito.js usando l'array
+       Lezioni definito nel file specifico del corso.
+       Il contenitore tabella-scroll permette lo scorrimento
+       orizzontale sugli schermi più piccoli.
+       ===================================================== -->
 
   <details class="sezione-corso">
     <summary>Lezioni</summary>
@@ -73,6 +136,7 @@
     <div class="contenuto-sezione">
       <h2 id="Lezioni">Lezioni</h2>
 
+      <!-- Testo introduttivo comune alle pagine dei corsi -->
       <p id="testo-lezioni"></p>
 
       <div class="tabella-scroll">
@@ -80,12 +144,15 @@
           <tbody id="tabella-lezioni"></tbody>
         </table>
       </div>
-
-      <script>
-        generaTabellaLezioni();
-      </script>
     </div>
   </details>
+
+
+  <!-- =====================================================
+       LICENZA
+
+       Il contenuto del piè di pagina viene inserito da sito.js.
+       ===================================================== -->
 
   <footer id="licenza-sito"></footer>
 
