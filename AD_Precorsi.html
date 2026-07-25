@@ -1,0 +1,752 @@
+<HTML>
+
+<meta charset="UTF-8">
+
+
+<script>
+
+var NomeCorso = "Analisi Matematica 1 - 2024/2025"
+
+var Percorso = "https://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM_25/PCM_25_L"
+
+var Lezioni = new Array();
+Lezioni[1] = [ "1","15/09/2025","14:00", "15:00", "Numeri interi: fattorizzazione, divisibilità, massimo comun divisore e minimo comune multiplo. Polinomi. Triangolo di Tartaglia."];
+Lezioni[2] = [ "2","15/09/2025","15:00", "16:00", "Teorema di Ruffini. Divisione di polinomi. Fattorizzazioni notevoli."];
+Lezioni[3] = [ "3","15/09/2025","16:00", "17:00", "Equazioni di primo e secondo grado. Equazioni riconducibili al secondo grado mediante cambi di variabile. Ricerca di radici razionali per polinomi. Equazioni polinomiali che si risolvono mediante fattorizzazione."];
+Lezioni[4] = [ "4","15/09/2025","17:00", "18:00", "Disequazioni di primo grado. Disequazioni di secondo grado: interpretazione in termini di fattorizzazione e grafico. Sistemi di disequazioni."];
+Lezioni[5] = [ "5","16/09/2025","14:00", "15:00", "Radicali e potenze frazionarie."];
+Lezioni[6] = [ "6","16/09/2025","15:00", "16:00", "Studio del segno di prodotti e quozienti sulla base del segno dei singoli fattori."];
+Lezioni[7] = [ "7","16/09/2025","16:00", "17:00", "Disequazioni fratte."];
+Lezioni[8] = [ "8","16/09/2025","17:00", "18:00", "Valore assoluto: definizione. Equazioni e disequazioni elementari con il valore assoluto. Ulteriori esempi di disequazioni che si riducono a prodotti e quozienti."];
+Lezioni[9] = [ "9","17/09/2025","14:00", "15:00", "Logaritmi: definizione operativa e principali proprietà. Esercizi sui logaritmi."];
+Lezioni[10] = [ "10","17/09/2025","15:00", "16:00", "Ulteriori esercizi sulle potenze. Equazioni con esponenziali e logaritmi."];
+Lezioni[11] = [ "11","17/09/2025","16:00", "17:00", "Disequazioni con esponenziali e logaritmi."];
+Lezioni[12] = [ "12","17/09/2025","17:00", "18:00", "Equazioni e disequazioni con radici e valori assoluti."];
+Lezioni[13] = [ "13","18/09/2025","14:00", "15:00", "Introduzione alla trigonometria: angoli vs archi, gradi vs radianti, funzioni trigonometriche, archi/angoli notevoli, archi associati."];
+Lezioni[14] = [ "14","18/09/2025","15:00", "16:00", "Formule trigonometriche classiche: addizione/sottrazione, duplicazione, product to sum, sum to product."];
+Lezioni[15] = [ "15","18/09/2025","16:00", "17:00", "Equazioni e disequazioni trigonometriche."];
+Lezioni[16] = [ "16","18/09/2025","17:00", "18:00", "Relazioni trigonometriche nei triangoli rettangoli. Introduzione alla risoluzione dei triangoli generali (teorema del seno, teorema del coseno, formula trigonometrica per l'area). Discussione dei tre scenari possibili."];
+Lezioni[17] = [ "17","19/09/2025","14:00", "15:00", "Equazione della retta nel piano cartesiano: significato geometrico dei coefficienti, rette parallele e perpendicolari, distanza di un punto da una retta. Asse di un segmento e bisettrici di un angolo."];
+Lezioni[18] = [ "18","19/09/2025","15:00", "16:00", "Equazione della circonferenza nel piano cartesiano. Significato geometrico dei coefficienti. Retta tangente in un punto. Condizione di tangenza tra una retta ed una circonferenza."];
+Lezioni[19] = [ "19","19/09/2025","16:00", "17:00", "Disegno di sottoinsiemi del piano descritti da sistemi di disequazioni."];
+Lezioni[20] = [ "20","19/09/2025","17:00", "18:00", "Esercizi su parabole, ellissi, iperboli (in posizione canonica). Angoli al centro ed alla circonferenza. Dimostrazione del teorema dei seni."];
+
+/*
+
+*/
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47224301-1', 'unipi.it');
+  ga('send', 'pageview');
+
+</script>
+
+<HEAD>
+
+<TITLE>Precorsi</TITLE>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47224301-1', 'unipi.it');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript">
+var APEcode='C5F3E7002F2918C06CF3F42A997B85342C', APEtracker = APEtracker || { config: { account: "UA-47224301-1" } };
+(function(c){
+  var D = document, p = D.location.protocol, s = 'script', S = D.createElement(s), b = D.getElementsByTagName(s)[0];
+	S.src = [ p, '//', (('https:' == p) ? 'amikay-ape.appspot.com' : 'ape.amikay.com'), '/c/', c].join(''); S.type = 'text/javascript'; S.async = true;
+	return b.parentNode.insertBefore(S,b);
+})(APEcode);
+</script>
+
+
+</HEAD>
+
+<BODY BGCOLOR="aqua">
+
+<H1 ALIGN="CENTER"><A NAME="AD_Inizio"></A>Archivio Didattico - Precorsi</H1>
+
+<HR>
+
+<P ALIGN="RIGHT">
+
+<SMALL>By Massimo Gobbino e Marina Ghisi</SMALL></P>
+
+<HR>
+
+<P>
+I precorsi sono senza dubbio il momento pi&ugrave; importante di un corso
+di studi dai contenuti scientifici. Infatti dubbi ed incomprensioni sugli
+aspetti basilari della matematica si ripercuoteranno negativamente su 
+<EM>tutti</EM> i corsi successivi.
+</P>
+
+Da questa sezione &egrave; possibile scaricare varie tipologie di materiale.
+
+<UL TYPE="SQUARE">
+	<LI>
+	
+	<P>
+	<A HREF="Files/HP_AD/Volantino_10.pdf">Volantino</A>: come e dove trovare 
+	il materiale per il precorso. (Novit&agrave; last minute: il fascicolo 
+	degli esercizi sar&agrave; disponibile a partire da <B>gioved&igrave; 16 
+	settembre</B>, quindi un giorno prima di quanto dichiarato sul volantino).
+	</P>
+	
+	<LI>
+	
+	<P>
+	<A HREF="Files/HP_AD/PCM08.pdf">PCM_Book</A>: stampato integrale del
+	precorso 2008, ottenuto unendo i file pdf di quell'anno. (Ultimo
+	aggiornamento: settembre 2010)
+	</P>
+	
+	<LI>
+	
+	<P>
+	<A HREF="Files/HP_AD/PCM_Schede.pdf">Schede</A>: una presentazione schematica 
+	degli argomenti. (Ultimo aggiornamento: agosto 2005)</P>
+	
+	<LI>
+	
+	<P>
+	<A HREF="Files/HP_AD/PCM_Esercizi.pdf">Esercizi</A>: una raccolta di esercizi di
+	difficolt&agrave; graduata, suddivisi per argomenti, con risposte.
+	(Ultimo aggiornamento: agosto 2005)
+	</P>
+	
+	<LI>
+	
+	<P>
+	<A HREF="Files/HP_AD/PCM_Test.pdf">Test finali</A>: raccolta dei test
+	assegnati alla fine dei precorsi passati, con risposte. Ogni test
+	contiene domande su tutti gli argomenti. (Ultimo aggiornamento: agosto
+	2005)
+	</P>
+	
+</UL>
+
+<HR>
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="EsBase"></A>Video precorsi 2007</H2>
+
+<P>
+Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per 
+maggiori informazioni sulle modalit&agrave; di utilizzo si prega di
+consultare <A HREF="AD_Video.html">questa pagina</A>.
+</P>
+
+<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
+
+<TR ALIGN="CENTER">
+<TH>Giornata</TH>
+<TH>Argomento sommario</TH>
+<TH>File .avi</TH>
+<TH>File .pdf</TH>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>1</TD>
+	<TD>Frazioni e potenze</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_01.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_01.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>2</TD>
+	<TD>Polinomi ed equazioni polinomiali</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_02.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_02.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+
+<TR ALIGN="CENTER">
+	<TD>3</TD>
+	<TD>Disequazioni di secondo grado e con prodotti e quozienti</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_03.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_03.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>4</TD>
+	<TD>Logaritmi e relative (dis)equazioni</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_04.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_04.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>5</TD>
+	<TD>(Dis)equazioni con radici</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_05.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_05.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>6</TD>
+	<TD>(Dis)equazioni con valori assoluti</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_06.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_06.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>7</TD>
+	<TD>Trigonometria, (dis)equazioni trigonometriche</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_07.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_07.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>8</TD>
+	<TD>Trigonometria e triangoli</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_08.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_08.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>9</TD>
+	<TD>Geometria analitica</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_09.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_09.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>10</TD>
+	<TD>Insiemi del piano e geometria euclidea</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_10.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM07/PCM07_10.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+</TABLE>
+
+<HR>
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="EsBase"></A>Video precorsi 2008</H2>
+
+<P>
+Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per 
+maggiori informazioni sulle modalit&agrave; di utilizzo si prega di
+consultare <A HREF="AD_Video.html">questa pagina</A>.
+</P>
+
+<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
+
+<TR ALIGN="CENTER">
+<TH>Sessione</TH>
+<TH>Argomento sommario</TH>
+<TH>File .avi</TH>
+<TH>File .pdf</TH>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>1-1</TD>
+	<TD>Frazioni</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_01-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_01-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>1-2</TD>
+	<TD>Potenze e radicali</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_01-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_01-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>2-1</TD>
+	<TD>Esercizi sulle potenze - Polinomi e scomposizioni notevoli</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_02-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_02-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>2-2</TD>
+	<TD>Divisione tra polinomi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_02-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_02-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>3-1</TD>
+	<TD>Disequazioni e sistemi di disequazioni di primo e secondo
+	grado</TD>
+	<TD>Missing!</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_03-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>3-2</TD>
+	<TD>Disequazioni con prodotti e quozienti</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_03-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_03-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>4-1</TD>
+	<TD>Esponenziali e logaritmi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_04-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_04-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>4-2</TD>
+	<TD>Equazioni e disequazioni con esponenziali e logaritmi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_04-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_04-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>5-1</TD>
+	<TD>Equazioni e disequazioni con potenze</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_05-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_05-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>5-2</TD>
+	<TD>Equazioni e disequazioni con valori assoluti</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_05-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_05-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>6-1</TD>
+	<TD>Trigonometria - Introduzione</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_06-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_06-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>6-2</TD>
+	<TD>Trigonometria - Formule, equazioni, disequazioni</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_06-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_06-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>7-1</TD>
+	<TD>Risoluzione di triangoli</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_07-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_07-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>7-2</TD>
+	<TD>Esercizi vari trigonometria</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_07-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_07-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>8-1</TD>
+	<TD>Geometria - Equazione della retta</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_08-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_08-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>8-2</TD>
+	<TD>Geometria analitica - Equazione della circonferenza</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_08-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_08-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>9-1</TD>
+	<TD>Geometria analitica - Esercizi parametrici e insiemi del piano</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_09-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_09-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>9-2</TD>
+	<TD>Esercizi su insiemi del piano</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_09-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_09-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>10-1</TD>
+	<TD>Geometria piana e solida - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_10-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_10-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>10-2</TD>
+	<TD>Svolgimento Test Recupero OFA Settembre 2007</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_10-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM08/PCM08_10-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+
+
+</TABLE>
+<HR>
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="EsBase"></A>Video precorsi 2009</H2>
+
+<P>
+Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per 
+maggiori informazioni sulle modalit&agrave; di utilizzo si prega di
+consultare <A HREF="AD_Video.html">questa pagina</A>.
+</P>
+
+<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
+
+<TR ALIGN="CENTER">
+<TH>Sessione</TH>
+<TH>Argomento sommario</TH>
+<TH>File .avi</TH>
+<TH>File .pdf</TH>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>1-1</TD>
+	<TD>Potenze e radici - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_1-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_1-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>1-2</TD>
+	<TD>Potenze e logaritmi - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_1-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_1-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>2-1</TD>
+	<TD>Disequazioni di primo e secondo grado e con prodotti e quozienti -
+	Esercizi</TD>
+	<TD>Missing!</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_2-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>2-2</TD>
+	<TD>Disequazioni fratte, sistemi di disequazioni, disequazioni con
+	esponenziali - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_2-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_2-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>3-1</TD>
+	<TD>Disequazioni logaritmiche - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_3-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_3-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>3-2</TD>
+	<TD>Disequazioni con potenze e valori assoluti - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_3-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_3-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>4-1</TD>
+	<TD>Trigonometria ed equazioni trigonometriche - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_4-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_4-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>4-2</TD>
+	<TD>Trigonometria e triangoli rettangoli - Disequazioni trigonometriche
+	- Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_4-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_4-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>5-1</TD>
+	<TD>Equazioni della retta e della circonferenza - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_5-1.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_5-1.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+<TR ALIGN="CENTER">
+	<TD>5-2</TD>
+	<TD>Insiemi del piano descritti mediante disequazioni - Esercizi</TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_5-2.avi"
+	TARGET="new">avi</A></TD>
+	<TD><A
+	HREF="http://pagine.dm.unipi.it/gobbino/Tablet/Precorsi/PCM09/PCM09_5-2.pdf"
+	TARGET="new"> pdf</A></TD>
+</TR>
+
+</TABLE>
+
+<HR>
+
+<HR>
+
+
+
+<H2 ALIGN="CENTER"><A NAME="EsBase"></A>Precorso per Matematica 2025</H2>
+
+
+<TABLE BORDER="1" WIDTH="100%" ALIGN="center">
+
+<TR ALIGN="center">
+<TH>Lezione</TH>
+<TH>Data</TH>
+<TH COLSPAN=2>Ora</TH>
+<TH>Argomento sommario</TH>
+<TH COLSPAN=2>Download</TH>
+</TR>
+
+<script>
+for (var i=1;i<Lezioni.length;i++)
+{
+	var NumeroOra = Lezioni[i][0];
+//	var NumeroOraMod = (NumeroOra>99)?NumeroOra:"0"+NumeroOra;
+	var NumeroOraMod = (NumeroOra<10)?"0"+NumeroOra:NumeroOra;
+	var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
+	var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
+	var LinkAvi = (Lezioni[i][5]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
+	var LinkPdf = (Lezioni[i][6]=="m")?"Missing!":"<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Lezione " + NumeroOraMod + "')\">pdf</A>";
+	
+	document.write("<TR ALIGN=\"center\"><TD>" + 
+	Lezioni[i][0] + 
+	"</TD><TD>" + 
+	Lezioni[i][1] + 
+	"</TD><TD>" + 
+	Lezioni[i][2] + 
+	"</TD><TD>" + 
+	Lezioni[i][3] + 
+	"</TD><TD>" + 
+	Lezioni[i][4] + 
+	"</TD><TD>" +
+	LinkAvi +
+	"</TD><TD>" + 
+	LinkPdf +
+	"</TD></TR>");
+}
+</script>
+
+</TABLE>
+
+<H2 ALIGN="CENTER"><A NAME="Book"></A>Book</H2>
+
+<P>
+Il seguente file pdf contiene lo stampato integrale delle lezioni (sostanzialmente è l'unione dei pdf delle singole lezioni).
+
+<CENTER>
+
+<TABLE BORDER="1">
+	
+	
+	<TR>
+		<TD><A target="_blank"
+		onclick="ga('send', 'event', 'Precorso 2025', 'Pdf', 'Stampato integrale');"
+		HREF="Files/HP_AD/PCM_25_Book.pdf">Stampato integrale lezioni</A></TD>
+	</TR>
+	
+</TABLE>
+
+
+</CENTER>
+
+
+
+<HR>
+
+<HR>
+
+
+
+
+
+<CENTER>
+
+<a target="new" rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licenza
+Creative Commons" style="border-width:0"
+src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br
+/>Quest'opera di <span xmlns:cc="http://creativecommons.org/ns#"
+property="cc:attributionName">Massimo Gobbino</span> è distribuita con
+Licenza <a target="new" rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
+Internazionale</a>.
+
+</CENTER>
+
+<HR>
+
+
+
+</BODY>
+
+</HTML>

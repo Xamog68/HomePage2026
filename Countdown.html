@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Countdown</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(120deg, #FFA500, #FF7F00);
+    color: #fff;
+  }
+
+  .card {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .time {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .unit {
+    background: linear-gradient(135deg, #42a5f5, #478ed1);
+    padding: 30px 40px;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  .n {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  }
+
+  .label {
+    font-size: 1rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #dce7ff;
+  }
+
+  .note {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .ended {
+    color: #ffeb3b;
+    font-weight: bold;
+  }
+
+  @media (max-width: 480px){
+    .unit{min-width:70px;padding:20px}
+    .n{font-size:2rem}
+    .label{font-size:0.8rem}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">Road to "Precorso di Matematica 2025"</h1>
+    <div class="time" aria-live="polite">
+      <div class="unit"><div class="n" id="days">--</div><div class="label">Days</div></div>
+      <div class="unit"><div class="n" id="hours">--</div><div class="label">Hours</div></div>
+      <div class="unit"><div class="n" id="minutes">--</div><div class="label">Minutes</div></div>
+      <div class="unit"><div class="n" id="seconds">--</div><div class="label">Seconds</div></div>
+    </div>
+    <div class="note" id="note">Vi aspettiamo! Ma iniziate la preparazione già da ora ...</div>
+  </div>
+
+<script>
+const TARGET_DATE_ISO = "2025-09-15T12:00:00Z"; // Change your target date here
+
+function pad(v){ return v.toString().padStart(2,"0"); }
+
+function updateCountdown(){
+  const now = new Date();
+  let diff = Math.floor((new Date(TARGET_DATE_ISO) - now)/1000);
+  if(diff <= 0){
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    document.getElementById("note").innerHTML = '<span class="ended">Event started!</span>';
+    clearInterval(interval);
+    return;
+  }
+  const days = Math.floor(diff / 86400); diff %= 86400;
+  const hours = Math.floor(diff / 3600); diff %= 3600;
+  const minutes = Math.floor(diff / 60); const seconds = diff % 60;
+
+  document.getElementById("days").textContent = pad(days);
+  document.getElementById("hours").textContent = pad(hours);
+  document.getElementById("minutes").textContent = pad(minutes);
+  document.getElementById("seconds").textContent = pad(seconds);
+}
+
+updateCountdown();
+const interval = setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>

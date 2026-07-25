@@ -1,0 +1,379 @@
+<HTML> 
+
+<HEAD>
+
+<TITLE>Analisi Matematica 1 - 2014/2015</TITLE>
+
+<meta charset="UTF-8">
+
+<style>
+td {text-align:center}
+</style>
+
+
+<script>
+
+var NomeCorso = "Analisi Matematica 1 - 2014/2015"
+
+var Percorso = "https://pagine.dm.unipi.it/gobbino/Tablet/AM1_15/AM1_15_L"
+
+var Lezioni = new Array();
+
+
+Lezioni[1] = [ "1","25/09/2014","09:00", "10:00", "Logica elementare (a livello intuitivo): proposizioni, predicati, and e vel, quantificatori. Negazione di una proposizione."];
+Lezioni[2] = [ "2","25/09/2014","10:00", "11:00", "Tavole di verità. Implicazione e sua negazione. Insiemi e notazioni insiemistiche. Insieme delle parti."];
+Lezioni[3] = [ "3","29/09/2014","09:00", "10:00", "Funzioni tra insiemi: definizione operativa e formale. Grafico, composizione, iniettività, surgettività, funzione inversa. Immagine e controimmagine."];
+Lezioni[4] = [ "4","29/09/2014","10:00", "11:00", "Principio di induzione. Dimostrazione di uguaglianze e disuguaglianze mediante il principio di induzione. Disuguaglianza di Bernoulli."];
+Lezioni[5] = [ "5","30/09/2014","12:00", "13:00", "Interpretazioni grafiche di iniettività, surgettività, immagine e controimmagine per funzioni reali. Operazioni sui grafici. Funzioni pari, dispari, periodiche. Funzioni monotone."];
+Lezioni[6] = [ "6","02/10/2014","09:00", "10:00", "Definizione assiomatica dei numeri reali. Enunciato della loro esistenza ed unicità. Insiemi limitati superiormente/inferiormente, maggioranti/minoranti, massimo/minimo."];
+Lezioni[7] = [ "7","02/10/2014","10:00", "11:00", "Estremo inferiore e superiore. Dimostrazione della loro esistenza. Caratterizzazione di inf e sup. Dimostrazione che l'insieme dei naturali non è superiormente limitato."];
+Lezioni[8] = [ "8","06/10/2014","09:00", "10:00", "Funzioni elementari: potenze e radici, esponenziali e logaritmi. Discussione di cosa bisognerebbe dimostrare per avere una definizione rigorosa."];
+Lezioni[9] = [ "9","06/10/2014","10:00", "11:00", "Funzioni elementari: funzioni trigonometriche e relative inverse. Iniettività ed equazioni. Monotonia e disequazioni."];
+Lezioni[10] = [ "10","07/10/2014","11:00", "12:00", "Significato dei termini \'definitivamente\' e \'frequentemente\'. Definizione di successione e sue rappresentazioni. Definizioni di limite per successioni. Limitatezza delle successioni convergenti."];
+Lezioni[11] = [ "11","07/10/2014","12:00", "13:00", "Primi esempi e risultati sui limiti di successione: permanenza del segno, unicità del limite, teorema di confronto a 2, teorema di confronto a 3 (teorema dei carabinieri)."];
+Lezioni[12] = [ "12","09/10/2014","09:00", "10:00", "Teorema delle successioni monotone. Il numero e (monotonia e limitatezza della successione che lo definisce)."];
+Lezioni[13] = [ "13","09/10/2014","10:00", "11:00", "Retta reale estesa. Enunciato del teorema algebrico sui limiti di successione. Primi esempi di limiti calcolati usando teoremi algebrici e di confronto."];
+Lezioni[14] = [ "14","13/10/2014","09:00", "10:00", "Criterio della radice, del rapporto e rapporto -> radice per limiti di successione: enunciati e dimostrazioni. Dimostrazione di un caso del limite della somma."];
+Lezioni[15] = [ "15","13/10/2014","10:00", "11:00", "Applicazione dei criteri della radice, rapporto e rapporto -> radice al confronto di ordini di infinito. Dimostrazione di un caso del limite del prodotto."];
+Lezioni[16] = [ "16","14/10/2014","11:00", "12:00", "Limiti di funzioni: definizioni. Definizione di funzione continua in un punto ed in un insieme."];
+Lezioni[17] = [ "17","14/10/2014","12:00", "13:00", "Enunciato dei limiti notevoli. Enunciato della continuità delle funzioni ottenute a partire da quelle elementari. Esempi di cambi di variabile nei limiti."];
+Lezioni[18] = [ "18","16/10/2014","09:00", "10:00", "Criterio successioni -> funzioni. Dimostrazione dei limiti notevoli classici."];
+Lezioni[19] = [ "19","16/10/2014","10:00", "11:00", "Criterio funzioni -> successioni. Trucco del passaggio all'esponenziale. Esempi di limiti calcolati sfruttando i limiti notevoli."];
+Lezioni[20] = [ "20","20/10/2014","09:00", "10:00", "Sottosuccessioni e loro limiti. Utilizzo di successioni e sottosuccessioni per mostrare la non esistenza di limiti di funzioni e successioni."];
+Lezioni[21] = [ "21","20/10/2014","10:00", "11:00", "Razionalizzazioni di radici. Esercizi sui limiti che sfruttano le tecniche viste finora."];
+Lezioni[22] = [ "22","21/10/2014","11:00", "12:00", "Definizione di o piccolo e di equivalenza asintotica. Principali proprietà di o piccolo."];
+Lezioni[23] = [ "23","21/10/2014","12:00", "13:00", "Sviluppini delle funzioni elementari. Utilizzo degli sviluppini per il calcolo di limiti."];
+Lezioni[24] = [ "24","23/10/2014","09:00", "10:00", "Rapporto incrementale, derivata e differenziale. Retta tangente ad un grafico. Equivalenza tra le definizioni e interpretazione geometrica. Limiti notevoli vs sviluppini vs derivate delle funzioni elementari."];
+Lezioni[25] = [ "25","23/10/2014","10:00", "11:00", "Derivata delle funzioni elementari e delle relative inverse. Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa (enunciati e dimostrazioni abusive)."];
+Lezioni[26] = [ "26","27/10/2014","09:00", "10:00", "Enunciato del teorema di De L'Hôpital. Esempi in cui si può e non si può applicare. Pericoli del \"fare i limiti metà per volta\" o mediante equivalenza asintotica."];
+Lezioni[27] = [ "27","27/10/2014","10:00", "11:00", "Enunciato della formula di Taylor con resto di Peano e centro in 0. Dimostrazione degli sviluppi di Taylor delle funzioni elementari."];
+Lezioni[28] = [ "28","28/10/2014","11:00", "12:00", "Enunciato della formula di Taylor con resto di Peano e centro in un punto qualunque. Polinomio di Taylor della somma, prodotto e composizione di due funzioni."];
+Lezioni[29] = [ "29","28/10/2014","12:00", "13:00", "Funzioni iperboliche."];
+Lezioni[30] = [ "30","30/10/2014","09:00", "10:00", "Definizione di ordine di infinitesimo e parte principale. Esercizi misti sui limiti."];
+Lezioni[31] = [ "31","30/10/2014","10:00", "11:00", "Esercizi misti sui limiti."];
+Lezioni[32] = [ "32","03/11/2014","09:00", "10:00", "Serie numeriche: definizione come limite delle somme parziali. Serie telescopiche e geometriche. Proprietà algebriche."];
+Lezioni[33] = [ "33","03/11/2014","10:00", "11:00", "Condizione necessaria per la convergenza di una serie numerica. Serie a termini di segno costante. Criteri di convergenza: confronto, radice, rapporto."];
+Lezioni[34] = [ "34","04/11/2014","11:00", "12:00", "Criterio del confronto asintotico (casi standard e casi limite) per la convergenza di una serie numerica. Serie armonica generalizzata. Criterio di condensazione di Cauchy."];
+Lezioni[35] = [ "35","04/11/2014","12:00", "13:00", "Esercizi sulla convergenza di serie numeriche a termini di segno costante."];
+Lezioni[36] = [ "36","06/11/2014","09:00", "10:00", "Criterio di Leibnitz per le serie a segno alterno. Assoluta convergenza. Teorema dei carabinieri per le serie. Esempi di serie convergenti ma non assolutamente convergenti."];
+Lezioni[37] = [ "37","06/11/2014","10:00", "11:00", "Esercizi sulle serie. Il numero e (e la funzione esponenziale) come somma di una serie."];
+Lezioni[38] = [ "38","10/11/2014","09:00", "10:00", "Teoremi che legano la monotonia al segno della derivata per funzioni di una variabile."];
+Lezioni[39] = [ "39","10/11/2014","10:00", "11:00", "Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor. Esempi di comportamenti patologici che sfatano luoghi comuni."];
+Lezioni[40] = [ "40","11/11/2014","10:00", "11:00", "Teorema di esistenza degli zeri: enunciato e tre possibili dimostrazioni. Teorema dei valori intermedi."];
+Lezioni[41] = [ "41","11/11/2014","11:00", "12:00", "Esercizi sulle funzioni che sfruttano il teorema di esistenza degli zeri e lo studio locale. Esempio classico di funzione non nulla con tutte le derivate nulle in uno stesso punto."];
+Lezioni[42] = [ "42","13/11/2014","09:00", "10:00", "Definizioni di max/min e di punti di max/min. Enunciato del teorema di Weierstrass in un intervallo. Ricerca dei candidati punti di max/min: punti stazionari interni, singolari interni, bordo. Teorema di Weierstrass per funzioni periodiche continue."];
+Lezioni[43] = [ "43","13/11/2014","10:00", "11:00", "Varianti del teorema di Weierstrass su insiemi non limitati. Esempi ed esercizi sulle funzioni che sfruttano gli strumenti visti finora."];
+Lezioni[44] = [ "44","17/11/2014","09:00", "10:00", "Schema classico per lo studio di funzioni: simmetrie, continuità, limiti agli estremi, zeri e segno, monotonia, classi di regolarità, punti di massimo/minimo locale/globale, asintoti."];
+Lezioni[45] = [ "45","17/11/2014","10:00", "11:00", "Esempi e controesempi relativi agli asintoti obliqui. Definizione geometrica di convessità/concavità. Legami tra convessità e derivata seconda. Punti di flesso."];
+Lezioni[46] = [ "46","18/11/2014","10:00", "11:00", "Esempi di equazioni e disequazioni risolte mediante studi di funzione. Rischi legati al confronto di due grafici. Disuguaglianze classiche (confronti tra funzioni elementari e loro polinomi di Taylor) che si dimostrano con studi di funzione."];
+Lezioni[47] = [ "47","18/11/2014","11:00", "12:00", "Ulteriori esempi di problemi che si affrontano con studi di funzione."];
+Lezioni[48] = [ "48","20/11/2014","09:00", "10:00", "Funzioni lipschitziane. Legami tra lipschitzianità e limitatezza della derivata prima."];
+Lezioni[49] = [ "49","20/11/2014","10:00", "11:00", "Esempi ed esercizi che utilizzano in vario modo gli studi di funzione."];
+Lezioni[50] = [ "50","24/11/2014","09:00", "10:00", "Formula di Taylor con resto di Lagrange: enunciato ed applicazioni classiche: approssimazione di funzioni, dimostrazione di disuguaglianze, convergenza di serie di Taylor. Accenno alle funzioni analitiche."];
+Lezioni[51] = [ "51","24/11/2014","10:00", "11:00", "Esempi ed esercizi con visione globale su limiti e funzioni."];
+Lezioni[52] = [ "52","25/11/2014","11:00", "12:00", "Introduzione agli integrali: notazioni, significato geometrico, funzioni a gradino, definizione di integrale inferiore e superiore. Funzione di Dirichlet."];
+Lezioni[53] = [ "53","25/11/2014","12:00", "13:00", "Prime proprietà dell'integrale: linearità, monotonia, additività rispetto alla zona di integrazione, disuguaglianza con il valore assoluto. Enunciato dell'integrabilità delle funzioni monotone e delle funzioni continue."];
+Lezioni[54] = [ "54","27/11/2014","09:00", "10:00", "Definizione di primitiva e di funzione integrale. Due primitive in un intervallo differiscono per una costante. Teorema della media integrale. Teorema fondamentale del calcolo integrale. Lipschitzianità della funzione integrale."];
+Lezioni[55] = [ "55","27/11/2014","10:00", "11:00", "Dimostrazione dell'integrabilità delle funzioni monotone. Dimostrazione che il valore assoluto di una funzione integrabile è integrabile. Discorso sul +c negli integrali. Primitive elementari."];
+Lezioni[56] = [ "56","01/12/2014","09:00", "10:00", "Formula di integrazione per parti. Esempi classici di applicazione. Tecnica del grande ritorno e dell'1 nascosto. Esempio paradossale utilizzando la formula senza estremi."];
+Lezioni[57] = [ "57","01/12/2014","10:00", "11:00", "Formula di integrazione per sostituzione. Esempi classici di applicazione. Primitive di potenze di seno e coseno."];
+Lezioni[58] = [ "58","02/12/2014","11:00", "12:00", "Integrazione delle funzioni razionali: descrizione dell'algoritmo."];
+Lezioni[59] = [ "59","02/12/2014","12:00", "13:00", "Precisazioni sui passi dell'algoritmo per integrare le funzioni razionali: fattorizzazione reale/complessa di polinomi, dimostrazione della decomposizione in fratti semplici, integrazione dei fratti semplici."];
+Lezioni[60] = [ "60","04/12/2014","09:00", "10:00", "Esempi di calcolo di integrali propri, anche di integrande con valori assoluti. Utilizzo delle simmetrie per il calcolo di integrali di funzioni pari/dispari. Integrali del quadrato di seno e coseno tra estremi multipli di un angolo retto."];
+Lezioni[61] = [ "61","04/12/2014","10:00", "11:00", "Trucco per il calcolo rapido dei coefficienti in una scomposizione in fratti semplici. Sostituzioni razionalizzanti 1: funzioni razionali di esponenziali. Sostituzioni razionalizzanti 2: funzioni razionali di radici di polinomi di primo grado."];
+Lezioni[62] = [ "62","09/12/2014","11:00", "12:00", "Sostituzioni razionalizzanti 3: funzioni razionali di radici di polinomi di secondo grado. Sostituzioni razionalizzanti 4: funzioni razionali di seno e coseno."];
+Lezioni[63] = [ "63","09/12/2014","12:00", "13:00", "Interpretazione delle sostituzioni razionalizzanti in termini di parametrizzazioni razionali di curve algebriche. Primitive e derivare vs o piccolo."];
+Lezioni[64] = [ "64","11/12/2014","09:00", "10:00", "Introduzione agli integrali impropri: definizione nel caso monoproblema e spezzamento nel caso con più problemi. Comportamento degli integrali impropri con potenze negative della x, sia a 0 sia all'infinito."];
+Lezioni[65] = [ "65","11/12/2014","10:00", "11:00", "Criteri di convergenza per integrali impropri: confronto, confronto asintotico (casi standard e casi limite), assoluta integrabilità. Esempi di applicazione. Osservazione della mancanza di un analogo per gli integrali impropri della condizione necessaria per la convergenza delle serie."];
+Lezioni[66] = [ "66","15/12/2014","09:00", "10:00", "Integrali impropri con problemi in punti diversi dall'origine. Esempio di integrale improprio con problema in un punto che non si calcola esplicitamente."];
+Lezioni[67] = [ "67","15/12/2014","10:00", "11:00", "Confronto serie-integrali e applicazioni."];
+Lezioni[68] = [ "68","16/12/2014","12:00", "13:00", "Integrali oscillanti: trucco dell'integrazione per parti e metodo dei triangolini (o rettangolini). Esempi classici: integrale di Dirichlet e integrali di Fresnel."];
+Lezioni[69] = [ "69","16/12/2014","09:00", "10:00", "Lemma di sommazione per parti (per le serie) di Abel. Applicazione classica: criterio di Dirichlet per la convergenza di una serie. Enunciato analogo per gli integrali impropri."];
+Lezioni[70] = [ "70","18/12/2014","09:00", "10:00", "Funzione Gamma di Eulero. Esercizi sulla dipendenza di un integrale proprio/improprio dall'insieme di integrazione."];
+Lezioni[71] = [ "71","18/12/2014","10:00", "11:00", "Esercizi con funzioni definite mediante integrali."];
+Lezioni[72] = [ "72","24/02/2015","09:00", "10:00", "Introduzione alle equazioni differenziali: nomenclatura."];
+Lezioni[73] = [ "73","24/02/2015","10:00", "11:00", "Introduzione alle equazioni differenziali: primi esempi di famiglie di soluzioni dipendenti da parametri, problema di Cauchy, enunciato dei teoremi di sola esistenza e di esistenza ed unicità, esempio di non unicità (pennello di Peano)."];
+Lezioni[74] = [ "74","25/02/2015","09:00", "10:00", "Equazioni differenziali a variabili separabili: descrizione della procedura per determinare una soluzione ed esempi di applicazione. Studio della soluzione: intervallo massimale di esistenza, tempo di vita, eventuali blow up e break down."];
+Lezioni[75] = [ "75","25/02/2015","10:00", "11:00", "Equazioni differenziali a variabili separabili: giustificazione della procedura per determinare una soluzione (che dimostra pure esistenza ed unicità). Discussione di un primo esempio con valori soglia."];
+Lezioni[76] = [ "76","27/02/2015","11:00", "12:00", "Teoria generale delle equazioni differenziali lineari: struttura dello spazio delle soluzioni nel caso omogeneo e non omogeneo."];
+Lezioni[77] = [ "77","27/02/2015","12:00", "13:00", "Equazioni differenziali lineari a coefficienti costanti: come determinare una base dello spazio delle soluzioni passando per le radici del polinomio caratteristico. Primo esempio di ricerca per tentativi di una soluzione per un'equazione non omogenea."];
+Lezioni[78] = [ "78","03/03/2015","10:00", "11:00", "Equazioni differenziali lineari a coefficienti costanti non omogenea: ricerca per tentativi di una soluzione in casi semplici. Descrizione del metodo di variazione delle costanti."];
+Lezioni[79] = [ "79","03/03/2015","11:00", "12:00", "Equazioni differenziali lineari del primo ordine a coefficienti qualunque: formula risolutiva, sua giustificazione (mediante fattore integrante o variazione delle costanti), esempi di applicazione."];
+Lezioni[80] = [ "80","03/03/2015","12:00", "13:00", "Esempi classici di studio di equazioni differenziali con parametri: oscillatore armonico con risonanza, oscillatore armonico con dissipazione, equazione lineare del primo ordine con valore soglia."];
+Lezioni[81] = [ "81","04/03/2015","09:00", "10:00", "Sistemi di equazioni differenziali vs equazioni singole di ordine superiore. Legami con autovalori ed autovettori nel caso lineare. Ricerca degli autovalori della derivata seconda con condizioni al bordo."];
+Lezioni[82] = [ "82","04/03/2015","10:00", "11:00", "Esercizi misti sullo studio di soluzioni di equazioni differenziali al variare di parametri."];
+Lezioni[83] = [ "83","06/03/2015","11:00", "12:00", "Successioni per ricorrenza lineari omogenee: formula risolutiva mediante le radici del polinomio caratteristico. Interpretazione matriciale e polinomiale della formula (nel caso della successione di Fibonacci)."];
+Lezioni[84] = [ "84","06/03/2015","12:00", "13:00", "Sistemi di successioni per ricorrenza lineari: riduzione ad una successione singola. Successioni per ricorrenza lineari non omogenee: ricerca euristica di una soluzione (analoga alle equazioni differenziali)."];
+Lezioni[85] = [ "85","10/03/2015","10:00", "11:00", "Interpretazione polinomiale della formula per le ricorrenze lineari del secondo ordine. Introduzione alle successioni per ricorrenza non lineari autonome: primi esempi di studio mediante un piano basato sulla monotonia."];
+Lezioni[86] = [ "86","10/03/2015","11:00", "12:00", "Interpretazione grafica delle successioni per ricorrenza autonome del primo ordine. Esempi di studio mediante un piano basato sulla distanza dal presunto limite."];
+Lezioni[87] = [ "87","10/03/2015","12:00", "13:00", "Successioni per ricorrenza autonome spiraleggianti: studio mediante il piano basato sulla monotonia ed il piano basato sulle due sottosuccessioni."];
+Lezioni[88] = [ "88","11/03/2015","09:00", "10:00", "Primi esempi di studio di successioni per ricorrenza non autonome: piani con la monotonia, con il rapporto, con limitatezza e carabinieri."];
+Lezioni[89] = [ "89","11/03/2015","10:00", "11:00", "Ulteriori esempi di successioni per ricorrenza, autonome e non autonome. Legami tra la stabilità dei punti fissi di una funzione e valore assoluto della derivata. Esempio di successione per ricorrenza senza limite (caos)."];
+Lezioni[90] = [ "90","13/03/2015","11:00", "12:00", "Esempio di studio di una successione per ricorrenza non autonoma con valori soglia."];
+Lezioni[91] = [ "91","13/03/2015","12:00", "13:00", "Ulteriori esempi di studio di successioni per ricorrenza non lineari."];
+Lezioni[92] = [ "92","17/03/2015","10:00", "11:00", "Liminf e limsup di successioni: definizione, primi esempi, caratterizzazione, rapporto con l'eventuale limite. Teorema del confronto in versione liminf/limsup."];
+Lezioni[93] = [ "93","17/03/2015","11:00", "12:00", "Teorema dei carabinieri e teorema delle sottosuccessioni in versione liminf/limsup. Caratterizzazione di liminf/limsup come minlim/maxlim. Utilizzo di stime e sottosuccessioni per determinare liminf/limsup."];
+Lezioni[94] = [ "94","17/03/2015","12:00", "13:00", "Criterio della radice, del rapporto e del rapporto -> radice in versione liminf/limsup. Liminf/limsup della somma e del prodotto per una costante."];
+Lezioni[95] = [ "95","18/03/2015","09:00", "10:00", "Liminf/limsup di funzioni: definizione, primi esempi, caratterizzazione come minlim/maxlim di successioni."];
+Lezioni[96] = [ "96","18/03/2015","10:00", "11:00", "Dato un sottoinsieme dei reali, esiste una successione monotona a valori nell'insieme che tende al sup. Esempi di calcolo di liminf/limsup di funzioni. Teorema algebrico per la somma nel caso in cui una delle due successioni ha limite reale."];
+Lezioni[97] = [ "97","20/03/2015","11:00", "12:00", "Linguaggio topologico nella retta reale: parte interna, chiusura, frontiera, punti isolati, punti di accumulazione. Insiemi aperti e chiusi. Famiglie infinite di sottoinsiemi, e loro unione/intersezione."];
+Lezioni[98] = [ "98","24/03/2015","10:00", "11:00", "In un punto di massimo/minimo interno la derivata, se esiste, si annulla. Teoremi di Rolle, Cauchy, Lagrange."];
+Lezioni[99] = [ "99","24/03/2015","11:00", "12:00", "Dimostrazione dei teoremi di De L'Hôpital."];
+Lezioni[100] = [ "100","24/03/2015","12:00", "13:00", "Teoremi di Stolz-Cesaro: enunciato, dimostrazione, esempi. Teorema delle medie di Cesaro. Criterio rapporto -> radice come applicazione di Stolz-Cesaro."];
+Lezioni[101] = [ "101","25/03/2015","09:00", "10:00", "Enunciato e dimostrazione della formula di Taylor con resto di Peano e di Lagrange."];
+Lezioni[102] = [ "102","25/03/2015","10:00", "11:00", "Teorema di Bolzano-Weierstrass. Definizione di sottoinsieme compatto. Dimostrazione del teorema di Weierstrass per funzioni continue su un compatto."];
+Lezioni[103] = [ "103","27/03/2015","11:00", "12:00", "Definizione di successione di Cauchy e prime proprietà. Completezza dei numeri reali: dimostrazione via liminf/limsup e via Bolzano-Weierstrass. Equivalenza tra assioma di continuità e completezza + proprietà archimedea."];
+Lezioni[104] = [ "104","27/03/2015","12:00", "13:00", "Quattro facce della continuità: con i limiti, epsilon/delta, con le successioni, topologica. Equivalenza tra continuità epsilon/delta e continuità per successioni. Continuità della composizione di funzioni continue."];
+Lezioni[105] = [ "105","31/03/2015","10:00", "11:00", "Tre facce della compattezza: limitato e chiuso, compattezza per successioni, compattezza per ricoprimenti. Equivalenza tra le prime due. Compatto per ricoprimenti implica limitato e chiuso. Le funzioni continue non mandano chiusi in chiusi e limitati in limitati."];
+Lezioni[106] = [ "106","31/03/2015","11:00", "12:00", "Le funzioni continue mandano compatti per successioni/ricoprimenti in compatti per successioni/ricoprimenti. Lemma del raggio magico (numero di Lebesgue). Compatto per successioni implica compatto per ricoprimenti. Dimostrazione alternativa del teorema di Weierstrass."];
+Lezioni[107] = [ "107","31/03/2015","12:00", "13:00", "Lemma dei distributori (esistenza della epsilon rete). Funzioni semicontinue inferiormente e superiormente: definizioni equivalenti ed esempi. Teorema di Weierstrass per funzioni semicontinue."];
+Lezioni[108] = [ "108","14/04/2015","10:00", "11:00", "Funzioni uniformemente continue: definizione, commenti, prime proprietà. Lipschitzianità implica uniforme continuità."];
+Lezioni[109] = [ "109","14/04/2015","11:00", "12:00", "Enunciato e dimostrazione del teorema di Heine-Cantor. Enunciato e dimostrazione del teorema di estensione."];
+Lezioni[110] = [ "110","14/04/2015","12:00", "13:00", "Uniformemente continua in una semiretta implica sublineare. Continua in una semiretta più limite finito implica uniformemente continua. Idea per una dimostrazione alternativa di Heine-Cantor. Esercizi sull'uniforme continuità."];
+Lezioni[111] = [ "111","15/04/2015","09:00", "10:00", "Funzioni Holderiane: definizione, commenti, prime proprietà. Rapporti tra Lipschitzianità, Holderianità, uniforme continuità, continuità, sia su insiemi generali, sia su insiemi limitati."];
+Lezioni[112] = [ "112","15/04/2015","10:00", "11:00", "Strategie per dimostrare che una funzione è (o non è) Lipschitziana/Holderiana/uniformemente continua. Holderianità vs Lipschitzianità di opportune potenze. Esempi di applicazione delle strategie."];
+Lezioni[113] = [ "113","17/04/2015","11:00", "12:00", "Moduli di continuità per funzioni uniformemente continue. Integrabilità secondo Riemann delle funzioni continue in un intervallo. Integrabilità delle funzioni limitate con un numero finito di punti di discontinuità."];
+Lezioni[114] = [ "114","17/04/2015","12:00", "13:00", "Se l'integrale improprio su una semiretta converge, cosa possiamo dire del limite all'infinito? Esercizi su uniforme continuità, Lipschitzianità e Holderianità di una funzione integrale."];
+Lezioni[115] = [ "115","21/04/2015","10:00", "11:00", "Sottoinsiemi convessi della retta. Funzioni convesse: definizione algebrica e significato geometrico. Lemma dei tre rapporti incrementali. Esistenza delle derivate sinistra e destra in tutti i punti interni e relazione tra le due."];
+Lezioni[116] = [ "116","21/04/2015","11:00", "12:00", "Funzioni convesse: continuità nei punti interni e locale lipschitzianità, debole crescenza delle derivate destra e sinistra, legami tra convessità e debole crescenza della derivata prima (posto che questa esista). Le funzioni convesse stanno sopra le rette tangenti."];
+Lezioni[117] = [ "117","21/04/2015","12:00", "13:00", "Funzioni convesse: esistenza della derivata nei punti in cui la derivata destra (o sinistra) è continua. Funzioni strettamente convesse. Legami tra convessità e segno della derivata seconda (posto che questa esista). Massimo tra funzioni convesse. Interpretazione in termini di sopragrafico."];
+Lezioni[118] = [ "118","22/04/2015","09:00", "10:00", "Dimostrazione che la debole monotonia della derivata implica la convessità. Disuguaglianza di Jensen. Disuguaglianze di convessità e formula di Taylor con resto di Lagrange. Disuguaglianza di Bernoulli come disuguaglianza di convessità."];
+Lezioni[119] = [ "119","22/04/2015","10:00", "11:00", "Esempi di applicazione di Jensen: disuguaglianze tra medie, disuguaglianza di Young a due o più termini, disuguaglianza di Cauchy-Schwarz e generalizzazioni. Prodotto di funzioni convesse."];
+Lezioni[120] = [ "120","24/04/2015","11:00", "12:00", "Relazioni tra monotonia, iniettività, continuità. Lemma della sotto-sotto-successione. Continuità della funzione inversa (insieme di partenza compatto)."];
+Lezioni[121] = [ "121","24/04/2015","12:00", "13:00", "Continuità della funzione inversa (insieme di partenza convesso). Derivata della funzione inversa. Ulteriore regolarità della funzione inversa e calcolo dei suoi polinomi di Taylor."];
+Lezioni[122] = [ "122","28/04/2015","10:00", "11:00", "Ricapitolazione sui simboli di Landau: o piccolo, O grande, equivalenza asintotica. Rapporti tra le definizioni ed esempi."];
+Lezioni[123] = [ "123","28/04/2015","11:00", "12:00", "Proprietà di Darboux delle derivate. Come dimostrare che una funzione è derivabile o non derivabile in un punto."];
+Lezioni[124] = [ "124","28/04/2015","12:00", "13:00", "Esempi di funzioni di classe C-infinito con tutte le derivate nulle in un punto. Raccordo C-infinito tra due costanti. Approssimazione di funzioni integrabili mediante funzioni di classe C-infinito."];
+Lezioni[125] = [ "125","29/04/2015","09:00", "10:00", "Formula di Stirling per l'approssimazione del fattoriale e prodotto di Wallis. "];
+Lezioni[126] = [ "126","29/04/2015","10:00", "11:00", "Due esercizi ispirati da Stirling (confronto tra un integrale e l'area di un trapezio) e Wallis (limite di una successione di integrali). Primo accenno ai rapporti tra la definizione di integrale alla Darboux ed alla Riemann."];
+Lezioni[127] = [ "127","12/05/2015","10:00", "11:00", "Confronto tra integrale definito alla Darboux e alla Riemann. Stima della differenza tra l'integrale di una funzione continua ed una somma di Riemann in termini di modulo di continuità e diametro della partizione."];
+Lezioni[128] = [ "128","12/05/2015","11:00", "12:00", "Dimostrazione che una funzione integrabile alla Darboux è integrabile anche alla Riemann. Dimostrazione che il massimo tra due funzioni integrabili è integrabile. Dimostrazione che il prodotto di funzioni integrabili è integrabile."];
+Lezioni[129] = [ "129","12/05/2015","12:00", "13:00", "Proprietà di riordinamento e di raggruppamento per serie numeriche assolutamente convergenti. Teorema di riordinamento di Riemann (riordinamento di serie convergenti, ma non assolutamente convergenti)."];
+Lezioni[130] = [ "130","13/05/2015","09:00", "10:00", "Definizioni formali degli insiemi numerici: numeri naturali via assiomi di Peano, interi via quoziente su coppie di naturali, razionali via quoziente su coppie di interi, reali via sezioni di Dedekind (o semirette sinistre) di razionali."];
+Lezioni[131] = [ "131","13/05/2015","10:00", "11:00", "Funzioni elementari rivisitate: continuità e surgettività delle potenze ad esponente intero e delle relative inverse. Definizione dell'esponenziale via equazione funzionale, e sua monotonia e continuità. Accenno alla definizione delle funzioni trigonometriche via equazioni funzionali."];
+Lezioni[132] = [ "132","15/05/2015","11:00", "12:00", "Postilla alla dimostrazione del teorema di De L'Hôpital. Dimostrazione della formula per la derivata della funzione composta. Accenno alla densità dei naturali sulla circonferenza trigonometrica."];
+Lezioni[133] = [ "133","15/05/2015","12:00", "13:00", "Dimostrazione dell'irrazionalità del numero e. Serie armonica generalizzata ristretta agli interi che si scrivono in base 10 senza usare una data cifra. Divergenza della serie dei reciproci dei primi."];
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47224301-1', 'unipi.it');
+  ga('send', 'pageview');
+
+</script>
+
+ 
+</HEAD>
+
+<BODY BGCOLOR="aqua">
+
+<H1 ALIGN="CENTER"><A NAME="OT_Inizio"></A>Analisi Matematica 1 - 2014/2015</H1>
+
+
+<UL TYPE="DISC">
+	<LI><A HREF="#Scheda">Scheda di presentazione</A>
+	<LI><A HREF="#Burocrazia">Burocrazia</A>
+	<LI><A HREF="#Book">Book</A>
+	<LI><A HREF="#Lezioni">Lezioni</A>
+</UL>
+
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="Scheda"></A>Scheda di presentazione</H2>
+
+<CENTER>
+<TABLE BORDER="1">
+	
+	<TR ALIGN="CENTER">
+	<TH>Nome corso</TH>
+	<TD>Analisi Matematica 1</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Anno Accademico</TH>
+	<TD>2014/2015</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Crediti</TH>
+	<TD>15</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Ore di lezione</TH>
+	<TD>120 (ufficialmente, 133 alla fine)</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Target</TH>
+	<TD>Matematica</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Anno</TH>
+	<TD>Primo</TD>
+	</TR>
+	
+	<TR ALIGN="CENTER">
+	<TH>Periodo</TH>
+	<TD>fine Settembre / fine Maggio</TD>
+	</TR>
+	
+</TABLE>
+</CENTER>
+
+<P>
+<B>Achtung!</B> Questo corso è pensato per gli studenti del Corso di Laurea in
+Matematica. Certamente è adatto anche per studenti di altri corsi di
+laurea, purché sufficientemente motivati e privi di problemi "di
+precorso", e per chiunque abbia seguito con successo (o con noia) i corsi
+in versione edulcorata (cioè per esempio i corsi di servizio per
+ingegneria). Per tutti gli altri, il consiglio è di partire con una delle
+versioni edulcorate, ad esempio il corso del 2012/2013.
+</P>
+
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="Burocrazia"></A>Burocrazia</H2>
+
+<P>
+Il file seguente contiene tutte le informazioni inerenti il programma, le
+modalità di svolgimento, le regole d'esame.
+<CENTER>
+
+<TABLE BORDER="1">
+
+    <TR>
+        <TD><A
+        onclick="ga('send', 'event', 'Analisi Matematica 1 - 2014/2015', 'Pdf', 'Burocrazia');"
+        href="Files/HP_AD/AM1_15_Burocrazia.pdf"
+        target="_blank">Informazioni
+        burocratiche</A> (versione provvisoria aggiornata al 25/09/2014)</TD>
+    </TR>
+	<TR>
+		<TD><A
+		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2014/2015', 'Pdf', 'Regole d\'esame');"
+		href="Files/HP_AD/AM1_15_Esame.pdf"
+		target="_blank">Regole d'esame</A> (versione provvisoria aggiornata al 27/10/2014)</TD>
+	</TR>
+
+</TABLE>
+
+</CENTER>
+
+<HR>
+
+<H2 ALIGN="CENTER"><A NAME="Book"></A>Book</H2>
+
+<P>
+I seguenti file pdf (piuttosto pesanti) contengono lo stampato integrale
+delle lezioni (sostanzialmente sono l'unione dei pdf delle singole
+lezioni).
+
+<CENTER>
+
+<TABLE BORDER="1">
+	
+	
+	<TR>
+		<TD><A target="_blank"
+		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2014/2015', 'Pdf', 'Stampato integrale - Volume 1');"
+		HREF="Files/HP_AD/AM1_15_Book1.pdf">Stampato integrale lezioni
+	    	(Volume 1 - Lezioni 1/51)</A></TD>
+	</TR>
+	<TR>
+		<TD><A target="_blank"
+		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2014/2015', 'Pdf', 'Stampato integrale - Volume 2');"
+		HREF="Files/HP_AD/AM1_15_Book2.pdf">Stampato integrale lezioni
+	    	(Volume 2 - Lezioni 52/91)</A></TD>
+	</TR>
+	<TR>
+		<TD><A target="_blank"
+		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2014/2015', 'Pdf', 'Stampato integrale - Volume 3');"
+		HREF="Files/HP_AD/AM1_15_Book3.pdf">Stampato integrale lezioni
+	    	(Volume 3 - Lezioni 92/133)</A></TD>
+	</TR>
+	
+</TABLE>
+
+</CENTER>
+
+<HR>
+
+
+<H2 ALIGN="CENTER"><A NAME="Lezioni"></A>Lezioni</H2>
+
+<P>
+Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per 
+maggiori informazioni sulle modalità di utilizzo si prega di
+consultare <A HREF="AD_Video.html">questa pagina</A>.
+</P>
+
+<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
+
+<TR ALIGN="CENTER">
+<TH>Lezione</TH>
+<TH>Data</TH>
+<TH COLSPAN=2>Ora</TH>
+<TH>Argomento sommario</TH>
+<TH COLSPAN=2>Download</TH>
+</TR>
+
+<script>
+for (var i=1;i<Lezioni.length;i++)
+{
+	var NumeroOra = Lezioni[i][0];
+	var NumeroOraMod = (NumeroOra>99)?NumeroOra:"0"+NumeroOra;
+	var NumeroOraMod = (NumeroOra<10)?"00"+NumeroOra:NumeroOraMod;
+	var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
+	var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
+	var LinkAvi = (Lezioni[i][5]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
+	
+	document.write("<TR><TD>" + 
+	Lezioni[i][0] + 
+	"</TD><TD>" + 
+	Lezioni[i][1] + 
+	"</TD><TD>" + 
+	Lezioni[i][2] + 
+	"</TD><TD>" + 
+	Lezioni[i][3] + 
+	"</TD><TD>" + 
+	Lezioni[i][4] + 
+	"</TD><TD>" +
+	LinkAvi +
+	"</TD><TD>" + "<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " + 
+	"onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Lezione " + NumeroOraMod + "')\">pdf</A>" +
+	"</TD></TR>");
+}
+</script>
+
+</TABLE>
+
+<HR>
+
+<HR>
+
+
+<CENTER>
+
+<a target="new" rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licenza
+Creative Commons" style="border-width:0"
+src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br
+/>Quest'opera di <span xmlns:cc="http://creativecommons.org/ns#"
+property="cc:attributionName">Massimo Gobbino</span> è distribuita con
+Licenza <a target="new" rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
+Internazionale</a>.
+
+</CENTER>
+
+
+</BODY>
+
+</HTML>
