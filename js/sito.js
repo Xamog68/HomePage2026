@@ -258,8 +258,15 @@ function generaRigheLezioni(corpoTabella) {
       I nomi dei file usano numeri di tre cifre:
       1 diventa 001, 12 diventa 012, e così via.
     */
-    const numeroFile = String(numeroLezione).padStart(3, "0");
+    const cifreNumeroLezione =
+      typeof CifreNumeroLezione === "undefined"
+        ? 3
+        : CifreNumeroLezione;
 
+    const numeroFile = String(numeroLezione).padStart(
+      cifreNumeroLezione,
+      "0"
+    );
     const indirizzoAvi = Percorso + numeroFile + ".avi";
     const indirizzoPdf = Percorso + numeroFile + ".pdf";
 
