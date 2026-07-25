@@ -50,3 +50,20 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+.sezione-corso {
+  margin-top: 1.25rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sezione-corso summary {
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #f3f5f7;
+}
+
+.contenuto-sezione {
+  padding: 1.25rem;
+}
