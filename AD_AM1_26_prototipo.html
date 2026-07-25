@@ -9,6 +9,8 @@ td {text-align:center}
 </style>
 
 <script src="js/config-media.js"></script>
+<script src="js/sito.js"></script>
+
 
 <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-P6KEY6K5F2&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script>
 var NomeCorso = "Analisi Matematica 1 - 2025/2026"
@@ -149,37 +151,51 @@ Lezioni[130] = [ "130","14/05/2026","10:00", "11:00", "Dimostrazione dell'irrazi
 */
 </script>
 
-<script> in un intervallo
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script>
+  (function(i,s,o,g,r,a,m){
+    i["GoogleAnalyticsObject"] = r;
+    i[r] = i[r] || function(){
+      (i[r].q = i[r].q || []).push(arguments);
+    };
+    i[r].l = 1 * new Date();
 
-  ga('create', 'UA-47224301-1', 'unipi.it');
-  ga('send', 'pageview');
+    a = s.createElement(o);
+    m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a,m);
+  })(window, document, "script",
+     "//www.google-analytics.com/analytics.js", "ga");
+
+  ga("create", "UA-47224301-1", "unipi.it");
+  ga("send", "pageview");
 </script>
 
 </head>
 
-<body bgcolor="aqua">
-    <nav aria-label="Percorso di navigazione">
-      <a href="nuova-home.html">Home</a>
-      <span>›</span>
-      <a href="didattica.html">Didattica</a>
-      <span>›</span>
-      <a href="archivio-didattico.html">Archivio didattico</a>
-      <span>›</span>
-      <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
-    </nav>
+<body>
 
-<h1 align="CENTER"><a name="OT_Inizio"></a>Analisi Matematica 1 - 2025/2026</h1>
+<nav aria-label="Percorso di navigazione">
+  <a href="nuova-home.html">Home</a>
+  <span>›</span>
+  <a href="didattica.html">Didattica</a>
+  <span>›</span>
+  <a href="archivio-didattico.html">Archivio didattico</a>
+  <span>›</span>
+  <a href="analisi-matematica-1.html">Analisi Matematica 1</a>
+</nav>
 
-<ul type="DISC">
-	<li><a href="#Scheda">Scheda di presentazione</a>
-	</li><li><a href="#Burocrazia">Burocrazia</a>
-	</li><li><a href="#Book">Book</a>
-	</li><li><a href="#Lezioni">Lezioni</a>
-</li></ul>
+<h1>
+  <a id="OT_Inizio"></a>
+  Analisi Matematica 1 — 2025/2026
+</h1>
+
+<ul>
+  <li><a href="#Scheda">Scheda di presentazione</a></li>
+  <li><a href="#Burocrazia">Burocrazia</a></li>
+  <li><a href="#Book">Book</a></li>
+  <li><a href="#Lezioni">Lezioni</a></li>
+</ul>
 
 <hr>
 
@@ -187,207 +203,233 @@ Lezioni[130] = [ "130","14/05/2026","10:00", "11:00", "Dimostrazione dell'irrazi
   <summary>Scheda del corso</summary>
 
   <div class="contenuto-sezione">
-      <h2 align="CENTER"><a name="Scheda"></a>Scheda di presentazione</h2>
+    <h2 id="Scheda">Scheda di presentazione</h2>
 
-      <center>
-      <table border="1">
-	<tbody><tr align="CENTER">
-	<th>Nome corso</th>
-	<td>Analisi Matematica 1</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Anno Accademico</th>
-	<td>2025/2026</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Crediti</th>
-	<td>15</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Ore di lezione</th>
-	<td>120 (ufficialmente, ??? quest’anno)</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Target</th>
-	<td>Matematica</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Anno</th>
-	<td>Primo</td>
-	</tr>
-	<tr align="CENTER">
-	<th>Periodo</th>
-	<td>fine Settembre / fine Maggio</td>
-	</tr>
-      </tbody></table>
-      </center>
+    <table border="1">
+      <tbody>
+        <tr>
+          <th>Nome corso</th>
+          <td>Analisi Matematica 1</td>
+        </tr>
+        <tr>
+          <th>Anno Accademico</th>
+          <td>2025/2026</td>
+        </tr>
+        <tr>
+          <th>Crediti</th>
+          <td>15</td>
+        </tr>
+        <tr>
+          <th>Ore di lezione</th>
+          <td>120 (ufficialmente, ??? quest’anno)</td>
+        </tr>
+        <tr>
+          <th>Target</th>
+          <td>Matematica</td>
+        </tr>
+        <tr>
+          <th>Anno</th>
+          <td>Primo</td>
+        </tr>
+        <tr>
+          <th>Periodo</th>
+          <td>fine settembre / fine maggio</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <p>
-      <b>Achtung!</b> Questo corso sarà una riedizione del corso 2016/2017. Per versioni più edulcorate si consigliano i corsi 2024/25 o (ancora più edulcorata) 2012/13.
-      </p>
-
-      <hr>
-
+    <p>
+      <strong>Achtung!</strong>
+      Questo corso sarà una riedizione del corso 2016/2017.
+      Per versioni più edulcorate si consigliano i corsi 2024/25
+      o, ancora più edulcorata, 2012/13.
+    </p>
   </div>
 </details>
-
 
 <details class="sezione-corso">
   <summary>Burocrazia</summary>
 
   <div class="contenuto-sezione">
-      <h2 align="CENTER"><a name="Burocrazia"></a>Burocrazia</h2>
+    <h2 id="Burocrazia">Burocrazia</h2>
 
-      <center>
-      <table border="1">
-      <tbody><tr>
-              <td><a onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Burocrazia');" href="Files/HP_AD/AM1_26_Burocrazia.pdf" target="_blank">Informazioni generali</a></td>
-      </tr>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Burocrazia.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Burocrazia');"
+            >
+              Informazioni generali
+            </a>
+          </td>
+        </tr>
 
-      <TR>
-	<TD><A
-	onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Regole d\'esame');"
-	href="Files/HP_AD/AM1_26_Esame.pdf"
-	target="_blank">Regole d'esame</A> (versione provvisoria)</TD>
-      </TR>
-      <!--
-      -->
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Esame.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Regole d\'esame');"
+            >
+              Regole d’esame
+            </a>
+            (versione provvisoria)
+          </td>
+        </tr>
 
-      <tr>
-	<td><a onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Programma');" href="Files/HP_AD/AM1_26_Programma.pdf" target="_blank">Programma dettagliato</a></td>
-      </tr>
-      </tbody></table>
-
-      <!--
-      <p>
-      Work in progress
-      </p>
-      -->
-      </center>
-
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Programma.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Programma');"
+            >
+              Programma dettagliato
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </details>
 
-
-<hr>
 <details class="sezione-corso">
   <summary>Book e materiali</summary>
 
   <div class="contenuto-sezione">
-      <h2 align="CENTER"><a name="Book"></a>Book</h2>
+    <h2 id="Book">Book</h2>
 
-      <p>
-      I seguenti file pdf (piuttosto pesanti) contengono lo stampato integrale delle lezioni (sostanzialmente sono l'unione dei pdf delle singole lezioni).
-      </p>
-      <center>
-      <!--
+    <p>
+      I seguenti file PDF, piuttosto pesanti, contengono lo stampato
+      integrale delle lezioni: sostanzialmente sono l’unione dei PDF
+      delle singole lezioni.
+    </p>
 
-      Forse è un po’ presto per lo stampato integrale, o no?
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Book1.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Stampato integrale - Volume 1');"
+            >
+              Stampato integrale delle lezioni
+              (Volume 1 — Lezioni 1–50)
+            </a>
+          </td>
+        </tr>
 
-      -->
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Book2.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Stampato integrale - Volume 2');"
+            >
+              Stampato integrale delle lezioni
+              (Volume 2 — Lezioni 51–90)
+            </a>
+          </td>
+        </tr>
 
-      <p>
-      <TABLE BORDER="1">
-	<TR>
-		<TD><A target="_blank"
-		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Stampato integrale - Volume 1');"
-		HREF="Files/HP_AD/AM1_26_Book1.pdf">Stampato integrale lezioni
-	    	(Volume 1 - Lezioni 1/50)</A></TD>
-	</TR>
-	<TR>
-		<TD><A target="_blank"
-		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Stampato integrale - Volume 2');"
-		HREF="Files/HP_AD/AM1_26_Book2.pdf">Stampato integrale lezioni
-	    	(Volume 2 - Lezioni 51/90)</A></TD>
-	</TR>
-	<TR>
-		<TD><A target="_blank"
-		onclick="ga('send', 'event', 'Analisi Matematica 1 - 2025/2026', 'Pdf', 'Stampato integrale - Volume 3');"
-		HREF="Files/HP_AD/AM1_26_Book3.pdf">Stampato integrale lezioni
-	    	(Volume 3 - Lezioni 91/130)</A></TD>
-	</TR>
-      <!--
-      -->
-      </table>
-      </p>
-
-      </center>
-
-   </div>
+        <tr>
+          <td>
+            <a
+              href="Files/HP_AD/AM1_26_Book3.pdf"
+              target="_blank"
+              onclick="ga('send', 'event',
+                'Analisi Matematica 1 - 2025/2026',
+                'Pdf',
+                'Stampato integrale - Volume 3');"
+            >
+              Stampato integrale delle lezioni
+              (Volume 3 — Lezioni 91–130)
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </details>
-
-<hr>
-
 
 <details class="sezione-corso">
   <summary>Lezioni</summary>
 
   <div class="contenuto-sezione">
-      <h2 align="CENTER"><a name="Lezioni"></a>Lezioni</h2>
+    <h2 id="Lezioni">Lezioni</h2>
 
-      <p>
-      Di ogni lezione vengono forniti un file pdf ed un video (formato avi). Per
-      maggiori informazioni sulle modalità di utilizzo si prega di
-      consultare <a href="AD_Video.html">questa pagina</a>.
-      </p>
+    <p>
+      Di ogni lezione vengono forniti un file PDF e un video in formato
+      AVI. Per maggiori informazioni sulle modalità di utilizzo si
+      prega di consultare
+      <a href="AD_Video.html">questa pagina</a>.
+    </p>
 
-      <table border="1" width="100%" align="CENTER">
-      <tbody><tr align="CENTER">
-      <th>Lezione</th>
-      <th>Data</th>
-      <th colspan="2">Ora</th>
-      <th>Argomento sommario</th>
-      <th colspan="2">Download</th>
-      </tr>
+    <table border="1">
+      <tbody>
+        <tr>
+          <th>Lezione</th>
+          <th>Data</th>
+          <th colspan="2">Ora</th>
+          <th>Argomento sommario</th>
+          <th colspan="2">Download</th>
+        </tr>
 
-      <script>
-      for (var i=1;i<Lezioni.length;i++)
-      {
-	var NumeroOra = Lezioni[i][0];
-	var NumeroOraMod = (NumeroOra>99)?NumeroOra:"0"+NumeroOra;
-	var NumeroOraMod = (NumeroOra<10)?"00"+NumeroOra:NumeroOraMod;
-	var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
-	var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
-	var LinkAvi = (Lezioni[i][5]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
-
-	document.write("<TR><TD>" +
-	Lezioni[i][0] +
-	"</TD><TD>" +
-	Lezioni[i][1] +
-	"</TD><TD>" +
-	Lezioni[i][2] +
-	"</TD><TD>" +
-	Lezioni[i][3] +
-	"</TD><TD>" +
-	Lezioni[i][4] +
-	"</TD><TD>" +
-	LinkAvi +
-	"</TD><TD>" + "<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " +
-	"onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Lezione " + NumeroOraMod + "')\">pdf</A>" +
-	"</TD></TR>");
-      }
-      </script>
-      </TABLE>
-
-      <HR>
-
+        <script>
+          generaTabellaLezioni();
+        </script>
+      </tbody>
+    </table>
   </div>
 </details>
 
-<HR>
+<hr>
 
-<CENTER>
-<a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licenza
-Creative Commons" style="border-width:0"
-src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br
-/>Quest'opera di <span xmlns:cc="http://creativecommons.org/ns#"
-property="cc:attributionName">Massimo Gobbino</span> è distribuita con
-Licenza <a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
-Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
-Internazionale</a>.
-</CENTER>
+<footer>
+  <p>
+    <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      target="_blank"
+      rel="license"
+    >
+      <img
+        src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+        alt="Licenza Creative Commons"
+      >
+    </a>
+  </p>
 
-</BODY>
-</HTML>
+  <p>
+    Quest’opera di Massimo Gobbino è distribuita con Licenza
+    <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      target="_blank"
+      rel="license"
+    >
+      Creative Commons Attribuzione — Non commerciale —
+      Condividi allo stesso modo 4.0 Internazionale
+    </a>.
+  </p>
+</footer>
+
+</body>
+</html>
