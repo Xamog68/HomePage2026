@@ -1,40 +1,50 @@
 function generaTabellaLezioni() {
-  for (var i = 1; i < Lezioni.length; i++) {
-    var NumeroOra = Lezioni[i][0];
-    var NumeroOraMod = (NumeroOra > 99) ? NumeroOra : "0" + NumeroOra;
-    NumeroOraMod = (NumeroOra < 10) ? "00" + NumeroOra : NumeroOraMod;
+  const corpoTabella = document.getElementById("tabella-lezioni");
 
-    var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
-    var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
+  for (let i = 1; i < Lezioni.length; i++) {
+    if (!Lezioni[i]) {
+      continue;
+    }
 
-    var LinkAvi =
-      Lezioni[i][5] == "m"
+    const numeroOra = Lezioni[i][0];
+    const numeroOraMod = String(numeroOra).padStart(3, "0");
+
+    const indirizzoAvi = Percorso + numeroOraMod + ".avi";
+    const indirizzoPdf = Percorso + numeroOraMod + ".pdf";
+
+    const riga = document.createElement("tr");
+
+    const linkAvi =
+      Lezioni[i][5] === "m"
         ? "Missing!"
-        : "<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " +
-          "onclick=\"ga('send', 'event', '" + NomeCorso +
-          "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
+        : `
+          <a
+            href="${indirizzoAvi}"
+            target="_blank"
+            onclick="ga('send', 'event', '${NomeCorso}', 'Avi', 'Lezione ${numeroOraMod}')"
+          >
+            avi
+          </a>
+        `;
 
-    document.write(
-      "<TR><TD>" +
-      Lezioni[i][0] +
-      "</TD><TD>" +
-      Lezioni[i][1] +
-      "</TD><TD>" +
-      Lezioni[i][2] +
-      "</TD><TD>" +
-      Lezioni[i][3] +
-      "</TD><TD>" +
-      Lezioni[i][4] +
-      "</TD><TD>" +
-      LinkAvi +
-      "</TD><TD><A href=\"" +
-      IndirizzoPdf +
-      "\" target=\"_blank\" " +
-      "onclick=\"ga('send', 'event', '" +
-      NomeCorso +
-      "','Pdf','Lezione " +
-      NumeroOraMod +
-      "')\">pdf</A></TD></TR>"
-    );
+    riga.innerHTML = `
+      <td>${Lezioni[i][0]}</td>
+      <td>${Lezioni[i][1]}</td>
+      <td>${Lezioni[i][2]}</td>
+      <td>${Lezioni[i][3]}</td>
+      <td>${Lezioni[i][4]}</td>
+      <td>${linkAvi}</td>
+      <td>
+        <a
+          href="${indirizzoPdf}"
+          target="_blank"
+          onclick="ga('send', 'event', '${NomeCorso}', 'Pdf', 'Lezione ${numeroOraMod}')"
+        >
+          pdf
+        </a>
+      </td>
+    `;
+
+    corpoTabella.appendChild(riga);
   }
 }
