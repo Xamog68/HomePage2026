@@ -1,5 +1,24 @@
 var NomeCorso = "Analisi Matematica 1 - 2025/2026"
-var Percorso = MEDIA.base + "AM1_26/AM1_26_L";
+var Percorso = MEDIA.lezioni + "AM1_26/AM1_26_L";
+var DocumentiCorso = [
+  {
+    sezione: "burocrazia",
+    file: "AM1_26_Burocrazia.pdf",
+    titolo: "Informazioni generali"
+  },
+  {
+    sezione: "burocrazia",
+    file: "AM1_26_Esame.pdf",
+    titolo: "Regole d’esame",
+    nota: "versione provvisoria"
+  },
+  {
+    sezione: "burocrazia",
+    file: "AM1_26_Programma.pdf",
+    titolo: "Programma dettagliato"
+  }
+];
+
 var Lezioni = new Array();
 
 Lezioni[1] = [ "1","24/09/2025","11:00", "12:00", "Logica elementare (a livello intuitivo). Proposizioni e operazioni sulle proposizioni: negazione, and e vel, implicazione, doppia implicazione. Tavole di verità. Modi equivalenti di scrivere una implicazione e legami con le dimostrazioni per assurdo."];
