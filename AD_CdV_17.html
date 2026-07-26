@@ -1,298 +1,39 @@
-<HTML> 
-
-<HEAD>
-
-<TITLE>Elementi di Calcolo delle Variazioni - 2016/2017</TITLE>
-
-<meta charset="UTF-8">
-
-<style>
-td {text-align:center}
-</style>
-
-
-<script>
-
-var NomeCorso = "Elementi di Calcolo delle Variazioni - 2016/2017"
-
-var Percorso = "https://pagine.dm.unipi.it/gobbino/Tablet/CdV_17/CdV_17_L"
-
-var Lezioni = new Array();
-
-
-Lezioni[1] = [ "1","28/09/2016","16:00", "17:00", "Presentation of the main topics of the course through simple examples. Integral functionals in different settings."];
-Lezioni[2] = [ "2","28/09/2016","17:00", "18:00", "Indirect method in the calculus of variations. Derivative of a functional along a curve and in a given direction. First variation of a functional. Three basic examples of integral functionals depending only on the derivative."];
-Lezioni[3] = [ "3","30/09/2016","16:00", "17:00", "Fundamental lemma in the calculus of variations and Du Bois Reymond lemma: statements, proofs, discussion of possible variants. Example of minimum problem with an integral constraint."];
-Lezioni[4] = [ "4","30/09/2016","17:00", "18:00", "Genesis of boundary conditions for Euler equations. Examples of minimum problems originating Dirichlet, Neumann and periodic boundary conditions."];
-Lezioni[5] = [ "5","05/10/2016","14:00", "15:00", "Different forms of Euler-Lagrange equation: integral, differential, Du Bois Reymond and Erdmann form. Discussion of regularity issues in the derivation. Generalization to Lagrangians depending on higher order derivatives or more unknowns."];
-Lezioni[6] = [ "6","05/10/2016","15:00", "16:00", "Minimality through convexity. Minimality through auxiliary functional from below (trivial lemma). Examples of application in the case of Lagrangians depending only on the derivative."];
-Lezioni[7] = [ "7","07/10/2016","16:00", "17:00", "Point-to-curve problems. Transversality conditions."];
-Lezioni[8] = [ "8","07/10/2016","17:00", "18:00", "Final examples of application of the indirect method."];
-Lezioni[9] = [ "9","12/10/2016","14:00", "15:00", "Introduction to the direct method. Spaces with a notion of convergence and Weierstrass theorem for coercive and lower-semicontinuous functions. Separable Hilbert spaces: orthonormal systems and components."];
-Lezioni[10] = [ "10","12/10/2016","15:00", "16:00", "Strong convergence: continuity of the norm and lack of compactness of balls in infinite dimension. Weak convergence: definition, compactness of balls, lower semicontinuity of the norm."];
-Lezioni[11] = [ "11","14/10/2016","16:00", "17:00", "Passing to the limit in scalar products. Weakly convergent sequences are bounded. Weak convergence can be tested only on a set which spans a dense subspace."];
-Lezioni[12] = [ "12","14/10/2016","17:00", "18:00", "Summary of basic facts concerning Lebesgue measure and Lebesgue spaces. Fundamental lemma for measurable functions. Examples of weakly convergent sequences of functions."];
-Lezioni[13] = [ "13","19/10/2016","14:00", "15:00", "Sobolev spaces in dimension one: definition W vs definition H, basic properties and examples. Proof that H is contained in W."];
-Lezioni[14] = [ "14","19/10/2016","15:00", "16:00", "Antiderivative of weak derivatives. Proof that W is contained in H. Holder continuity of Sobolev functions. Weak derivatives and difference quotients."];
-Lezioni[15] = [ "15","21/10/2016","15:00", "16:00", "Road map of the direct method: weak formulation in Sobolev spaces, compactness of sub-levels with respect to a suitable notion of convergence, lower semicontinuity, regularity (initial step and bootstrap). First example of application."];
-Lezioni[16] = [ "16","21/10/2016","16:00", "17:00", "General discussion of compactness theorems in functional spaces. Passing to the limit in integral functionals (uniform convergence and continuous Lagrangian, weak convergence and convex Lagrangian)."];
-Lezioni[17] = [ "17","26/10/2016","14:00", "15:00", "Variational approach to a boundary value problem for a second order ordinary differential equation: existence, regularity, uniqueness under monotonicity assumptions. Discussion of different boundary conditions."];
-Lezioni[18] = [ "18","26/10/2016","15:00", "16:00", "Example of non-uniqueness for a Dirichlet problem. Variational approach to the existence of periodic solutions. Growth assumptions on the Lagrangian vs compactness of sub-levels."];
-Lezioni[19] = [ "19","28/10/2016","16:00", "17:00", "Definition of lower semicontinuous envelope and relaxation in metric spaces. Recovery sequences. The relaxation coincides with the lower semicontinuous envelope. Stability of the relaxation under continuous perturbations."];
-Lezioni[20] = [ "20","28/10/2016","17:00", "18:00", "Inf/min of a function vs inf/min of the relaxation. Minimizing sequences for a function vs recovery sequences for minimum points of the relaxation. Subsets dense in energy and their role in the computation of the relaxation."];
-Lezioni[21] = [ "21","02/11/2016","14:00", "15:00", "Strategies for computing a relaxation. Extension by relaxation and third characterization of Sobolev spaces. Example of relaxation of an integral functional."];
-Lezioni[22] = [ "22","02/11/2016","15:00", "16:00", "Definition of Gamma-convergence in metric spaces. Recovery sequences. Lack of connections with point-wise and uniform convergence. Connection with relaxation. Simple examples on the real line. Stability under continuous perturbations. Gamma-liminf and Gamma-limsup."];
-Lezioni[23] = [ "23","04/11/2016","14:00", "15:00", "Lower semicontinuity of Gamma-liminf and Gamma-limsup. Equicoerciveness. Convergence of minima and minimizers for equicoercive sequences."];
-Lezioni[24] = [ "24","04/11/2016","15:00", "16:00", "Proof of the Lagrange multipliers method in finite dimension by penalization of the constraint. Interpretation in terms of Gamma convergence. First example of study of the asymptotic behavior of a parametric minimum problems."];
-Lezioni[25] = [ "25","09/11/2016","14:00", "15:00", "Notions of minimum point: directional local minimum (DLM), weak local minimum (WLM), strong local minimum (SLM), global minimum (GM). Example of a WLM which is not a SLM. Second variation of a functional along a direction."];
-Lezioni[26] = [ "26","09/11/2016","15:00", "16:00", "Quadratic functionals. Legendre conditions. Jacobi differential equation, conjugate points and Jacobi conditions. Necessary conditions for a quadratic functional to be nonnegative."];
-Lezioni[27] = [ "27","11/11/2016","16:00", "17:00", "Sufficient conditions for a quadratic functional to be nonnegative. Oscillation lemma for second order linear ODEs."];
-Lezioni[28] = [ "28","11/11/2016","17:00", "18:00", "Strictly positive quadratic functionals. Estimates from below and from above for a quadratic functional. Necessary conditions for an extremal to be a DLM. Sufficient conditions for an extremal to be a WLM."];
-Lezioni[29] = [ "29","16/11/2016","14:00", "15:00", "Calibrations: introduction and motivating examples. Null Lagrangians and verification functions. Interpretation of minimality results for quadratic functionals and convex Lagrangians in terms of calibration through null Lagrangians. Level sets of verifications functions and calibration of curve-to-curve problems."];
-Lezioni[30] = [ "30","16/11/2016","15:00", "16:00", "Value function. A smooth value function is a verification function. Weierstrass excess function and Weierstrass conditions for SLM. Weierstrass fields and slope function."];
-Lezioni[31] = [ "31","23/11/2016","14:00", "15:00", "The existence of a Weierstrass field implies the Weierstrass representation formula: proof à la Hilbert (via null Lagrangian) and proof à la Weierstrass (in a special case)."];
-Lezioni[32] = [ "32","23/11/2016","15:00", "16:00", "Weierstrass necessary condition for an extremal to be a SLM. Idea of the proof of the imbedding theorem (Jacobi condition implies the existence of a Weierstrass field)."];
-Lezioni[33] = [ "33","25/11/2016","14:00", "15:00", "Lagrange multipliers in the calculus of variations: proof via implicit function theorem and via inverse function theorem. Example of application."];
-Lezioni[34] = [ "34","25/11/2016","15:00", "16:00", "First variation of functionals with multiple integrals: Dirichlet integral and Laplacian, Euler equation in divergence form, normal derivative at the boundary and Neumann boundary conditions."];
-Lezioni[35] = [ "35","30/11/2016","14:00", "15:00", "Definition of weak convergence in Lp. Weak lower semicontinuity under convexity assumptions. Weak compactness under super-linear growth assumptions. Weak convergence of bounded sequences can be tested on a dense subset."];
-Lezioni[36] = [ "36","30/11/2016","15:00", "16:00", "Regularity issues: lack of coerciveness of the Lagrangian and Holder regularity of the derivative of the minimizer. Examples of application of the direct method for Lagrangians with non-quadratic growth."];
-Lezioni[37] = [ "37","27/11/2016","14:00", "15:00", "Extension by relaxation of convex functionals to less regular ambient spaces. Density in energy of piecewise affine functions. Pathologies due to the lack of super-linear growth assumptions."];
-Lezioni[38] = [ "38","27/11/2016","15:00", "16:00", "Convexification of a function and its role in the computation of the relaxation of functionals with non-convex Lagrangian and suitable growth assumptions. Example of application of the theory developed so far."];
-Lezioni[39] = [ "39","07/12/2016","14:00", "15:00", "Classical examples: geodesics in the plane, on the cylinder and on the sphere (extremals, global/local minima, calibrations). Curves that minimize the Dirichlet integral are geodesics."];
-Lezioni[40] = [ "40","07/12/2016","15:00", "16:00", "Classical examples: obstacle problems. Direct method, with constraints on the function and/or on the derivative. Euler equation in form of inequality. Contact condition and optimal regularity in a contact point."];
-Lezioni[41] = [ "41","09/12/2016","16:00", "17:00", "Examples of Gamma-convergence: problems with small parameters (in the functional and/or in the boundary conditions) inducing linearization effects."];
-Lezioni[42] = [ "42","09/12/2016","17:00", "18:00", "Examples of Gamma-convergence: discrete-to-continuum models, from difference quotients to derivatives. Euler equation in the discrete setting."];
-Lezioni[43] = [ "43","14/12/2016","14:00", "15:00", "Classical problem: brachistocrone problem. Model, Euler equation, families of cycloids, existence/uniqueness of cycloid with given boundary conditions, global minimality (via Weierstrass field and via convexity trick)."];
-Lezioni[44] = [ "44","14/12/2016","15:00", "16:00", "Classical problem: cartesian Dido's problem. Euler equation with Lagrange multipliers, existence of solution depending on the parameter, global minimality, discussion of the case where no classical solution exists. Sufficient condition for minimality in a constrained minimization problem."];
-Lezioni[45] = [ "45","16/12/2016","16:00", "17:00", "Classical problem: minimal surface of revolution. Euler equation, existence/uniqueness depending on parameters, description of solutions in a special symmetric case, families of catenaries."];
-Lezioni[46] = [ "46","16/12/2016","17:00", "18:00", "Classical problem: heavy chain. Cartesian and parametric formulation, Euler equation with Lagrange multipliers, existence/uniqueness depending on the parameters. General discussion of minimum problems with point-wise constraint on derivatives: relaxation and saturation of the constraint."];
-Lezioni[47] = [ "47","21/12/2016","14:00", "15:00", "Examples of Gamma-convergence: homogenization problems with oscillating coefficients either on the function or on the derivative. Cell problem."];
-Lezioni[48] = [ "48","21/12/2016","15:00", "16:00", "Examples of Gamma-convergence: Modica-Mortola functional in dimension one (asymptotic study of the minimum value and the optimal transition profile)."];
-
-/*
-*/
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-47224301-1', 'unipi.it');
-  ga('send', 'pageview');
- 
-</script>
-
- 
-</HEAD>
-
-<BODY BGCOLOR="aqua">
-
-<H1 ALIGN="CENTER"><A NAME="OT_Inizio"></A>Elementi di Calcolo delle Variazioni - 2016/2017</H1>
-
-
-<UL TYPE="DISC">
-	<LI><A HREF="#Scheda">Presentation</A>
-	<LI><A HREF="#Burocrazia">Bureaucracy</A>
-	<LI><A HREF="#Book">Book</A>
-	<LI><A HREF="#Lezioni">Lectures</A>
-</UL>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Scheda"></A>Presentation</H2>
-
-<CENTER>
-<TABLE BORDER="1">
-	
-	<TR ALIGN="CENTER">
-	<TH>Course Name</TH>
-	<TD>Elementi di Calcolo delle Variazioni</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Academic Year</TH>
-	<TD>2016/2017</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Credits</TH>
-	<TD>6</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Class hours</TH>
-	<TD>48</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Target</TH>
-	<TD>Students in Mathematics</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Anno</TH>
-	<TD>Third year students or more</TD>
-	</TR>
-	
-	<TR ALIGN="CENTER">
-	<TH>Periodo</TH>
-	<TD>End of September / December</TD>
-	</TR>
-	
-</TABLE>
-</CENTER>
-
-<P>
-<B>Achtung!</B> This course in an English version of the same course held in Italian in 2015/2016, hopefully better organized and improved by the experience gained in the previous year. This course is aimed to be a very basic introduction to calculus of variations for scalar integral functionals, with as less prerequisites as possible. No advanced topic (such as multiple integrals, vectorial problems, geometric problems, or bounded variation functions) is covered.
-</P>
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Burocrazia"></A>Bureaucracy</H2>
-
-<CENTER>
-
-<!--
-
-Work in progress
-
--->
-
-<TABLE BORDER="1">
-
-<TR>
-        <TD><A
-        onclick="ga('send', 'event', 'Elementi di Calcolo delle Variazioni - 2016/2017', 'Pdf', 'Ufficiale');"
-        href="Files/HP_AD/CdV_17_Ufficiale.pdf"
-        target="_blank">Official presentation</A> (in Italian)</TD>
-</TR>
-<TR>
-        <TD><A
-        onclick="ga('send', 'event', 'Elementi di Calcolo delle Variazioni - 2016/2017', 'Pdf', 'Burocrazia');"
-        href="Files/HP_AD/CdV_17_Burocrazia.pdf"
-        target="_blank">General informations</A> (in Italian)</TD>
-</TR>
-<TR>
-	<TD><A
-	onclick="ga('send', 'event', 'Elementi di Calcolo delle Variazioni - 2016/2017', 'Pdf', 'Regole d\'esame');"
-	href="Files/HP_AD/CdV_17_Esame.pdf"
-	target="_blank">Exam rules</A> (in Italian)</TD>
-</TR>
-<TR>
-        <TD><A
-        onclick="ga('send', 'event', 'Elementi di Calcolo delle Variazioni - 2016/2017', 'Pdf', 'Programma');"
-        href="Files/HP_AD/CdV_17_Programma.pdf"
-        target="_blank">Detailed program</A> (in Italian)</TD>
-</TR>
-
-</TABLE>
-
-</CENTER>
-
-
-<HR>
-
-<H2 ALIGN="CENTER"><A NAME="Book"></A>Book</H2>
-
-<P>
-The following (large) pdf file contains the unabridged printout of the lectures (essentially it is the union of the pdf files of all the lectures). Please note that page numbers in the contents are clickable.
-<CENTER>
-
-
-<TABLE BORDER="1">
-	
-	
-	<TR>
-		<TD><A target="_blank"
-		onclick="ga('send', 'event', 'Elementi di Calcolo delle Variazioni - 2016/2017', 'Pdf', 'Stampato integrale');"
-		HREF="Files/HP_AD/CdV_17_Book.pdf">Printout of lectures</A></TD>
-	</TR>
-	
-</TABLE>
-
-<!--
-Non è un po' presto per lo stampato integrale?
-
--->
-
-</CENTER>
-
-<HR>
-
-
-<H2 ALIGN="CENTER"><A NAME="Lezioni"></A>Lectures</H2>
-
-<P>
-For every lecture a pdf file and a video (avi format) are provided. For more informations please visit <A HREF="AD_Video.html">this link</A> (sorry, in Italian).
-</P>
-
-<TABLE BORDER="1" WIDTH="100%" ALIGN="CENTER">
-
-<TR ALIGN="CENTER">
-<TH>Lecture</TH>
-<TH>Date</TH>
-<TH COLSPAN=2>Hour</TH>
-<TH>Subject</TH>
-<TH COLSPAN=2>Download</TH>
-</TR>
-
-<script>
-for (var i=1;i<Lezioni.length;i++)
-{
-	var NumeroOra = Lezioni[i][0];
-	var NumeroOraMod = (NumeroOra<10)?"0"+NumeroOra:NumeroOra;
-	var IndirizzoAvi = Percorso + NumeroOraMod + ".avi";
-	var IndirizzoPdf = Percorso + NumeroOraMod + ".pdf";
-	var LinkAvi = (Lezioni[i][5]=="m")?"Missing!":"<A href=\"" + IndirizzoAvi + "\" target=\"_blank\" " + "onclick=\"ga('send', 'event', '" + NomeCorso + "','Avi','Lezione " + NumeroOraMod + "')\">avi</A>";
-	
-	document.write("<TR><TD>" + 
-	Lezioni[i][0] + 
-	"</TD><TD>" + 
-	Lezioni[i][1] + 
-	"</TD><TD>" + 
-	Lezioni[i][2] + 
-	"</TD><TD>" + 
-	Lezioni[i][3] + 
-	"</TD><TD>" + 
-	Lezioni[i][4] + 
-	"</TD><TD>" +
-	LinkAvi +
-	"</TD><TD>" + "<A href=\"" + IndirizzoPdf + "\" target=\"_blank\" " + 
-	"onclick=\"ga('send', 'event', '" + NomeCorso + "','Pdf','Lezione " + NumeroOraMod + "')\">pdf</A>" +
-	"</TD></TR>");
-}
-</script>
-
-</TABLE>
-
-<HR>
-
-<HR>
-
-
-<CENTER>
-
-<a target="new" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by Massimo Gobbino is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-
-<!--
-
-<a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licenza
-Creative Commons" style="border-width:0"
-src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br
-/>This work by <span xmlns:cc="http://creativecommons.org/ns#"
-property="cc:attributionName">Massimo Gobbino</span> is distributed under the <a target="new" rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
-Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
-Internazionale</a>.
--->
-
-</CENTER>
-
-
-</BODY>
-
-</HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elementi di Calcolo delle Variazioni - 2016/2017</title>
+  <link rel="stylesheet" href="css/stile.css">
+  <script src="js/config-media.js"></script>
+  <script src="js/sito.js"></script>
+  <script src="js/corsi/cdv-2016-17.js"></script>
+  <script src="js/analytics.js"></script>
+</head>
+<body class="pagina-corso">
+  <nav aria-label="Breadcrumb">
+    <a href="nuova-home.html">Home</a><span>›</span>
+    <a href="didattica.html">Didattica</a><span>›</span>
+    <a href="archivio-didattico.html">Archivio didattico</a><span>›</span>
+    <a href="CdV.html">Calculus of Variations</a>
+  </nav>
+  <h1>Elementi di Calcolo delle Variazioni — 2016/2017</h1>
+  <details class="sezione-corso" open>
+    <summary>Course information</summary><div class="contenuto-sezione">
+      <h2 id="Scheda">Presentation</h2>
+      <table><tbody id="scheda-corso"></tbody></table><p id="avviso-corso"></p>
+    </div>
+  </details>
+  <details class="sezione-corso"><summary>Documents</summary><div class="contenuto-sezione">
+    <h2 id="Burocrazia">Documents</h2><table><tbody id="documenti-burocrazia"></tbody></table>
+  </div></details>
+  <details class="sezione-corso"><summary>Book and materials</summary><div class="contenuto-sezione">
+    <h2 id="Book">Book</h2><p id="testo-book"></p><table><tbody id="documenti-book"></tbody></table>
+  </div></details>
+  <details class="sezione-corso"><summary>Lectures</summary><div class="contenuto-sezione">
+    <h2 id="Lezioni">Lectures</h2><p id="testo-lezioni"></p>
+    <div class="tabella-scroll"><table><tbody id="tabella-lezioni"></tbody></table></div>
+  </div></details>
+  <footer id="licenza-sito"></footer>
+</body>
+</html>
