@@ -1,0 +1,193 @@
+var NomeCorso = "Analisi Matematica 2 - 2015/2016";
+var Percorso = MEDIA.lezioni + "AM2_16/AM2_16_L";
+var CifreNumeroLezione = 3;
+
+var SchedaCorso = {
+  nome: "Analisi Matematica 2",
+  annoAccademico: "2015/2016",
+  crediti: "12",
+  ore: "120 (ufficialmente, 130+8 realisticamente)",
+  target: "Matematica",
+  anno: "Secondo",
+  periodo: "fine Settembre / fine Maggio",
+  avviso: "Achtung! Questo corso è pensato per gli studenti del Corso di Laurea in Matematica. Certamente è adatto anche per studenti di altri corsi di studi, purché sufficientemente motivati e privi di problemi sui preliminari (cioè precorso, Analisi 1 e Algebra Lineare). Ad esempio è sicuramente adatto per chi ha seguito con successo il corrispondente corso di Analisi Matematica 1 (anno 2014/2015), o per chi ha già seguito con noia i corsi di Analisi 2 per ingegneria. Per tutti gli altri, il consiglio è di partire con una delle versioni edulcorate, ad esempio il corso di Analisi 2 del 2013/2014."
+};
+
+var DocumentiCorso = [
+  {
+    sezione: "burocrazia",
+    file: "AM2_16_Burocrazia.pdf",
+    titolo: "Informazioni burocratiche",
+    nota: "versione forse definitiva aggiornata al 11/06/2016"
+  },
+  {
+    sezione: "burocrazia",
+    file: "AM2_16_Esame.pdf",
+    titolo: "Regole d'esame",
+    nota: "versione provvisoria aggiornata al 14/10/2015"
+  },
+  {
+    sezione: "book",
+    file: "AM2_16_Book1.pdf",
+    titolo: "Stampato integrale lezioni",
+    nota: "Volume 1 — Lezioni 1–47"
+  },
+  {
+    sezione: "book",
+    file: "AM2_16_Book2.pdf",
+    titolo: "Stampato integrale lezioni",
+    nota: "Volume 2 — Lezioni 48–86"
+  },
+  {
+    sezione: "book",
+    file: "AM2_16_Book3.pdf",
+    titolo: "Stampato integrale lezioni",
+    nota: "Volume 3 — Lezioni 87–130"
+  },
+  {
+    sezione: "book",
+    file: "AM2_16_BookTM.pdf",
+    titolo: "Stampato integrale lezioni",
+    nota: "Appendice di Teoria della Misura"
+  }
+];
+
+var Lezioni = new Array();
+Lezioni[1] = [ "1","23/09/2015","11:00", "12:00", "Introduzione al corso. Struttura euclidea, metrica e topologia nello spazio a n dimensioni. Funzioni di n variabili e loro grafico. Metodi per visualizzare un grafico in dimensione 2: linee di livello e restrizioni a rette."];
+Lezioni[2] = [ "2","23/09/2015","12:00", "13:00", "Definizioni di limite in un punto per funzioni di più variabili. Funzioni continue. Primi esempi di limite."];
+Lezioni[3] = [ "3","25/09/2015","09:00", "10:00", "Limiti all'infinito per funzioni di più variabili. Esempi di limiti per funzioni di più variabili: esistenza via stime+carabinieri o coordinate polari, non esistenza via restrizione a particolari curve."];
+Lezioni[4] = [ "4","25/09/2015","10:00", "11:00", "Ulteriori esempi di limiti per funzioni di più variabili."];
+Lezioni[5] = [ "5","29/09/2015","09:00", "10:00", "Derivate parziali e direzionali e loro significato geometrico. Differenziale per funzioni di più variabili. Esempi di funzioni che hanno tutte le derivate direzionali nulle ma non sono continue."];
+Lezioni[6] = [ "6","29/09/2015","10:00", "11:00", "Una funzione differenziabile è continua e ha tutte le derivate direzionali. Formula per le derivate direzionali. Gradiente e sua interpretazione geometrica. Matrice Jacobiana. Esempi di calcolo di derivate parziali."];
+Lezioni[7] = [ "7","30/09/2015","11:00", "12:00", "Teorema del differenziale totale: caso classico e caso con ipotesi più minimaliste. Prodotto di matrici e differenziale della funzione composta."];
+Lezioni[8] = [ "8","30/09/2015","12:00", "13:00", "Lipschitzianità delle funzioni lineari. Chain rule e funzioni composte in più variabili: esempi di applicazione."];
+Lezioni[9] = [ "9","02/10/2015","09:00", "10:00", "Derivate successive per funzioni di più variabili. Teorema di inversione dell'ordine di derivazione: enunciato, dimostrazione, controesempi."];
+Lezioni[10] = [ "10","02/10/2015","10:00", "11:00", "Formalismo dei multi-indici. Sviluppo di Taylor in più variabili e idea della dimostrazione nel caso con resto di Lagrange."];
+Lezioni[11] = [ "11","06/10/2015","09:00", "10:00", "Teorema di Lagrange direzionale per funzioni di più variabili. Le funzioni con gradiente nullo sono costanti sui connessi. Limitatezza del gradiente vs lipschitzianità per funzioni di più variabili."];
+Lezioni[12] = [ "12","06/10/2015","10:00", "11:00", "Dimostrazione della formula di Taylor in più variabili con resto alla Peano. Ricapitolazione sulle forme quadratiche ed i metodi per determinarne la segnatura."];
+Lezioni[13] = [ "13","07/10/2015","11:00", "12:00", "Fine ripasso sulle forme quadratiche. Stima dal basso per forme quadratiche definite positive. Matrice Hessiana. Segnatura della matrice Hessiana e comportamento nell'intorno di un punto stazionario."];
+Lezioni[14] = [ "14","07/10/2015","12:00", "13:00", "Dimostrazione del criterio che lega la segnatura dell'hessiana alla natura di un punto stazionario. Esempi di studio di punti stazionari."];
+Lezioni[15] = [ "15","09/10/2015","09:00", "10:00", "Compattezza e teorema di Weierstrass in più variabili. Ricerca dei punti di massimo/minimo. Nei punti di massimo/minimi interni il gradiente (se esiste) si annulla."];
+Lezioni[16] = [ "16","09/10/2015","10:00", "11:00", "Primi esempi di problemi di massimo/minimo su insiemi compatti: metodo delle linee di livello e metodo di parametrizzazione del bordo."];
+Lezioni[17] = [ "17","13/10/2015","09:00", "10:00", "Esercizi sul calcolo di gradiente e matrice hessiana in n variabili. Esercizi sulla chain rule: formula generale per le soluzioni dell'equazione delle onde in una variabile."];
+Lezioni[18] = [ "18","14/10/2015","11:00", "12:00", "Metodo dei moltiplicatori di Lagrange (caso di un solo moltiplicatore): descrizione del metodo e primi esempi di applicazione."];
+Lezioni[19] = [ "19","14/10/2015","12:00", "13:00", "Giustificazione intuitiva del metodo dei moltiplicatori di Lagrange. Utilizzo misto di moltiplicatori ed altre tecniche. Caratterizzazione di autovettori ed autovalori come punti stazionari del quoziente di Rayleigh e relativi moltiplicatori."];
+Lezioni[20] = [ "20","16/10/2015","09:00", "10:00", "Metodo dei moltiplicatori di Lagrange (caso con più moltiplicatori): descrizione del metodo ed esempi di applicazione."];
+Lezioni[21] = [ "21","16/10/2015","10:00", "11:00", "Esercizi sui massimi/minimi per funzioni di più variabili su insiemi compatti. Metodo di sostituzione del vincolo. Massimi/minimi di funzioni con valori assoluti."];
+Lezioni[22] = [ "22","20/10/2015","09:00", "10:00", "Teorema di Weierstrass generalizzato su insiemi non compatti. Esempi di problemi di massimo/minimo su insiemi non compatti."];
+Lezioni[23] = [ "23","20/10/2015","10:00", "11:00", "Dimostrazione del teorema fondamentale dell'algebra (via Weierstrass generalizzato e studio locale). Ulteriori esempi di massimi/minimi su insiemi non compatti."];
+Lezioni[24] = [ "24","21/10/2015","11:00", "12:00", "Sottoinsiemi convessi e funzioni convesse in più variabili. Punti estremali di insiemi convessi e punti di massimo di funzioni convesse. La convessità come fatto unidimensionale."];
+Lezioni[25] = [ "25","21/10/2015","12:00", "13:00", "Equivalenza tra due definizioni di locale limitatezza. Le funzioni convesse sono localmente limitate nella parte interna dell'insieme di definizione. Convessità e derivate prime: monotonia del gradiente e grafico al di sopra del piano tangente."];
+Lezioni[26] = [ "26","23/10/2015","09:00", "10:00", "Convessità e continuità: le funzioni convesse sono continue e localmente lipschitziane nella parte interna dell'insieme di definizione. Convessità e segnatura della matrice Hessiana."];
+Lezioni[27] = [ "27","23/10/2015","10:00", "11:00", "Esempi di funzioni convesse in due variabili. Esempio non banale di utilizzo dei moltiplicatori di Lagrange."];
+Lezioni[28] = [ "28","27/10/2015","09:00", "10:00", "Introduzione agli integrali doppi: notazioni, significato geometrico, step functions, integrale inferiore e superiore, criterio di integrabilità."];
+Lezioni[29] = [ "29","27/10/2015","10:00", "11:00", "Descrizione della formula di riduzione per integrali doppi su rettangoli e su insiemi normali. Analogia con il double counting. Esempi di applicazione."];
+Lezioni[30] = [ "30","28/10/2015","11:00", "12:00", "Proprietà basilari dell'integrale (linearità, monotonia, integrale del prodotto e del valore assoluto, ...) analoghe a quelle valide in una variabile. Enunciato e dimostrazione della formula di riduzione in massima generalità. Esempi patologici."];
+Lezioni[31] = [ "31","28/10/2015","12:00", "13:00", "Formula di spezzamento in ipotesi di integrabilità. Insiemi misurabili e loro caratterizzazione. Misurabilità degli insiemi normali. Integrabilità delle funzioni continue su insiemi misurabili."];
+Lezioni[32] = [ "32","30/11/2015","09:00", "10:00", "Utilizzo delle coordinate polari per il calcolo di integrali doppi: descrizione della formula ed esempi di applicazione."];
+Lezioni[33] = [ "33","30/11/2015","10:00", "11:00", "Formula generale per il cambio di variabili negli integrali doppi ed esempi classici di applicazione. Classi particolari di trasformazioni: traslazioni, dilatazioni degli assi, affinità."];
+Lezioni[34] = [ "34","03/11/2015","09:00", "10:00", "Integrali tripli: notazioni, significato fisico, definizione. Formula di riduzione sui parallelepipedi e su insiemi normali (integrazione per colonne). Esempi di applicazione."];
+Lezioni[35] = [ "35","03/11/2015","10:00", "11:00", "Formula di riduzione per sezioni per gli integrali tripli. Utilizzo delle simmetrie per mostrare che certi integrali sono nulli, o comunque per semplificarne il calcolo. Esempi di applicazione."];
+Lezioni[36] = [ "36","04/11/2015","11:00", "12:00", "Coordinate cilindriche e sferiche nello spazio. Cambi di variabile negli integrali tripli. Esempi di applicazione."];
+Lezioni[37] = [ "37","04/11/2015","12:00", "13:00", "Solidi di rotazione: equazioni e formula per il volume. Calcolo del baricentro di figure piane /solide mediante integrali doppi/tripli. Teorema di Guldino per il volume dei solidi di rotazione."];
+Lezioni[38] = [ "38","06/11/2015","09:00", "10:00", "Basi teoriche della formula di spezzamento per integrali multipli. Teorema della media integrale. Calcolo di momenti d'inerzia mediante integrali multipli. Principio di cavalieri."];
+Lezioni[39] = [ "39","06/11/2015","10:00", "11:00", "Integrali di funzioni con valori assoluti. Esercizi riassuntivi sugli integrali multipli."];
+Lezioni[40] = [ "40","10/11/2015","09:00", "10:00", "Dimostrazione della formula di cambio di variabili negli integrali multipli (parte prima): caso delle trasformazioni affini."];
+Lezioni[41] = [ "41","10/11/2015","10:00", "11:00", "Dimostrazione della formula di cambio di variabili negli integrali multipli (parte seconda): riduzione al caso dei cubi piccoli, stima di un diffeomorfismo in un cubo."];
+Lezioni[42] = [ "42","11/11/2015","11:00", "12:00", "Dimostrazione della formula di cambio di variabili negli integrali multipli (parte terza): enunciato e dimostrazione di una disuguaglianza nel caso dei cubi piccoli. Commento sulle coordinate polari."];
+Lezioni[43] = [ "43","11/11/2015","12:00", "13:00", "Introduzione agli integrali impropri in più variabili. Commenti sulla scelta di limitare la teoria agli integrali assolutamente convergenti. Studio del caso delle potenze della distanza dall'origine."];
+Lezioni[44] = [ "44","13/11/2015","09:00", "10:00", "Un integrale improprio non dipende da come viene invasa la zona di integrazione in sede di definizione. Calcolo dell'integrale gaussiano mediante integrali doppi. Esempi di studio della convergenza di integrali impropri."];
+Lezioni[45] = [ "45","13/11/2015","10:00", "11:00", "Esercizi sullo studio della convergenza di integrali multipli impropri."];
+Lezioni[46] = [ "46","17/11/2015","09:00", "10:00", "Volume della palla n-dimensionale: formule esplicite e ricorrenti. Integrali impropri in dimensione n: discussione degli esponenti critici per gli integrali di potenze della norma."];
+Lezioni[47] = [ "47","17/11/2015","10:00", "11:00", "Esempi finali sugli integrali multipli impropri: utilizzo di stime sia sulle integrande, sia sulla zona di integrazione."];
+Lezioni[48] = [ "48","18/11/2015","11:00", "12:00", "Definizione di curva e suo sostegno. Curve chiuse e semplici. Strategie per dimostrare la semplicità. Disegno di una curva piana. Vettore e retta tangente. Speed e velocity."];
+Lezioni[49] = [ "49","18/11/2015","12:00", "13:00", "Definizione di lunghezza di una curva e di curva rettificabile. Le curve Lipschitziane sono rettificabili. Integrali di funzioni vettoriali: stime dall'alto e dal basso. Formula per la lunghezza delle curve regolari: enunciato e prima dimostrazione (via stime su integrali vettoriali)."];
+Lezioni[50] = [ "50","19/11/2015","09:00", "10:00", "Lunghezza di curve cartesiane o in coordinate polari. Esempi di calcolo di lunghezze curve. Discussione dell'indipendenza della lunghezza dalla parametrizzazione, sia nel caso regolare, sia nel caso solo continuo."];
+Lezioni[51] = [ "51","19/11/2015","10:00", "11:00", "Esempi di curve di lunghezza infinita. Integrale curvilineo: notazioni, significato geometrico, idea della definizione, formula per il calcolo. Baricentri di curve. Seconda dimostrazione della formula per la lunghezza di curve regolari (via teorema di Lagrange sulle componenti)."];
+Lezioni[52] = [ "52","24/11/2015","11:00", "12:00", "Definizione di forma differenziale. Integrale di una forma differenziale su una curva: definizione ed interpretazione fisica. Commenti sui rapporti tra forme differenziali e campi di vettori."];
+Lezioni[53] = [ "53","24/11/2015","12:00", "13:00", "Differente comportamento dell'integrale curvilineo di una forma e di una funzione rispetto a riparametrizzazioni di una curva. Forme differenziali esatte. Caratterizzazione dell'esattezza in termini di integrali lungo curve."];
+Lezioni[54] = [ "54","25/11/2015","11:00", "12:00", "Forme differenziali chiuse. Esattezza implica chiusura. Insiemi convessi, stellati, connessi, semplicemente connessi. Le forme chiuse sono esatte negli aperti semplicemente connessi (enunciato)."];
+Lezioni[55] = [ "55","25/11/2015","12:00", "13:00", "L'integrale di una forma chiusa su due curve omotope coincide (enunciato). Esempio di forma differenziale chiusa ma non esatta. Come testare l'esattezza di una forma chiusa in un aperto non semplicemente connesso."];
+Lezioni[56] = [ "56","27/11/2015","09:00", "10:00", "Integrali dipendenti da un parametro: teoremi di continuità e derivabilità (derivazione sotto il segno di integrale). Esattezza delle forme chiuse negli aperti stellati."];
+Lezioni[57] = [ "57","27/11/2015","10:00", "11:00", "L'integrale di una forma chiusa su due curve omotope (mediante omotopia sufficientemente regolare) coincide. Quattro strategie per il calcolo dell'integrale di una forma lungo una curva: discussione ed esempi."];
+Lezioni[58] = [ "58","01/12/2015","09:00", "10:00", "Superfici nello spazio: definizione e primi esempi. Superfici cartesiane. Piano tangente e vettore normale. Formula per un vettore perpendicolare a due vettori dati (prodotto vettore)."];
+Lezioni[59] = [ "59","01/12/2015","10:00", "11:00", "La retta tangente ad una curva su una superficie è contenuta nel piano tangente. Come non si definisce l'area di una superficie: esempio di Schwarz."];
+Lezioni[60] = [ "60","02/12/2015","11:00", "12:00", "Definizione di area di una superficie e modi equivalenti di scrivere la formula per il calcolo. Invarianza dell'area per riparametrizzazione. Caso speciale delle superfici cartesiane e di rotazione."];
+Lezioni[61] = [ "61","02/12/2015","12:00", "13:00", "Formule equivalenti per l'area di una superficie di rotazione. Teorema di Guldino per l'area delle superfici di rotazione. Integrali superficiali e integrali di flusso. Interpretazione delle formule di integrazione in coordinate polari/sferiche in termini di integrali curvilinei/superficiali."];
+Lezioni[62] = [ "62","04/12/2015","09:00", "10:00", "Gradiente, laplaciano, divergenza, rotore: definizioni e relazioni tra di esse. Significato di gradiente/divergenza/laplaciano nulli/uguali.", "m"];
+Lezioni[63] = [ "63","04/12/2015","10:00", "11:00", "Teorema di Gauss-Green e teorema della divergenza nel piano. Equivalenza tra le due formulazioni. Interpretazione del termine di bordo come integrale di flusso e come integrale di una forma differenziale."];
+Lezioni[64] = [ "64","09/12/2015","11:00", "12:00", "Applicazioni del teorema della divergenza: area ed integrale di funzioni su domini delimitati da curve date."];
+Lezioni[65] = [ "65","09/12/2015","12:00", "13:00", "Applicazioni del teorema della divergenza: calcolo di integrali di flusso. Laplaciano in coordinate polari e funzioni armoniche radiali."];
+Lezioni[66] = [ "66","11/12/2015","09:00", "10:00", "Dimostrazione del teorema della divergenza su insiemi normali. Idea euristica per dimostrare il teorema nel caso generale scomponendo il dominio e sfruttando le cancellazioni sui bordi interni."];
+Lezioni[67] = [ "67","11/12/2015","10:00", "11:00", "Partizioni dell'unità. Dimostrazione del teorema della divergenza nel caso generale."];
+Lezioni[68] = [ "68","15/12/2015","09:00", "10:00", "Orientazione del bordo di una superficie. Enunciato della formula di Stokes (teorema del rotore). Come determinare un vettore che ha per rotore un vettore dato."];
+Lezioni[69] = [ "69","15/12/2015","10:00", "11:00", "Quattro strategie per calcolare un integrale di flusso attraverso una superficie."];
+Lezioni[70] = [ "70","16/12/2015","11:00", "12:00", "Dimostrazione della formula di Stokes. Dimostrazione via Gauss-Green di un caso particolare (dimensione due, maggior regolarità su dominio, integranda, diffeomorfismo) del cambio di variabili negli integrali multipli."];
+Lezioni[71] = [ "71","16/12/2015","12:00", "13:00", "Giustificazione formale dell'algoritmo per trovare un vettore dato il suo rotore. Esempio di vettore a divergenza nulla che non è un rotore. L'integrale di un rotore su una superficie chiusa è nullo. Pull-back di forme differenziali."];
+Lezioni[72] = [ "72","24/02/2016","14:00", "15:00", "Spazi metrici, spazi di Banach, spazi di Hilbert: definizioni, motivazioni, esempi principali."];
+Lezioni[73] = [ "73","24/02/2016","15:00", "16:00", "Equivalenza tra continuità per successioni e continuità epsilon/delta in spazi metrici. Equivalenza di tutte le norme in dimensione finita. Definizione di limitatezza e totale limitatezza."];
+Lezioni[74] = [ "74","26/02/2016","09:00", "10:00", "Compattezza in spazi metrici: equivalenza tra compattezza per ricoprimenti, compattezza per successioni, e completezza più totale limitatezza."];
+Lezioni[75] = [ "75","26/02/2016","10:00", "11:00", "Lemma del raggio magico (numero di Lebesgue di un ricoprimento). Teorema di Heine-Cantor in spazi metrici. Criterio per dimostrare la totale limitatezza."];
+Lezioni[76] = [ "76","01/03/2016","09:00", "10:00", "Teorema delle contrazioni in spazi metrici. Completamento di uno spazio metrico: definizioni ed enunciato dei tre risultati principali (esistenza, unicità, estensione)."];
+Lezioni[77] = [ "77","01/03/2016","10:00", "11:00", "Dimostrazione dei tre risultati principali sul completamento di spazi metrici."];
+Lezioni[78] = [ "78","02/03/2016","14:00", "15:00", "Teorema delle funzioni implicite: presentazione del problema, enunciato e dimostrazione nel caso di una equazione in due variabili, continuità e ulteriore regolarità della soluzione."];
+Lezioni[79] = [ "79","02/03/2016","15:00", "16:00", "Teorema delle funzioni implicite (una equazione in dimensione n). Calcolo del polinomio di Taylor di funzioni definite implicitamente. Limiti all'infinito di una funzione vs limitatezza del suo luogo di zeri."];
+Lezioni[80] = [ "80","04/03/2016","09:00", "10:00", "Teorema delle funzioni implicite (una equazione in dimensione 2): dimostrazione mediante punto fisso."];
+Lezioni[81] = [ "81","04/03/2016","10:00", "11:00", "Teorema delle funzioni implicite: caso generale (k equazioni in dimensione n)."];
+Lezioni[82] = [ "82","08/03/2016","09:00", "10:00", "Teorema della funzione inversa (aka teorema di invertibilità locale). Teorema della mappa aperta."];
+Lezioni[83] = [ "83","08/03/2016","10:00", "11:00", "Moltiplicatori di Lagrange: dimostrazione mediante teorema di invertibilità locale (nel caso generale) e mediante esplicitazione del vincolo (nel caso di una sola equazione)."];
+Lezioni[84] = [ "84","09/03/2016","14:00", "15:00", "Moltiplicatori di Lagrange: dimostrazione mediante esplicitazione del vincolo nel caso generale. Semicontinuità del rango di una matrice."];
+Lezioni[85] = [ "85","09/03/2016","15:00", "16:00", "Moltiplicatori di Lagrange: dimostrazione mediante penalizzazione del vincolo. Esercizi sull'invertibilità di mappe vettoriali."];
+Lezioni[86] = [ "86","11/03/2016","09:00", "10:00", "Moltiplicatori di Lagrange:  condizione sufficiente per essere punto di massimo/minimo. Esercizi su funzioni implicite e funzioni inverse."];
+Lezioni[87] = [ "87","11/03/2016","10:00", "11:00", "Successioni di funzioni: definizione di convergenza puntuale e uniforme. Primi esempi."];
+Lezioni[88] = [ "88","15/03/2016","09:00", "10:00", "Convergenza uniforme: teoremi di scambio dell'integrale e della derivata."];
+Lezioni[89] = [ "89","15/03/2016","10:00", "11:00", "Convergenza uniforme: teorema di scambio del limite. Continuità del limite uniforme di funzioni continue. Distanza nello spazio delle funzioni limitate che induce la convergenza uniforme."];
+Lezioni[90] = [ "90","16/03/2016","14:00", "15:00", "La convergenza puntuale implica la convergenza uniforme sotto ipotesi di monotonia (sia ad x fisso sia ad n fisso): enunciati e dimostrazioni."];
+Lezioni[91] = [ "91","16/03/2016","15:00", "16:00", "Convergenza uniforme sui compatti. Esercizio sulla convergenza in uno spazio di polinomi di grado limitato. Completezza o meno di spazi di funzioni rispetto ad opportune norme."];
+Lezioni[92] = [ "92","18/03/2016","09:00", "10:00", "Serie di funzioni. Convergenza totale: definizione e rapporti con la convergenza uniforme. M-test di Weierstrass. Convergenza totale come convergenza delle norme in uno spazio di Banach."];
+Lezioni[93] = [ "93","18/03/2016","10:00", "11:00", "Esercizi sulle serie di funzioni."];
+Lezioni[94] = [ "94","05/04/2016","09:00", "10:00", "Serie di potenze: definizioni, enunciato dei principali risultati, esempio pratico di utilizzo per il calcolo di speciali serie numeriche."];
+Lezioni[95] = [ "95","05/04/2016","10:00", "11:00", "Serie di potenze: dimostrazione dei risultati principali (struttura dell'insieme convergenza, formula per il calcolo del raggio di convergenza, teorema di Abel)."];
+Lezioni[96] = [ "96","06/04/2016","14:00", "15:00", "Funzioni analitiche: definizione e criteri. Analiticità delle funzioni elementari: esponenziale, seno, coseno, logaritmo, arcotangente, potenza ad esponente reale."];
+Lezioni[97] = [ "97","06/04/2016","15:00", "16:00", "Prodotto di Cauchy di serie numeriche. Teorema sul prodotto tra una serie convergente ed una assolutamente convergente. Prodotto di serie di potenze. Analiticità del prodotto di funzioni analitiche."];
+Lezioni[98] = [ "98","07/04/2016","14:00", "15:00", "Esercizi sulle funzioni analitiche: complementi sul raggio di convergenza (è sempre il massimo possibile), l'insieme degli zeri è discreto, ordine finito in ogni punto e disuguaglianza di tipo Glaeser."];
+Lezioni[99] = [ "99","07/04/2016","15:00", "16:00", "Calcolo della somma di serie di potenze, calcolo alla Eulero della somma dei quadrati dei reciproci degli interi, stima delle derivate successive di una funzione analitica."];
+Lezioni[100] = [ "100","08/04/2016","09:00", "10:00", "Esercizi sulle successioni di funzioni: convergenza uniforme della composizione, limite uniforme di funzioni periodiche."];
+Lezioni[101] = [ "101","08/04/2016","10:00", "11:00", "Esercizi sulle serie di funzioni: limiti trattati mediante confronto serie-integrali e risoluzione per serie di una equazione alle derivate parziali."];
+Lezioni[102] = [ "102","13/04/2016","14:00", "15:00", "Equazioni differenziali: riepilogo notazioni, formulazione integrale di un problema di Cauchy (equazione di Volterra), enunciato del teorema di esistenza ed unicità (teorema CLPL: Cauchy-Lipschitz-Picard-Lindelof), enunciato del teorema di sola esistenza (teorema di Peano)."];
+Lezioni[103] = [ "103","13/04/2016","15:00", "16:00", "Parte di esistenza del teorema CLPL: dimostrazione alla Cauchy-Lipschitz (via contrazioni senza tempo di vita ottimale) e alla Picard-Lindelof (via approssimanti di Picard, con tempo di vita ottimale)."];
+Lezioni[104] = [ "104","14/04/2016","14:00", "15:00", "Parte di esistenza del teorema CLPL: dimostrazione mediante contrattività di una opportuna iterata della mappa di Pirard e mediante contrazioni in uno spazio con norma pesata (entrambe con tempo di vita ottimale)."];
+Lezioni[105] = [ "105","14/04/2016","15:00", "16:00", "Parte di unicità del teorema CLPL: dimostrazione mediante le contrazioni e mediante lemma di Gronwall. Successioni di funzioni equi-continue ed equi-uniformemente-continue."];
+Lezioni[106] = [ "106","15/04/2016","09:00", "10:00", "Teorema di Ascoli-Arzelà (versione standard sulla retta reale): enunciato e dimostrazione."];
+Lezioni[107] = [ "107","15/04/2016","10:00", "11:00", "Teorema di Ascoli-Arzelà (versione metrica e variante con sola convergenza sui compatti). Dimostrazione del teorema di Peano mediante problemi approssimanti Lipschitz."];
+Lezioni[108] = [ "108","19/04/2016","09:00", "10:00", "Dimostrazione del teorema di Peano con approssimanti alla Tonelli (problemi con ritardo). Approssimazione di funzioni continue mediante funzioni Lipschitz."];
+Lezioni[109] = [ "109","19/04/2016","10:00", "11:00", "Teorema di esistenza globale (caso di rhs globalmente limitato). Teorema di alternativa (esistenza globale, blow up, break down)."];
+Lezioni[110] = [ "110","20/04/2016","14:00", "15:00", "Teorema dell'asintoto. Primi esempi di studio qualitativo per equazioni differenziali autonome."];
+Lezioni[111] = [ "111","20/04/2016","15:00", "16:00", "Soprasoluzioni e sottosoluzioni e relativo teorema di confronto. Teorema di esistenza globale (caso di rhs con crescita sublineare)."];
+Lezioni[112] = [ "112","21/04/2016","09:00", "10:00", "Ulteriori esempi di studio qualitativo di equazioni autonome."];
+Lezioni[113] = [ "113","21/04/2016","10:00", "11:00", "Primi esempi di studio qualitativo di equazioni non autonome."];
+Lezioni[114] = [ "114","26/04/2016","09:00", "10:00", "Teorema di confronto tra soprasoluzioni e sottosoluzioni deboli (nel caso Lipschitz). Parte di unicità del teorema CLPL: dimostrazione mediante soprasoluzioni."];
+Lezioni[115] = [ "115","26/04/2016","10:00", "11:00", "Primo esempio di studio qualitativo di un'equazione differenziale non autonoma con valori soglia."];
+Lezioni[116] = [ "116","27/04/2016","14:00", "15:00", "Ulteriore esempio di studio qualitativo con valori soglia."];
+Lezioni[117] = [ "117","27/04/2016","15:00", "16:00", "Esercizi sullo studio qualitativo di equazioni differenziali."];
+Lezioni[118] = [ "118","28/04/2016","14:00", "15:00", "Dipendenza continua dal dato iniziale: passaggio al limite nel caso con rhs continuo e stima della differenza nel caso con rsh lipschitziano. Condizioni di tipo Osgood per esistenza globale e unicità."];
+Lezioni[119] = [ "119","29/04/2016","09:00", "10:00", "Equazioni di ordine 2: spazio delle fasi, introduzione al metodo energetico, primi esempi."];
+Lezioni[120] = [ "120","29/04/2016","10:00", "11:00", "Equazioni di ordine 2: blow up vs esistenza di soluzioni periodiche, calcolo del periodo e sua dipendenza dal livello energetico, esempio del pendolo non linearizzato."];
+Lezioni[121] = [ "121","03/05/2016","09:00", "10:00", "Sistemi di equazioni differenziali lineari autonome a coefficienti costanti: teoria generale. Esponenziale di una matrice: definizione, calcolo, proprietà vere e false."];
+Lezioni[122] = [ "122","03/05/2016","10:00", "11:00", "Sistemi di equazioni differenziali lineari omogenee: studio della stabilità e stabilità asintotica nel caso 2*2 (via forma canonica della matrice)."];
+Lezioni[123] = [ "123","04/05/2016","14:00", "15:00", "Sistemi di equazioni differenziali lineari omogenee: studio dell'asintotica stabilità con metodi energetici. Introduzione al teorema di linearizzazione."];
+Lezioni[124] = [ "124","04/05/2016","15:00", "16:00", "Teorema di linearizzazione: enunciato più formale e dimostrazione energetica nel caso di linearizzato diagonalizzabile con autovalori reali negativi. Esempi di applicazione."];
+Lezioni[125] = [ "125","11/05/2016","14:00", "15:00", "Equazione logistica. Esempi di sistemi di equazioni differenziali: modello preda-predatore (Volterra-Lotka) con o senza autolimitazione."];
+Lezioni[126] = [ "126","11/05/2016","15:00", "16:00", "Esempi di sistemi di equazioni differenziali: modello per due specie in competizione, epidemia SIS, epidemia SIR."];
+Lezioni[127] = [ "127","12/05/2016","09:00", "10:00", "Esempi di studio di equazioni differenziali del secondo ordine non lineari. Buca di potenziale."];
+Lezioni[128] = [ "128","12/05/2016","10:00", "11:00", "Esempio di convergenza dominata per integrali impropri. Calcolo dell'integrale di Dirichlet."];
+Lezioni[129] = [ "129","13/05/2016","09:00", "10:00", "Derivazione sotto il segno di integrale per integrali impropri. Applicazione all'integrale di Dirichlet ed alla Gamma di Eulero. Calcolo degli integrali di Fresnel mediante forme differenziali."];
+Lezioni[130] = [ "130","13/05/2016","10:00", "11:00", "Fine del calcolo degli integrali di Fresnel. Wronskiano e teorema di oscillazione per equazioni lineari di ordine due. Omeomorfismo tra linee di livello ed esistenza di livelli critici."];
+Lezioni[131] = [ "131","17/05/2016","09:00", "10:00", "Introduzione alla teoria della misura: motivazioni. Paradosso di Banach-Tarski. Sigma-algebra. Tre definizioni di misura (misura positiva su sigma-algebra, misura esterna, misura vettoriale)."];
+Lezioni[132] = [ "132","17/05/2016","10:00", "11:00", "Teoremi di passaggio al limite della misura su successioni monotone di insiemi. Insiemi misurabili alla Caratheodory: definizione e dimostrazione che costituiscono una sigma-algebra."];
+Lezioni[133] = [ "133","17/05/2016","11:00", "12:00", "Costruzioni di misure: metodo I (misura di Lebesgue) e metodo II (misure di Hausdorff). Verifica che tali metodi producono misure esterne. I razionali hanno misura di Lebesgue nulla."];
+Lezioni[134] = [ "134","18/05/2016","14:00", "15:00", "Gli insiemi boreliani sono misurabili se e solo se la misura è additiva sui distanti. Le misure costruite con il metodo II sono additive sui distanti. Descrizione della via classica alla misura di Lebesgue (via approssimazione da fuori con aperti e da dentro con compatti)."];
+Lezioni[135] = [ "135","18/05/2016","15:00", "16:00", "Misurabilità alla Caratheodory vs misura interna. Esempio di Vitali (insieme non misurabile secondo Lebesgue). Funzioni misurabili: definizione e stabilità per passaggio al limite."];
+Lezioni[136] = [ "136","18/05/2016","16:00", "17:00", "Step functions (con immagine finita o numerabile). Definizione di integrale per funzioni positive (equivalenza tra due definizioni). Definizione di integrale per funzioni a segno qualunque. Riemann-Darboux vs Lebesgue (suddivisione orizzontale vs verticale)."];
+Lezioni[137] = [ "137","19/05/2016","09:00", "10:00", "Enunciato dei tre teoremi di passaggio al limite (Beppo Levi o convergenza monotona, lemma di Fatou, convergenza dominata). Dimostrazione del lemma di Fatou e sue varianti con il limsup."];
+Lezioni[138] = [ "138","19/05/2016","10:00", "11:00", "Dimostrazione del teorema di convergenza dominata e di convergenza monotona. Teoremi di continuità e derivabilità per integrali dipendenti da parametro. Accenno ad argomenti successivi (derivabilità di funzioni lipschitziane e punti di Lebesgue)."];

@@ -202,46 +202,66 @@ function generaTabellaLezioni() {
 
 
 /*
-  Genera la prima riga della tabella.
-
-  Le intestazioni "Ora" e "Download" occupano due colonne,
-  grazie alla proprietà colspan.
-*/
-/*
   Genera l'intestazione della tabella delle lezioni.
 
-  Normalmente la tabella contiene due colonne per gli orari.
-  Alcuni corsi storici non dispongono di questa informazione:
+  Normalmente la tabella contiene due colonne per gli orari
+  e due colonne per i download: AVI e PDF.
+
+  Alcuni corsi storici non dispongono degli orari:
   in tal caso il file dati può impostare
 
     const MostraOrariLezioni = false;
+
+  Alcuni corsi dispongono soltanto dei PDF:
+  in tal caso il file dati può impostare
+
+    const MostraVideoLezioni = false;
+
+  Se le variabili non sono definite, il comportamento
+  predefinito consiste nel mostrare sia gli orari sia i video.
 */
 function generaIntestazioneLezioni(corpoTabella) {
   const rigaIntestazione = document.createElement("tr");
 
-  /*
-    Se la variabile non è definita, gli orari vengono mostrati.
-    Questo conserva il comportamento di tutte le pagine esistenti.
-  */
   const mostraOrari =
     typeof MostraOrariLezioni === "undefined"
       ? true
       : MostraOrariLezioni;
 
-  const intestazioni = mostraOrari
-    ? [
-        { testo: "N." },
-        { testo: "Data" },
-        { testo: "Ora", colspan: 2 },
-        { testo: "Argomento sommario" },
-        { testo: "Download", colspan: 2 }
-      ]
-    : [
-        { testo: "N." },
-        { testo: "Data" },
-        { testo: "Argomento sommario" },
-        { testo: "Download", colspan: 2 }
-      ];
+  const mostraVideo =
+    typeof MostraVideoLezioni === "undefined"
+      ? true
+      : MostraVideoLezioni;
+
+  /*
+    Le intestazioni vengono costruite progressivamente,
+    in modo da adattarsi alle colonne effettivamente visibili.
+  */
+  const intestazioni = [
+    { testo: "N." },
+    { testo: "Data" }
+  ];
+
+  if (mostraOrari) {
+    intestazioni.push({
+      testo: "Ora",
+      colspan: 2
+    });
+  }
+
+  intestazioni.push({
+    testo: "Argomento sommario"
+  });
+
+  /*
+    Se vengono mostrati sia AVI sia PDF, Download occupa
+    due colonne. Se i video sono nascosti, occupa soltanto
+    la colonna del PDF.
+  */
+  intestazioni.push({
+    testo: "Download",
+    colspan: mostraVideo ? 2 : 1
+  });
 
   for (const intestazione of intestazioni) {
     const cella = document.createElement("th");
@@ -269,15 +289,20 @@ function generaIntestazioneLezioni(corpoTabella) {
   Senza gli orari, ha invece la forma
 
     [numero, data, argomento, statoAvi, statoPdf]
+
+  La struttura dell'array resta invariata anche quando la colonna
+  dei video non viene mostrata.
 */
 function generaRigheLezioni(corpoTabella) {
-  /*
-    Se la variabile non è definita, gli orari vengono mostrati.
-  */
   const mostraOrari =
     typeof MostraOrariLezioni === "undefined"
       ? true
       : MostraOrariLezioni;
+
+  const mostraVideo =
+    typeof MostraVideoLezioni === "undefined"
+      ? true
+      : MostraVideoLezioni;
 
   /*
     L'indice 0 non viene usato: in questo modo il numero
@@ -345,22 +370,25 @@ function generaRigheLezioni(corpoTabella) {
     }
 
     /*
-      Genera la cella relativa al video.
+      Genera la cella relativa al video soltanto quando
+      la colonna AVI è prevista per il corso.
     */
-    if (statoAvi === "m") {
-      aggiungiCellaMissing(riga);
-    } else {
-      aggiungiCellaDownload(
-        riga,
-        indirizzoAvi,
-        "avi",
-        "avi",
-        numeroFile
-      );
+    if (mostraVideo) {
+      if (statoAvi === "m") {
+        aggiungiCellaMissing(riga);
+      } else {
+        aggiungiCellaDownload(
+          riga,
+          indirizzoAvi,
+          "avi",
+          "avi",
+          numeroFile
+        );
+      }
     }
 
     /*
-      Genera la cella relativa al PDF.
+      Genera sempre la cella relativa al PDF.
     */
     if (statoPdf === "m") {
       aggiungiCellaMissing(riga);
@@ -378,6 +406,7 @@ function generaRigheLezioni(corpoTabella) {
   }
 }
 
+
 /*
   Aggiunge a una riga una semplice cella di testo.
 */
@@ -389,6 +418,10 @@ function aggiungiCellaTesto(riga, testo) {
 }
 
 
+/*
+  Aggiunge a una riga una cella che segnala
+  la mancanza del file.
+*/
 function aggiungiCellaMissing(riga) {
   const cella = document.createElement("td");
   const link = document.createElement("a");
@@ -400,16 +433,6 @@ function aggiungiCellaMissing(riga) {
   riga.appendChild(cella);
 }
 
-
-function aggiungiCellaDownload(
-  riga,
-  indirizzo,
-  testoLink,
-  formato,
-  numeroLezione
-) {
-  // ...
-}
 
 /*
   Aggiunge a una riga una cella contenente un collegamento
