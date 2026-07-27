@@ -282,13 +282,13 @@ function generaIntestazioneLezioni(corpoTabella) {
 /*
   Genera una riga per ogni lezione presente nell'array Lezioni.
 
-  Con gli orari, ogni elemento dell'array ha la forma
+  Ogni elemento dell'array ha sempre la forma
 
     [numero, data, oraInizio, oraFine, argomento, statoAvi, statoPdf]
 
-  Senza gli orari, ha invece la forma
-
-    [numero, data, argomento, statoAvi, statoPdf]
+  Quando gli orari non devono essere mostrati, oraInizio e oraFine
+  restano presenti nei dati, eventualmente come stringhe vuote,
+  ma le relative colonne non vengono generate.
 
   La struttura dell'array resta invariata anche quando la colonna
   dei video non viene mostrata.
@@ -349,25 +349,22 @@ function generaRigheLezioni(corpoTabella) {
     aggiungiCellaTesto(riga, lezione[1]);
 
     /*
-      La posizione dell'argomento e degli indicatori di file
-      mancanti dipende dalla presenza o meno degli orari.
+      Gli orari sono sempre presenti nella struttura dei dati,
+      ma vengono mostrati soltanto quando il corso lo richiede.
     */
-    let statoAvi;
-    let statoPdf;
-
     if (mostraOrari) {
       aggiungiCellaTesto(riga, lezione[2]);
       aggiungiCellaTesto(riga, lezione[3]);
-      aggiungiCellaTesto(riga, lezione[4]);
-
-      statoAvi = lezione[5];
-      statoPdf = lezione[6];
-    } else {
-      aggiungiCellaTesto(riga, lezione[2]);
-
-      statoAvi = lezione[3];
-      statoPdf = lezione[4];
     }
+
+    /*
+      L'argomento e gli indicatori dei file mancanti occupano
+      sempre le stesse posizioni.
+    */
+    aggiungiCellaTesto(riga, lezione[4]);
+
+    const statoAvi = lezione[5];
+    const statoPdf = lezione[6];
 
     /*
       Genera la cella relativa al video soltanto quando

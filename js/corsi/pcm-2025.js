@@ -1,4 +1,4 @@
-var NomeCorso = "Precorso per Matematica - 2025";
+var NomeCorso = "Precorso di Matematica - 2025";
 
 var Percorso = MEDIA.lezioni + "Precorsi/PCM_25/PCM_25_L";
 
