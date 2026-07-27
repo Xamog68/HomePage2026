@@ -1,4 +1,4 @@
-var NomeCorso = "Analisi Matematica 1 - 2025/2026"
+var NomeCorso = "Analisi Matematica 1 - 2025/2026";
 var Percorso = MEDIA.lezioni + "AM1_26/AM1_26_L";
 
 var SchedaCorso = {
