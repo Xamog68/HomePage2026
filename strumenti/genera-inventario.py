@@ -15,6 +15,7 @@ usate nei file del sito.
 from __future__ import annotations
 
 import ast
+import csv
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -23,6 +24,7 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parents[1]
 CARTELLA_CORSI = RADICE / "js" / "corsi"
 FILE_OUTPUT = RADICE / "documentazione" / "INVENTARIO-CORSI.md"
+FILE_INDICI = RADICE / "documentazione" / "indici-book.csv"
 
 
 @dataclass
@@ -33,6 +35,7 @@ class Corso:
     video_mancanti: list[str]
     pdf_mancanti: list[str]
     books: list[tuple[str, str]]
+    indici_books: dict[str, str]
 
 
 def estrai_stringa_variabile(testo: str, nome: str) -> str:
@@ -272,7 +275,42 @@ def valore_mancante(
     )
 
 
-def analizza_file(percorso: Path) -> Corso:
+
+def leggi_indici_books(percorso: Path) -> dict[str, str]:
+    """
+    Legge il CSV prodotto da verifica-indici-book.py.
+
+    Restituisce un dizionario:
+        nome_file_pdf -> si / no / dubbio / errore
+    """
+    if not percorso.is_file():
+        return {}
+
+    risultati = {}
+
+    with percorso.open(
+        "r",
+        encoding="utf-8",
+        newline="",
+    ) as file_csv:
+        lettore = csv.DictReader(file_csv)
+
+        for riga in lettore:
+            nome_file = (riga.get("file") or "").strip()
+            stato = (
+                riga.get("indice_cliccabile")
+                or ""
+            ).strip().lower()
+
+            if nome_file:
+                risultati[nome_file] = stato
+
+    return risultati
+
+def analizza_file(
+    percorso: Path,
+    indici_books: dict[str, str],
+) -> Corso:
     """
     Analizza un singolo file JavaScript del corso.
     """
@@ -307,6 +345,7 @@ def analizza_file(percorso: Path) -> Corso:
         video_mancanti=video_mancanti,
         pdf_mancanti=pdf_mancanti,
         books=estrai_books(testo),
+        indici_books=indici_books,
     )
 
 
@@ -347,6 +386,62 @@ def descrivi_books(
     return "<br>".join(risultati)
 
 
+def descrivi_indici(
+    books: list[tuple[str, str]],
+    indici_books: dict[str, str],
+) -> str:
+    """
+    Riassume lo stato degli indici cliccabili dei book del corso.
+
+    Restituisce:
+    - ``—`` se il corso non ha book;
+    - ``sì`` se tutti i book hanno l'indice cliccabile;
+    - ``no`` se nessun book lo ha;
+    - ``parziale (n/totale)`` se soltanto alcuni lo hanno;
+    - ``da verificare`` se mancano dati;
+    - ``dubbio`` o ``errore`` nei rispettivi casi.
+    """
+    if not books:
+        return "—"
+
+    stati = []
+
+    for _titolo, file_pdf in books:
+        nome_file = Path(file_pdf).name
+
+        if not nome_file:
+            stati.append("da verificare")
+            continue
+
+        stato = indici_books.get(nome_file, "")
+        stati.append(stato or "da verificare")
+
+    if all(stato == "si" for stato in stati):
+        return "sì"
+
+    if all(stato == "no" for stato in stati):
+        return "no"
+
+    if "errore" in stati:
+        return "errore"
+
+    if "dubbio" in stati:
+        return "dubbio"
+
+    verificati = [
+        stato
+        for stato in stati
+        if stato in {"si", "no"}
+    ]
+
+    if len(verificati) != len(stati):
+        return "da verificare"
+
+    cliccabili = sum(stato == "si" for stato in stati)
+
+    return f"parziale ({cliccabili}/{len(stati)})"
+
+
 def genera_markdown(corsi: list[Corso]) -> str:
     """
     Genera il contenuto del file Markdown finale.
@@ -380,11 +475,10 @@ def genera_markdown(corsi: list[Corso]) -> str:
                     descrivi_books(
                         corso.books
                     ).replace("|", r"\|"),
-                    (
-                        "da verificare"
-                        if corso.books
-                        else "—"
-                    ),
+                    descrivi_indici(
+                        corso.books,
+                        corso.indici_books,
+                    ).replace("|", r"\|"),
                 ]
             )
             + " |"
@@ -403,9 +497,11 @@ def genera_markdown(corsi: list[Corso]) -> str:
                 "in posizione 6 il PDF mancante."
             ),
             (
-                "- La colonna **Indice cliccabile** richiede "
-                "l’analisi diretta del PDF del book e, per ora, "
-                "non viene determinata automaticamente."
+                "- La colonna **Indice cliccabile** riassume, per ogni "
+                "corso, i risultati del file "
+                "`documentazione/indici-book.csv`: `sì` se tutti i "
+                "volumi hanno l’indice, `no` se nessuno lo ha, e "
+                "`parziale (n/totale)` negli eventuali casi misti."
             ),
             "",
         ]
@@ -427,8 +523,15 @@ def main() -> None:
         CARTELLA_CORSI.glob("*.js")
     )
 
+    indici_books = leggi_indici_books(
+        FILE_INDICI
+    )
+
     corsi = [
-        analizza_file(percorso)
+        analizza_file(
+            percorso,
+            indici_books,
+        )
         for percorso in percorsi
     ]
 
