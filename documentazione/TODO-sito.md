@@ -12,25 +12,22 @@ Legenda:
 
 ## 1. Precorsi
 
-- [ ] Controllare i breadcrumb di `AD_PCM_07.html`, `AD_PCM_08.html`, `AD_PCM_09.html`, `AD_PCM_25.html`.
-  - Il collegamento corretto dovrebbe puntare a `precorso-matematica.html`.
-  - In alcune versioni era rimasto il vecchio link `AD_Precorsi.html`.
+- [x] Controllati e corretti i breadcrumb di `AD_PCM_07.html`, `AD_PCM_08.html`, `AD_PCM_09.html`, `AD_PCM_25.html`.
+  - Il collegamento punta a `precorso-matematica.html`.
 
-- [ ] Verificare definitivamente il Book 2008.
-  - File previsto: `PCM_08_Book.pdf`.
-  - Deve comparire nella pagina `AD_PCM_08.html`.
-  - Non deve comparire tra i materiali generali della pagina introduttiva.
+- [x] Verificato definitivamente il Book 2008.
+  - File: `PCM_08_Book.pdf`.
+  - Compare nella pagina `AD_PCM_08.html`.
+  - Non compare tra i materiali generali della pagina introduttiva.
 
-- [ ] Rivedere la pagina `precorso-matematica.html`.
-  - Testo introduttivo.
-  - Organizzazione delle edizioni 2007, 2008, 2009, 2025.
-  - Materiali generali: Schede, Esercizi, Test.
-  - Eventuale sezione “Come usare i materiali”.
+- [x] Riorganizzata la pagina `precorso-matematica.html`.
+  - Edizione 2025 presentata come edizione di riferimento.
+  - Edizioni storiche 2007, 2008, 2009 raccolte separatamente.
+  - Conservati i materiali generali.
+  - Possibili ulteriori ritocchi sono soltanto grafici.
 
-- [ ] Rivedere l’inserimento del Precorso in `archivio-didattico.html`.
-  - Posizione della scheda.
-  - Spaziature e larghezze.
-  - Coerenza con le altre schede.
+- [x] Riorganizzato l’inserimento del Precorso in `archivio-didattico.html`.
+  - La scheda è stata inserita e resa coerente con le altre famiglie di corsi.
 
 ---
 
@@ -38,18 +35,17 @@ Legenda:
 
 ### Caso patologico: 2006/07
 
-- [ ] Migrare `AD_C07.html`.
+- [x] Migrato `AD_C07.html`.
 
-- [~] Decidere come rappresentare i PDF condivisi da più lezioni.
+- [x] Rappresentati i PDF condivisi da più lezioni ripetendo lo stesso collegamento nelle righe interessate.
   - Esempio: lezioni 1–3 collegate allo stesso file `C07_L01-03.pdf`.
-  - Soluzione probabilmente preferibile: ripetere lo stesso link PDF nelle tre righe.
 
 - [ ] Verificare e correggere le date sospette:
   - `15/10/06` nella sequenza di novembre.
   - ripetizione di `22/11/06`.
   - eventuali altre incongruenze cronologiche.
 
-- [ ] Gestire la lezione 41, priva sia di AVI sia di PDF.
+- [x] Gestita la lezione 41, priva sia di AVI sia di PDF.
 
 ### Corsi regolari
 
@@ -61,25 +57,28 @@ Legenda:
   - Console JavaScript senza errori.
   - Visualizzazione su schermo stretto.
 
+- [x] C07: uniformate a minuscolo le estensioni dei video
+      (`.AVI` → `.avi`) e aggiornati i collegamenti della pagina storica.
+
 ---
 
 ## 3. Corsi Sant’Anna
 
 ### Caso patologico: SA12
 
-- [ ] Migrare `AD_SA12.html`.
+- [x] Migrato `AD_SA12.html`.
 
-- [~] Gestire la lezione `20 bis`.
-  - Nome logico non numerico.
+- [x] Gestita la lezione `20 bis`.
+  - Conservato il nome logico non numerico.
   - File:
     - `SA12_20bis.avi`
     - `SA12_20bis.pdf`
 
-- [ ] Gestire i video mancanti:
-  - lezione 20;
-  - lezione 26.
+- [x] Gestiti i video mancanti indicati nei dati del corso.
+  - La lezione 26 risulta marcata come video mancante nell’inventario.
+  - La situazione della lezione 20 è stata assorbita nella migrazione della sequenza con `20 bis`.
 
-- [ ] Conservare la sezione “Esercizi”:
+- [x] Conservata la sezione “Esercizi”:
   - `SA12_Esercizi.pdf`;
   - `SA12_Esercizi-Hint.pdf`.
 
@@ -87,7 +86,7 @@ Legenda:
   - Il target è “Studenti secondo anno SSSUP”.
   - La scheda riporta “Primo”.
 
-- [ ] Ripulire mentalmente l’HTML originario duplicato/malformato, senza perdere contenuti.
+- [x] Ripulito l’HTML originario duplicato/malformato senza perdere i contenuti utili.
 
 ### Altri corsi Sant’Anna
 
@@ -100,7 +99,7 @@ Legenda:
   - correzione AVI;
   - correzione PDF.
 
-- [ ] Creare o confermare la pagina introduttiva `complementi-santanna.html`.
+- [x] Creata e collegata la pagina introduttiva `complementi-santanna.html`.
 
 ---
 
@@ -132,12 +131,12 @@ Legenda:
 
 ### Peculiarità tecniche
 
-- [ ] Verificare Freiberg 2017.
+- [x] Verificato Freiberg 2017.
   - Numerazione file senza zero iniziale.
   - `CifreNumeroLezione = 1`.
-  - Book nella cartella delle lezioni, non in `HP_AD`.
+  - Il riferimento storico al book è conservato; una copia è presente anche in `HP_AD`.
 
-- [ ] Creare o confermare le pagine introduttive e i breadcrumb provvisori dei gruppi:
+- [x] Create o confermate le pagine introduttive e i breadcrumb dei gruppi:
   - Calcolo delle variazioni;
   - Istituzioni di Analisi Matematica;
   - corsi speciali / Freiberg.
@@ -149,9 +148,9 @@ Legenda:
 - [ ] Controllare tutti i breadcrumb dopo la migrazione.
   - Nessun collegamento deve tornare per errore alle vecchie pagine.
 
-- [ ] Rivedere `AD_Index.html`.
-  - Attualmente risultava modificato ma non incluso nel commit dei Precorsi.
-  - Capire se la modifica è utile, accidentale o ormai superata.
+- [x] Riveduto `AD_Index.html`.
+  - Il collegamento dei precorsi punta ora a `precorso-matematica.html`.
+  - La modifica è stata committata separatamente.
 
 - [ ] Decidere cosa fare di `AD_Video_vecchio.html`.
   - Attualmente è un backup locale non tracciato.
@@ -195,7 +194,60 @@ Legenda:
 
 ---
 
-## 7. Git
+## 7. Inventario e book
+
+- [x] Creato il generatore automatico:
+  - `strumenti/genera-inventario.py`;
+  - output in `documentazione/INVENTARIO-CORSI.md`.
+
+- [x] Verificata automaticamente la presenza di indici cliccabili nei book.
+  - Analizzati 58 PDF sul server.
+  - 43 book con link interni rilevati.
+  - 15 file senza link interni rilevati.
+  - Nessun errore e nessun caso dubbio.
+
+- [x] Integrati i risultati nel file:
+  - `documentazione/indici-book.csv`.
+
+- [x] Resa sintetica la colonna **Indice cliccabile**:
+  - `sì` se tutti i volumi sono cliccabili;
+  - `no` se nessun volume lo è;
+  - `parziale (n/totale)` negli eventuali casi misti.
+
+- [ ] Creare ex novo i book mancanti, con priorità alta:
+  - AM1 2006/2007;
+  - AM1 2007/2008;
+  - AM1 2008/2009;
+  - AM1 2009/2010;
+  - AM1 2010/2011;
+  - AM2 2006/2007.
+
+- [ ] Valutare, con priorità bassa, i book mancanti:
+  - Precorso 2007;
+  - Precorso 2009.
+
+- [ ] Rigenerare con indice cliccabile i 14 book effettivamente usati dal sito:
+  - `AM12_Book1.pdf`;
+  - `AM12_Book2.pdf`;
+  - `AM13_Book1.pdf`;
+  - `AM13_Book2.pdf`;
+  - `AM1_15_Book1.pdf`;
+  - `AM1_15_Book2.pdf`;
+  - `AM1_15_Book3.pdf`;
+  - `PCM_08_Book.pdf`;
+  - `SA10_Book.pdf`;
+  - `SA11_Book.pdf`;
+  - `SA12_Book.pdf`;
+  - `SA13_Book.pdf`;
+  - `SA14_Book.pdf`;
+  - `SA15_Book.pdf`.
+
+- [~] Verificare se `ALAM2_14_Bookbis.pdf` è soltanto un residuo storico.
+  - Non è richiamato da alcun file dati del sito.
+  - `ALAM2_14_Book.pdf`, che è quello effettivamente usato, ha l’indice cliccabile.
+
+
+## 8. Git
 
 - [ ] Prima di ogni blocco di commit:
   - `git status --short`
@@ -214,7 +266,7 @@ Legenda:
 
 ---
 
-## 8. Metodo di lavoro
+## 9. Metodo di lavoro
 
 Quando emerge una stranezza:
 
@@ -224,3 +276,54 @@ Quando emerge una stranezza:
 4. verificare la fonte originaria o i file sul server;
 5. correggerla con un commit separato;
 6. cambiare `[ ]` o `[~]` in `[x]` quando risolta.
+
+## 10. Opzioni del generatore
+
+- [x] Aggiunta l’opzione
+
+      const MostraVideoLezioni = false;
+
+      per i corsi che dispongono soltanto dei PDF.
+
+      Quando l’opzione è attiva, la tabella delle lezioni:
+      - non mostra la colonna AVI;
+      - non genera una sequenza di `Missing!`;
+      - mantiene invariata la struttura dei dati;
+      - continua a mostrare normalmente la colonna PDF.
+
+      Se l’opzione non è definita, il comportamento predefinito
+      resta quello usuale, con entrambe le colonne AVI e PDF.
+
+- [ ] Correggere i caratteri di sostituzione Unicode (`�`, U+FFFD)
+      introdotti durante la migrazione di alcune vecchie annate SSSUP.
+      I file interessati sono:
+      - `js/corsi/sa-2009-10.js`
+      - `js/corsi/sa-2010-11.js`
+      - `js/corsi/sa-2012-13.js`
+
+## 11. Riorganizzazione futura del magazzino
+
+Policy da applicare al momento della dismissione del vecchio sito.
+
+Struttura prevista:
+
+Magazzino/
+  CodiceCorso/
+    Pdf/
+    Avi/
+    Documenti/
+
+Esempio:
+
+Magazzino/
+  CdV_17/
+    Pdf/
+    Avi/
+    Documenti/
+
+I materiali specifici di un corso devono stare nella cartella del corso.
+I materiali trasversali, come gli eserciziari comuni a più edizioni,
+restano in cartelle condivise.
+
+Finché il vecchio sito rimane attivo, non spostare i file già pubblicati,
+per evitare di rompere i collegamenti storici.
