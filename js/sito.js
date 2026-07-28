@@ -377,7 +377,7 @@ function generaRigheLezioni(corpoTabella) {
         aggiungiCellaDownload(
           riga,
           indirizzoAvi,
-          "avi",
+          "Avi",
           "avi",
           numeroFile
         );
@@ -393,7 +393,7 @@ function generaRigheLezioni(corpoTabella) {
       aggiungiCellaDownload(
         riga,
         indirizzoPdf,
-        "pdf",
+        "Pdf",
         "pdf",
         numeroFile
       );

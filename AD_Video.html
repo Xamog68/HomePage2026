@@ -2,7 +2,8 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
 
   <!-- Titolo mostrato nella scheda del browser -->
@@ -17,47 +18,43 @@
   <script src="js/analytics.js"></script>
 </head>
 
-<body>
+<body class="archivio-didattico pagina-documento">
 
-  <!-- =====================================================
-       PERCORSO DI NAVIGAZIONE
-       ===================================================== -->
+<header>
+  <h1>Come vedere i video</h1>
 
-       <nav aria-label="Percorso di navigazione">
-         <a href="nuova-home.html">Home</a>
-         <span>›</span>
-         <a href="AD_Index.html">Archivio Didattico</a>
-         <span>›</span>
-         <a href="AD_Intro.html">Il progetto</a>
-         <span>›</span>
-         <span>Come vedere i video</span>
-       </nav>
+  <nav aria-label="Percorso di navigazione">
+    <a href="nuova-home.html">Home</a>
+    <span>›</span>
+    <a href="AD_Index.html">Archivio Didattico</a>
+    <span>›</span>
+    <a href="AD_Intro.html">Il progetto</a>
+    <span>›</span>
+    <span>Come vedere i video</span>
+  </nav>
+</header>
 
+<main>
 
+  <div class="introduzione-pagina">
+    <p>
+      In questa pagina sono raccolte alcune informazioni pratiche
+      per scaricare e utilizzare le registrazioni video e gli altri
+      materiali associati alle lezioni.
+    </p>
 
-  <!-- =====================================================
-       TITOLO E INTRODUZIONE
-       ===================================================== -->
-
-       <h1>Come vedere i video</h1>
-  <p>
-    In questa pagina sono raccolte alcune informazioni pratiche
-    per scaricare e utilizzare le registrazioni video e gli altri
-    materiali associati alle lezioni.
-  </p>
-
-  <p>
-    In caso di difficoltà, conviene partire dalla prima domanda.
-    Le sezioni successive contengono indicazioni più specifiche
-    e qualche spiegazione tecnica sul formato dei video.
-  </p>
-
+    <p>
+      In caso di difficoltà, conviene partire dalla prima domanda.
+      Le sezioni successive contengono indicazioni più specifiche
+      e qualche spiegazione tecnica sul formato dei video.
+    </p>
+  </div>
 
   <!-- =====================================================
        APERTURA DEI VIDEO
        ===================================================== -->
 
-  <details class="sezione-corso" open>
+  <details class="blocco-contenuto sezione-corso" open>
     <summary>Come si aprono i video?</summary>
 
     <div class="contenuto-sezione">
@@ -107,7 +104,7 @@
        COMPUTER
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Come si vedono su Windows, macOS e Linux?</summary>
 
     <div class="contenuto-sezione">
@@ -150,7 +147,7 @@
        DISPOSITIVI MOBILI
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Come si vedono su iPhone, iPad e Android?</summary>
 
     <div class="contenuto-sezione">
@@ -188,7 +185,7 @@
        DOWNLOAD INVECE DELLA RIPRODUZIONE
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Perché il browser scarica il video invece di mostrarlo?</summary>
 
     <div class="contenuto-sezione">
@@ -226,7 +223,7 @@
        FILE MANCANTI
        ===================================================== -->
 
-  <details class="sezione-corso" id="missing">
+  <details class="blocco-contenuto sezione-corso" id="missing">
     <summary>Che cosa significa “Missing!”?</summary>
 
     <div class="contenuto-sezione">
@@ -261,7 +258,7 @@
        FORMATO DEI VIDEO
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Perché i video sono in formato AVI?</summary>
 
     <div class="contenuto-sezione">
@@ -310,7 +307,7 @@
        DIMENSIONI DEI FILE
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Come fanno i video a essere lossless e così piccoli?</summary>
 
     <div class="contenuto-sezione">
@@ -364,7 +361,7 @@
        PERCHÉ NON MP4
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Ma perché non convertire tutto in MP4?</summary>
 
     <div class="contenuto-sezione">
@@ -428,7 +425,7 @@
        PROBLEMI DEL SERVER
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Perché a volte non si apre nessun video?</summary>
 
     <div class="contenuto-sezione">
@@ -469,7 +466,7 @@
        REGISTRAZIONI DIFETTOSE
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Che cosa significano “audio incompleto” e indicazioni simili?</summary>
 
     <div class="contenuto-sezione">
@@ -510,7 +507,7 @@
        DIAGNOSI RAPIDA
        ===================================================== -->
 
-  <details class="sezione-corso">
+  <details class="blocco-contenuto sezione-corso">
     <summary>Il video non funziona: che cosa devo controllare?</summary>
 
     <div class="contenuto-sezione">
@@ -553,6 +550,8 @@
     </div>
   </details>
 
+
+</main>
 
   <!-- =====================================================
        LICENZA

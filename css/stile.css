@@ -3,14 +3,14 @@
    ========================================================= */
 
 body {
-  font-family: system-ui, sans-serif;
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 
-  line-height: 1.5;
   background: #eef1f4;
   color: #222;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
 }
 
 /*
@@ -28,6 +28,7 @@ body.pagina-corso {
 
 header {
   padding: 2rem;
+
   background: white;
   border-radius: 12px;
 }
@@ -68,6 +69,7 @@ nav a:hover {
 
 .accessi-principali article {
   padding: 1.5rem;
+
   background: white;
   border-radius: 12px;
 }
@@ -93,8 +95,8 @@ nav a:hover {
   padding: 1rem 1.25rem;
 
   background: #f3f5f7;
-  font-weight: 700;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .contenuto-sezione {
@@ -171,49 +173,204 @@ nav a:hover {
    TABELLA DELLE LEZIONI
    ========================================================= */
 
-   /* Padding generale delle celle. */
-   .contenuto-sezione th,
-   .contenuto-sezione td {
-     padding: 0.75rem 0.9rem;
-     border-bottom: 1px solid #d8dde2;
-     text-align: left;
-     vertical-align: top;
-   }
+/*
+  Le colonne brevi della tabella delle lezioni hanno meno
+  spazio laterale e, sugli schermi larghi, non vanno a capo.
+*/
+#tabella-lezioni th:nth-child(1),
+#tabella-lezioni td:nth-child(1),
+#tabella-lezioni th:nth-child(2),
+#tabella-lezioni td:nth-child(2),
+#tabella-lezioni th:nth-child(3),
+#tabella-lezioni td:nth-child(3),
+#tabella-lezioni th:nth-child(4),
+#tabella-lezioni td:nth-child(4),
+#tabella-lezioni th:nth-child(6),
+#tabella-lezioni td:nth-child(6),
+#tabella-lezioni th:nth-child(7),
+#tabella-lezioni td:nth-child(7) {
+  padding-right: 0.45rem;
+  padding-left: 0.45rem;
+  white-space: nowrap;
+}
 
-   /* Le colonne brevi della tabella lezioni hanno meno spazio laterale. */
-   #tabella-lezioni th:nth-child(1),
-   #tabella-lezioni td:nth-child(1),
-   #tabella-lezioni th:nth-child(2),
-   #tabella-lezioni td:nth-child(2),
-   #tabella-lezioni th:nth-child(3),
-   #tabella-lezioni td:nth-child(3),
-   #tabella-lezioni th:nth-child(4),
-   #tabella-lezioni td:nth-child(4),
-   #tabella-lezioni th:nth-child(6),
-   #tabella-lezioni td:nth-child(6),
-   #tabella-lezioni th:nth-child(7),
-   #tabella-lezioni td:nth-child(7) {
-     padding-left: 0.45rem;
-     padding-right: 0.45rem;
-     white-space: nowrap;
-   }
 
-   /* =========================================================
-      LICENZA E PIEDE DI PAGINA
-      ========================================================= */
+/* =========================================================
+   PAGINE INTRODUTTIVE DEI CORSI
+   ========================================================= */
 
-      #licenza-sito {
-        margin-top: 2rem;
-        padding: 1.25rem 1.5rem;
+.griglia-corsi-al {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
 
-        border-top: 1px solid #cbd2d8;
-        color: #56616a;
-        font-size: 0.9rem;
-        text-align: center;
-      }
+.griglia-corsi-am1 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.griglia-corsi-al .sezione-corso,
+.griglia-corsi-am1 .sezione-corso {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   ESERCIZIARI
+   ========================================================= */
+
+.tabella-eserciziari {
+  width: 100%;
+  max-width: 350px;
+}
+
+
+/* =========================================================
+   LICENZA E PIEDE DI PAGINA
+   ========================================================= */
+
+#licenza-sito {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+
+  border-top: 1px solid #cbd2d8;
+  color: #56616a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* =========================================================
+   ARCHIVIO DIDATTICO: SFONDO A LAVAGNA
+   ========================================================= */
+
+body.archivio-didattico {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(5, 28, 20, 0.18),
+      rgba(5, 28, 20, 0.18)
+    ),
+    url("../immagini/sfondo-archivio-didattico.png")
+      center top / cover fixed;
+}
+
+body.archivio-didattico main {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.archivio-didattico > header,
+body.archivio-didattico article,
+body.archivio-didattico .introduzione-archivio,
+body.archivio-didattico .breadcrumb,
+body.archivio-didattico #licenza-sito {
+  background: rgba(248, 246, 238, 0.94);
+  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
+}
+
+body.archivio-didattico > header {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto 0;
+  padding: 1.5rem 2rem;
+
+  border-radius: 0.8rem;
+}
+
+body.archivio-didattico article {
+  border-radius: 0.8rem;
+}
+
+body.archivio-didattico .introduzione-archivio {
+  max-width: 52rem;
+  margin: 3rem auto 2.5rem;
+  padding: 1.1rem 1.5rem;
+
+  border-radius: 0.8rem;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+body.archivio-didattico .breadcrumb {
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  margin: 1.5rem auto;
+  padding: 0.65rem 1rem;
+
+  border-radius: 0.65rem;
+}
+
+body.archivio-didattico #licenza-sito {
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  margin: 2.5rem auto 1.5rem;
+  padding: 0.75rem 1.1rem;
+
+  border: 0;
+  border-radius: 0.65rem;
+}
+
+
+/* =========================================================
+   PAGINE DOCUMENTO DELL'ARCHIVIO DIDATTICO
+   Storia, Tecnica, Come vedere i video, ecc.
+   ========================================================= */
+
+body.archivio-didattico.pagina-documento .introduzione-pagina,
+body.archivio-didattico.pagina-documento .blocco-contenuto {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+
+  background: rgba(248, 246, 238, 0.94);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
+}
+
+body.archivio-didattico.pagina-documento .introduzione-pagina {
+  margin-top: 3rem;
+}
+
+body.archivio-didattico.pagina-documento .introduzione-pagina > :first-child,
+body.archivio-didattico.pagina-documento .blocco-contenuto > :first-child {
+  margin-top: 0;
+}
+
+body.archivio-didattico.pagina-documento .introduzione-pagina > :last-child,
+body.archivio-didattico.pagina-documento .blocco-contenuto > :last-child {
+  margin-bottom: 0;
+}
+
+body.archivio-didattico.pagina-documento details.blocco-contenuto {
+  padding: 0;
+  overflow: hidden;
+}
+
+body.archivio-didattico.pagina-documento details.blocco-contenuto > summary {
+  padding: 1rem 1.5rem;
+}
+
+body.archivio-didattico.pagina-documento details.blocco-contenuto > .contenuto-sezione {
+  padding: 0 1.5rem 1.5rem;
+}
+
+
 /* =========================================================
    SCHERMI MEDI E PICCOLI
    ========================================================= */
+
+@media (max-width: 1050px) {
+  .griglia-corsi-am1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 750px) {
   body,
@@ -221,7 +378,9 @@ nav a:hover {
     padding: 1rem;
   }
 
-  .accessi-principali {
+  .accessi-principali,
+  .griglia-corsi-al,
+  .griglia-corsi-am1 {
     grid-template-columns: 1fr;
   }
 
@@ -242,52 +401,24 @@ nav a:hover {
   #tabella-lezioni td {
     white-space: normal;
   }
-}
 
-/* =========================================================
-   PAGINA INTRODUTTIVA DI ALGEBRA LINEARE
-   ========================================================= */
-
-.griglia-corsi-al {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  align-items: start;
-}
-
-.griglia-corsi-al .sezione-corso {
-  margin-top: 0;
-}
-
-@media (max-width: 750px) {
-  .griglia-corsi-al {
-    grid-template-columns: 1fr;
+  body.archivio-didattico > header,
+  body.archivio-didattico.pagina-documento .introduzione-pagina,
+  body.archivio-didattico.pagina-documento .blocco-contenuto {
+    width: min(100% - 1.5rem, 1100px);
   }
-}
 
-/* =========================================================
-   PAGINA INTRODUTTIVA DI ANALISI MATEMATICA 1
-   ========================================================= */
-
-.griglia-corsi-am1 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  align-items: start;
-}
-
-.griglia-corsi-am1 .sezione-corso {
-  margin-top: 0;
-}
-
-@media (max-width: 1050px) {
-  .griglia-corsi-am1 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  body.archivio-didattico > header {
+    padding: 1.25rem;
   }
-}
 
-@media (max-width: 750px) {
-  .griglia-corsi-am1 {
-    grid-template-columns: 1fr;
+  body.archivio-didattico.pagina-documento .introduzione-pagina,
+  body.archivio-didattico.pagina-documento .blocco-contenuto {
+    margin: 1.25rem auto;
+    padding: 1.1rem 1.25rem;
+  }
+
+  body.archivio-didattico.pagina-documento details.blocco-contenuto {
+    padding: 0;
   }
 }
