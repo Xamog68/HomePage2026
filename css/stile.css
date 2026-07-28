@@ -317,6 +317,17 @@ body.archivio-didattico #licenza-sito {
   border-radius: 0.65rem;
 }
 
+body.archivio-didattico > header .breadcrumb {
+  width: auto;
+  max-width: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 
 /* =========================================================
    PAGINE DOCUMENTO DELL'ARCHIVIO DIDATTICO
@@ -421,4 +432,68 @@ body.archivio-didattico.pagina-documento details.blocco-contenuto > .contenuto-s
   body.archivio-didattico.pagina-documento details.blocco-contenuto {
     padding: 0;
   }
+}
+
+/* =========================================================
+   INDICI DEI CORSI: CORREZIONI GRAFICHE
+   ========================================================= */
+
+/* 1. Intestazione più compatta. */
+body.archivio-didattico.pagina-indice-corso > header {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto 0;
+  padding: 1.4rem 2rem;
+
+  text-align: left;
+}
+
+body.archivio-didattico.pagina-indice-corso > header h1 {
+  margin: 0;
+}
+
+/* 2. Breadcrumb allineato a sinistra e senza sottopannello. */
+body.archivio-didattico.pagina-indice-corso > header .breadcrumb {
+  justify-content: flex-start;
+  width: auto;
+  max-width: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 3. Introduzione meno monumentale. */
+body.archivio-didattico.pagina-indice-corso .introduzione-archivio {
+  max-width: none;
+  margin: 2rem auto;
+  padding: 1.25rem 1.6rem;
+
+  font-size: 1rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+body.archivio-didattico.pagina-indice-corso
+  .introduzione-archivio p:first-child {
+  margin-top: 0;
+}
+
+body.archivio-didattico.pagina-indice-corso
+  .introduzione-archivio p:last-child {
+  margin-bottom: 0;
+}
+
+/* 4. Spazio tra il blocco precedente e le griglie dei corsi. */
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
+  margin-top: 2rem;
+}
+
+/* Evita che le schede della griglia si attacchino verticalmente
+   agli elementi successivi. */
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
+  margin-bottom: 2rem;
 }
