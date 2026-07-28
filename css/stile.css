@@ -497,3 +497,56 @@ body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
 body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
   margin-bottom: 2rem;
 }
+
+/* =========================================================
+   PAGINE DEI SINGOLI CORSI
+   ========================================================= */
+
+body.pagina-corso > header {
+  padding: 1.4rem 2rem;
+}
+
+body.pagina-corso > header h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.15;
+}
+
+body.pagina-corso > header .breadcrumb {
+  margin-top: 1rem;
+}
+
+body.pagina-corso > main {
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   PAGINE DEI SINGOLI CORSI: SFONDO A LAVAGNA
+   ========================================================= */
+
+body.pagina-corso {
+  background-color: #17352d;
+  background-image:
+    linear-gradient(
+      rgba(5, 28, 20, 0.18),
+      rgba(5, 28, 20, 0.18)
+    ),
+    url("../immagini/sfondo-archivio-didattico.png");
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.pagina-corso > main {
+  background: transparent;
+}
+
+body.pagina-corso > footer {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+
+  background: rgba(248, 246, 238, 0.94);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
+}
