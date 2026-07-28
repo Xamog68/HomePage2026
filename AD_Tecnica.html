@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Realizzazione tecnica — Massimo Gobbino</title>
+
+  <link rel="stylesheet" href="css/stile.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Come vengono realizzate le videolezioni</h1>
+
+  <nav aria-label="Navigazione principale">
+    <a href="nuova-home.html">Home</a>
+    <a href="AD_Index.html">Archivio Didattico</a>
+    <a href="AD_Intro.html">Il progetto</a>
+    <a href="AD_Tecnica.html">Realizzazione tecnica</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="introduzione">
+    Strumenti, software e procedure usati per registrare,
+    produrre e pubblicare le videolezioni.
+  </p>
+
+  <section>
+    <h2>Hardware</h2>
+
+    <p>
+      Dopo il primo Tablet PC Acer sono passato a un Surface Pro 3,
+      con processore Intel Core i5, penna digitale e schermo tattile,
+      che continuo ancora a utilizzare.
+    </p>
+
+    <p>
+      Durante l’anno della didattica a distanza, il corso di
+      Analisi Matematica 2 è stato invece realizzato utilizzando un iPad.
+    </p>
+  </section>
+
+  <section>
+    <h2>Scrittura</h2>
+
+    <p>
+      Per scrivere uso tuttora Windows Journal. Non ho trovato, almeno
+      finora, un’alternativa che mi sembri altrettanto adatta alla scrittura
+      matematica durante una lezione; del resto anche altri colleghi
+      continuano a usarlo.
+    </p>
+  </section>
+
+  <section>
+    <h2>Registrazione</h2>
+
+    <p>
+      Per la registrazione utilizzo Camtasia. Dispongo formalmente
+      della versione 8, ma sono tornato alla versione 7, perché con
+      la versione successiva non sono mai riuscito a ottenere file
+      di dimensioni comparabili: a parità di lezione, i video risultavano
+      molto più grandi, probabilmente a causa di impostazioni di codifica
+      differenti.
+    </p>
+
+    <p>
+      Camtasia registra inizialmente la lezione nel proprio formato
+      di lavoro. Non viene effettuato alcun montaggio o remastering.
+    </p>
+  </section>
+
+  <section>
+    <h2>Audio</h2>
+
+    <p>
+      Inizialmente utilizzavo cuffie con microfono USB,
+      simili a quelle impiegate nei call center.
+    </p>
+
+    <p>
+      In seguito sono passato a un piccolo microfono con jack audio,
+      nato per l’uso con telefoni cellulari e collegato direttamente
+      al Surface. Si è rivelato più discreto e comodo e, nelle normali
+      condizioni d’aula, sufficientemente selettivo da non raccogliere
+      troppo rumore ambientale.
+    </p>
+  </section>
+
+  <section>
+    <h2>Esportazione dei video</h2>
+
+    <p>
+      Il file registrato da Camtasia viene esportato come video AVI
+      utilizzando il codec TechSmith Screen Capture.
+    </p>
+
+    <p>
+      Le impostazioni sono pensate specificamente per la registrazione
+      della scrittura sullo schermo, e non per immagini in rapido movimento.
+      Il video viene prodotto a 5 fotogrammi al secondo,
+      con profondità di colore a 16 bit.
+    </p>
+
+    <p>
+      L’audio è registrato in formato mono a 22050 Hz,
+      con compressione MPEG Layer-3. Queste scelte permettono
+      di mantenere leggibili scrittura e formule senza produrre
+      file eccessivamente grandi.
+    </p>
+
+    <details>
+      <summary>Impostazioni di esportazione</summary>
+      <pre>AVI movie file
+
+Video Codec:       TechSmith Screen Capture Codec
+Colors:            High Color (16-bit)
+Frame Rate:        5
+Size:              Editing Dimensions
+Audio Codec:       MPEG Layer-3 (TechSmith LAME)
+Audio Format:      22050 Hz, Mono, 3 KB/s
+Interleave Audio:  Every 1 second
+Watermark:         Disabled
+HTML:              Disabled
+Table of Contents: Disabled
+SCORM:             Disabled
+
+Disable Callout Fade Effects</pre>
+    </details>
+  </section>
+
+  <section>
+    <h2>PDF e stampati integrali</h2>
+
+    <p>
+      Quando disponibili, i PDF delle singole lezioni riproducono
+      quanto è stato scritto durante la spiegazione.
+    </p>
+
+    <p>
+      Gli stampati integrali raccolgono gli stessi materiali
+      in un unico documento, con la sola aggiunta di un indice,
+      possibilmente navigabile tramite collegamenti.
+      Vengono generati automaticamente con LaTeX.
+    </p>
+  </section>
+
+  <section>
+    <h2>Pubblicazione</h2>
+
+    <p>
+      Dopo l’esportazione, i file vengono caricati sul server
+      e la pagina del corso viene aggiornata aggiungendo alla relativa
+      tabella JavaScript i dati della nuova lezione e i collegamenti
+      ai materiali disponibili.
+    </p>
+
+    <p>
+      La procedura è stata finora in gran parte manuale.
+      Una parte del lavoro futuro sul sito consisterà anche nel renderla
+      più semplice e meno soggetta a errori.
+    </p>
+  </section>
+
+  <section>
+    <h2>Un problema noto di Windows Journal</h2>
+
+    <p>
+      Intorno al 2019, in seguito a un aggiornamento di Windows,
+      Windows Journal ha cominciato a bloccarsi improvvisamente durante l’uso.
+    </p>
+
+    <p>
+      Nel mio caso il problema risultò legato alla funzione
+      di riconoscimento della grafia: disabilitandola in Windows Journal,
+      i blocchi cessarono di verificarsi.
+    </p>
+
+    <p>
+      Il difetto sembrava interessare in particolare i sistemi
+      configurati in italiano. Segnalo questa soluzione perché
+      ancora oggi ricevo richieste da persone che incontrano
+      lo stesso problema.
+    </p>
+  </section>
+
+</main>
+
+<!-- Inserire qui lo stesso footer con la licenza usato nelle altre pagine. -->
+
+</body>
+
+</html>
