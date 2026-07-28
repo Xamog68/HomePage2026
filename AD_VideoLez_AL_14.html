@@ -5,51 +5,26 @@
   <meta charset="UTF-8">
 
   <!-- Titolo mostrato nella scheda del browser -->
-  <title>TITOLO DEL CORSO - ANNO ACCADEMICO</title>
+  <title>Algebra Lineare - 2013/2014</title>
 
   <!-- Foglio di stile comune a tutto il sito -->
   <link rel="stylesheet" href="css/stile.css">
 
-  <!--
-    Configurazione degli indirizzi comuni dei file multimediali
-    e dei documenti ospitati sul server dell'Università.
-  -->
+  <!-- Indirizzi comuni dei file multimediali e dei documenti -->
   <script src="js/config-media.js"></script>
 
-  <!--
-    Funzioni comuni che costruiscono dinamicamente
-    le varie parti delle pagine dei corsi.
-  -->
+  <!-- Funzioni comuni per costruire le pagine dei corsi -->
   <script src="js/sito.js"></script>
 
-  <!--
-    Dati specifici di questo corso:
-    scheda, documenti e lezioni.
-  -->
-<script src="js/corsi/NOME-CORSO.js"></script>
+  <!-- Dati specifici di questo corso -->
+  <script src="js/corsi/al-2013-14.js"></script>
 
-  <!--
-    Configurazione di Google Analytics.
-    In locale gli eventi vengono soltanto mostrati nella console.
-  -->
+  <!-- Google Analytics; in locale gli eventi compaiono nella console -->
   <script src="js/analytics.js"></script>
 </head>
 
 <body class="pagina-corso">
 
-    <!--
-      MODELLO PER UNA PAGINA DI CORSO
-
-      Quando si crea una nuova pagina, sostituire:
-
-      1. TITOLO DEL CORSO
-      2. ANNO ACCADEMICO
-      3. PAGINA-CORSO.html
-      4. js/corsi/NOME-CORSO.js
-
-      I contenuti specifici del corso devono stare nel relativo
-      file JavaScript dentro la cartella js/corsi/.
-    -->
   <!-- =====================================================
        PERCORSO DI NAVIGAZIONE
        ===================================================== -->
@@ -61,7 +36,7 @@
     <span>›</span>
     <a href="AD_Index_Videolezioni.html">Videolezioni</a>
     <span>›</span>
-    <a href="PAGINA-CORSO.html">TITOLO DEL CORSO</a>
+    <a href="algebra-lineare.html">Algebra Lineare</a>
   </nav>
 
 
@@ -69,14 +44,11 @@
        TITOLO DELLA PAGINA
        ===================================================== -->
 
-       <h1>TITOLO DEL CORSO — ANNO ACCADEMICO</h1>
+  <h1>Modulo di Algebra Lineare — 2013/2014</h1>
+
 
   <!-- =====================================================
        SCHEDA DEL CORSO
-
-       Il contenuto della tabella e l'eventuale avviso
-       vengono generati da sito.js usando i dati contenuti
-       nel file specifico del corso.
        ===================================================== -->
 
   <details class="sezione-corso" open>
@@ -104,7 +76,6 @@
     <div class="contenuto-sezione">
       <h2 id="Burocrazia">Burocrazia</h2>
 
-      <!-- I collegamenti vengono generati da sito.js -->
       <table>
         <tbody id="documenti-burocrazia"></tbody>
       </table>
@@ -122,10 +93,8 @@
     <div class="contenuto-sezione">
       <h2 id="Book">Book</h2>
 
-      <!-- Testo introduttivo comune alle pagine dei corsi -->
       <p id="testo-book"></p>
 
-      <!-- Elenco dei volumi e degli altri materiali -->
       <table>
         <tbody id="documenti-book"></tbody>
       </table>
@@ -135,11 +104,6 @@
 
   <!-- =====================================================
        LEZIONI
-
-       La tabella viene costruita da sito.js usando l'array
-       Lezioni definito nel file specifico del corso.
-       Il contenitore tabella-scroll permette lo scorrimento
-       orizzontale sugli schermi più piccoli.
        ===================================================== -->
 
   <details class="sezione-corso">
@@ -148,7 +112,6 @@
     <div class="contenuto-sezione">
       <h2 id="Lezioni">Lezioni</h2>
 
-      <!-- Testo introduttivo comune alle pagine dei corsi -->
       <p id="testo-lezioni"></p>
 
       <div class="tabella-scroll">
@@ -160,12 +123,7 @@
   </details>
 
 
-  <!-- =====================================================
-       LICENZA
-
-       Il contenuto del piè di pagina viene inserito da sito.js.
-       ===================================================== -->
-
+  <!-- Il contenuto della licenza viene inserito da sito.js -->
   <footer id="licenza-sito"></footer>
 
 </body>

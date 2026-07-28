@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analisi Matematica I - 2008/2009</title>
+  <link rel="stylesheet" href="css/stile.css">
+  <script src="js/config-media.js"></script>
+  <script src="js/sito.js"></script>
+  <script src="js/corsi/am1-2008-09.js"></script>
+  <script>
+    /* Costruisce la piccola tabella storica dei ricevimenti del 2008/09. */
+    function generaTabellaRicevimento() {
+      const corpo = document.getElementById("tabella-ricevimento");
+      if (!corpo || typeof Ricevimento === "undefined") return;
+
+      const intestazione = document.createElement("tr");
+      ["Numero", "Data", "Argomento sommario", "AVI", "PDF"].forEach(function (testo) {
+        const cella = document.createElement("th");
+        cella.textContent = testo;
+        intestazione.appendChild(cella);
+      });
+      corpo.appendChild(intestazione);
+
+      for (let i = 1; i < Ricevimento.length; i += 1) {
+        if (!Ricevimento[i]) continue;
+        const incontro = Ricevimento[i];
+        const numeroFile = String(incontro[0]).padStart(2, "0");
+        const riga = document.createElement("tr");
+
+        [incontro[0], incontro[1], incontro[2]].forEach(function (testo) {
+          const cella = document.createElement("td");
+          cella.textContent = testo;
+          riga.appendChild(cella);
+        });
+
+        const cellaAvi = document.createElement("td");
+        if (incontro[3] === "m") {
+          const linkMissing = document.createElement("a");
+          linkMissing.href = "AD_Video.html#missing";
+          linkMissing.textContent = "Missing!";
+          cellaAvi.appendChild(linkMissing);
+        } else {
+          const linkAvi = document.createElement("a");
+          linkAvi.href = PercorsoRicevimento + numeroFile + ".avi";
+          linkAvi.target = "_blank";
+          linkAvi.rel = "noopener";
+          linkAvi.textContent = "avi";
+          linkAvi.addEventListener("click", function () {
+            registraDownload("avi", "ricevimento-" + numeroFile);
+          });
+          cellaAvi.appendChild(linkAvi);
+        }
+        riga.appendChild(cellaAvi);
+
+        const cellaPdf = document.createElement("td");
+        const linkPdf = document.createElement("a");
+        linkPdf.href = PercorsoRicevimento + numeroFile + ".pdf";
+        linkPdf.target = "_blank";
+        linkPdf.rel = "noopener";
+        linkPdf.textContent = "pdf";
+        linkPdf.addEventListener("click", function () {
+          registraDownload("pdf", "ricevimento-" + numeroFile);
+        });
+        cellaPdf.appendChild(linkPdf);
+        riga.appendChild(cellaPdf);
+
+        corpo.appendChild(riga);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", generaTabellaRicevimento);
+  </script>
+  <script src="js/analytics.js"></script>
+</head>
+
+<body class="pagina-corso">
+
+  <nav aria-label="Percorso di navigazione">
+    <a href="nuova-home.html">Home</a>
+    <span>›</span>
+    <a href="AD_Index.html">Archivio Didattico</a>
+    <span>›</span>
+    <a href="AD_Index_Videolezioni.html">Videolezioni</a>
+    <span>›</span>
+    <a href="AD_Index_AM1.html">Analisi Matematica 1</a>
+  </nav>
+
+  <h1>Analisi Matematica I — 2008/2009</h1>
+
+  <details class="sezione-corso" open>
+    <summary>Scheda del corso</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Scheda">Scheda di presentazione</h2>
+      <table><tbody id="scheda-corso"></tbody></table>
+      <p id="avviso-corso"></p>
+    </div>
+  </details>
+
+  <details class="sezione-corso">
+    <summary>Burocrazia</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Burocrazia">Burocrazia</h2>
+      <table><tbody id="documenti-burocrazia"></tbody></table>
+    </div>
+  </details>
+
+
+  <details class="sezione-corso">
+    <summary>Lezioni</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Lezioni">Lezioni</h2>
+      <p id="testo-lezioni"></p>
+      <div class="tabella-scroll">
+        <table><tbody id="tabella-lezioni"></tbody></table>
+      </div>
+    </div>
+  </details>
+
+  <details class="sezione-corso">
+    <summary>Ricevimento studenti</summary>
+    <div class="contenuto-sezione">
+      <h2 id="Ricevimento">Ricevimento studenti</h2>
+      <div class="tabella-scroll">
+        <table><tbody id="tabella-ricevimento"></tbody></table>
+      </div>
+    </div>
+  </details>
+
+  <footer id="licenza-sito"></footer>
+
+</body>
+</html>
