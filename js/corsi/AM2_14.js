@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2013/2014",
   crediti: "6",
-  ore: "60",
-  target: "Ingegneria Elettronica/Telecomunicazioni",
-  anno: "Primo",
-  periodo: "Marzo/Maggio",
-  avviso: ""
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -18,7 +15,6 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "ALAM2_14_Burocrazia.pdf",
     titolo: "Informazioni burocratiche",
-    nota: "versione provvisoria aggiornata al 20/12/2013"
   },
   {
     sezione: "book",

@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2017/2018",
   crediti: "12",
-  ore: "120 (ufficialmente, di più realisticamente)",
-  target: "Matematica",
-  anno: "Secondo",
-  periodo: "fine Settembre / fine Maggio",
-  avviso: "Achtung! Questo corso è pensato per gli studenti del Corso di Laurea in Matematica. Certamente è adatto anche per studenti di altri corsi di studi, purché sufficientemente motivati e privi di problemi sui preliminari (cioè precorso, Analisi 1 e Algebra Lineare). Ad esempio è sicuramente adatto per chi ha seguito con successo il corrispondente corso di Analisi Matematica 1 (anno 2016/2017, oppure 2014/2015), o per chi ha già seguito con noia i corsi di Analisi 2 per ingegneria. Per tutti gli altri, il consiglio è di partire con una delle versioni edulcorate, ad esempio il corso di Analisi 2 del 2013/2014."
+  target: "Corso di Laurea in Matematica",
+  anno: "Secondo anno",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM2_18_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",
@@ -77,7 +74,7 @@ Lezioni[24] = [ "24","24/10/2017","10:00", "11:00", "Equivalenza tra due definiz
 Lezioni[25] = [ "25","25/10/2017","11:00", "12:00", "Convessità e derivata prima: equivalenza tra convessità, monotonia del gradiente, stare sopra agli iperpiani tangenti. Convessità e derivata seconda: legami tra convessità e segnatura della matrice Hessiana. I sottolivelli delle funzioni convesse sono convessi."];
 Lezioni[26] = [ "26","25/10/2017","12:00", "13:00", "Dimostrazione del teorema fondamentale dell'algebra (mediante Weierstrass generalizzato e studio locale). Esercizi sulle funzioni convesse. Caratterizzazione delle funzioni convesse regolari radiali."];
 Lezioni[27] = [ "27","27/10/2017","09:00", "10:00", "Caratterizzazione variazionale di autovalori/autovettori, quoziente di Rayleigh e dimostrazione variazionale del teorema spettrale. Equazione delle onde nel piano."];
-Lezioni[28] = [ "28","16/10/2017","10:00", "11:00", "Esercizi misti: calcolo e classificazione di punti stazionari, esempio non banale di utilizzo dei moltiplicatori di Lagrange, esempio di utilizzo del metodo delle successioni per il calcolo di un liminf."];
+Lezioni[28] = [ "28","27/10/2017","10:00", "11:00", "Esercizi misti: calcolo e classificazione di punti stazionari, esempio non banale di utilizzo dei moltiplicatori di Lagrange, esempio di utilizzo del metodo delle successioni per il calcolo di un liminf."];
 Lezioni[29] = [ "29","31/10/2017","09:00", "10:00", "Introduzione agli integrali doppi: notazioni, significato geometrico, step functions, integrale inferiore e superiore, criterio di integrabilità. Proprietà basilari dell'integrale (linearità, monotonia, integrale del prodotto e del valore assoluto, ...) analoghe a quelle valide in una variabile."];
 Lezioni[30] = [ "30","31/10/2017","10:00", "11:00", "Descrizione della formula di riduzione per integrali doppi su rettangoli e su insiemi normali. Analogia con il double counting. Esempi di applicazione."];
 Lezioni[31] = [ "31","03/11/2017","09:00", "10:00", "Enunciato e dimostrazione della formula di riduzione per integrali doppi (sia nella massima generalità, sia sotto ipotesi di integrabilità). Esempi patologici che mostrano l'ottimalità degli enunciati."];

@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica I",
   annoAccademico: "2010/2011",
   crediti: "12",
-  ore: "120 previste; 109 lezioni registrate",
-  target: "Ingegneria Biomedica e Ingegneria Elettronica",
-  anno: "Primo",
-  periodo: "ottobre / gennaio",
-  avviso: ""
+  target: "Corsi di Laurea in Ingegneria Biomedica e in Ingegneria Elettronica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

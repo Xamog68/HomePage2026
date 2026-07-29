@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2006/2007",
   crediti: "6",
-  ore: "50",
-  target: "Ingegneria Civile e Nucleare",
-  anno: "Secondo",
-  periodo: "Ottobre/Dicembre",
-  avviso: "Edizione storica del corso. I PDF originariamente accorpati per due o tre ore sono stati separati in file corrispondenti alle singole lezioni."
+  target: "Corsi di Laurea in Ingegneria Civile e in Ingegneria Nucleare",
+  anno: "Secondo anno",
 };
 
 var DocumentiCorso = [
@@ -50,8 +47,8 @@ Lezioni[25] = [ "25", "08/11/06", "17:30", "18:30", "Ripasso tecniche di integra
 Lezioni[26] = [ "26", "14/11/06", "09:30", "10:30", "Integrali doppi: notazione, significato geometrico, definizione" ];
 Lezioni[27] = [ "27", "14/11/06", "10:30", "11:30", "Integrali doppi: formule di riduzione 1" ];
 Lezioni[28] = [ "28", "14/11/06", "11:30", "12:30", "Integrali doppi: formule di riduzione 2" ];
-Lezioni[29] = [ "29", "15/10/06", "16:30", "17:30", "Calcolo di integrali doppi mediante coordinate polari e cambi di variabili" ];
-Lezioni[30] = [ "30", "15/10/06", "17:30", "18:30", "Integrali doppi: esempi" ];
+Lezioni[29] = [ "29", "15/11/06", "16:30", "17:30", "Calcolo di integrali doppi mediante coordinate polari e cambi di variabili" ];
+Lezioni[30] = [ "30", "15/11/06", "17:30", "18:30", "Integrali doppi: esempi" ];
 Lezioni[31] = [ "31", "21/11/06", "09:30", "10:30", "Integrali tripli: introduzione e formula di riduzione sui parallelepipedi" ];
 Lezioni[32] = [ "32", "21/11/06", "10:30", "11:30", "Integrali tripli: formula di riduzione per colonne e per sezioni" ];
 Lezioni[33] = [ "33", "21/11/06", "11:30", "12:30", "Coordinate cilindriche e sferiche nello spazio" ];
@@ -60,8 +57,8 @@ Lezioni[35] = [ "35", "22/11/06", "17:00", "17:30", "Baricentri di figure piane 
 Lezioni[36] = [ "36", "28/11/06", "09:30", "10:30", "Integrali impropri: definizione nel caso monoproblema" ];
 Lezioni[37] = [ "37", "28/11/06", "10:30", "11:30", "Integrali impropri: criterio del confronto e del confronto asintotico" ];
 Lezioni[38] = [ "38", "28/11/06", "11:30", "12:30", "Integrali impropri: casi limite di confronto asintotico ed assoluta integrabilità" ];
-Lezioni[39] = [ "39", "22/11/06", "17:30", "18:00", "Integrali impropri: studio mediante l'integrazione per parti" ];
-Lezioni[40] = [ "40", "22/11/06", "18:00", "18:30", "Integrali impropri in 2 o 3 variabili" ];
+Lezioni[39] = [ "39", "29/11/06", "17:30", "18:00", "Integrali impropri: studio mediante l'integrazione per parti" ];
+Lezioni[40] = [ "40", "29/11/06", "18:00", "18:30", "Integrali impropri in 2 o 3 variabili" ];
 Lezioni[41] = [ "41", "05/12/06", "09:30", "10:30", "Equazioni differenziali: nomenclatura", "m", "m" ];
 Lezioni[42] = [ "42", "05/12/06", "10:30", "11:30", "Equazioni differenziali: problema di Cauchy" ];
 Lezioni[43] = [ "43", "05/12/06", "11:30", "12:30", "Equazioni differenziali del primo ordine a variabili separabili" ];

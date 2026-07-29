@@ -7,11 +7,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2020/2021",
   crediti: "6",
-  ore: "60 (corso svolto in modalità telematica)",
-  target: "Ingegneria Elettronica/Telecomunicazioni",
-  anno: "Primo",
-  periodo: "Marzo/Maggio",
-  avviso: "La modalità di \"erogazione\" scelta dai partecipanti (diretta streaming su Teams, canale 591AA 20/21 di UniPI) non mi consente di effettuare in contemporanea la registrazione con i soliti strumenti e la solita qualità, a meno di non rischiare fastidiosi rallentamenti. In ogni caso il corso sarà una ripetizione sostanzialmente integrale del corso 2013/14, quindi nulla di nuovo.\n\nPer i corsi di servizio di Analisi 2 consiglio quindi di seguire il corso 2013/14 (per chi vuole una versione basic/soft) o il primo semestre del corso 2017/18 (per chi vuole una versione advanced/hard), integrando il tutto con le esercitazioni del corso 2019/20."
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -23,12 +20,12 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM2_21_Esame_gen.pdf",
-    titolo: "Regole d'esame (comuni ai due moduli)"
+    titolo: "Regole d’esame (comuni ai due moduli)"
   },
   {
     sezione: "burocrazia",
     file: "AM2_21_Esame.pdf",
-    titolo: "Regole d'esame (specifiche per questo modulo)"
+    titolo: "Regole d’esame (specifiche per questo modulo)"
   },
   {
     sezione: "burocrazia",

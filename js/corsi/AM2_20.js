@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2019/2020",
   crediti: "6",
-  ore: "60 (corso svolto in lockdown mode)",
-  target: "Ingegneria Elettronica/Telecomunicazioni",
-  anno: "Primo",
-  periodo: "Marzo/Maggio",
-  avviso: "Achtung! Questo corso è un corso di sola esercitazione pensato per essere seguito in parallelo ad un corso tradizionale (ad esempio il corso per ingegneria del 2013/14 o, per chi si annoia con la versione basic, la prima parte del corso per matematica del 2017/18). Il livello è pensato per i corsi di servizio."
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -22,12 +19,12 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM2_20_Esame.pdf",
-    titolo: "Regole d'esame (in presenza)"
+    titolo: "Regole d’esame (in presenza)"
   },
   {
     sezione: "burocrazia",
     file: "AM2_20_EsamiTelematici.pdf",
-    titolo: "Regole d'esame (per via telematica)"
+    titolo: "Regole d’esame (per via telematica)"
   },
   {
     sezione: "burocrazia",

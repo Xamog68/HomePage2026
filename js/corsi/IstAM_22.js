@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Principles of Mathematical Analysis",
   annoAccademico: "2021/2022",
   crediti: "11",
-  ore: "72",
   target: "Students of the Master Degree in Mathematics",
   anno: "First year of the Master Degree",
-  periodo: "End of September / December",
-  avviso: "This course is an English version of the same course held in Italian in 2019/2020 and 2018/2019, hopefully better organized and improved by previous experience."
 };
 
 var DocumentiCorso = [

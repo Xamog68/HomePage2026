@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica I",
   annoAccademico: "2012/2013",
   crediti: "12",
-  ore: "120 previste; 109 lezioni registrate",
-  target: "Ingegneria Biomedica",
-  anno: "Primo",
-  periodo: "fine settembre / dicembre",
-  avviso: ""
+  target: "Corso di Laurea in Ingegneria Biomedica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -70,7 +67,7 @@ Lezioni[33] = [ "33","18/10/2012","08:30", "09:30", "Formula di Taylor con resto
 Lezioni[34] = [ "34","18/10/2012","09:30", "10:30", "Dimostrazione degli sviluppi di Taylor delle funzioni elementari. Esempi semplici di applicazione."];
 Lezioni[35] = [ "35","19/10/2012","08:30", "09:30", "Sviluppi di Taylor di somme, differenze, prodotti, composizioni"];
 Lezioni[36] = [ "36","19/10/2012","09:30", "10:30", "Formula di Taylor con centro in un punto diverso dall'origine. Ulteriori esempi di polinomi di Taylor di funzioni composte (e cautele necessarie nel loro calcolo)"];
-Lezioni[37] = [ "37","19/10/2012","10:30", "11:30", "Esercizi riassuntivi sui limiti (video mancante)", "m"];
+Lezioni[37] = [ "37","19/10/2012","10:30", "11:30", "Esercizi riassuntivi sui limiti. [Video mancante]", "m"];
 Lezioni[38] = [ "38","20/10/2012","10:30", "11:30", "Definizione di serie come limite delle somme parziali. Esempi semplici di serie studiate usando la definizione. Serie telescopiche. Serie geometriche."];
 Lezioni[39] = [ "39","20/10/2012","11:30", "12:30", "Teoremi algebrici per le serie. Condizione necessaria. Serie armoniche generalizzate. Comportamento delle serie a termini di segno costante. Enunciato dei criteri della radice, del rapporto, del confronto."];
 Lezioni[40] = [ "40","20/10/2012","12:30", "13:30", "Criterio del confronto asintotico (casi standard). Esercizi sulla convergenza di serie a termini positivi (non negativi)"];
@@ -87,7 +84,7 @@ Lezioni[50] = [ "50","27/10/2012","12:30", "13:30", "Dimostrazione del caso 0/0 
 Lezioni[51] = [ "51","31/10/2012","16:30", "17:30", "Primi rudimenti sullo studio globale di funzioni: simmetrie, limiti agli estremi della zona di definizione, zeri e segno, zeri e segno della derivata e zone di monotonia. Esempi di applicazione a problemi di inf/sup/max/min ed equazioni parametriche."];
 Lezioni[52] = [ "52","31/10/2012","17:30", "18:30", "Esempi di equazioni e disequazioni risolte mediante studio globale di opportune funzioni."];
 Lezioni[53] = [ "53","07/11/2012","16:30", "17:30", "Formula di Taylor con resto di Lagrange e applicazioni (calcolo approssimato di funzioni, dimostrazione di disuguaglianze, dimostrazione della convergenza di serie di Taylor)"];
-Lezioni[54] = [ "54","07/12/2012","17:30", "18:30", "Funzioni convesse e concave: definizione geometrica e analitica, legami con il segno della derivata seconda. Punti di flesso."];
+Lezioni[54] = [ "54","07/11/2012","17:30", "18:30", "Funzioni convesse e concave: definizione geometrica e analitica, legami con il segno della derivata seconda. Punti di flesso."];
 Lezioni[55] = [ "55","08/11/2012","08:30", "09:30", "Asintoti orizzontali e verticali. Asintoti obliqui e formule per calcolarne le equazioni."];
 Lezioni[56] = [ "56","08/11/2012","09:30", "10:30", "Varianti e generalizzazioni del teorema di Weierstrass"];
 Lezioni[57] = [ "57","09/11/2012","08:30", "09:30", "Disuguaglianze classiche dimostrate mediante studio di funzioni o Taylor-Lagrange"];
@@ -127,7 +124,7 @@ Lezioni[90] = [ "90","01/12/2012","10:30", "11:30", "Teoremi di scambio serie-de
 Lezioni[91] = [ "91","01/12/2012","11:30", "12:30", "Introduzione alle equazioni differenziali: nomenclatura"];
 Lezioni[92] = [ "92","01/12/2012","12:30", "13:30", "Introduzione alle equazioni differenziali: il problema di Cauchy, enunciato dei teoremi di esistenza ed unicità. Esempio di non unicità."];
 Lezioni[93] = [ "93","05/12/2012","16:30", "17:30", "Metodo risolutivo per equazioni differenziali a variabili separabili. Studio della soluzione: intervallo massimale di esistenza, tempo di vita, esistenza globale, blow-up, break-down "];
-Lezioni[94] = [ "94","05/12/2012","17:30", "18:30", "Ulteriori esempi di studio di equazioni differenziali a variabili separabili (video mancante)","m"];
+Lezioni[94] = [ "94","05/12/2012","17:30", "18:30", "Ulteriori esempi di studio di equazioni differenziali a variabili separabili. [Video mancante]","m"];
 Lezioni[95] = [ "95","06/12/2012","08:30", "09:30", "Equazioni differenziali lineari omogenee: teoria generale e algoritmo per determinare una base dello spazio delle soluzioni nel caso di equazioni a coefficienti costanti (mediante le radici del polinomio caratteristico)."];
 Lezioni[96] = [ "96","06/12/2012","09:30", "10:30", "Esempi di risoluzione di equazioni differenziali lineari omogenee. Struttura dell'insieme delle soluzioni di un'equazione non omogenea."];
 Lezioni[97] = [ "97","07/12/2012","08:30", "09:30", "Equazioni differenziali lineari non omogenee: esempi di ricerca per tentativi di una soluzione nel caso di termine non omogeneo esponenziale o trigonometrico"];

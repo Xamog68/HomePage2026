@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Istituzioni di Analisi Matematica",
   annoAccademico: "2020/2021",
   crediti: "9",
-  ore: "63 (ufficialmente, 70 realisticamente)",
-  target: "Studenti di Matematica (ma ognuno è benvenuto, ovviamente)",
-  anno: "Primo anno della specialistica",
-  periodo: "Fine Settembre / Dicembre",
-  avviso: "Questo è un corso costituito principalmente da esempi ed esercizi, pensato per affiancare e completare il corso classico. Non ha senso seguirlo prima del corrispondente corso classico."
+  target: "Corso di Laurea Magistrale in Matematica",
+  anno: "Primo anno della Laurea Magistrale",
 };
 
 var DocumentiCorso = [
@@ -22,12 +19,12 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "IstAM_21_Esame.pdf",
-    titolo: "Regole d'esame (versione in presenza)"
+    titolo: "Regole d’esame (versione in presenza)"
   },
   {
     sezione: "burocrazia",
     file: "IstAM_21_EsamiTelematici.pdf",
-    titolo: "Regole d'esame (versione telematica)"
+    titolo: "Regole d’esame (versione telematica)"
   },
   {
     sezione: "burocrazia",

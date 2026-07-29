@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2006/2007",
   crediti: "12",
-  ore: "100",
-  target: "Telecomunicazioni",
-  anno: "Primo",
-  periodo: "Ottobre/Dicembre",
-  avviso: "Edizione storica del corso integrato Matematica I. I PDF originariamente accorpati per due o tre ore dovranno essere separati in file corrispondenti alle singole lezioni."
+  target: "Corso di Laurea in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

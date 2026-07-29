@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Elementi di Calcolo delle Variazioni",
   annoAccademico: "2015/2016",
   crediti: "6",
-  ore: "48 (ufficialmente, 48 realisticamente)",
-  target: "Matematica",
-  anno: "Dal terzo in poi",
-  periodo: "fine Settembre / Dicembre",
-  avviso: "Corso sperimentale: seguire a proprio rischio e pericolo. In ogni caso è un corso baby, quindi non aspettatevi nulla di avanzato, ma solo le basi che più basi non si può."
+  target: "Corso di Laurea in Matematica",
+  anno: "Dal terzo anno in poi",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "CdV_16_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",

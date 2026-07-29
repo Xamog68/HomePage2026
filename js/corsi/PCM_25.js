@@ -5,13 +5,11 @@ var Percorso = MEDIA.lezioni + "Precorsi/PCM_25/PCM_25_L";
 var CifreNumeroLezione = 2;
 
 var SchedaCorso = {
-  nome: "Precorso per Matematica",
+  nome: "Precorso di Matematica",
   annoAccademico: "2025/2026",
-  crediti: "Nessuno",
-  ore: "20",
+  crediti: "Non applicabile",
   target: "Corso di Laurea in Matematica",
   anno: "Prima dell’inizio del primo anno",
-  periodo: "15–19 settembre 2025"
 };
 
 var DocumentiCorso = [

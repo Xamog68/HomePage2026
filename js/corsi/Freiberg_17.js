@@ -4,13 +4,10 @@ var CifreNumeroLezione = 1;
 
 var SchedaCorso = {
   nome: "Linear hyperbolic equations with time-dependent propagation speed and strong damping",
-  annoAccademico: "",
-  crediti: "",
-  ore: "8",
+  annoAccademico: "2016/2017",
+  crediti: "Does not apply",
   target: "PhD students in Mathematics",
-  anno: "",
-  periodo: "Freiberg (Germany), May 2017",
-  avviso: ""
+  anno: "PhD",
 };
 
 var DocumentiCorso = [

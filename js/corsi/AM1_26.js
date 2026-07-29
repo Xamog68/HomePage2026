@@ -5,14 +5,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2025/2026",
   crediti: "15",
-  ore: "120 (ufficialmente, ??? quest’anno)",
-  target: "Matematica",
-  anno: "Primo",
-  periodo: "fine settembre / fine maggio",
-  avviso:
-    "Questo corso sarà una riedizione del corso 2016/2017. " +
-    "Per versioni più edulcorate si consigliano i corsi 2024/25 " +
-    "o, ancora più edulcorata, 2012/13."
+  target: "Corso di Laurea in Matematica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -25,7 +19,6 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "AM1_26_Esame.pdf",
     titolo: "Regole d’esame",
-    nota: "versione provvisoria"
   },
   {
     sezione: "burocrazia",
@@ -130,8 +123,8 @@ Lezioni[73] = [ "73","27/02/2026","11:00", "12:00", "Equazioni differenziali a v
 Lezioni[74] = [ "74","27/02/2026","12:00", "13:00", "Equazioni differenziali a variabili separabili: enunciato e dimostrazione del teorema di esistenza ed unicità. Discussione di un primo esempio con valore soglia."];
 Lezioni[75] = [ "75","02/03/2026","11:00", "12:00", "Equazioni differenziali lineari omogenee: l'insieme delle soluzioni è uno spazio vettoriale di dimensione uguale all'ordine dell'equazione. Nel caso di coefficienti costanti, algoritmo per determinare una base dello spazio delle soluzioni passando per le radici del polinomio caratteristico."];
 Lezioni[76] = [ "76","02/03/2026","12:00", "13:00", "Esercizi sulle equazioni differenziali lineari a coefficienti costanti omogenee. Equazioni lineari non omogenee: struttura generale dello spazio delle soluzioni. Primi esempi di ricerca per tentativi di una soluzione speciale in casi semplici (ad esempio con termini forzanti esponenziali, polinomiali, trigonometrici)."];
-Lezioni[77] = [ "77","04/02/2026","11:00", "12:00", "Equazioni differenziali lineari non omogenee: metodo di variazione delle costanti per la ricerca di una soluzione. Equazioni differenziali lineari del primo ordine a coefficienti qualunque: formula risolutiva, sua giustificazione (mediante fattore integrante o variazione delle costanti). Equazioni di Bernoulli."];
-Lezioni[78] = [ "78","04/02/2026","12:00", "13:00", "Riepilogo delle strategie per la ricerca euristica di soluzioni per equazioni differenziali lineari. Esercizi sulla risoluzione di equazioni differenziali."];
+Lezioni[77] = [ "77","04/03/2026","11:00", "12:00", "Equazioni differenziali lineari non omogenee: metodo di variazione delle costanti per la ricerca di una soluzione. Equazioni differenziali lineari del primo ordine a coefficienti qualunque: formula risolutiva, sua giustificazione (mediante fattore integrante o variazione delle costanti). Equazioni di Bernoulli."];
+Lezioni[78] = [ "78","04/03/2026","12:00", "13:00", "Riepilogo delle strategie per la ricerca euristica di soluzioni per equazioni differenziali lineari. Esercizi sulla risoluzione di equazioni differenziali."];
 Lezioni[79] = [ "79","05/03/2026","09:00", "10:00", "Esempi classici di studio di equazioni differenziali con parametri: oscillatore armonico con risonanza, oscillatore armonico con attrito, equazione lineare del primo ordine con effetto soglia."];
 Lezioni[80] = [ "80","05/03/2026","10:00", "11:00", "Esempi classici di studio di equazioni differenziali con parametri: autovalori della derivata seconda con condizioni di Dirichlet, blow up vs esistenza globale per rhs di tipo potenza, vera condizione in termini di integrali impropri."];
 Lezioni[81] = [ "81","11/03/2026","11:00", "12:00", "Introduzione alle successioni per ricorrenza. Successioni di ordine 1 lineari autonome: formula generale e sue giustificazioni. Successioni di ordine 2 lineari omogenee: formula generale (basata sulle radici del polinomio caratteristico)."];

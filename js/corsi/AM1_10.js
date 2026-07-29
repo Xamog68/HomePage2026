@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica I",
   annoAccademico: "2009/2010",
   crediti: "12",
-  ore: "120 previste; 111 lezioni registrate",
-  target: "Ingegneria Elettronica e Ingegneria delle Telecomunicazioni",
-  anno: "Primo",
-  periodo: "ottobre / gennaio",
-  avviso: ""
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

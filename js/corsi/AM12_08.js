@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2007/2008",
   crediti: "12",
-  ore: "100",
-  target: "Ingegneria Elettronica e delle Telecomunicazioni",
-  anno: "Primo",
-  periodo: "Ottobre/Dicembre",
-  avviso: "Edizione storica del corso integrato Matematica I, comprendente argomenti oggi distribuiti tra Analisi Matematica 1 e Analisi Matematica 2."
+  target: "Corso di Laurea in Ingegneria Elettronica e delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

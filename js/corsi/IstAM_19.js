@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Istituzioni di Analisi Matematica",
   annoAccademico: "2018/2019",
   crediti: "9",
-  ore: "63 (ufficialmente, 70 realisticamente)",
-  target: "Studenti di Matematica (ma ognuno è benvenuto, ovviamente)",
-  anno: "Primo anno della specialistica",
-  periodo: "Fine Settembre / Dicembre",
-  avviso: "Questo corso è in prima assoluta: seguire a proprio rischio e pericolo."
+  target: "Corso di Laurea Magistrale in Matematica",
+  anno: "Primo anno della Laurea Magistrale",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "IstAM_19_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",

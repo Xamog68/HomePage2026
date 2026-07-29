@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Istituzioni di Analisi Matematica",
   annoAccademico: "2019/2020",
   crediti: "9",
-  ore: "63 (ufficialmente, 70 realisticamente)",
-  target: "Studenti di Matematica (ma ognuno è benvenuto, ovviamente)",
-  anno: "Primo anno della specialistica",
-  periodo: "Fine Settembre / Dicembre",
-  avviso: "Questo corso vorrebbe essere una fotocopia di quello dell’anno scorso, arricchita dalla precedente esperienza."
+  target: "Corso di Laurea Magistrale in Matematica",
+  anno: "Primo anno della Laurea Magistrale",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "IstAM_20_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",
@@ -47,7 +44,7 @@ var DocumentiCorso = [
 ];
 
 var Lezioni = new Array();
-Lezioni[1] = [ "1", "26/09/2019", "09:00", "10:00", "Presentazione degli obiettivi del corso. Introduzione al calcolo delle variazioni: minimo vs punti di minimo. Metodo indiretto nel calcolo delle variazioni: variazione prima di un funzionale lungo una curva, derivata secondo Gateaux, condizioni necessarie di minimalità. Metodo diretto nel calcolo delle variazioni: nozione di convergenza, compattezza, semi-continuità, coercività, teorema di Weierstrass e varianti. (audio mancante)", "m" ];
+Lezioni[1] = [ "1", "26/09/2019", "09:00", "10:00", "Presentazione degli obiettivi del corso. Introduzione al calcolo delle variazioni: minimo vs punti di minimo. Metodo indiretto nel calcolo delle variazioni: variazione prima di un funzionale lungo una curva, derivata secondo Gateaux, condizioni necessarie di minimalità. Metodo diretto nel calcolo delle variazioni: nozione di convergenza, compattezza, semi-continuità, coercività, teorema di Weierstrass e varianti. [Audio mancante]", "m" ];
 Lezioni[2] = [ "2", "26/09/2019", "10:00", "11:00", "Funzionali integrali e Lagrangiane. Primi esempi di applicazione del metodo indiretto: studio esplicito di tre casi modello di funzionali integrali dipendenti da potenze della derivata. Forme integrali e differenziali della variazione prima. Equazione di Eulero-Lagrange."];
 Lezioni[3] = [ "3", "30/09/2019", "11:00", "12:00", "Lemma fondamentale del calcolo delle variazioni (FLCV), FLCV a media nulla, lemma di Du Bois Reymond (setting classico e setting Lebesgue): enunciati, possibili dimostrazioni, discussione di possibili varianti."];
 Lezioni[4] = [ "4", "30/09/2019", "12:00", "13:00", "Nascita delle condizioni al bordo per le equazioni di Eulero-Lagrange. Esempi che portano a condizioni di Dirichlet, di Neumann, e periodiche. Esempio con derivate di ordine superiore al primo."];
@@ -82,8 +79,8 @@ Lezioni[32] = [ "32", "31/10/2019", "10:00", "11:00", "Dimostrazione delle immer
 Lezioni[33] = [ "33", "04/11/2019", "11:00", "12:00", "Presentazione generale dei teoremi di estensione. Estensione per riflessione nei cilindri. Discussione generale delle ostruzioni all'estensione: bordi bilateri, cuspidi, restringimenti."];
 Lezioni[34] = [ "34", "04/11/2019", "12:00", "13:00", "Aperti con bordo di classe C-1. Isomorfismo tra gli spazi di Sobolev di aperti diffeomorfi. Partizioni dell'unità per aperti con bordo compatto. Dimostrazione dell'esistenza di una 1-estensione per aperti con bordo compatto di classe C-1."];
 Lezioni[35] = [ "35", "05/11/2019", "09:00", "10:00", "Obiettivo dei teoremi di immersione compatta. Richiami dei fatti essenziali su compattezza, relativa compattezza e totale limitatezza in spazi metrici. Criterio di relativa compattezza in spazi Lp (versione Lp di Ascoli-Arzelà)."];
-Lezioni[36] = [ "36", "05/11/2019", "10:00", "11:00", "Teorema di immersione compatta in spazi di Sobolev (Rellich-Kondrachov): enunciato e dimostrazione. Enunciato della disuguaglianza di interpolazione in spazi Lp. Controesempio all'immersione compatta nel caso critico. (audio inascoltabile).", "m" ];
-Lezioni[37] = [ "37", "07/11/2019", "09:00", "10:00", "Presentazione generale del problema delle tracce. Tracce di funzioni di Sobolev nel caso modello del semispazio: disuguaglianza fondamentale nel caso smooth, ulteriore regolarità Lp, definizione per approssimazione. Proprietà di base della traccia: linearità, coincidenza con la restrizione al bordo nel caso continuo, formula di integrazione per parti. (audio mancante)", "m" ];
+Lezioni[36] = [ "36", "05/11/2019", "10:00", "11:00", "Teorema di immersione compatta in spazi di Sobolev (Rellich-Kondrachov): enunciato e dimostrazione. Enunciato della disuguaglianza di interpolazione in spazi Lp. Controesempio all'immersione compatta nel caso critico. [Audio inascoltabile]", "m" ];
+Lezioni[37] = [ "37", "07/11/2019", "09:00", "10:00", "Presentazione generale del problema delle tracce. Tracce di funzioni di Sobolev nel caso modello del semispazio: disuguaglianza fondamentale nel caso smooth, ulteriore regolarità Lp, definizione per approssimazione. Proprietà di base della traccia: linearità, coincidenza con la restrizione al bordo nel caso continuo, formula di integrazione per parti. [Audio mancante]", "m" ];
 Lezioni[38] = [ "38", "07/11/2019", "10:00", "11:00", "Holderianità della traccia. Dipendenza continua della traccia sotto ipotesi di limitatezza dei gradienti, controesempio nel caso p=1. Road map per estendere la definizione di traccia ad aperti regolari. Accenno al problema dell'immagine della traccia."];
 Lezioni[39] = [ "39", "11/11/2019", "11:00", "12:00", "Funzioni di Sobolev che si approssimano mediante funzioni C-infinito a supporto compatto: definizione, teoremi di immersione e immersione compatta, caratterizzazione negli aperti con bordo regolare mediante traccia nulla o estensione a zero."];
 Lezioni[40] = [ "40", "11/11/2019", "12:00", "13:00", "Approssimazione mediante funzioni C-infinito a supporto compatto di funzioni di Sobolev definite in tutto lo spazio meno un punto. Problema della p-capacità di un punto in una sfera: discussione al variare della dimensione spaziale e dell'esponente p."];

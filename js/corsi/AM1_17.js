@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2016/2017",
   crediti: "15",
-  ore: "120 previste; 135 lezioni registrate",
-  target: "Matematica",
-  anno: "Primo",
-  periodo: "fine settembre / fine maggio",
-  avviso: ""
+  target: "Corso di Laurea in Matematica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -27,7 +24,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM1_17_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",
@@ -126,10 +123,10 @@ Lezioni[68] = [ "68","15/12/2016","10:00", "11:00", "Integrali impropri con prob
 Lezioni[69] = [ "69","19/12/2016","11:00", "12:00", "Integrali oscillanti: criterio alla Dirichlet (trucco dell'integrazione per parti) e metodo dei triangolini (o rettangolini). Esempi classici: integrale di Dirichlet e di Fresnel, e corrispondenti con valore assoluto."];
 Lezioni[70] = [ "70","19/12/2016","12:00", "13:00", "Confronto serie-integrali e applicazioni (convergenza di serie, stima di sommatorie, stima delle code di serie)."];
 Lezioni[71] = [ "71","20/12/2016","09:00", "10:00", "Lemma di Abel (sommazione per parti). Criterio di Dirichlet per la convergenza di una serie. Alcuni esempi di utilizzo border-line dei numeri complessi."];
-Lezioni[72] = [ "72","20/12/2016","09:00", "10:00", "Dipendenza di un integrale proprio/improprio dall'insieme di integrazione. Funzione Gamma di Eulero. Esempi di stime di primitive e code di integrali impropri."];
+Lezioni[72] = [ "72","20/12/2016","10:00", "11:00", "Dipendenza di un integrale proprio/improprio dall'insieme di integrazione. Funzione Gamma di Eulero. Esempi di stime di primitive e code di integrali impropri."];
 Lezioni[73] = [ "73","20/12/2016","16:00", "17:00", "Esercizi riassuntivi sul programma finora svolto che riguardano funzioni definite mediante integrali."];
-Lezioni[74] = [ "74","28/02/2017","11:00", "12:00", "Introduzione alle equazioni differenziali: nomenclatura. (Audio molto incompleto)"];
-Lezioni[75] = [ "75","28/02/2017","12:00", "13:00", "Introduzione alle equazioni differenziali: primi esempi di famiglie di soluzioni dipendenti da parametri, problema di Cauchy, enunciato dei teoremi di sola esistenza e di esistenza ed unicità, esempio di non unicità (pennello di Peano). (Audio molto incompleto)"];
+Lezioni[74] = [ "74","28/02/2017","11:00", "12:00", "Introduzione alle equazioni differenziali: nomenclatura. [Audio molto incompleto]"];
+Lezioni[75] = [ "75","28/02/2017","12:00", "13:00", "Introduzione alle equazioni differenziali: primi esempi di famiglie di soluzioni dipendenti da parametri, problema di Cauchy, enunciato dei teoremi di sola esistenza e di esistenza e unicità, esempio di non unicità (pennello di Peano). [Audio molto incompleto]"];
 Lezioni[76] = [ "76","01/03/2017","09:00", "10:00", "Equazioni differenziali a variabili separabili: descrizione della procedura per determinare una soluzione ed esempi di applicazione. Studio della soluzione: intervallo massimale di esistenza, tempo di vita, eventuali blow up e break down."];
 Lezioni[77] = [ "77","01/03/2017","10:00", "11:00", "Equazioni differenziali a variabili separabili: enunciato e dimostrazione del teorema di esistenza ed unicità. Discussione di un primo esempio con valori soglia."];
 Lezioni[78] = [ "78","03/03/2017","09:00", "10:00", "Teoria generale delle equazioni differenziali lineari: struttura dello spazio delle soluzioni nel caso omogeneo e non omogeneo."];
@@ -154,15 +151,15 @@ Lezioni[96] = [ "96","24/03/2017","09:00", "10:00", "Criterio della radice, del 
 Lezioni[97] = [ "97","24/03/2017","10:00", "11:00", "Liminf/limsup di funzioni: definizione, caratterizzazione come minlim/maxlim di successioni, priumi esempi."];
 Lezioni[98] = [ "98","28/03/2017","11:00", "12:00", "Linguaggio topologico nella retta reale: parte interna, chiusura, frontiera, punti isolati, punti di accumulazione. Insiemi aperti e chiusi. Famiglie infinite di sottoinsiemi, e loro unione/intersezione."];
 Lezioni[99] = [ "99","28/03/2017","12:00", "13:00", "Caratterizzazione della chiusura per successioni. Topologia relativa. Quattro facce della continuità: epsilon/delta, con le successioni, con i limiti, topologica. Equivalenza tra continuità epsilon/delta e continuità per successioni. Continuità della composizione di funzioni continue."];
-Lezioni[100] = [ "100","29/03/2017","09:00", "10:00", "In un punto di massimo/minimo interno la derivata, se esiste, si annulla. Teoremi di Rolle, Cauchy, Lagrange. Controesempi ed interpretazioni geometriche. (audio inascoltabile)"];
-Lezioni[101] = [ "101","29/03/2017","10:00", "11:00", "Enunciato e dimostrazione della formula di Taylor con resto di Peano e di Lagrange. (audio incompleto)"];
+Lezioni[100] = [ "100","29/03/2017","09:00", "10:00", "In un punto di massimo/minimo interno la derivata, se esiste, si annulla. Teoremi di Rolle, Cauchy, Lagrange. Controesempi e interpretazioni geometriche. [Audio inascoltabile]"];
+Lezioni[101] = [ "101","29/03/2017","10:00", "11:00", "Enunciato e dimostrazione della formula di Taylor con resto di Peano e di Lagrange. [Audio incompleto]"];
 Lezioni[102] = [ "102","04/04/2017","11:00", "12:00", "Dimostrazione dei teoremi di De L'Hôpital."];
 Lezioni[103] = [ "103","04/04/2017","12:00", "13:00", "Teoremi di Stolz-Cesaro: enunciato, dimostrazione, esempi. Teorema delle medie di Cesaro. Criterio rapporto -> radice come applicazione di Stolz-Cesaro."];
 Lezioni[104] = [ "104","05/04/2017","09:00", "10:00", "Teorema di Bolzano-Weierstrass. Definizione di insieme compatto (come chiuso e limitato). Dimostrazione del teorema di Weierstrass per funzioni continue su un compatto. Gli insiemi compatti ammettono max e min. Le funzioni continue non mandano chiusi in chiusi e limitati in limitati."];
 Lezioni[105] = [ "105","05/04/2017","10:00", "11:00", "Funzioni semicontinue inferiormente e superiormente: definizione, caratterizzazione con le successioni, esempi. Teorema di Weierstrass per funzioni semicontinue. Cosa succede a liminf/limsup di una successione quando si applica una funzione."];
 Lezioni[106] = [ "106","07/04/2017","09:00", "10:00", "Tre facce della compattezza: limitato e chiuso, compattezza per successioni, compattezza per ricoprimenti. Equivalenza tra le prime due. Le funzioni continue mandano compatti per successioni in compatti per successioni. Compatto per ricoprimenti implica limitato e chiuso."];
 Lezioni[107] = [ "107","07/04/2017","10:00", "11:00", "Le funzioni continue mandano compatti per ricoprimenti in compatti per ricoprimenti. Lemma del raggio magico (numero di Lebesgue). Lemma dei distributori (esistenza della epsilon rete). Compatto per successioni implica compatto per ricoprimenti. Idea per dimostrazione alternativa del teorema di Weierstrass."];
-Lezioni[108] = [ "108","11/04/2017","11:00", "12:00", "Definizione di successione di Cauchy e prime proprietà. Completezza dei numeri reali: dimostrazione via liminf/limsup e via Bolzano-Weierstrass. Equivalenza tra assioma di continuità e completezza + proprietà archimedea. (audio inascoltabile)"];
+Lezioni[108] = [ "108","11/04/2017","11:00", "12:00", "Definizione di successione di Cauchy e prime proprietà. Completezza dei numeri reali: dimostrazione via liminf/limsup e via Bolzano-Weierstrass. Equivalenza tra assioma di continuità e completezza e proprietà archimedea. [Audio inascoltabile]"];
 Lezioni[109] = [ "109","11/04/2017","10:00", "11:00", "Funzioni uniformemente continue: definizione, commenti, prime proprietà. Lipschitzianità implica uniforme continuità."];
 Lezioni[110] = [ "110","12/04/2017","09:00", "10:00", "Teorema di Heine-Cantor: enunciato e due dimostrazioni (per assurdo via compattezza per successioni, diretta via compattezza per ricoprimenti e raggio magico). Teorema di estensione: enunciato e dimostrazione."];
 Lezioni[111] = [ "111","12/04/2017","10:00", "11:00", "Uniformemente continua in una semiretta implica sublineare. Continua in una semiretta più limite finito implica uniformemente continua. Esercizi sull'uniforme continuità."];

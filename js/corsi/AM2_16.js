@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 2",
   annoAccademico: "2015/2016",
   crediti: "12",
-  ore: "120 (ufficialmente, 130+8 realisticamente)",
-  target: "Matematica",
-  anno: "Secondo",
-  periodo: "fine Settembre / fine Maggio",
-  avviso: "Achtung! Questo corso è pensato per gli studenti del Corso di Laurea in Matematica. Certamente è adatto anche per studenti di altri corsi di studi, purché sufficientemente motivati e privi di problemi sui preliminari (cioè precorso, Analisi 1 e Algebra Lineare). Ad esempio è sicuramente adatto per chi ha seguito con successo il corrispondente corso di Analisi Matematica 1 (anno 2014/2015), o per chi ha già seguito con noia i corsi di Analisi 2 per ingegneria. Per tutti gli altri, il consiglio è di partire con una delle versioni edulcorate, ad esempio il corso di Analisi 2 del 2013/2014."
+  target: "Corso di Laurea in Matematica",
+  anno: "Secondo anno",
 };
 
 var DocumentiCorso = [
@@ -23,8 +20,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM2_16_Esame.pdf",
-    titolo: "Regole d'esame",
-    nota: "versione provvisoria aggiornata al 14/10/2015"
+    titolo: "Regole d’esame",
   },
   {
     sezione: "book",
@@ -84,8 +80,8 @@ Lezioni[28] = [ "28","27/10/2015","09:00", "10:00", "Introduzione agli integrali
 Lezioni[29] = [ "29","27/10/2015","10:00", "11:00", "Descrizione della formula di riduzione per integrali doppi su rettangoli e su insiemi normali. Analogia con il double counting. Esempi di applicazione."];
 Lezioni[30] = [ "30","28/10/2015","11:00", "12:00", "Proprietà basilari dell'integrale (linearità, monotonia, integrale del prodotto e del valore assoluto, ...) analoghe a quelle valide in una variabile. Enunciato e dimostrazione della formula di riduzione in massima generalità. Esempi patologici."];
 Lezioni[31] = [ "31","28/10/2015","12:00", "13:00", "Formula di spezzamento in ipotesi di integrabilità. Insiemi misurabili e loro caratterizzazione. Misurabilità degli insiemi normali. Integrabilità delle funzioni continue su insiemi misurabili."];
-Lezioni[32] = [ "32","30/11/2015","09:00", "10:00", "Utilizzo delle coordinate polari per il calcolo di integrali doppi: descrizione della formula ed esempi di applicazione."];
-Lezioni[33] = [ "33","30/11/2015","10:00", "11:00", "Formula generale per il cambio di variabili negli integrali doppi ed esempi classici di applicazione. Classi particolari di trasformazioni: traslazioni, dilatazioni degli assi, affinità."];
+Lezioni[32] = [ "32","30/10/2015","09:00", "10:00", "Utilizzo delle coordinate polari per il calcolo di integrali doppi: descrizione della formula ed esempi di applicazione."];
+Lezioni[33] = [ "33","30/10/2015","10:00", "11:00", "Formula generale per il cambio di variabili negli integrali doppi ed esempi classici di applicazione. Classi particolari di trasformazioni: traslazioni, dilatazioni degli assi, affinità."];
 Lezioni[34] = [ "34","03/11/2015","09:00", "10:00", "Integrali tripli: notazioni, significato fisico, definizione. Formula di riduzione sui parallelepipedi e su insiemi normali (integrazione per colonne). Esempi di applicazione."];
 Lezioni[35] = [ "35","03/11/2015","10:00", "11:00", "Formula di riduzione per sezioni per gli integrali tripli. Utilizzo delle simmetrie per mostrare che certi integrali sono nulli, o comunque per semplificarne il calcolo. Esempi di applicazione."];
 Lezioni[36] = [ "36","04/11/2015","11:00", "12:00", "Coordinate cilindriche e sferiche nello spazio. Cambi di variabile negli integrali tripli. Esempi di applicazione."];

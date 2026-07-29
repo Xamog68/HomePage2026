@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Elementi di Calcolo delle Variazioni",
   annoAccademico: "2016/2017",
   crediti: "6",
-  ore: "48",
   target: "Students in Mathematics",
-  anno: "Third year students or more",
-  periodo: "End of September / December",
-  avviso: "This course is an English version of the course held in Italian in 2015/2016, hopefully better organized and improved by the experience gained in the previous year."
+  anno: "Third year or later",
 };
 
 var DocumentiCorso = [

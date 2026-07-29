@@ -2,14 +2,11 @@ var NomeCorso = "Algebra Lineare 2014/2015";
 var Percorso = MEDIA.lezioni + "AL_15/AL_15_L";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {
-  nome: "(modulo di) Algebra Lineare",
+  nome: "Algebra Lineare",
   annoAccademico: "2014/2015",
   crediti: "6",
-  ore: "60 (ufficialmente, 60 realisticamente)",
-  target: "Ingegneria Elettronica/Telecomunicazioni",
-  anno: "Primo",
-  periodo: "ottobre / dicembre",
-  avviso: ""
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

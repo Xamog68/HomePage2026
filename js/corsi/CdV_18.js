@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Elementi di Calcolo delle Variazioni",
   annoAccademico: "2017/2018",
   crediti: "6",
-  ore: "48",
-  target: "Studenti di Matematica (ma ognuno è benvenuto, ovviamente)",
-  anno: "Third year students or more",
-  periodo: "End of September / December",
-  avviso: "Questo corso è la terza versione del corso tenuto per la prima volta nel 2015/16. Si tratta di un’introduzione di base ai funzionali integrali scalari, con meno prerequisiti possibile."
+  target: "Corso di Laurea in Matematica",
+  anno: "Third year or later",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "CdV_18_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",

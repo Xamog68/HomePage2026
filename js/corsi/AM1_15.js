@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2014/2015",
   crediti: "15",
-  ore: "120 previste; 133 lezioni registrate",
-  target: "Matematica",
-  anno: "Primo",
-  periodo: "fine settembre / fine maggio",
-  avviso: ""
+  target: "Corso di Laurea in Matematica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM1_15_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "book",

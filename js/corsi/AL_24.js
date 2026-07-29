@@ -5,22 +5,11 @@ var Percorso = MEDIA.lezioni + "AL_24/AL_24_L";
 var CifreNumeroLezione = 2;
 
 var SchedaCorso = {
-  nome: "(modulo di) Algebra Lineare",
+  nome: "Algebra Lineare",
   annoAccademico: "2023/2024",
   crediti: "6",
-  ore: "60 (ufficialmente, 60 realisticamente)",
-  target: "Ingegneria Elettronica/Telecomunicazioni",
-  anno: "Primo",
-  periodo: "ottobre / dicembre",
-  avviso:
-    "Questo è un corso molto sbilanciato sulla parte di esercitazione, " +
-    "cioè un corso in cui si richiama brevemente la teoria per poi risolvere " +
-    "un discreto numero di esercizi sui vari argomenti, spiegando gli approcci " +
-    "che funzionano e quelli che non funzionano, nonché gli errori ricorrenti " +
-    "visti in tutte le precedenti edizioni. Per chi vuole seguire proficuamente " +
-    "una lezione è quindi opportuno aver guardato precedentemente, almeno in " +
-    "maniera sommaria (attingendo ai corsi precedenti registrati), la teoria " +
-    "relativa agli argomenti trattati negli esercizi."
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [

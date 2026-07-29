@@ -6,11 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica I",
   annoAccademico: "2008/2009",
   crediti: "12",
-  ore: "120 previste; 109 lezioni registrate",
-  target: "Ingegneria Elettronica e Ingegneria delle Telecomunicazioni",
-  anno: "Primo",
-  periodo: "ottobre / dicembre",
-  avviso: ""
+  target: "Corsi di Laurea in Ingegneria Elettronica e in Ingegneria delle Telecomunicazioni",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
@@ -26,7 +23,7 @@ Lezioni[1] = [ "1","30/09/2008","08:30", "09:30", "Insiemi - Notazioni, unione, 
 Lezioni[2] = [ "2","30/09/2008","09:30", "10:30", "Insieme delle parti e prodotto cartesiano, funzioni tra insiemi, grafico di una funzione"];
 Lezioni[3] = [ "3","30/09/2008","10:30", "11:30", "Funzioni: iniettività, surgettività, invertibilità"];
 Lezioni[4] = [ "4","01/10/2008","10:30", "11:30", "Immagine e controimmagine di una funzione. Insiemi numerici. Proprietà di simmetria per funzioni reali (pari, dispari, periodiche)"];
-Lezioni[5] = [ "5","01/10/2008","11:30", "12:30", "Monotonia per funzioni reali. Relazioni conseguenze di monotonia e iniettività nello studio di equazioni e disequazioni (il video è mooolto incompleto, il pdf è ok)"];
+Lezioni[5] = [ "5","01/10/2008","11:30", "12:30", "Monotonia per funzioni reali. Relazioni tra monotonia e iniettività nello studio di equazioni e disequazioni. [Video molto incompleto; PDF completo]"];
 Lezioni[6] = [ "6","01/10/2008","12:30", "13:30", "Funzioni reali: potenze, radici, esponenziali, logaritmi, seno, coseno, arcoseno, arcocoseno"];
 Lezioni[7] = [ "7","02/10/2008","13:30", "14:30", "Principio di induzione - Esercizi"];
 Lezioni[8] = [ "8","02/10/2008","14:30", "15:30", "Esercizi sull'induzione. Fattoriale, binomiale, binomio di Newton"];
@@ -54,7 +51,7 @@ Lezioni[29] = [ "29","22/10/2008","12:30", "13:30", "Derivate delle funzioni tri
 Lezioni[30] = [ "30","23/10/2008","13:30", "14:30", "Teorema di De L'Hôpital e suo utilizzo nel calcolo dei limiti"];
 Lezioni[31] = [ "31","24/10/2008","08:30", "09:30", "Formula di Taylor. Calcolo dei polinomi di Taylor di alcune funzioni elementari"];
 Lezioni[32] = [ "32","24/10/2008","09:30", "10:30", "Utilizzo operativo dei polinomi di Taylor. Calcolo del polinomio di Taylor del prodotto e della composizione."];
-Lezioni[33] = [ "33","28/10/2008","08:30", "09:30", "Esempi di utilizzo della formula di Taylor (audio parzialmente incompleto)"];
+Lezioni[33] = [ "33","28/10/2008","08:30", "09:30", "Esempi di utilizzo della formula di Taylor. [Audio parzialmente incompleto]"];
 Lezioni[34] = [ "34","28/10/2008","09:30", "10:30", "Funzioni iperboliche"];
 Lezioni[35] = [ "35","28/10/2008","10:30", "11:30", "Formula di Taylor con centro diverso dall'origine. Esempi di calcolo di sviluppi di Taylor."];
 Lezioni[36] = [ "36","29/10/2008","10:30", "11:30", "Teorema sulle successioni monotone. Il numero e."];

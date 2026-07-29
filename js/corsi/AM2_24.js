@@ -3,14 +3,11 @@ var Percorso = MEDIA.lezioni + "AM2_24/AM2_24_L";
 var CifreNumeroLezione = 2;
 
 var SchedaCorso = {
-  nome: "Complementi di Analisi Matematica (ma in realtà è Analisi 2)",
+  nome: "Complementi di Analisi Matematica",
   annoAccademico: "2023/2024",
   crediti: "6",
-  ore: "48 ufficialmente (56 realisticamente)",
-  target: "Fisica",
-  anno: "Secondo",
-  periodo: "Settembre/Dicembre",
-  avviso: ""
+  target: "Corso di Laurea in Fisica",
+  anno: "Secondo anno",
 };
 
 var DocumentiCorso = [
@@ -22,7 +19,7 @@ var DocumentiCorso = [
   {
     sezione: "burocrazia",
     file: "AM2_24_Esame.pdf",
-    titolo: "Regole d'esame"
+    titolo: "Regole d’esame"
   },
   {
     sezione: "burocrazia",

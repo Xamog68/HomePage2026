@@ -6,14 +6,8 @@ var SchedaCorso = {
   nome: "Analisi Matematica 1",
   annoAccademico: "2024/2025",
   crediti: "12",
-  ore: "120 (ufficialmente, ??? realisticamente)",
-  target: "Ingegneria Meccanica",
-  anno: "Primo",
-  periodo: "fine settembre / fine maggio",
-  avviso:
-    "Questo corso è sostanzialmente una riedizione dei corsi di servizio " +
-    "di Analisi 1 tenuti fino al 2012/13. Per gli studenti più motivati/" +
-    "determinati, si consigliano le versioni per Matematica."
+  target: "Corso di Laurea in Ingegneria Meccanica",
+  anno: "Primo anno",
 };
 
 var DocumentiCorso = [
