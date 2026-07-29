@@ -297,9 +297,9 @@ Quando emerge una stranezza:
 - [ ] Correggere i caratteri di sostituzione Unicode (`�`, U+FFFD)
       introdotti durante la migrazione di alcune vecchie annate SSSUP.
       I file interessati sono:
-      - `js/corsi/sa-2009-10.js`
-      - `js/corsi/sa-2010-11.js`
-      - `js/corsi/sa-2012-13.js`
+      - `js/corsi/SAnna_10.js`
+      - `js/corsi/SAnna_11.js`
+      - `js/corsi/SAnna_13.js`
 
 ## 11. Riorganizzazione futura del magazzino
 

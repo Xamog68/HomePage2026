@@ -33,7 +33,7 @@ function registraDownload(formato, numeroLezione) {
   I dati provengono dall'oggetto SchedaCorso, definito nel file
   specifico del corso, per esempio:
 
-      js/corsi/am1-2025-26.js
+      js/corsi/AM1_26.js
 */
 function generaSchedaCorso() {
   if (typeof SchedaCorso === "undefined") {
