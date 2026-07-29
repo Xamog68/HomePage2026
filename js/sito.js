@@ -41,28 +41,17 @@ function generaSchedaCorso() {
   }
 
   const contenitore = document.getElementById("scheda-corso");
-  const avviso = document.getElementById("avviso-corso");
 
-  /*
-    Alcune pagine potrebbero caricare questo file JavaScript
-    senza avere una scheda del corso nell'HTML.
-  */
   if (!contenitore) {
     return;
   }
 
-  /*
-    Ogni elemento dell'array rappresenta una riga della tabella:
-    il primo valore è l'etichetta, il secondo è il contenuto.
-  */
   const righe = [
     ["Nome corso", SchedaCorso.nome],
-    ["Anno Accademico", SchedaCorso.annoAccademico],
-    ["Crediti", SchedaCorso.crediti],
-    ["Ore di lezione", SchedaCorso.ore],
-    ["Target", SchedaCorso.target],
-    ["Anno", SchedaCorso.anno],
-    ["Periodo", SchedaCorso.periodo]
+    ["Anno accademico", SchedaCorso.annoAccademico],
+    ["CdS di riferimento", SchedaCorso.target],
+    ["Anno di corso", SchedaCorso.anno],
+    ["CFU", SchedaCorso.crediti]
   ];
 
   for (const [etichetta, valore] of righe) {
@@ -77,17 +66,7 @@ function generaSchedaCorso() {
     riga.appendChild(cella);
     contenitore.appendChild(riga);
   }
-
-  /*
-    L'avviso è facoltativo. Usiamo innerHTML perché vogliamo
-    inserire anche la parola "Achtung!" in grassetto.
-  */
-  if (avviso && SchedaCorso.avviso) {
-    avviso.innerHTML =
-      "<strong>Achtung!</strong> " + SchedaCorso.avviso;
-  }
 }
-
 
 /* =========================================================
    DOCUMENTI DEL CORSO
@@ -473,9 +452,9 @@ function generaTestiComuni() {
 
   if (testoBook) {
     testoBook.textContent =
-      "I volumi raccolgono in un unico file i PDF delle singole lezioni " +
-      "disponibili nella sezione sottostante. Per questo possono avere " +
-      "dimensioni piuttosto grandi.";
+      "Lo stampato integrale delle lezioni, eventualmente suddiviso " +
+      "in più volumi, raccoglie in forma continua i PDF delle singole " +
+      "lezioni ed è corredato da un indice.";
   }
 
   /*
