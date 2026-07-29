@@ -199,23 +199,84 @@ nav a:hover {
    PAGINE INTRODUTTIVE DEI CORSI
    ========================================================= */
 
-.griglia-corsi-al {
+.griglia-corsi-al,
+.griglia-corsi-am1 {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   align-items: start;
 }
 
+.griglia-corsi-al {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .griglia-corsi-am1 {
-  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  align-items: start;
 }
 
 .griglia-corsi-al .sezione-corso,
 .griglia-corsi-am1 .sezione-corso {
   margin-top: 0;
+}
+
+
+/* =========================================================
+   INDICE GENERALE DELLE VIDEOLEZIONI
+   ========================================================= */
+
+.gruppo-corsi {
+  margin-block: 2rem 2.75rem;
+}
+
+.intestazione-gruppo {
+  margin: 0 0 1rem;
+  padding: 0.65rem 1rem 0.75rem;
+
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 0.45rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+  color: #25362d;
+}
+
+.intestazione-gruppo h2 {
+  margin: 0;
+  color: inherit;
+}
+
+.intestazione-gruppo p {
+  margin: 0.35rem 0 0;
+}
+
+.griglia-corsi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+}
+
+.griglia-corsi-singola {
+  grid-template-columns: minmax(14rem, 42rem);
+  justify-content: center;
+}
+
+.griglia-corsi-due {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 22rem));
+  justify-content: center;
+}
+
+.card-corso {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.card-corso > h3 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.card-corso .pulsante {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 
@@ -374,6 +435,133 @@ body.archivio-didattico.pagina-documento details.blocco-contenuto > .contenuto-s
 
 
 /* =========================================================
+   INDICI DEI CORSI
+   ========================================================= */
+
+body.archivio-didattico.pagina-indice-corso > header {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto 0;
+  padding: 1.4rem 2rem;
+
+  text-align: left;
+}
+
+body.archivio-didattico.pagina-indice-corso > header h1 {
+  margin: 0;
+}
+
+body.archivio-didattico.pagina-indice-corso > header .breadcrumb {
+  justify-content: flex-start;
+  width: auto;
+  max-width: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.archivio-didattico.pagina-indice-corso .introduzione-archivio {
+  max-width: none;
+  margin: 2rem auto;
+  padding: 1.25rem 1.6rem;
+
+  font-size: 1rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+body.archivio-didattico.pagina-indice-corso
+  .introduzione-archivio p:first-child {
+  margin-top: 0;
+}
+
+body.archivio-didattico.pagina-indice-corso
+  .introduzione-archivio p:last-child {
+  margin-bottom: 0;
+}
+
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
+body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   PAGINE DEI SINGOLI CORSI
+   ========================================================= */
+
+body.pagina-corso > header {
+  padding: 1.4rem 2rem;
+}
+
+body.pagina-corso > header h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.15;
+}
+
+body.pagina-corso > header .breadcrumb {
+  margin-top: 1rem;
+}
+
+body.pagina-corso > main {
+  margin-top: 1.5rem;
+}
+
+
+/* =========================================================
+   PAGINE DEI SINGOLI CORSI: SFONDO A LAVAGNA
+   ========================================================= */
+
+body.pagina-corso {
+  background-color: #17352d;
+  background-image:
+    linear-gradient(
+      rgba(5, 28, 20, 0.18),
+      rgba(5, 28, 20, 0.18)
+    ),
+    url("../immagini/sfondo-archivio-didattico.png");
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.pagina-corso > main {
+  background: transparent;
+}
+
+body.pagina-corso > footer {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+
+  background: rgba(248, 246, 238, 0.94);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
+}
+
+body.pagina-corso .classificazioni-secondarie {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+
+  background: rgba(248, 246, 238, 0.94);
+  border-radius: 0.7rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.18);
+  color: #222;
+}
+
+body.pagina-corso .classificazioni-secondarie a {
+  color: #184d73;
+  font-weight: 600;
+}
+
+
+/* =========================================================
    SCHERMI MEDI E PICCOLI
    ========================================================= */
 
@@ -432,137 +620,4 @@ body.archivio-didattico.pagina-documento details.blocco-contenuto > .contenuto-s
   body.archivio-didattico.pagina-documento details.blocco-contenuto {
     padding: 0;
   }
-}
-
-/* =========================================================
-   INDICI DEI CORSI: CORREZIONI GRAFICHE
-   ========================================================= */
-
-/* 1. Intestazione più compatta. */
-body.archivio-didattico.pagina-indice-corso > header {
-  width: min(1100px, calc(100% - 3rem));
-  margin: 2rem auto 0;
-  padding: 1.4rem 2rem;
-
-  text-align: left;
-}
-
-body.archivio-didattico.pagina-indice-corso > header h1 {
-  margin: 0;
-}
-
-/* 2. Breadcrumb allineato a sinistra e senza sottopannello. */
-body.archivio-didattico.pagina-indice-corso > header .breadcrumb {
-  justify-content: flex-start;
-  width: auto;
-  max-width: none;
-  margin: 0.9rem 0 0;
-  padding: 0;
-
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* 3. Introduzione meno monumentale. */
-body.archivio-didattico.pagina-indice-corso .introduzione-archivio {
-  max-width: none;
-  margin: 2rem auto;
-  padding: 1.25rem 1.6rem;
-
-  font-size: 1rem;
-  line-height: 1.55;
-  text-align: left;
-}
-
-body.archivio-didattico.pagina-indice-corso
-  .introduzione-archivio p:first-child {
-  margin-top: 0;
-}
-
-body.archivio-didattico.pagina-indice-corso
-  .introduzione-archivio p:last-child {
-  margin-bottom: 0;
-}
-
-/* 4. Spazio tra il blocco precedente e le griglie dei corsi. */
-body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
-body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
-  margin-top: 2rem;
-}
-
-/* Evita che le schede della griglia si attacchino verticalmente
-   agli elementi successivi. */
-body.archivio-didattico.pagina-indice-corso .griglia-corsi-al,
-body.archivio-didattico.pagina-indice-corso .griglia-corsi-am1 {
-  margin-bottom: 2rem;
-}
-
-/* =========================================================
-   PAGINE DEI SINGOLI CORSI
-   ========================================================= */
-
-body.pagina-corso > header {
-  padding: 1.4rem 2rem;
-}
-
-body.pagina-corso > header h1 {
-  margin: 0;
-  font-size: clamp(1.9rem, 3vw, 3rem);
-  line-height: 1.15;
-}
-
-body.pagina-corso > header .breadcrumb {
-  margin-top: 1rem;
-}
-
-body.pagina-corso > main {
-  margin-top: 1.5rem;
-}
-
-/* =========================================================
-   PAGINE DEI SINGOLI CORSI: SFONDO A LAVAGNA
-   ========================================================= */
-
-body.pagina-corso {
-  background-color: #17352d;
-  background-image:
-    linear-gradient(
-      rgba(5, 28, 20, 0.18),
-      rgba(5, 28, 20, 0.18)
-    ),
-    url("../immagini/sfondo-archivio-didattico.png");
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-body.pagina-corso > main {
-  background: transparent;
-}
-
-body.pagina-corso > footer {
-  width: min(1100px, calc(100% - 3rem));
-  margin: 2rem auto;
-  padding: 1rem 1.5rem;
-
-  background: rgba(248, 246, 238, 0.94);
-  border-radius: 0.8rem;
-  box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
-}
-
-body.pagina-corso .classificazioni-secondarie {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 0 1.25rem;
-  padding: 0.75rem 1rem;
-  background: rgba(248, 246, 238, 0.94);
-  border-radius: 0.7rem;
-  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.18);
-  color: #222;
-}
-
-body.pagina-corso .classificazioni-secondarie a {
-  color: #184d73;
-  font-weight: 600;
 }
