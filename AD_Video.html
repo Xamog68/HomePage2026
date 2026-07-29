@@ -100,6 +100,24 @@
   </details>
 
 
+  <details class="blocco-contenuto sezione-corso">
+    <summary>Posso usare il lettore del mio sistema operativo?</summary>
+
+    <div class="contenuto-sezione">
+      <p>
+        In linea di principio sì. Su Windows è possibile utilizzare anche
+        il lettore di sistema installando il decoder del codec TSCC.
+      </p>
+
+      <p>
+        Nella pratica, però, la soluzione più semplice, affidabile
+        e multipiattaforma rimane VLC, che non richiede configurazioni
+        aggiuntive e funziona allo stesso modo su Windows, macOS e Linux.
+      </p>
+    </div>
+  </details>
+
+
   <!-- =====================================================
        COMPUTER
        ===================================================== -->
@@ -246,9 +264,19 @@
       </p>
 
       <p>
+        In alcuni casi la registrazione non è mai stata prodotta:
+        per esempio può essere capitato di dimenticare di premere
+        il pulsante <strong>REC</strong>, oppure che la registrazione
+        si sia interrotta senza lasciare un file utilizzabile.
+        In altri casi il materiale è andato perduto o è risultato
+        irrimediabilmente danneggiato.
+      </p>
+
+      <p>
         In altre parole, non manca soltanto il collegamento:
-        manca proprio l’oggetto al quale il collegamento dovrebbe
-        condurre.
+        manca proprio il file. Una mail al docente, purtroppo,
+        non può far comparire retroattivamente una registrazione
+        che non è mai stata effettuata.
       </p>
     </div>
   </details>
@@ -294,6 +322,10 @@
       </p>
 
       <p>
+        Per ulteriori dettagli sulla registrazione, sul codec utilizzato e sull'intero processo di produzione dei materiali si può consultare la pagina <em>Come vengono realizzate le videolezioni</em>.
+      </p>
+
+      <p>
         Il video viene conservato con una compressione
         <strong>lossless</strong>, cioè senza perdita di informazione
         nei fotogrammi. Questo evita la comparsa di aloni e artefatti
@@ -317,41 +349,29 @@
       </p>
 
       <p>
-        Questo è possibile perché una lezione registrata dal tablet
-        è molto diversa da un film:
-      </p>
-
-      <ul>
-        <li>
-          gran parte dello schermo rimane identica da un fotogramma
-          al successivo;
-        </li>
-
-        <li>
-          cambiano soprattutto piccoli tratti della scrittura;
-        </li>
-
-        <li>
-          il video è registrato a soli 5 fotogrammi al secondo;
-        </li>
-
-        <li>
-          il codec è ottimizzato proprio per questo genere
-          di immagini.
-        </li>
-      </ul>
-
-      <p>
-        In un file analizzato come esempio, una registrazione di
-        circa 52 minuti, con risoluzione 1024 × 768, occupava circa
-        33 MB. Il video era codificato con TSCC a 5 fotogrammi al
-        secondo, mentre l’audio era mono e compresso in MP3.
+        Una videolezione registrata dal tablet è molto diversa da un film:
+        gran parte dello schermo rimane identica da un fotogramma
+        al successivo e cambiano soprattutto i piccoli tratti aggiunti
+        dalla penna.
       </p>
 
       <p>
-        Dunque <em>lossless</em> non significa necessariamente
-        <em>enorme</em>: dipende soprattutto dalla natura delle
-        immagini che si devono comprimere.
+        Il codec sfrutta proprio questa caratteristica: invece di trattare
+        ogni fotogramma come un'immagine completamente nuova, codifica
+        in modo particolarmente efficiente le differenze rispetto a ciò
+        che era già presente sullo schermo.
+      </p>
+
+      <p>
+        In altre parole, non deve comprimere un film in continuo movimento,
+        ma una lavagna che cambia lentamente. È questo, insieme ai soli
+        5 fotogrammi al secondo, che permette di ottenere registrazioni
+        lossless di dimensioni sorprendentemente contenute.
+      </p>
+
+      <p>
+        In un file analizzato come esempio, una registrazione di circa
+        52 minuti, con risoluzione 1024 × 768, occupava circa 33 MB.
       </p>
     </div>
   </details>
@@ -400,8 +420,7 @@
         </li>
 
         <li>
-          ottenere un beneficio modesto nelle dimensioni, perché
-          i file originali sono già molto piccoli.
+          ottenere soprattutto un vantaggio di compatibilità con browser e dispositivi moderni, mentre il guadagno nelle dimensioni dei file sarebbe relativamente limitato, perché i file originali sono già molto piccoli.
         </li>
       </ul>
 
@@ -409,6 +428,10 @@
         La scelta attuale è quindi conservare gli originali lossless
         e indicare un lettore gratuito e multipiattaforma in grado
         di aprirli.
+      </p>
+
+      <p>
+        Per questo motivo gli originali vengono conservati nel formato con cui sono stati prodotti. Se un giorno sarà opportuno migrare l'archivio verso standard diversi, la conversione potrà essere effettuata partendo dai materiali originali, senza dover ricostruire le registrazioni.
       </p>
 
       <p>
@@ -508,7 +531,7 @@
        ===================================================== -->
 
   <details class="blocco-contenuto sezione-corso">
-    <summary>Il video non funziona: che cosa devo controllare?</summary>
+    <summary>Diagnosi rapida</summary>
 
     <div class="contenuto-sezione">
       <ol>

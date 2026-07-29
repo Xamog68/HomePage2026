@@ -550,3 +550,19 @@ body.pagina-corso > footer {
   border-radius: 0.8rem;
   box-shadow: 0 0.7rem 1.8rem rgba(0, 0, 0, 0.22);
 }
+
+body.pagina-corso .classificazioni-secondarie {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  background: rgba(248, 246, 238, 0.94);
+  border-radius: 0.7rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.18);
+  color: #222;
+}
+
+body.pagina-corso .classificazioni-secondarie a {
+  color: #184d73;
+  font-weight: 600;
+}
