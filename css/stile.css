@@ -21,6 +21,11 @@ body.pagina-corso {
   max-width: 1500px;
 }
 
+:focus-visible {
+  outline: 3px solid #2b6f9f;
+  outline-offset: 3px;
+}
+
 
 /* =========================================================
    INTESTAZIONE
@@ -38,20 +43,20 @@ header {
    NAVIGAZIONE
    ========================================================= */
 
-nav {
+.breadcrumb {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
 }
 
-nav a {
+.breadcrumb a {
   color: #184d73;
   font-weight: 600;
   text-decoration: none;
 }
 
-nav a:hover {
+.breadcrumb a:hover {
   text-decoration: underline;
 }
 
@@ -62,9 +67,10 @@ nav a:hover {
 
 .accessi-principali {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
+  align-items: stretch;
 }
 
 .accessi-principali article {
@@ -76,6 +82,17 @@ nav a:hover {
 
 .accessi-principali h2 {
   margin-top: 0;
+}
+
+.accessi-principali .accesso-videolezioni {
+  grid-column: 1 / -1;
+  min-height: 15rem;
+}
+
+.accessi-principali .accesso-progetto {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(34rem, 80%);
 }
 
 
@@ -224,27 +241,51 @@ nav a:hover {
    INDICE GENERALE DELLE VIDEOLEZIONI
    ========================================================= */
 
-.gruppo-corsi {
+details.gruppo-corsi {
   margin-block: 2rem 2.75rem;
 }
 
-.intestazione-gruppo {
-  margin: 0 0 1rem;
-  padding: 0.65rem 1rem 0.75rem;
+summary.intestazione-gruppo {
+  margin: 0;
+  padding: 0.75rem 1rem 0.85rem;
 
   background: rgba(255, 255, 255, 0.92);
   border-radius: 0.45rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
   color: #25362d;
+  cursor: pointer;
+  list-style: none;
 }
 
-.intestazione-gruppo h2 {
+summary.intestazione-gruppo::-webkit-details-marker {
+  display: none;
+}
+
+summary.intestazione-gruppo h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0;
   color: inherit;
 }
 
-.intestazione-gruppo p {
-  margin: 0.35rem 0 0;
+summary.intestazione-gruppo h2::before {
+  content: "▸";
+  display: inline-block;
+  width: 1em;
+  transition: transform 0.18s ease;
+}
+
+details.gruppo-corsi[open] > summary.intestazione-gruppo h2::before {
+  transform: rotate(90deg);
+}
+
+summary.intestazione-gruppo p {
+  margin: 0.35rem 0 0 1.65rem;
+}
+
+details.gruppo-corsi > .griglia-corsi {
+  margin-top: 1rem;
 }
 
 .griglia-corsi {
@@ -619,5 +660,21 @@ body.pagina-corso .classificazioni-secondarie a {
 
   body.archivio-didattico.pagina-documento details.blocco-contenuto {
     padding: 0;
+  }
+
+  body.archivio-didattico,
+  body.pagina-corso {
+    background-attachment: scroll;
+  }
+
+  .accessi-principali .accesso-videolezioni,
+  .accessi-principali .accesso-progetto {
+    grid-column: auto;
+    width: auto;
+    justify-self: stretch;
+  }
+
+  summary.intestazione-gruppo p {
+    margin-left: 0;
   }
 }

@@ -1,6 +1,6 @@
 var NomeCorso = "Analisi Matematica 1 - 2006/2007";
 var Percorso = MEDIA.lezioni + "T07/T07_L";
-var CifreNumeroLezione = 2;
+var CifreNumeroLezione = 3;
 
 var SchedaCorso = {
   nome: "Analisi Matematica 1",
