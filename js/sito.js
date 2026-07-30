@@ -133,6 +133,7 @@ function generaDocumentiCorso() {
 
       gtag("event", "download_documento", {
         corso: NomeCorso,
+        sezione: documento.sezione,
         file: documento.file,
         titolo: documento.titolo
       });
