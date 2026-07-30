@@ -70,14 +70,27 @@ header {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 2rem;
-  align-items: stretch;
+  align-items: start;
 }
 
-.accessi-principali article {
+.accessi-principali.accessi-tre {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.accessi-principali .accesso {
+  display: block;
   padding: 1.5rem;
 
   background: white;
   border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .accessi-principali h2 {
@@ -86,15 +99,29 @@ header {
 
 .accessi-principali .accesso-videolezioni {
   grid-column: 1 / -1;
-  min-height: 15rem;
+  width: min(100%, 780px);
+  justify-self: center;
 }
 
 .accessi-principali .accesso-progetto {
   grid-column: 1 / -1;
+  width: min(100%, 28rem);
   justify-self: center;
-  width: min(34rem, 80%);
 }
 
+.accessi-principali .accesso:hover {
+  transform: translateY(-2px);
+}
+
+.accessi-principali .accesso:focus-visible {
+  outline: 3px solid #184d73;
+  outline-offset: 4px;
+}
+
+.accessi-principali.accessi-singoli {
+  grid-template-columns: minmax(0, 780px);
+  justify-content: center;
+}
 
 /* =========================================================
    SEZIONI ESPANDIBILI DELLE PAGINE DEI CORSI
@@ -320,6 +347,31 @@ details.gruppo-corsi > .griglia-corsi {
   margin-top: auto;
 }
 
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card-link:visited,
+.card-link:hover,
+.card-link:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  transform: translateY(-2px);
+}
+
+.card-link:focus-visible {
+  outline: 3px solid #184d73;
+  outline-offset: 4px;
+}
 
 /* =========================================================
    ESERCIZIARI
@@ -606,32 +658,35 @@ body.pagina-corso .classificazioni-secondarie a {
    SCHERMI MEDI E PICCOLI
    ========================================================= */
 
-@media (max-width: 1050px) {
-  .griglia-corsi-am1 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+   @media (max-width: 750px) {
+     body,
+     body.pagina-corso {
+       padding: 1rem;
+     }
 
-@media (max-width: 750px) {
-  body,
-  body.pagina-corso {
-    padding: 1rem;
-  }
+     .accessi-principali,
+     .griglia-corsi-al,
+     .griglia-corsi-am1 {
+       grid-template-columns: 1fr;
+     }
 
-  .accessi-principali,
-  .griglia-corsi-al,
-  .griglia-corsi-am1 {
-    grid-template-columns: 1fr;
-  }
+     .accessi-principali.accessi-tre {
+       grid-template-columns: 1fr;
+     }
 
-  .contenuto-sezione {
-    padding: 0.9rem;
-  }
+     /* ...altre regole... */
 
-  .contenuto-sezione th,
-  .contenuto-sezione td {
-    padding: 0.55rem 0.65rem;
-  }
+     .accessi-principali .accesso-videolezioni,
+     .accessi-principali .accesso-progetto {
+       grid-column: auto;
+       width: auto;
+       justify-self: stretch;
+     }
+
+     summary.intestazione-gruppo p {
+       margin-left: 0;
+     }
+   }
 
   /*
     Su uno schermo stretto lasciamo che le celle possano
@@ -667,11 +722,16 @@ body.pagina-corso .classificazioni-secondarie a {
     background-attachment: scroll;
   }
 
-  .accessi-principali .accesso-videolezioni,
+  .accessi-principali .accesso-videolezioni {
+    grid-column: 1 / -1;
+    width: min(100%, 780px);
+    justify-self: center;
+  }
+
   .accessi-principali .accesso-progetto {
-    grid-column: auto;
-    width: auto;
-    justify-self: stretch;
+    grid-column: 1 / -1;
+    width: min(100%, 30rem);
+    justify-self: center;
   }
 
   summary.intestazione-gruppo p {
