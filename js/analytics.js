@@ -26,10 +26,7 @@ if (
 
   window.gtag("js", new Date());
 
-  window.gtag("config", GA_MEASUREMENT_ID, {
-    debug_mode: true
-  });
-} else {
+  window.gtag("config", GA_MEASUREMENT_ID);
   /*
     In locale non invia dati, ma mostra gli eventi in console.
   */
