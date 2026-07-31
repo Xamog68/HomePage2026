@@ -14,7 +14,8 @@ if (
 
   gtag("js", new Date());
   gtag("config", GA_MEASUREMENT_ID, {
-    cookie_domain: "none"
+    cookie_domain: "none",
+    debug_mode: true
   });
 
   const scriptAnalytics = document.createElement("script");
