@@ -318,7 +318,7 @@ details.gruppo-corsi > .griglia-corsi {
 .griglia-corsi {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1.25rem;
+  gap: 0.00rem 1.25rem;
 }
 
 .griglia-corsi-singola {
@@ -402,17 +402,23 @@ details.gruppo-corsi > .griglia-corsi {
    ARCHIVIO DIDATTICO: SFONDO A LAVAGNA
    ========================================================= */
 
-body.archivio-didattico {
-  min-height: 100vh;
+   body.archivio-didattico,
+   body.pagina-corso {
+     min-height: 100vh;
 
-  background:
-    linear-gradient(
-      rgba(5, 28, 20, 0.18),
-      rgba(5, 28, 20, 0.18)
-    ),
-    url("../immagini/sfondo-archivio-didattico.png")
-      center top / cover fixed;
-}
+     background-color: #17352d;
+     background-image:
+       linear-gradient(
+         rgba(5, 28, 20, 0.18),
+         rgba(5, 28, 20, 0.18)
+       ),
+       url("../immagini/sfondo-archivio-didattico.png");
+
+     background-position: center top;
+     background-size: 100%;
+     background-repeat: repeat-y;
+     background-attachment: fixed;
+   }
 
 body.archivio-didattico main {
   background: transparent;
@@ -608,19 +614,6 @@ body.pagina-corso > main {
 /* =========================================================
    PAGINE DEI SINGOLI CORSI: SFONDO A LAVAGNA
    ========================================================= */
-
-body.pagina-corso {
-  background-color: #17352d;
-  background-image:
-    linear-gradient(
-      rgba(5, 28, 20, 0.18),
-      rgba(5, 28, 20, 0.18)
-    ),
-    url("../immagini/sfondo-archivio-didattico.png");
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
-}
 
 body.pagina-corso > main {
   background: transparent;
