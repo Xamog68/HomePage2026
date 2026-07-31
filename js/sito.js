@@ -9,15 +9,220 @@
   In locale analytics.js non invia dati reali, ma scrive
   l'evento nella console del browser.
 */
+function nomeCorsoAnalytics() {
+  if (typeof NomeCorso !== "undefined" && NomeCorso) {
+    return NomeCorso;
+  }
+
+  if (
+    typeof SchedaCorso !== "undefined" &&
+    SchedaCorso &&
+    SchedaCorso.nome
+  ) {
+    return SchedaCorso.nome;
+  }
+
+  return document.title;
+}
+
+
 function registraDownload(formato, numeroLezione) {
   if (typeof gtag !== "function") {
     return;
   }
 
   gtag("event", "download_lezione", {
-    corso: NomeCorso,
+    corso: nomeCorsoAnalytics(),
     formato: formato,
     lezione: numeroLezione
+  });
+}
+
+
+/*
+  Comunica a Google Analytics il download di un documento.
+*/
+function registraDownloadDocumento(
+  sezione,
+  file,
+  titolo,
+  formato
+) {
+  if (typeof gtag !== "function") {
+    return;
+  }
+
+  gtag("event", "download_documento", {
+    corso: nomeCorsoAnalytics(),
+    sezione: sezione,
+    file: file,
+    titolo: titolo,
+    formato: formato
+  });
+}
+
+
+/*
+  Estensioni considerate download didattici.
+*/
+const formatiDownload = new Set([
+  "pdf",
+  "avi",
+  "mp4",
+  "zip",
+  "tex",
+  "ps",
+  "dvi"
+]);
+
+
+/*
+  Ricava l'estensione del file collegato, ignorando query string
+  e frammenti. Restituisce una stringa vuota se il collegamento
+  non punta a un formato che vogliamo tracciare.
+*/
+function ricavaFormatoDownload(link) {
+  let percorso;
+
+  try {
+    percorso = new URL(link.href, document.baseURI).pathname;
+  } catch (errore) {
+    return "";
+  }
+
+  const corrispondenza = percorso.match(/\.([a-z0-9]+)$/i);
+
+  if (!corrispondenza) {
+    return "";
+  }
+
+  const formato = corrispondenza[1].toLowerCase();
+
+  return formatiDownload.has(formato) ? formato : "";
+}
+
+
+/*
+  Ricava il nome del file dal collegamento.
+*/
+function ricavaNomeFile(link) {
+  try {
+    const percorso = new URL(link.href, document.baseURI).pathname;
+    return decodeURIComponent(percorso.split("/").pop() || "");
+  } catch (errore) {
+    return "";
+  }
+}
+
+
+/*
+  Trasforma un testo in un identificatore stabile e leggibile,
+  adatto al parametro Analytics "sezione".
+*/
+function normalizzaSezioneAnalytics(testo) {
+  return testo
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "documenti";
+}
+
+
+/*
+  Cerca il titolo della sezione che contiene un collegamento statico.
+  Se non lo trova, usa il valore generico "documenti".
+*/
+function ricavaSezioneDocumento(link) {
+  const sezione = link.closest("section");
+
+  if (sezione) {
+    if (sezione.id) {
+      return normalizzaSezioneAnalytics(
+        sezione.id.replace(/^documenti-/, "")
+      );
+    }
+
+    const titoloSezione = sezione.querySelector("h2, h3");
+
+    if (titoloSezione) {
+      return normalizzaSezioneAnalytics(titoloSezione.textContent);
+    }
+  }
+
+  return "documenti";
+}
+
+
+/*
+  Nelle tabelle statiche storiche il numero della lezione compare
+  normalmente in una delle prime due celle della riga. La funzione
+  lo riconosce senza dipendere dal nome del corso o dall'anno.
+*/
+function ricavaNumeroLezioneStatica(link) {
+  const riga = link.closest("tr");
+
+  if (!riga) {
+    return "";
+  }
+
+  const primeCelle = Array.from(riga.cells).slice(0, 2);
+
+  for (const cella of primeCelle) {
+    const testo = cella.textContent.trim();
+
+    if (/^\d+$/.test(testo)) {
+      return testo;
+    }
+  }
+
+  return "";
+}
+
+
+/*
+  Registra i download presenti direttamente nell'HTML.
+
+  I collegamenti generati da questo file vengono marcati con
+  data-analytics-gestito e sono quindi ignorati dal listener,
+  evitando la registrazione doppia dello stesso clic.
+*/
+function attivaAnalyticsDownloadStatici() {
+  document.addEventListener("click", function (evento) {
+    const elemento = evento.target;
+
+    if (!(elemento instanceof Element)) {
+      return;
+    }
+
+    const link = elemento.closest("a[href]");
+
+    if (!link || link.dataset.analyticsGestito === "true") {
+      return;
+    }
+
+    const formato = ricavaFormatoDownload(link);
+
+    if (!formato) {
+      return;
+    }
+
+    const numeroLezione = ricavaNumeroLezioneStatica(link);
+
+    if (
+      numeroLezione &&
+      ["avi", "pdf", "mp4"].includes(formato)
+    ) {
+      registraDownload(formato, numeroLezione);
+      return;
+    }
+
+    registraDownloadDocumento(
+      ricavaSezioneDocumento(link),
+      ricavaNomeFile(link),
+      link.textContent.trim() || ricavaNomeFile(link),
+      formato
+    );
   });
 }
 
@@ -126,17 +331,17 @@ function generaDocumentiCorso() {
     /*
       Registra il clic sul documento in Google Analytics.
     */
-    link.addEventListener("click", function () {
-      if (typeof gtag !== "function") {
-        return;
-      }
+    link.dataset.analyticsGestito = "true";
 
-      gtag("event", "download_documento", {
-        corso: NomeCorso,
-        sezione: documento.sezione,
-        file: documento.file,
-        titolo: documento.titolo
-      });
+    link.addEventListener("click", function () {
+      const formato = ricavaFormatoDownload(link);
+
+      registraDownloadDocumento(
+        documento.sezione,
+        documento.file,
+        documento.titolo,
+        formato
+      );
     });
 
     cella.appendChild(link);
@@ -429,6 +634,7 @@ function aggiungiCellaDownload(
   link.target = "_blank";
   link.rel = "noopener";
   link.textContent = testoLink;
+  link.dataset.analyticsGestito = "true";
 
   link.addEventListener("click", function () {
     registraDownload(formato, numeroLezione);
@@ -526,4 +732,5 @@ document.addEventListener("DOMContentLoaded", function () {
   generaTestiComuni();
   generaTabellaLezioni();
   generaLicenza();
+  attivaAnalyticsDownloadStatici();
 });
