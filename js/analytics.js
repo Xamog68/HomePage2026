@@ -13,7 +13,9 @@ if (
   window.gtag = gtag;
 
   gtag("js", new Date());
-  gtag("config", GA_MEASUREMENT_ID);
+  gtag("config", GA_MEASUREMENT_ID, {
+    cookie_domain: "none"
+  });
 
   const scriptAnalytics = document.createElement("script");
   scriptAnalytics.async = true;
