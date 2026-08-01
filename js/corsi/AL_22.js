@@ -1,4 +1,6 @@
 var NomeCorso = "Algebra Lineare 2021/2022";
+var ArchivioCorso = "AL/AL_22";
+var PrefissoFile = "AL_22_L";
 var Percorso = MEDIA.lezioni + "AL_22/AL_22_L";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {

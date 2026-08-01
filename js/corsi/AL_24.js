@@ -1,5 +1,7 @@
 var NomeCorso = "Algebra Lineare 2023/2024";
 
+var ArchivioCorso = "AL/AL_24";
+var PrefissoFile = "AL_24_L";
 var Percorso = MEDIA.lezioni + "AL_24/AL_24_L";
 
 var CifreNumeroLezione = 2;

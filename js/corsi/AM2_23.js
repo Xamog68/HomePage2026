@@ -1,4 +1,6 @@
 var NomeCorso = "Complementi di Analisi Matematica - 2022/2023";
+var ArchivioCorso = "AM2/AM2_23";
+var PrefissoFile = "AM2_23_L";
 var Percorso = MEDIA.lezioni + "AM2_23/AM2_23_L";
 var CifreNumeroLezione = 2;
 

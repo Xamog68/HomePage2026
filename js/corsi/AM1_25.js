@@ -1,5 +1,7 @@
 var NomeCorso = "Analisi Matematica 1 - 2024/2025";
 
+var ArchivioCorso = "AM1/AM1_25";
+var PrefissoFile = "AM1_25_L";
 var Percorso = MEDIA.lezioni + "AM1_25/AM1_25_L";
 
 var SchedaCorso = {

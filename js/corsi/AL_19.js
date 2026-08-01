@@ -1,4 +1,6 @@
 var NomeCorso = "Algebra Lineare 2018/2019";
+var ArchivioCorso = "AL/AL_19";
+var PrefissoFile = "AL_19_L";
 var Percorso = MEDIA.lezioni + "AL_19/AL_19_L";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {

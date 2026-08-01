@@ -1,5 +1,7 @@
 var NomeCorso = "Precorso di Matematica - 2009";
 
+var ArchivioCorso = "Precorsi/PCM09";
+var PrefissoFile = "PCM_09_L";
 var Percorso = MEDIA.lezioni + "Precorsi/PCM09/PCM_09_L";
 
 var CifreNumeroLezione = 2;

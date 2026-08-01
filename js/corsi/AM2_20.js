@@ -1,4 +1,6 @@
 var NomeCorso = "Analisi Matematica 2 - 2019/2020";
+var ArchivioCorso = "AM2/AM2_20";
+var PrefissoFile = "AM2_20_L";
 var Percorso = MEDIA.lezioni + "AM2_20/AM2_20_L";
 var CifreNumeroLezione = 2;
 

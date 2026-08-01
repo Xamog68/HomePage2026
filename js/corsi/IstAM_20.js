@@ -1,4 +1,6 @@
 var NomeCorso = "Istituzioni di Analisi Matematica - 2019/2020";
+var ArchivioCorso = "IstAM/IstAM_20";
+var PrefissoFile = "IstAM_20_L";
 var Percorso = MEDIA.lezioni + "IstAM_20/IstAM_20_L";
 var CifreNumeroLezione = 2;
 

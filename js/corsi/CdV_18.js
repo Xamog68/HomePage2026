@@ -1,4 +1,6 @@
 var NomeCorso = "Elementi di Calcolo delle Variazioni - 2017/2018";
+var ArchivioCorso = "CdV/CdV_18";
+var PrefissoFile = "CdV_18_L";
 var Percorso = MEDIA.lezioni + "CdV_18/CdV_18_L";
 var CifreNumeroLezione = 2;
 

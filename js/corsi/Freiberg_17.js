@@ -1,4 +1,6 @@
 var NomeCorso = "Freiberg 2017";
+var ArchivioCorso = "Freiberg/Freiberg_17";
+var PrefissoFile = "Freiberg_17_L";
 var Percorso = MEDIA.lezioni + "Freiberg_17/Freiberg_17_L";
 var CifreNumeroLezione = 1;
 

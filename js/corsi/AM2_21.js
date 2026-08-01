@@ -1,4 +1,6 @@
 var NomeCorso = "Analisi Matematica 2 - 2020/2021";
+var ArchivioCorso = "AM2/AM2_21";
+var PrefissoFile = "AM2_21_L";
 var Percorso = MEDIA.lezioni + "AM2_21/AM2_21_L";
 var CifreNumeroLezione = 2;
 const MostraVideoLezioni = false;

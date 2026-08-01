@@ -323,7 +323,12 @@ function generaDocumentiCorso() {
       MEDIA.documenti contiene l'indirizzo comune della cartella.
       documento.file contiene soltanto il nome del singolo file.
     */
-    link.href = MEDIA.documenti + documento.file;
+    const baseDocumenti =
+      typeof ArchivioCorso !== "undefined"
+        ? MEDIA.archivioDidattico + ArchivioCorso + "/Documenti/"
+        : MEDIA.documenti;
+
+    link.href = baseDocumenti + documento.file;
     link.target = "_blank";
     link.rel = "noopener";
     link.textContent = documento.titolo;
@@ -522,8 +527,19 @@ function generaRigheLezioni(corpoTabella) {
       "0"
     );
 
-    const indirizzoAvi = Percorso + numeroFile + ".avi";
-    const indirizzoPdf = Percorso + numeroFile + ".pdf";
+    const usaArchivioCorso =
+      typeof ArchivioCorso !== "undefined";
+
+    const percorsoAvi = usaArchivioCorso
+      ? MEDIA.archivioDidattico + ArchivioCorso + "/Avi/" + PrefissoFile
+      : Percorso;
+
+    const percorsoPdf = usaArchivioCorso
+      ? MEDIA.archivioDidattico + ArchivioCorso + "/Pdf/" + PrefissoFile
+      : Percorso;
+
+    const indirizzoAvi = percorsoAvi + numeroFile + ".avi";
+    const indirizzoPdf = percorsoPdf + numeroFile + ".pdf";
 
     const riga = document.createElement("tr");
 

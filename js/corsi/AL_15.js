@@ -1,4 +1,6 @@
 var NomeCorso = "Algebra Lineare 2014/2015";
+var ArchivioCorso = "AL/AL_15";
+var PrefissoFile = "AL_15_L";
 var Percorso = MEDIA.lezioni + "AL_15/AL_15_L";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {

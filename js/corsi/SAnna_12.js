@@ -1,4 +1,6 @@
 var NomeCorso = "Complementi di Matematica II - SSSUP 2011/2012";
+var ArchivioCorso = "SAnna/SA12";
+var PrefissoFile = "SA12_";
 var Percorso = MEDIA.lezioni + "SA12/SA12_";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {
