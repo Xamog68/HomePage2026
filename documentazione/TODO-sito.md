@@ -40,10 +40,12 @@ Legenda:
 - [x] Rappresentati i PDF condivisi da più lezioni ripetendo lo stesso collegamento nelle righe interessate.
   - Esempio: lezioni 1–3 collegate allo stesso file `C07_L01-03.pdf`.
 
-- [ ] Verificare e correggere le date sospette:
-  - `15/10/06` nella sequenza di novembre.
-  - ripetizione di `22/11/06`.
-  - eventuali altre incongruenze cronologiche.
+- [x] Verificate e corrette le date sospette di `AM2_07.js`.
+  - `15/10/06` corretto in `15/11/06`.
+  - le lezioni 39 e 40 corrette da `22/11/06` a `29/11/06`.
+  - `30/11/06` corretto in `30/10/06`.
+  - `16/10/06` corretto in `27/10/06`.
+  - ricontrollata la sequenza cronologica complessiva.
 
 - [x] Gestita la lezione 41, priva sia di AVI sia di PDF.
 
@@ -327,3 +329,41 @@ restano in cartelle condivise.
 
 Finché il vecchio sito rimane attivo, non spostare i file già pubblicati,
 per evitare di rompere i collegamenti storici.
+
+
+## 12. Versione 3.0
+
+### Rifiniture grafiche e navigazione
+
+- [x] Rendere interamente cliccabili le card con una sola destinazione.
+- [x] Riorganizzare `AD_Index.html` in disposizione `1 + 2 + 1`.
+- [x] Applicare la stessa filosofia a `AD_Index_Videolezioni.html`, `AD_Intro.html`, `AD_Corsi.html` e `nuova-home.html`.
+- [x] Correggere breadcrumb e struttura HTML di `AD_Storia.html`.
+- [x] Uniformare la scala dello sfondo a lavagna tra le diverse pagine.
+- [~] Rivedere con calma colori, ombre, padding, spaziature e larghezze relative delle card.
+- [~] Rifattorizzare il CSS separando componente, layout, variante e responsive.
+- [ ] Controllare tutte le pagine modificate a finestra larga e stretta.
+- [ ] Verificare che i breadcrumb abbiano sempre `class="breadcrumb"` e che non vi siano `<main>` o `<header>` duplicati.
+
+### Magazzino dei media
+
+- [ ] Fotografare l'organizzazione attuale del server senza spostare file.
+- [ ] Definire i codici canonici delle cartelle dei corsi.
+- [ ] Decidere il trattamento dei materiali condivisi.
+- [ ] Verificare disponibilità e uso di link simbolici o redirect.
+- [ ] Scegliere un corso pilota.
+- [ ] Riorganizzare il corso pilota nelle sottocartelle `pdf`, `avi`, `documenti`.
+- [ ] Aggiornare i collegamenti del nuovo sito.
+- [ ] Verificare automaticamente file mancanti, file non referenziati, differenze di maiuscole/minuscole, percorsi anomali e duplicati.
+
+### Precorsina
+
+- [ ] Verificare l'affidabilità dei metadati in `js/corsi/*.js`.
+- [ ] Definire il sottoinsieme iniziale del materiale del Precorso.
+- [ ] Preparare un indice delle lezioni con numero, data, argomento, video, PDF ed eventuali prerequisiti.
+- [ ] Decidere come trattare lezioni con materiali mancanti o condivisi.
+
+### Git
+
+- [ ] Creare commit piccoli e tematici per la 3.0.
+- [ ] Prima di ogni commit usare `git status --short`, `git diff --check`, `git diff --stat`, `git diff --cached --check`, `git diff --cached --stat`.

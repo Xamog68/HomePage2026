@@ -52,3 +52,10 @@
 
 - Ogni lezione usa il formato `[numero, data, ora iniziale, ora finale, argomento, stato video, stato PDF]`: il marcatore `"m"` in posizione 5 indica il video mancante e quello in posizione 6 il PDF mancante.
 - La colonna **Indice cliccabile** riassume, per ogni corso, i risultati del file `documentazione/indici-book.csv`: `sì` se tutti i volumi hanno l’indice, `no` se nessuno lo ha, e `parziale (n/totale)` negli eventuali casi misti.
+
+
+## Ruolo nella versione 3.0
+
+- Questo file resta un inventario generato automaticamente e non va modificato manualmente nelle righe della tabella.
+- I file `js/corsi/*.js` costituiscono anche una possibile base di metadati per l'indicizzazione delle lezioni nel progetto **Precorsina**.
+- Dopo la futura riorganizzazione fisica del magazzino dei media, il generatore dovrà continuare a verificare coerenza tra metadati, file esistenti e nuovi percorsi.
