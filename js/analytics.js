@@ -1,11 +1,10 @@
 const GA_MEASUREMENT_ID = "G-P6KEY6K5F2";
 
-const dominioUfficiale = "pagine.dm.unipi.it";
+const hostLocale =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
 
-if (window.location.hostname === dominioUfficiale) {
-  /*
-    Sul sito ufficiale carica Google Analytics.
-  */
+if (!hostLocale) {
   const scriptAnalytics = document.createElement("script");
   scriptAnalytics.async = true;
   scriptAnalytics.src =
@@ -21,12 +20,11 @@ if (window.location.hostname === dominioUfficiale) {
   };
 
   window.gtag("js", new Date());
-  window.gtag("config", GA_MEASUREMENT_ID);
+
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    cookie_domain: "auto"
+  });
 } else {
-  /*
-    In locale e su GitHub Pages non invia dati:
-    mostra soltanto gli eventi in console.
-  */
   window.gtag = function () {
     console.log("Analytics locale:", ...arguments);
   };
