@@ -1,11 +1,10 @@
 const GA_MEASUREMENT_ID = "G-P6KEY6K5F2";
 
-if (
-  window.location.hostname !== "localhost" &&
-  window.location.hostname !== "127.0.0.1"
-) {
+const dominioUfficiale = "pagine.dm.unipi.it";
+
+if (window.location.hostname === dominioUfficiale) {
   /*
-    Carica per prima la libreria ufficiale di Google Analytics.
+    Sul sito ufficiale carica Google Analytics.
   */
   const scriptAnalytics = document.createElement("script");
   scriptAnalytics.async = true;
@@ -15,9 +14,6 @@ if (
 
   document.head.appendChild(scriptAnalytics);
 
-  /*
-    Inizializza la coda usata da gtag.js.
-  */
   window.dataLayer = window.dataLayer || [];
 
   window.gtag = function () {
@@ -25,10 +21,11 @@ if (
   };
 
   window.gtag("js", new Date());
-
   window.gtag("config", GA_MEASUREMENT_ID);
+} else {
   /*
-    In locale non invia dati, ma mostra gli eventi in console.
+    In locale e su GitHub Pages non invia dati:
+    mostra soltanto gli eventi in console.
   */
   window.gtag = function () {
     console.log("Analytics locale:", ...arguments);
