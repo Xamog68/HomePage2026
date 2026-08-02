@@ -22,7 +22,7 @@ if (!hostLocale) {
   window.gtag("js", new Date());
 
   window.gtag("config", GA_MEASUREMENT_ID, {
-    cookie_domain: "auto"
+    cookie_domain: "none"
   });
 } else {
   window.gtag = function () {
