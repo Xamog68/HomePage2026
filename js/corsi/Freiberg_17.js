@@ -15,7 +15,7 @@ var SchedaCorso = {
 var DocumentiCorso = [
   {
     sezione: "book",
-    file: "../../../Tablet/Freiberg_17/Freiberg_17_Book.pdf",
+    file: "Freiberg_17_Book.pdf",
     titolo: "Printout of lectures"
   }
 ];
