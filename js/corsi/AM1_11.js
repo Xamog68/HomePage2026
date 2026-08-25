@@ -17,6 +17,18 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "AM11_Burocrazia.pdf",
     titolo: "Informazioni burocratiche"
+  },
+  {
+    sezione: "book",
+    file: "AM11_Book1.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 1 — Lezioni 1–52"
+  },
+  {
+    sezione: "book",
+    file: "AM11_Book2.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 2 — Lezioni 53–109"
   }
 ];
 

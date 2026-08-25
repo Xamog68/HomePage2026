@@ -17,6 +17,11 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "C07_Burocrazia.pdf",
     titolo: "Informazioni burocratiche"
+  },
+  {
+    sezione: "book",
+    file: "C07_Book.pdf",
+    titolo: "Analisi Matematica 2 — Stampato integrale delle lezioni"
   }
 ];
 

@@ -17,6 +17,18 @@ var DocumentiCorso = [
     sezione: "burocrazia",
     file: "T07_Burocrazia.pdf",
     titolo: "Informazioni burocratiche"
+  },
+  {
+    sezione: "book",
+    file: "T07_Book1.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 1 — Lezioni 1–54"
+  },
+  {
+    sezione: "book",
+    file: "T07_Book2.pdf",
+    titolo: "Stampato integrale delle lezioni",
+    nota: "Volume 2 — Lezioni 55–100"
   }
 ];
 
