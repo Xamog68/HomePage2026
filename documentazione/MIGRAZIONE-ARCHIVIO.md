@@ -433,7 +433,7 @@ In `PCM_08` il primo numero indica il giorno e i suffissi `-1` e `-2` indicano l
 
 Sono presenti i JNT di tutte le venti lezioni. I CAMREC coprono diciannove lezioni: manca `PCM3-1.camrec`, corrispondente a `PCM_08 L05`. Alcune lezioni hanno CAMREC suddivisi in più parti.
 
-In `PCM_09` vale la stessa convenzione giorno/ora: cinque giorni con due lezioni ciascuno. Sono presenti JNT e CAMREC per tutte le dieci lezioni. I file `DisequazioniK.jnt` e `DisequazioniKK.jnt` sono duplicati byte per byte di `PCM09_2-2.jnt`, cioè del JNT della lezione 4.
+In `PCM_09` vale la stessa convenzione giorno/ora: cinque giorni con due lezioni ciascuno. Sono presenti JNT e CAMREC per tutte le dieci lezioni. I file `DisequazioniK.jnt` e `DisequazioniKK.jnt` sono duplicati byte per byte di `PCM09_2-2.jnt`, cioè del JNT della lezione 4. Dopo un'ulteriore verifica SHA-256, le due copie ridondanti sono state rimosse dall'archivio canonico; gli originali sul vecchio HD sono rimasti intatti e lo script di recupero li ignora esplicitamente.
 
 ### Bilancio definitivo del recupero
 
@@ -445,6 +445,8 @@ Sono stati copiati negli archivi canonici 1.591 file, per circa 100,27 GiB:
 - 5 AVI, relativi ad `AM12_06`.
 
 Ogni copia è stata verificata confrontando dimensione e SHA-256 con il file sorgente. Non si sono verificate collisioni. Dopo la copia, 74 file dei Precorsi sono stati rinominati in due fasi per applicare la numerazione logica corretta senza sovrascritture; anche le destinazioni finali sono state nuovamente verificate tramite SHA-256.
+
+Il conteggio di 1.591 descrive l'operazione di copia. Dopo la rimozione dei due duplicati esatti di `PCM_09 L04`, l'archivio canonico conserva 1.589 di questi file fisici: 730 JNT, 827 CAMREC, 27 CAMPROJ e 5 AVI.
 
 Nell'inventario delle 2.900 lezioni il recupero e la correzione del riconoscimento dei CAMREC spezzati hanno prodotto le transizioni:
 

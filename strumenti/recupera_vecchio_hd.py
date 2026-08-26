@@ -38,6 +38,14 @@ DEFAULT_RECORDING = (
 SOURCE_EXTENSIONS = {".jnt", ".camrec", ".camproj"}
 COPY_EXTENSIONS = SOURCE_EXTENSIONS | {".avi"}
 
+# Duplicati storici byte per byte del JNT canonico PCM_09_L04.jnt.
+# SHA-256 comune:
+# f5a690e80503dcd8039a3b90f648433078ef517b0cb2df3e8e838781b973e50c
+IGNORED_EXACT_DUPLICATES = {
+    ("PCM_09", "DisequazioniK", ".jnt"),
+    ("PCM_09", "DisequazioniKK", ".jnt"),
+}
+
 
 @dataclass(frozen=True)
 class CourseSpec:
@@ -266,8 +274,6 @@ def special_name(
     known = {
         ("AM12_08", "T08_Buro", ".camrec"): "AM12_08_Buro.camrec",
         ("PCM_08", "prova", ".camrec"): "PCM_08_prova.camrec",
-        ("PCM_09", "DisequazioniK", ".jnt"): "PCM_09_DisequazioniK.jnt",
-        ("PCM_09", "DisequazioniKK", ".jnt"): "PCM_09_DisequazioniKK.jnt",
     }
     return known.get((spec.course, stem, extension))
 
@@ -286,6 +292,9 @@ def make_item(
     if extension not in SOURCE_EXTENSIONS:
         if not (spec.convention == "am12_06" and extension == ".avi"):
             return None
+
+    if (spec.course, stem, extension) in IGNORED_EXACT_DUPLICATES:
+        return None
 
     receipt = receipt_name(spec, stem, extension)
     if receipt:
@@ -513,6 +522,8 @@ def self_test() -> None:
         (pcm_lesson_name(by_course["PCM_09"], "PCM09_3-2", ".jnt"), ("PCM_09_L06.jnt", "6")),
         (sanna_lesson_name(by_course["SA_10"], "SA10_02", ".jnt"), ("SA_10_L02.jnt", "2")),
         (receipt_name(by_course["AM12_07"], "T07_R05", ".camrec"), "AM12_07_R05.camrec"),
+        (("PCM_09", "DisequazioniK", ".jnt") in IGNORED_EXACT_DUPLICATES, True),
+        (("PCM_09", "DisequazioniKK", ".jnt") in IGNORED_EXACT_DUPLICATES, True),
     ]
     failures = [(actual, expected) for actual, expected in tests if actual != expected]
     if failures:
