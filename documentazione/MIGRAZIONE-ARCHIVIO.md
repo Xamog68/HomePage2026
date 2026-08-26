@@ -362,6 +362,116 @@ Non effettuare sostituzioni globali dei vecchi codici nei fossili o nei nomi dei
 
 ---
 
+## Recupero dal vecchio HD250-1
+
+Il 26 agosto 2026 è stato ritrovato il backup storico:
+
+```text
+/Volumes/HD250-1/Tablettature/Lezioni
+```
+
+Il disco contiene sorgenti JNT, CAMREC e CAMPROJ del periodo 2005–2012 non presenti negli archivi canonici correnti. Prima della copia è stato eseguito un censimento in sola lettura.
+
+### Corso sperimentale AM12_06
+
+La directory storica `AM_T06` contiene le prime prove sperimentali di registrazione, di particolare valore storico personale.
+
+Sopravvivono le lezioni:
+
+```text
+88, 89, 94, 95, 96
+```
+
+Per ciascuna sono presenti AVI, JNT e CAMREC. I CAMREC risalgono al dicembre 2005. Il materiale è stato conservato come corso canonico `AM12/AM12_06`, mantenendo i numeri originari delle lezioni.
+
+### Eccezione di numerazione in AM12_08
+
+Il file storico `T08_L00.jnt` corrisponde alla lezione 100, non a una lezione zero. Il timestamp, 19 dicembre 2007 alle 12:23, coincide con la centesima e ultima lezione.
+
+La normalizzazione corretta è quindi:
+
+```text
+T08_L00.jnt -> AM12_08_L100.jnt
+T08_L99+1.camrec -> AM12_08_L100.camrec
+```
+
+Anche PDF e AVI della centesima lezione portano storicamente il suffisso `L99+1`, confermando questa interpretazione. Gli altri file `T08_L01`–`T08_L99` mantengono invece la corrispondenza ordinaria con le lezioni 1–99.
+
+### Missing storici smentiti dal backup
+
+I seguenti casi erano marcati `NO` perché storicamente dichiarati missing nel JavaScript, ma il vecchio HD contiene materiale sorgente. Devono essere controllati manualmente prima di modificare definitivamente le dichiarazioni storiche.
+
+- `AM1_10`, lezione 47: un JNT;
+- `AM1_12`, lezione 46: un JNT;
+- `PCM_08`, lezione 5: un JNT; AVI e CAMREC restano assenti;
+- `PCM_09`, lezione 3: un JNT e un CAMREC; l'AVI resta assente;
+- `SA_11`, lezione 20: un JNT.
+
+Il ritrovamento mostra che la dicitura storica `Missing` può indicare l'assenza del materiale pubblicato, senza implicare necessariamente che JNT o registrazioni originali non siano mai esistiti.
+
+### Missing ancora confermati
+
+Sul vecchio HD non è stato trovato materiale per:
+
+- `AM12_07`, lezioni 60 e 61;
+- `AM2_07`, lezioni 41, 49 e 50.
+
+### Convenzioni dei Precorsi 2007–2009
+
+Un controllo incrociato fra date delle lezioni, timestamp dei sorgenti e materiali pubblicati ha chiarito la numerazione storica dei Precorsi.
+
+In `PCM_07` il numero indica direttamente la lezione. I suffissi `bis`, `ter`, `a` e `b` indicano parti successive della stessa registrazione. Sono presenti JNT e CAMREC per tutte le dieci lezioni.
+
+In `PCM_08` il primo numero indica il giorno e i suffissi `-1` e `-2` indicano le due lezioni della giornata. La corrispondenza è:
+
+```text
+01-1 -> L01    01-2 -> L02
+02-1 -> L03    02-2 -> L04
+...
+10-1 -> L19    10-2 -> L20
+```
+
+Sono presenti i JNT di tutte le venti lezioni. I CAMREC coprono diciannove lezioni: manca `PCM3-1.camrec`, corrispondente a `PCM_08 L05`. Alcune lezioni hanno CAMREC suddivisi in più parti.
+
+In `PCM_09` vale la stessa convenzione giorno/ora: cinque giorni con due lezioni ciascuno. Sono presenti JNT e CAMREC per tutte le dieci lezioni. I file `DisequazioniK.jnt` e `DisequazioniKK.jnt` sono duplicati byte per byte di `PCM09_2-2.jnt`, cioè del JNT della lezione 4.
+
+### Bilancio definitivo del recupero
+
+Sono stati copiati negli archivi canonici 1.591 file, per circa 100,27 GiB:
+
+- 732 JNT;
+- 827 CAMREC;
+- 27 CAMPROJ;
+- 5 AVI, relativi ad `AM12_06`.
+
+Ogni copia è stata verificata confrontando dimensione e SHA-256 con il file sorgente. Non si sono verificate collisioni. Dopo la copia, 74 file dei Precorsi sono stati rinominati in due fasi per applicare la numerazione logica corretta senza sovrascritture; anche le destinazioni finali sono state nuovamente verificate tramite SHA-256.
+
+Nell'inventario delle 2.900 lezioni il recupero e la correzione del riconoscimento dei CAMREC spezzati hanno prodotto le transizioni:
+
+- 771 stati `JNT ? -> SI`;
+- 5 stati `JNT NO -> SI`, da controllare manualmente;
+- 768 stati `CAMREC ? -> SI`;
+- 1 stato `CAMREC NO -> SI`, da controllare manualmente;
+- 21 stati `CAMPROJ -- -> SI`.
+
+Il censimento finale è:
+
+```text
+PDF      SI=2893  NO=7
+AVI      SI=2821  NO=79
+JNT      SI=2830  NO=67  ?=3
+CAMREC   SI=2094  NO=79  ?=727
+CAMPROJ  SI=34    NO=83  --=2783
+```
+
+I soli JNT ancora incerti sono `AL_14 L21`, `AM12_07 L68` e `AM2_14 L41`. Nei corsi coperti dal vecchio HD restano incerti soltanto i cinque CAMREC di `AM12_07 L17`, `L18`, `L26`, `L27` e `L29`; gli altri 722 CAMREC incerti appartengono a corsi non coperti dal backup.
+
+I conteggi si riferiscono a lezioni logiche, non al numero fisico dei file: alcuni JNT coprono intervalli di lezioni e alcune registrazioni sono suddivise in più parti.
+
+I cinque AVI, cinque JNT e cinque CAMREC di `AM12_06` sono stati recuperati, ma restano aggiuntivi rispetto a questi conteggi perché il corso non è ancora compreso nell'inventario basato sui JavaScript del sito.
+
+---
+
 ## Regola operativa futura
 
 Per ogni nuovo corso o per ogni intervento strutturale:
@@ -375,4 +485,3 @@ Per ogni nuovo corso o per ogni intervento strutturale:
 7. eseguire `strumenti/verifica_documenti.py`;
 8. eseguire `strumenti/verifica_lezioni.py`;
 9. aggiornare l'inventario e questa documentazione quando cambia la struttura canonica.
-

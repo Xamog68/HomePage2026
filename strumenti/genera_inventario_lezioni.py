@@ -2,9 +2,11 @@
 
 from pathlib import Path
 from collections import Counter
+import argparse
 import csv
 import re
 import sys
+import tempfile
 
 
 # ============================================================
@@ -116,6 +118,18 @@ TUTTO_NO = {
 AM2_21_PDF_ONLY = set(range(1, 61))
 
 
+# Casi nei quali il recupero dal vecchio HD ha smentito l'assenza
+# delle sorgenti dedotta in precedenza dal flag storico "m" del sito.
+
+RECUPERI_MISSING_STORICO = {
+    ("AM1_10", 47): ("JNT",),
+    ("AM1_12", 46): ("JNT",),
+    ("PCM_08", 5): ("JNT",),
+    ("PCM_09", 3): ("JNT", "CAMREC"),
+    ("SA_11", 20): ("JNT",),
+}
+
+
 # ============================================================
 # Funzioni
 # ============================================================
@@ -172,7 +186,13 @@ def dati_da_js(path):
     return lezioni, missing
 
 
-def files_per_lesson(folder, course, ext):
+def files_per_lesson(
+    folder,
+    course,
+    ext,
+    intervalli=False,
+    parti_numeriche=False,
+):
     """
     Restituisce:
         {numero_lezione: [nomi_file]}
@@ -187,9 +207,17 @@ def files_per_lesson(folder, course, ext):
 
     Una variante rimane associata alla lezione principale.
 
-    Esclude raccolte del tipo:
+    Se ``intervalli`` e' vero, una raccolta del tipo:
 
-        Corso_L01-03.pdf
+        Corso_L01-03.jnt
+
+    viene associata a tutte le lezioni comprese tra 1 e 3. Negli altri
+    casi gli intervalli restano esclusi, per non scambiare una raccolta
+    PDF/AVI per il materiale individuale di ciascuna lezione.
+
+    Se ``parti_numeriche`` e' vero, un suffisso come ``-1`` viene invece
+    mantenuto come parte della stessa lezione. Questa e' la convenzione
+    usata dai CAMREC spezzati.
     """
 
     ans = {}
@@ -214,8 +242,24 @@ def files_per_lesson(folder, course, ext):
         n = int(m.group(1))
         suffix = m.group(2) or ""
 
-        # L01-03 è una raccolta, non una variante di L01.
-        if re.match(r"^-\d", suffix):
+        intervallo = re.fullmatch(r"-(\d+)", suffix)
+
+        if intervallo:
+            if parti_numeriche:
+                ans.setdefault(n, []).append(f.name)
+                continue
+
+            if not intervalli:
+                continue
+
+            ultimo = int(intervallo.group(1))
+
+            if ultimo < n:
+                continue
+
+            for k in range(n, ultimo + 1):
+                ans.setdefault(k, []).append(f.name)
+
             continue
 
         ans.setdefault(n, []).append(f.name)
@@ -275,6 +319,18 @@ def varianti(tipo, corso, n, nomi):
 
     stem = Path(nomi[0]).stem
 
+    intervallo = re.match(
+        rf"^{re.escape(corso)}_L(\d+)-(\d+)$",
+        stem,
+        re.I,
+    )
+
+    if intervallo:
+        primo, ultimo = map(int, intervallo.groups())
+
+        if primo <= n <= ultimo:
+            return f"{tipo} aggregato: {nomi[0]}"
+
     m = re.match(
         rf"^{re.escape(corso)}_L0*{n}(.*)$",
         stem
@@ -286,11 +342,206 @@ def varianti(tipo, corso, n, nomi):
     return None
 
 
+def riepilogo(rows):
+    print(f"Lezioni censite: {len(rows)}")
+    print(f"Corsi censiti:   {len(set(r[1] for r in rows))}")
+    print()
+
+    for col, nome in [(5, "JNT"), (6, "CAMREC")]:
+        incerti = {}
+
+        for r in rows:
+            if r[col] == "?":
+                incerti.setdefault(r[1], []).append(r[2])
+
+        print(f"{nome} ancora incerti: {sum(map(len, incerti.values()))}")
+
+        for corso, lezioni in sorted(incerti.items()):
+            dettaglio = ""
+
+            if len(lezioni) <= 10:
+                dettaglio = "  [" + ", ".join(
+                    f"L{int(n):03d}" for n in lezioni
+                ) + "]"
+
+            print(f"  {corso:10s} {len(lezioni):4d}{dettaglio}")
+
+        print()
+
+    for col, nome in [
+        (3, "PDF"),
+        (4, "AVI"),
+        (5, "JNT"),
+        (6, "CAMREC"),
+        (7, "CAMPROJ"),
+    ]:
+        c = Counter(r[col] for r in rows)
+        parti = []
+
+        for valore in ["SI", "NO", "?", "--"]:
+            if c[valore]:
+                parti.append(f"{valore}={c[valore]:4d}")
+
+        print(f"{nome:7s} " + "   ".join(parti))
+
+    print()
+
+
+def leggi_csv(path):
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def confronta(rows, precedente):
+    """Confronta il nuovo inventario con quello canonico corrente."""
+
+    colonne = [
+        "Famiglia",
+        "Corso",
+        "Lezione",
+        "PDF",
+        "AVI",
+        "JNT",
+        "CAMREC",
+        "CAMPROJ",
+        "Note",
+    ]
+    nuovi = [dict(zip(colonne, map(str, r))) for r in rows]
+
+    def indicizza(righe):
+        return {
+            (r["Corso"], int(r["Lezione"])): r
+            for r in righe
+        }
+
+    prima = indicizza(precedente)
+    dopo = indicizza(nuovi)
+
+    if set(prima) != set(dopo):
+        mancanti = sorted(set(prima) - set(dopo))
+        aggiunte = sorted(set(dopo) - set(prima))
+        errore(
+            "L'universo delle lezioni e' cambiato: "
+            f"mancanti={mancanti[:10]}, aggiunte={aggiunte[:10]}"
+        )
+
+    transizioni = Counter()
+    modifiche = []
+
+    for chiave in sorted(prima):
+        vecchia = prima[chiave]
+        nuova = dopo[chiave]
+
+        for campo in ["PDF", "AVI", "JNT", "CAMREC", "CAMPROJ"]:
+            if vecchia[campo] != nuova[campo]:
+                transizioni[(campo, vecchia[campo], nuova[campo])] += 1
+                modifiche.append(
+                    (chiave[0], chiave[1], campo,
+                     vecchia[campo], nuova[campo])
+                )
+
+    vietate = [
+        m for m in modifiche
+        if m[2] in {"PDF", "AVI"}
+        or m[4] != "SI"
+        or m[3] == "SI"
+    ]
+
+    if vietate:
+        esempi = ", ".join(
+            f"{c} L{n}: {t} {a}->{b}"
+            for c, n, t, a, b in vietate[:10]
+        )
+        errore(
+            "Il confronto contiene cambiamenti non autorizzati: " + esempi
+        )
+
+    print("Confronto con l'inventario corrente")
+    print("====================================")
+
+    if not transizioni:
+        print("Nessun cambiamento di stato.")
+    else:
+        for (campo, prima_stato, dopo_stato), numero in sorted(
+            transizioni.items()
+        ):
+            print(
+                f"{campo:7s} {prima_stato:>2s} -> "
+                f"{dopo_stato:2s}: {numero:4d}"
+            )
+
+    print()
+
+
+def scrivi_csv(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f)
+        w.writerow([
+            "Famiglia",
+            "Corso",
+            "Lezione",
+            "PDF",
+            "AVI",
+            "JNT",
+            "CAMREC",
+            "CAMPROJ",
+            "Note",
+        ])
+        w.writerows(rows)
+
+
+def self_test():
+    with tempfile.TemporaryDirectory() as tmp:
+        d = Path(tmp)
+        nomi = [
+            "AM12_07_L001-003.jnt",
+            "AM12_07_L004.jnt",
+            "AM12_07_L005-bis.jnt",
+            "AM12_07_L054-1.camrec",
+        ]
+
+        for nome in nomi:
+            (d / nome).touch()
+
+        trovati = files_per_lesson(
+            d, "AM12_07", "jnt", intervalli=True
+        )
+
+        assert trovati == {
+            1: ["AM12_07_L001-003.jnt"],
+            2: ["AM12_07_L001-003.jnt"],
+            3: ["AM12_07_L001-003.jnt"],
+            4: ["AM12_07_L004.jnt"],
+            5: ["AM12_07_L005-bis.jnt"],
+        }
+        assert varianti(
+            "JNT", "AM12_07", 2,
+            ["AM12_07_L001-003.jnt"],
+        ) == "JNT aggregato: AM12_07_L001-003.jnt"
+
+        registrazioni = files_per_lesson(
+            d,
+            "AM12_07",
+            "camrec",
+            parti_numeriche=True,
+        )
+        assert registrazioni == {
+            54: ["AM12_07_L054-1.camrec"],
+        }
+
+    print(
+        "Self-test superato: intervalli JNT e CAMREC spezzati "
+        "riconosciuti."
+    )
+
+
 # ============================================================
 # Generazione
 # ============================================================
 
-def main():
+def genera_rows():
     controlla_radici()
 
     rows = []
@@ -318,10 +569,16 @@ def main():
 
         pdf = files_per_lesson(cdir / "Pdf", corso, "pdf")
         avi = files_per_lesson(cdir / "Avi", corso, "avi")
-        jnt = files_per_lesson(cdir / "Jnt", corso, "jnt")
+        jnt = files_per_lesson(
+            cdir / "Jnt", corso, "jnt", intervalli=True
+        )
 
-        camrec = files_per_lesson(rdir, corso, "camrec")
-        camproj = files_per_lesson(rdir, corso, "camproj")
+        camrec = files_per_lesson(
+            rdir, corso, "camrec", parti_numeriche=True
+        )
+        camproj = files_per_lesson(
+            rdir, corso, "camproj", parti_numeriche=True
+        )
 
         for n in sorted(lezioni):
 
@@ -364,9 +621,20 @@ def main():
                 )
 
             elif missing_storico:
-                note.append(
-                    "Missing storico documentato nel JS del corso"
+                sorgenti_recuperate = RECUPERI_MISSING_STORICO.get(
+                    (corso, n)
                 )
+
+                if sorgenti_recuperate:
+                    note.append(
+                        "Missing storico documentato nel JS; "
+                        "sorgenti recuperate dal vecchio HD: "
+                        + ", ".join(sorgenti_recuperate)
+                    )
+                else:
+                    note.append(
+                        "Missing storico documentato nel JS del corso"
+                    )
 
             rows.append([
                 famiglia,
@@ -416,55 +684,69 @@ def main():
                 "; ".join(note),
             ])
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
+    return rows
 
-    with OUT.open(
-        "w",
-        newline="",
-        encoding="utf-8-sig"
-    ) as f:
 
-        w = csv.writer(f)
+def main():
+    parser = argparse.ArgumentParser(
+        description="Genera e verifica l'inventario canonico delle lezioni."
+    )
+    gruppo = parser.add_mutually_exclusive_group(required=True)
+    gruppo.add_argument(
+        "--preview",
+        action="store_true",
+        help="scrive in /tmp e confronta, senza modificare l'inventario",
+    )
+    gruppo.add_argument(
+        "--apply",
+        action="store_true",
+        help="sostituisce l'inventario solo dopo i controlli",
+    )
+    gruppo.add_argument(
+        "--self-test",
+        action="store_true",
+        help="esegue i test interni senza accedere agli archivi",
+    )
+    args = parser.parse_args()
 
-        w.writerow([
-            "Famiglia",
-            "Corso",
-            "Lezione",
-            "PDF",
-            "AVI",
-            "JNT",
-            "CAMREC",
-            "CAMPROJ",
-            "Note",
-        ])
+    if args.self_test:
+        self_test()
+        return
 
-        w.writerows(rows)
+    if not OUT.is_file():
+        errore(f"Inventario corrente non trovato: {OUT}")
 
-    print()
-    print(f"Creato: {OUT}")
-    print(f"Lezioni censite: {len(rows)}")
-    print(f"Corsi censiti:   {len(set(r[1] for r in rows))}")
-    print()
-
-    for col, nome in [
-        (3, "PDF"),
-        (4, "AVI"),
-        (5, "JNT"),
-        (6, "CAMREC"),
-        (7, "CAMPROJ"),
-    ]:
-
-        c = Counter(r[col] for r in rows)
-
-        parti = []
-
-        for valore in ["SI", "NO", "?", "--"]:
-            if c[valore]:
-                parti.append(f"{valore}={c[valore]:4d}")
-
-        print(f"{nome:7s} " + "   ".join(parti))
+    precedente = leggi_csv(OUT)
+    rows = genera_rows()
 
     print()
+    riepilogo(rows)
+    confronta(rows, precedente)
+
+    if args.preview:
+        destinazione = Path(tempfile.gettempdir()) / OUT.name
+        scrivi_csv(destinazione, rows)
+        print(f"Anteprima scritta in: {destinazione}")
+        print("Inventario canonico non modificato.")
+        return
+
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        prefix=f".{OUT.name}.",
+        suffix=".tmp",
+        dir=OUT.parent,
+        delete=False,
+    ) as tmp:
+        temporaneo = Path(tmp.name)
+
+    try:
+        scrivi_csv(temporaneo, rows)
+        temporaneo.replace(OUT)
+    except Exception:
+        temporaneo.unlink(missing_ok=True)
+        raise
+
+    print(f"Inventario aggiornato: {OUT}")
 
 
 if __name__ == "__main__":
