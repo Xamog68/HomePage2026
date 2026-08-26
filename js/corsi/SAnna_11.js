@@ -1,5 +1,5 @@
 var NomeCorso = "Complementi di Matematica I - SSSUP 2010/2011";
-var ArchivioCorso = "SAnna/SA11";
+var ArchivioCorso = "SAnna/SA_11";
 var PrefissoFile = "SA11_";
 var Percorso = MEDIA.lezioni + "SA11/SA11_";
 var CifreNumeroLezione = 2;
