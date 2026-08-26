@@ -20,14 +20,25 @@ Legenda:
   - Compare nella pagina `AD_PCM_08.html`.
   - Non compare tra i materiali generali della pagina introduttiva.
 
+- [x] Verificata la presenza dei Book storici 2007 e 2009.
+  - `PCM_07_Book.pdf`.
+  - `PCM_09_Book.pdf`.
+  - Entrambi sono registrati nell'inventario come dotati di indice cliccabile.
+
 - [x] Riorganizzata la pagina `precorso-matematica.html`.
   - Edizione 2025 presentata come edizione di riferimento.
   - Edizioni storiche 2007, 2008, 2009 raccolte separatamente.
   - Conservati i materiali generali.
   - Possibili ulteriori ritocchi sono soltanto grafici.
 
-- [x] Riorganizzato l’inserimento del Precorso in `archivio-didattico.html`.
+- [x] Riorganizzato l'inserimento del Precorso in `archivio-didattico.html`.
   - La scheda è stata inserita e resa coerente con le altre famiglie di corsi.
+
+- [x] Normalizzati i nomi canonici delle directory:
+  - `Precorsi/PCM_07`;
+  - `Precorsi/PCM_08`;
+  - `Precorsi/PCM_09`;
+  - `Precorsi/PCM_25`.
 
 ---
 
@@ -36,6 +47,10 @@ Legenda:
 ### Caso patologico: 2006/07
 
 - [x] Migrato `AD_C07.html`.
+
+- [x] Normalizzato il codice canonico del corso:
+  - da `AM2/C07` a `AM2/AM2_07`;
+  - i file interni conservano il prefisso storico `C07_`.
 
 - [x] Rappresentati i PDF condivisi da più lezioni ripetendo lo stesso collegamento nelle righe interessate.
   - Esempio: lezioni 1–3 collegate allo stesso file `C07_L01-03.pdf`.
@@ -49,18 +64,21 @@ Legenda:
 
 - [x] Gestita la lezione 41, priva sia di AVI sia di PDF.
 
+- [x] Creato e collegato il Book storico `C07_Book.pdf`.
+
 ### Corsi regolari
 
-- [ ] Controllare nel browser tutte le pagine migrate.
-  - Link AVI.
-  - Link PDF.
-  - Book.
-  - Documenti burocratici.
-  - Console JavaScript senza errori.
-  - Visualizzazione su schermo stretto.
+- [~] Completare il controllo manuale nel browser delle pagine migrate.
+  - I controlli automatici dei collegamenti sono positivi.
+  - Restano utili controlli visuali di console, schermo stretto e resa grafica.
 
-- [x] C07: uniformate a minuscolo le estensioni dei video
-      (`.AVI` → `.avi`) e aggiornati i collegamenti della pagina storica.
+- [x] C07: uniformate a minuscolo le estensioni dei video (`.AVI` → `.avi`) e aggiornati i collegamenti della pagina storica.
+
+- [x] Gestito `AM2_21` come corso PDF-only mediante:
+
+      const MostraVideoLezioni = false;
+
+  I due 404 AVI rilevati dal verificatore sintetico sono noti e non costituiscono regressioni.
 
 ---
 
@@ -70,14 +88,18 @@ Legenda:
 
 - [x] Migrato `AD_SA12.html`.
 
+- [x] Normalizzato il codice canonico in `SAnna/SA_12`.
+
 - [x] Gestita la lezione `20 bis`.
   - Conservato il nome logico non numerico.
   - File:
-    - `SA12_20bis.avi`
-    - `SA12_20bis.pdf`
+    - `SA12_20bis.avi`;
+    - `SA12_20bis.pdf`.
+
+- [x] Conservato anche `SA12_20_originale.pdf`.
 
 - [x] Gestiti i video mancanti indicati nei dati del corso.
-  - La lezione 26 risulta marcata come video mancante nell’inventario.
+  - La lezione 26 risulta priva di AVI.
   - La situazione della lezione 20 è stata assorbita nella migrazione della sequenza con `20 bis`.
 
 - [x] Conservata la sezione “Esercizi”:
@@ -92,9 +114,9 @@ Legenda:
 
 ### Altri corsi Sant’Anna
 
-- [ ] Controllare `SA11`, lezione 20: AVI mancante.
+- [x] Registrato `SA11`, lezione 20: AVI realmente mancante.
 
-- [ ] Controllare `SA13`, lezione 22: AVI mancante.
+- [x] Registrato `SA13`, lezione 22: AVI realmente mancante.
 
 - [ ] Verificare che `SA15` conservi la sezione “Ricevimento”:
   - testo del compitino;
@@ -102,6 +124,14 @@ Legenda:
   - correzione PDF.
 
 - [x] Creata e collegata la pagina introduttiva `complementi-santanna.html`.
+
+- [x] Normalizzati i codici canonici:
+  - `SAnna/SA_10`;
+  - `SAnna/SA_11`;
+  - `SAnna/SA_12`;
+  - `SAnna/SA_13`;
+  - `SAnna/SA_14`;
+  - `SAnna/SA_15`.
 
 ---
 
@@ -136,7 +166,7 @@ Legenda:
 - [x] Verificato Freiberg 2017.
   - Numerazione file senza zero iniziale.
   - `CifreNumeroLezione = 1`.
-  - Il riferimento storico al book è conservato; una copia è presente anche in `HP_AD`.
+  - Il riferimento storico al Book è conservato.
 
 - [x] Create o confermate le pagine introduttive e i breadcrumb dei gruppi:
   - Calcolo delle variazioni;
@@ -147,8 +177,9 @@ Legenda:
 
 ## 5. Pagine e navigazione generale
 
-- [ ] Controllare tutti i breadcrumb dopo la migrazione.
-  - Nessun collegamento deve tornare per errore alle vecchie pagine.
+- [~] Completare il controllo manuale dei breadcrumb dopo la migrazione.
+  - Le principali correzioni sono già state effettuate.
+  - I controlli automatici dei media non mostrano regressioni dovute alla normalizzazione dell'Archivio Didattico.
 
 - [x] Riveduto `AD_Index.html`.
   - Il collegamento dei precorsi punta ora a `precorso-matematica.html`.
@@ -161,7 +192,7 @@ Legenda:
     - spostarlo in una cartella di archivio;
     - eliminarlo quando non serve più.
 
-- [ ] Verificare tutte le pagine introduttive:
+- [~] Completare il controllo visuale delle pagine introduttive:
   - collegamenti alle edizioni;
   - ordine cronologico;
   - testi sintetici;
@@ -171,24 +202,24 @@ Legenda:
 
 ## 6. Controlli tecnici comuni
 
-- [ ] Verificare che ogni pagina includa:
-  - `css/stile.css`;
-  - `js/config-media.js`;
-  - il file dati corretto;
-  - `js/sito.js`;
-  - `js/analytics.js`.
+- [x] Verificato e completato l'uso del nuovo Google Analytics nelle pagine attive.
+  - Il vecchio UA è stato sottoposto ad audit.
+  - Il nuovo tracciamento è operativo.
+  - Sono tracciati anche i download statici dalle pagine dei corsi.
 
-- [ ] Verificare che non sia rimasto il vecchio Google Analytics UA.
+- [x] Creato il verificatore dei documenti:
+  - `strumenti/verifica_documenti.py`.
+  - Ultimo controllo dopo la normalizzazione dei percorsi: `151` validi, `0` errori, `0` percorsi sospetti.
 
-- [ ] Verificare che i file mancanti siano marcati separatamente per AVI e PDF.
+- [x] Creato il verificatore delle lezioni:
+  - `strumenti/verifica_lezioni.py`.
+  - Ultimo controllo dopo la normalizzazione: `170/172` validi.
+  - I soli due 404 sono gli AVI notoriamente assenti di `AM2_21`, corso PDF-only.
 
-- [ ] Verificare la larghezza della numerazione:
-  - 1 cifra per Freiberg;
-  - 2 cifre per la maggior parte dei corsi;
-  - 3 cifre per i corsi con oltre 99 lezioni.
+- [x] I file mancanti sono rappresentati separatamente per AVI e PDF nei dati dei corsi.
+  - Il verificatore rileva 30 assenze dichiarate nei JavaScript.
 
-- [ ] Controllare:
-  - validità dei link;
+- [~] Completare i controlli manuali non automatizzabili:
   - errori in console;
   - resa responsive;
   - tabelle molto lunghe;
@@ -196,64 +227,54 @@ Legenda:
 
 ---
 
-## 7. Inventario e book
+## 7. Inventario e Book
 
 - [x] Creato il generatore automatico:
   - `strumenti/genera-inventario.py`;
   - output in `documentazione/INVENTARIO-CORSI.md`.
 
-- [x] Verificata automaticamente la presenza di indici cliccabili nei book.
-  - Analizzati 58 PDF sul server.
-  - 43 book con link interni rilevati.
-  - 15 file senza link interni rilevati.
-  - Nessun errore e nessun caso dubbio.
-
-- [x] Integrati i risultati nel file:
-  - `documentazione/indici-book.csv`.
+- [x] Verificata automaticamente la presenza di indici cliccabili nei Book.
+  - Inventario registrato in `documentazione/indici-book.csv`.
 
 - [x] Resa sintetica la colonna **Indice cliccabile**:
   - `sì` se tutti i volumi sono cliccabili;
   - `no` se nessun volume lo è;
   - `parziale (n/totale)` negli eventuali casi misti.
 
-- [ ] Creare ex novo i book mancanti, con priorità alta:
-  - AM1 2006/2007;
-  - AM1 2007/2008;
-  - AM1 2008/2009;
-  - AM1 2009/2010;
-  - AM1 2010/2011;
-  - AM2 2006/2007.
+- [x] Creati ex novo i Book storici mancanti ad alta priorità:
+  - AM1 2006/2007: `T07_Book1.pdf`, `T07_Book2.pdf`;
+  - AM1 2007/2008: `T08_Book1.pdf`, `T08_Book2.pdf`;
+  - AM1 2008/2009: `AM09_Book1.pdf`, `AM09_Book2.pdf`;
+  - AM1 2009/2010: `AM10_Book1.pdf`, `AM10_Book2.pdf`;
+  - AM1 2010/2011: `AM11_Book1.pdf`, `AM11_Book2.pdf`;
+  - AM2 2006/2007: `C07_Book.pdf`.
 
-- [ ] Valutare, con priorità bassa, i book mancanti:
-  - Precorso 2007;
-  - Precorso 2009.
+- [x] Inseriti i nuovi Book nel sito e verificati i collegamenti.
 
-- [ ] Rigenerare con indice cliccabile i 14 book effettivamente usati dal sito:
-  - `AM12_Book1.pdf`;
-  - `AM12_Book2.pdf`;
-  - `AM13_Book1.pdf`;
-  - `AM13_Book2.pdf`;
-  - `AM1_15_Book1.pdf`;
-  - `AM1_15_Book2.pdf`;
-  - `AM1_15_Book3.pdf`;
-  - `PCM_08_Book.pdf`;
-  - `SA10_Book.pdf`;
-  - `SA11_Book.pdf`;
-  - `SA12_Book.pdf`;
-  - `SA13_Book.pdf`;
-  - `SA14_Book.pdf`;
-  - `SA15_Book.pdf`.
+- [x] Registrati nell'inventario come cliccabili i nuovi Book e i Book PCM 2007/2009.
+
+- [ ] Rigenerare con indice cliccabile i Book ancora effettivamente usati dal sito che ne sono privi o non soddisfano lo standard attuale.
+  - Usare `documentazione/indici-book.csv` come fonte operativa aggiornata, evitando liste statiche destinate a diventare obsolete.
 
 - [~] Verificare se `ALAM2_14_Bookbis.pdf` è soltanto un residuo storico.
   - Non è richiamato da alcun file dati del sito.
   - `ALAM2_14_Book.pdf`, che è quello effettivamente usato, ha l’indice cliccabile.
 
+---
 
 ## 8. Git
 
-- [ ] Prima di ogni blocco di commit:
-  - `git status --short`
-  - `git diff --cached --stat`
+- [x] Separati in commit tematici i principali blocchi di restauro e migrazione.
+
+- [x] Normalizzati i percorsi dell'Archivio Didattico nei `js/corsi` e pubblicati sul branch `nuovo-sito`.
+  - Commit: `6a9067e` — `Normalizza i percorsi dell'Archivio Didattico`.
+
+- [ ] Prima di ogni futuro blocco di commit continuare a usare:
+  - `git status --short`;
+  - `git diff --check`;
+  - `git diff --stat`;
+  - `git diff --cached --check`;
+  - `git diff --cached --stat`.
 
 - [ ] Tenere separati:
   - migrazioni meccaniche;
@@ -279,57 +300,90 @@ Quando emerge una stranezza:
 5. correggerla con un commit separato;
 6. cambiare `[ ]` o `[~]` in `[x]` quando risolta.
 
+Per i file dichiarati mancanti o anomali, non dedurre la completezza da un semplice conteggio: quando serve, confrontare i nomi effettivi dei file.
+
+---
+
 ## 10. Opzioni del generatore
 
-- [x] Aggiunta l’opzione
+- [x] Aggiunta l’opzione:
 
       const MostraVideoLezioni = false;
 
-      per i corsi che dispongono soltanto dei PDF.
+  per i corsi che dispongono soltanto dei PDF.
 
-      Quando l’opzione è attiva, la tabella delle lezioni:
-      - non mostra la colonna AVI;
-      - non genera una sequenza di `Missing!`;
-      - mantiene invariata la struttura dei dati;
-      - continua a mostrare normalmente la colonna PDF.
+  Quando l’opzione è attiva, la tabella delle lezioni:
+  - non mostra la colonna AVI;
+  - non genera una sequenza di `Missing!`;
+  - mantiene invariata la struttura dei dati;
+  - continua a mostrare normalmente la colonna PDF.
 
-      Se l’opzione non è definita, il comportamento predefinito
-      resta quello usuale, con entrambe le colonne AVI e PDF.
+  Se l’opzione non è definita, il comportamento predefinito resta quello usuale, con entrambe le colonne AVI e PDF.
 
-- [ ] Correggere i caratteri di sostituzione Unicode (`�`, U+FFFD)
-      introdotti durante la migrazione di alcune vecchie annate SSSUP.
-      I file interessati sono:
-      - `js/corsi/SAnna_10.js`
-      - `js/corsi/SAnna_11.js`
-      - `js/corsi/SAnna_13.js`
+- [ ] Correggere i caratteri di sostituzione Unicode (`�`, U+FFFD) introdotti durante la migrazione di alcune vecchie annate SSSUP.
+  I file interessati sono:
+  - `js/corsi/SAnna_10.js`;
+  - `js/corsi/SAnna_11.js`;
+  - `js/corsi/SAnna_13.js`.
 
-## 11. Riorganizzazione futura del magazzino
+---
 
-Policy da applicare al momento della dismissione del vecchio sito.
+## 11. Magazzino dei media e archivio locale
 
-Struttura prevista:
+### Stato raggiunto
 
-Magazzino/
-  CodiceCorso/
-    Pdf/
-    Avi/
-    Documenti/
+- [x] Fotografata e studiata l'organizzazione del server.
 
-Esempio:
+- [x] Creato `ArchivioDidattico` come archivio canonico pulito.
 
-Magazzino/
-  CdV_17/
-    Pdf/
-    Avi/
-    Documenti/
+- [x] Migrati i corsi nelle sottocartelle:
+  - `Avi/`;
+  - `Pdf/`;
+  - `Documenti/`;
+  - `Ricevimento/` dove necessario.
 
-I materiali specifici di un corso devono stare nella cartella del corso.
-I materiali trasversali, come gli eserciziari comuni a più edizioni,
-restano in cartelle condivise.
+- [x] Definiti e applicati i codici canonici delle cartelle dei corsi.
 
-Finché il vecchio sito rimane attivo, non spostare i file già pubblicati,
-per evitare di rompere i collegamenti storici.
+- [x] Normalizzati i nomi incoerenti sia nel Magazzino sia in OneDrive.
 
+- [x] Aggiornati gli `ArchivioCorso` nella Home Page senza rinominare i file storici interni.
+
+- [x] Verificati automaticamente documenti e lezioni dopo il renaming.
+
+- [x] Recuperati in OneDrive tutti gli AVI e PDF canonici delle lezioni che risultavano mancanti o parziali.
+
+- [x] Allineata la gerarchia `Famiglia/Corso` di OneDrive con quella del Magazzino.
+
+### Prossimi passi
+
+- [ ] Confrontare globalmente e in modo riproducibile Magazzino e OneDrive per i media pubblicati, ora che i percorsi canonici coincidono.
+
+- [ ] Costruire una tabella maestra con una riga per ogni lezione e almeno:
+
+      Corso | Lezione | PDF | AVI | JNT originale | Recording originale
+
+- [ ] Individuare automaticamente nei corsi locali i sorgenti JNT originali.
+
+- [ ] Individuare e classificare i recording originali, distinguendoli dagli AVI pubblicati.
+
+- [ ] Decidere una convenzione stabile per le cartelle dei sorgenti originali senza alterare i nomi storici quando non necessario.
+
+- [ ] Recuperare localmente i `Documenti/Book` presenti sul server ma non ancora conservati nell'archivio OneDrive, dove opportuno.
+
+### Regola corrente
+
+`ArchivioDidattico` sul server resta il riferimento canonico per il materiale pubblicato.
+
+OneDrive deve diventare il master completo, comprendente:
+
+- materiale pubblicato;
+- JNT originali;
+- recording originali;
+- sorgenti TeX e altri materiali di produzione quando disponibili.
+
+`Tablet` resta invece uno strato di compatibilità storico e non deve essere usato come fonte canonica per nuovi sviluppi.
+
+---
 
 ## 12. Versione 3.0
 
@@ -345,17 +399,6 @@ per evitare di rompere i collegamenti storici.
 - [ ] Controllare tutte le pagine modificate a finestra larga e stretta.
 - [ ] Verificare che i breadcrumb abbiano sempre `class="breadcrumb"` e che non vi siano `<main>` o `<header>` duplicati.
 
-### Magazzino dei media
-
-- [ ] Fotografare l'organizzazione attuale del server senza spostare file.
-- [ ] Definire i codici canonici delle cartelle dei corsi.
-- [ ] Decidere il trattamento dei materiali condivisi.
-- [ ] Verificare disponibilità e uso di link simbolici o redirect.
-- [ ] Scegliere un corso pilota.
-- [ ] Riorganizzare il corso pilota nelle sottocartelle `pdf`, `avi`, `documenti`.
-- [ ] Aggiornare i collegamenti del nuovo sito.
-- [ ] Verificare automaticamente file mancanti, file non referenziati, differenze di maiuscole/minuscole, percorsi anomali e duplicati.
-
 ### Precorsina
 
 - [ ] Verificare l'affidabilità dei metadati in `js/corsi/*.js`.
@@ -363,7 +406,16 @@ per evitare di rompere i collegamenti storici.
 - [ ] Preparare un indice delle lezioni con numero, data, argomento, video, PDF ed eventuali prerequisiti.
 - [ ] Decidere come trattare lezioni con materiali mancanti o condivisi.
 
-### Git
+---
 
-- [ ] Creare commit piccoli e tematici per la 3.0.
-- [ ] Prima di ogni commit usare `git status --short`, `git diff --check`, `git diff --stat`, `git diff --cached --check`, `git diff --cached --stat`.
+## 13. Ultimo checkpoint operativo — 26 agosto 2026
+
+- [x] OneDrive e Magazzino usano la stessa nomenclatura canonica `Famiglia/Corso`.
+- [x] Gli AVI e PDF mancanti identificati durante il recupero sono stati copiati sul Mac.
+- [x] `ArchivioCorso` è stato aggiornato nei 18 file JavaScript interessati.
+- [x] Nessun vecchio `ArchivioCorso` incoerente rimane in `js/corsi`.
+- [x] Verifica documenti: `151` validi, `0` errori, `0` percorsi sospetti.
+- [x] Verifica lezioni: `170/172` validi; i due errori sono esclusivamente gli AVI noti di `AM2_21`.
+- [x] Commit e push della normalizzazione completati (`6a9067e`).
+- [ ] Prossimo progetto operativo: inventario completo per lezione di `PDF / AVI / JNT / recording originale`.
+

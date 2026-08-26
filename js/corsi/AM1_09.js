@@ -1,6 +1,6 @@
 var NomeCorso = "Analisi Matematica I - 2008/2009";
 var ArchivioCorso = "AM1/AM1_09";
-var PrefissoFile = "AM09_L";
+var PrefissoFile = "AM1_09_L";
 var Percorso = MEDIA.lezioni + "AM09/AM09_L";
 var CifreNumeroLezione = 3;
 

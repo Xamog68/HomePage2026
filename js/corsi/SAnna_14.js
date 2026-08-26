@@ -1,6 +1,6 @@
 var NomeCorso = "Complementi di Analisi Matematica II - SSSUP 2013/2014";
 var ArchivioCorso = "SAnna/SA_14";
-var PrefissoFile = "SA14_L";
+var PrefissoFile = "SA_14_L";
 var Percorso = MEDIA.lezioni + "SA14/SA14_L";
 var CifreNumeroLezione = 2;
 var SchedaCorso = {
