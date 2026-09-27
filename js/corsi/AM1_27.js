@@ -30,7 +30,7 @@ var DocumentiCorso = [
 ];
 
 var Lezioni = new Array();
-
+Lezioni[1] = [ "1", "23/09/2026", "14:00", "15:00", "Prova" ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
