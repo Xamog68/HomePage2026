@@ -30,7 +30,10 @@ var DocumentiCorso = [
 ];
 
 var Lezioni = new Array();
-Lezioni[1] = [ "1", "23/09/2026", "14:00", "15:00", "Prova" ];
+Lezioni[1] = [ "1", "23/09/2026", "14:00", "15:00", "Logica elementare (a livello intuitivo). Proposizioni, predicati, quantificatori. Operazioni tra proposizioni: negazione, and, vel, implicazione, doppia implicazione. Negazione di and e vel. Negazione di predicati quantificati." ];
+Lezioni[2] = [ "2", "23/09/2026", "15:00", "16:00", "Negazione di implicazioni, altri modi di scrivere un'implicazione, tavole di verità. Insiemi e notazioni insiemistiche. Operazioni tra insiemi: unione, intersezione, differenza, insieme delle parti, prodotto cartesiano." ];
+Lezioni[3] = [ "3", "24/09/2026", "09:00", "10:00", "Funzioni tra insiemi: definizione operativa e formale. Grafico, composizione, iniettività, surgettività, funzione inversa. Immagine e controimmagine di sottoinsiemi." ];
+Lezioni[4] = [ "4", "24/09/2026", "10:00", "11:00", "Principio di induzione. Dimostrazione di uguaglianze e disuguaglianze mediante il principio di induzione. Disuguaglianza di Bernoulli." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -40,7 +43,6 @@ Lezioni[1] = [ "1", "23/09/2026", "14:00", "15:00", "Prova" ];
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "23/09/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "23/09/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "24/09/2026", "09:00", "10:00", "" ];
 Lezioni[__] = [ "__", "24/09/2026", "10:00", "11:00", "" ];
