@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precorso Matematica Pisa 2026 — Simulatore</title>
+<script>
+window.MathJax = {tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},svg:{fontCache:'global'}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--text:#1f2933;--muted:#6b7280;--border:#d9dee5;--accent:#22577a;--accent-soft:#e8f1f7;--good:#176b3a;--good-bg:#eaf7ef;--bad:#a22b2b;--bad-bg:#fdecec;--blank:#8a5a00;--blank-bg:#fff6dc}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+header{background:var(--accent);color:#fff;padding:28px 20px 24px} header .wrap,main,footer{max-width:950px;margin:auto} h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.4rem)} header p{margin:5px 0;line-height:1.45}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(244,246,248,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)} .toolbar-inner{max-width:950px;margin:auto;padding:10px 18px;display:flex;gap:16px;align-items:center;justify-content:space-between}.timer{font-weight:850;font-size:1.2rem;white-space:nowrap;color:var(--accent);background:white;border:1px solid var(--border);border-radius:10px;padding:8px 12px}.timer.warning{color:#a22b2b;background:#fdecec}.blank-option{background:#fffaf0}
+.progress{flex:1}.progressbar{height:8px;background:#dfe5ea;border-radius:999px;overflow:hidden;margin-top:5px}.progressbar>div{height:100%;width:0;background:var(--accent);transition:width .2s}
+button{border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:pointer} button.primary{background:var(--accent);color:#fff} button.secondary{background:#e2e8ee;color:#23313d}
+main{padding:24px 18px 50px}.question{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin:0 0 18px;box-shadow:0 2px 10px rgba(0,0,0,.035)}
+.qhead{display:flex;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:10px}.qnum{font-weight:800;color:var(--accent)}.topic{color:var(--muted);font-size:.92rem;font-weight:600}.prompt{line-height:1.55;margin-bottom:14px}.options{display:grid;gap:9px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:10px;padding:11px 12px;cursor:pointer;background:#fff}.option:hover{border-color:#9eb7c8;background:#f8fbfd}.option input{margin-top:4px;transform:scale(1.15)}.option.chosen{border-color:var(--accent);background:var(--accent-soft)}
+.result-box{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin:6px 0 24px}.score{font-size:2.3rem;font-weight:850;color:var(--accent);margin:4px 0}.summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{border-radius:999px;padding:7px 11px;font-weight:700;font-size:.95rem}.good{background:var(--good-bg);color:var(--good)}.bad{background:var(--bad-bg);color:var(--bad)}.blank{background:var(--blank-bg);color:var(--blank)}.review{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}.review-item{margin:10px 0;padding:10px 12px;border-radius:9px;line-height:1.45}.hidden{display:none}footer{padding:0 18px 35px;color:var(--muted);font-size:.9rem;text-align:center}
+@media(max-width:640px){.toolbar-inner{align-items:flex-start;flex-direction:column}.toolbar-inner button{width:100%}}
+
+.question-nav-wrap{max-width:950px;margin:auto;padding:0 18px 10px}
+.question-nav{display:grid;grid-template-columns:repeat(24,minmax(26px,1fr));gap:5px}
+.question-nav button{padding:7px 0;min-width:0;border-radius:6px;font-size:.82rem;line-height:1;background:#fff6dc;color:#8a5a00;border:1px solid #e6cf96}
+.question-nav button.answered{background:var(--accent);color:#fff;border-color:var(--accent)}
+.question-nav button:hover{filter:brightness(.97)}
+@media(max-width:900px){.question-nav{grid-template-columns:repeat(12,minmax(26px,1fr))}}
+@media(max-width:520px){.question-nav{grid-template-columns:repeat(8,minmax(26px,1fr))}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Precorso Matematica Pisa 2026 — Simulatore</h1><p>24 domande a risposta multipla. L'ordine delle domande e delle risposte viene mescolato a ogni nuovo test.</p><p><strong>Punteggio:</strong> 5 punti risposta corretta · 2 punti risposta non data · 0 punti risposta errata.</p></div></header>
+<div class="toolbar"><div class="toolbar-inner"><div class="progress"><div><strong id="answeredText">0/24 risposte date</strong></div><div class="progressbar"><div id="progressFill"></div></div><div class="timer" id="timer">60:00</div><button class="primary" id="finishBtn">Consegna e calcola</button></div><div class="question-nav-wrap"><div class="question-nav" id="questionNav"></div></div></div>
+<main><div id="result" class="result-box hidden"></div><div id="quiz"></div></main>
+<footer>Ricaricando la pagina si ottiene una nuova permutazione.</footer>
+<script>
+const Q=[
+["Matematizzazione",`Alcuni amici vanno alla sagra del pesce, dove ordinano 5 fritti e 3 cacciucchi. Il giorno successivo tornano, e questa volta ordinano 3 fritti e 5 cacciucchi, spendendo 4 euro in più della sera precedente. Davvero contenti dell'esperienza gastronomica, tornano per una terza volta, e ordinano 2 fritti e 6 cacciucchi.<br><br>Allora la terza sera spendono ...`,["2 euro più della seconda","2 euro più della prima","4 euro più della seconda","1 euro meno della seconda","8 euro più della prima"]],
+["Conteggi/Percentuali",`Il 60% delle matricole di matematica del 2025 ha seguito il precorso. Tra le matricole di matematica che hanno seguito il precorso, 5 su 6 hanno poi superato l'esame di Aritmetica.<br><br>Sapendo che le matricole che hanno seguito il precorso e poi passato l'esame di Aritmetica sono state 60, determinare quante erano complessivamente le matricole di matematica.`,["120","100","72","144","90"]],
+["Aritmetica",`Sia \\(M\\) il minimo comune multiplo di 10, 15, 20, 25.<br><br>Determinare quale dei seguenti numeri <em>non</em> divide \\(M\\).`,["\\(40\\)","\\(30\\)","\\(50\\)","\\(60\\)","\\(100\\)"]],
+["Polinomi",`Determinare quale dei seguenti polinomi è multiplo del polinomio \\(x+1\\).`,["\\(x^8-x^5-2\\)","\\(x^8+x^5-2\\)","\\(x^8+x^5+2\\)","\\(x^8-x^3+2\\)","\\(x^8+x^3-2\\)"]],
+["Potenze",`Se \\(A=100^5\\) e \\(B=5^{10}\\), allora \\(\\dfrac{A}{B}=\\ldots\\)`,["\\(2^{10}\\)","\\(\\sqrt{20}\\)","\\(\\dfrac{1}{20^5}\\)","\\(95^5\\)","\\(\\dfrac{128}{125}\\)"]],
+["Logaritmi",`Se \\[\\log_2(\\log_3 a)=5,\\] allora \\(a\\) è uguale a ...`,["\\(3^{32}\\)","\\(3^{25}\\)","\\(9^5\\)","\\(5^5\\)","\\(6^5\\)"]],
+["Algebra",`L'espressione \\[(a^2+b^2)^2-(a+b)(a^3+b^3)\\] è uguale a ...`,["\\(-ab(b-a)^2\\)","\\(2a^2b^2\\)","\\(-ab(a^2+b^2)\\)","\\((a-b)^4\\)","\\(0\\)"]],
+["Funzioni polinomiali",`Nell'insieme dei numeri reali, l'equazione \\[x^4=x^2+7\\] ha ...`,["due soluzioni, una positiva e una negativa","quattro soluzioni","nessuna soluzione","una sola soluzione","due soluzioni, entrambe positive"]],
+["Disequazioni fratte",`Determinare l'insieme dei numeri reali \\(x\\) tali che \\[x+\\frac{6}{x}\\geq 5.\\]`,["\\((0,2]\\cup[3,+\\infty)\\)","\\(( -\\infty,2]\\cup[3,+\\infty)\\)","\\(( -\\infty,0)\\cup(0,2]\\cup[3,+\\infty)\\)","\\([2,3]\\)","\\(( -\\infty,0)\\cup[2,3]\\)"]],
+["Esponenziali/Logaritmi",`Nell'insieme dei numeri reali, l'equazione \\(7^{x^2+2}=\\lambda\\) ammette almeno una soluzione reale se e solo se ...`,["\\(\\lambda\\geq 49\\)","\\(\\lambda>0\\)","\\(\\lambda\\neq 0\\)","\\(\\lambda\\geq 7\\)","\\(\\lambda>7\\)"]],
+["Irrazionali",`Determinare l'insieme dei numeri reali tali che \\[\\sqrt{x+6}>x.\\]`,["\\([-6,3)\\)","\\((-2,3)\\)","\\([-2,3]\\)","\\((3,+\\infty)\\)","\\([-6,+\\infty)\\)"]],
+["Trigonometria di base",`Quattro dei numeri indicati nelle risposte sono uguali tra di loro. Determinare il restante.`,["\\(\\sin(200^{\\circ})\\)","\\(\\sin(20^{\\circ})\\)","\\(\\cos(70^{\\circ})\\)","\\(\\sin(160^{\\circ})\\)","\\(\\cos(290^{\\circ})\\)"]],
+["Formule trigonometriche",`Sapendo che \\(\\sin\\alpha=\\dfrac{3}{4}\\), determinare \\(\\cos(2\\alpha)\\).`,["\\(-\\dfrac{1}{8}\\)","\\(\\dfrac{1}{2}\\)","\\(\\dfrac{\\sqrt{7}}{2}\\)","\\(\\dfrac{\\sqrt{7}}{4}\\)","\\(-\\dfrac{1}{6}\\)"]],
+["Trigonometria e triangoli",`In un triangolo \\(ABC\\), rettangolo in \\(A\\), la lunghezza del cateto \\(AB\\) è 5, e la lunghezza dell'altezza \\(AH\\) è 2.<br><br>Determinare il seno dell'angolo in \\(C\\).`,["\\(\\dfrac{\\sqrt{21}}{5}\\)","\\(\\dfrac{2}{5}\\)","\\(\\dfrac{\\sqrt{5}}{4}\\)","\\(\\dfrac{4}{5}\\)","\\(\\dfrac{2}{\\sqrt{21}}\\)"]],
+["Geometria analitica — retta",`Determinare, nel piano cartesiano, la retta che passa per il punto \\((-1,2)\\) ed è perpendicolare alla retta di equazione \\(y=3x-7\\).`,["\\(x=5-3y\\)","\\(x-3y+7=0\\)","\\(y=3x+9\\)","\\(y-3x=5\\)","\\(x+3y=7\\)"]],
+["Geometria analitica — circonferenza",`Nel piano cartesiano, l'equazione \\[x^2+y^2+2x+4y=c\\] rappresenta una circonferenza se e solo se ...`,["\\(c>-5\\)","\\(c>0\\)","\\(c>-3\\)","\\(c>5\\)","\\(c>3\\)"]],
+["Insiemi nel piano",`Determinare quale delle seguenti scritture descrive, nel piano cartesiano, l'insieme dei punti \\((x,y)\\) che stanno nel triangolo con vertici in \\((0,0)\\), \\((1,1)\\), \\((0,1)\\).`,["\\(0\\leq x\\leq y\\leq 1\\)","\\(0\\leq y\\leq x\\leq 1\\)","\\(0\\leq x+y\\leq 1\\)","\\(0\\leq x\\leq 1\\leq y\\)","\\(0\\leq x\\leq x+y\\leq 1\\)"]],
+["Geometria — poligoni",`In un esagono regolare \\(ABCDEF\\) ogni lato ha lunghezza unitaria.<br><br>Determinare la lunghezza della diagonale \\(CE\\).`,["\\(\\sqrt{3}\\)","\\(2\\)","\\(\\sqrt{5}\\)","\\(\\dfrac{\\sqrt{7}}{2}\\)","\\(\\dfrac{3}{2}\\)"]],
+["Geometria — circonferenza",`Sia \\(O\\) il centro di una circonferenza di raggio 5. Siano \\(A\\) e \\(B\\) due punti sulla circonferenza che individuano un settore \\(OAB\\) di area 10.<br><br>Determinare la lunghezza dell'arco \\(AB\\).`,["\\(4\\)","\\(4\\pi\\)","\\(2\\)","\\(\\dfrac{5}{2}\\)","\\(10\\)"]],
+["Geometria solida",`Un cilindro ha la superficie laterale di \\(10\\,m^2\\) e il volume di \\(10\\,m^3\\).<br><br>Determinare il rapporto tra il raggio della base e l'altezza.`,["\\(\\dfrac{4\\pi}{5}\\)","\\(\\dfrac{8\\pi}{5}\\)","\\(\\dfrac{2\\pi}{5}\\)","\\(\\dfrac{5}{2\\pi}\\)","\\(2\\)"]],
+["Geometria analitica mista",`Nel piano cartesiano consideriamo il punto \\(P=(212,326)\\).<br><br>Determinare le coordinate del punto che si ottiene ruotando \\(P\\) di \\(90^\\circ\\) in senso antiorario rispetto all'origine.`,["\\((-326,212)\\)","\\((326,212)\\)","\\((-212,326)\\)","\\((212,-326)\\)","\\((326,-212)\\)"]],
+["Valore assoluto",`Determinare <em>quante</em> sono le soluzioni reali distinte dell'equazione \\[\\left|x^2-2026\\right|=7.\\]`,["4","3","2","1","0"]],
+["Radici",`\\(\\sqrt{50}-\\sqrt{18}=\\ldots\\)`,["\\(\\sqrt{8}\\)","\\(\\sqrt{32}\\)","\\(\\dfrac{5}{3}\\)","\\(\\sqrt[4]{32}\\)","\\(\\sqrt{12}\\)"]],
+["Quantificatori",`Determinare quale delle seguenti affermazioni è <em>falsa</em>.<br><br><span style="color:#6b7280">Nelle risposte si sottintende che \\(x\\) e \\(y\\) sono numeri reali (positivi, negativi o nulli).</span>`,["Per ogni \\(y\\) esiste \\(x\\) tale che \\(y=x^2\\)","Esistono \\(x\\) e \\(y\\) tali che \\(y=x^2\\)","Per ogni \\(x\\) esiste \\(y\\) tale che \\(y=x^2\\)","Esistono \\(x\\) e \\(y\\) tali che \\((x+y)^2=x^2+y^2\\)","Per ogni \\(x\\) esiste \\(y\\) tale che \\(x^2+y^2=(x+y)^2\\)"]]
+];
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let questions=shuffle(Q.map((q,originalIndex)=>({topic:q[0],prompt:q[1],originalIndex,answers:shuffle(q[2].map((text,i)=>({text,isCorrect:i===0})))})));
+const quiz=document.getElementById('quiz'),result=document.getElementById('result'),finishBtn=document.getElementById('finishBtn'),answeredText=document.getElementById('answeredText'),progressFill=document.getElementById('progressFill'),timerEl=document.getElementById('timer'),questionNav=document.getElementById('questionNav');let submitted=false,timerInterval=null,deadline=null;
+function renderQuiz(){
+  quiz.innerHTML='';
+  questionNav.innerHTML='';
+  questions.forEach((q,qi)=>{
+    const card=document.createElement('section');
+    card.className='question';
+    card.id=`question-${qi}`;
+    card.innerHTML=`<div class="qhead"><div class="qnum">Domanda ${qi+1}</div><div class="topic">${q.topic}</div></div><div class="prompt">${q.prompt}</div><div class="options"><label class="option blank-option chosen"><input type="radio" name="q${qi}" value="blank" checked><span><strong>Non rispondo</strong></span></label>${q.answers.map((a,ai)=>`<label class="option"><input type="radio" name="q${qi}" value="${ai}"><span><strong>${String.fromCharCode(65+ai)}.</strong> ${a.text}</span></label>`).join('')}</div>`;
+    quiz.appendChild(card);
+
+    const navBtn=document.createElement('button');
+    navBtn.type='button';
+    navBtn.textContent=qi+1;
+    navBtn.dataset.q=qi;
+    navBtn.title=`Domanda ${qi+1}: non risposta`;
+    navBtn.addEventListener('click',()=>{const y=card.getBoundingClientRect().top+window.scrollY-document.querySelector('.toolbar').offsetHeight-10;window.scrollTo({top:y,behavior:'smooth'})});
+    questionNav.appendChild(navBtn);
+  });
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',()=>{
+    r.closest('.options').querySelectorAll('.option').forEach(o=>o.classList.remove('chosen'));
+    r.closest('.option').classList.add('chosen');
+    updateProgress();
+  }));
+  if(window.MathJax?.typesetPromise)MathJax.typesetPromise([quiz]);
+}
+
+function updateProgress(){
+  let n=0;
+  questions.forEach((_,qi)=>{
+    const c=document.querySelector(`input[name=q${qi}]:checked`);
+    const answered=!!(c&&c.value!=='blank');
+    if(answered)n++;
+    const btn=questionNav.querySelector(`button[data-q="${qi}"]`);
+    if(btn){
+      btn.classList.toggle('answered',answered);
+      btn.title=answered?`Domanda ${qi+1}: risposta data`:`Domanda ${qi+1}: non risposta`;
+    }
+  });
+  answeredText.textContent=`${n}/${questions.length} risposte date`;
+  progressFill.style.width=`${100*n/questions.length}%`;
+}
+
+function finishQuiz(auto=false){if(submitted)return;submitted=true;if(timerInterval)clearInterval(timerInterval);let correct=0,wrong=0,blank=0,score=0;const rows=[];questions.forEach((q,qi)=>{const checked=document.querySelector(`input[name=q${qi}]:checked`),correctText=q.answers.find(a=>a.isCorrect).text;if(!checked||checked.value==='blank'){blank++;score+=2;rows.push({cls:'blank',text:`<strong>Domanda ${qi+1}:</strong> non risposta — <strong>2 punti</strong>. Risposta corretta: ${correctText}`})}else{const selected=q.answers[Number(checked.value)];if(selected.isCorrect){correct++;score+=5;rows.push({cls:'good',text:`<strong>Domanda ${qi+1}:</strong> corretta — <strong>5 punti</strong>.`})}else{wrong++;rows.push({cls:'bad',text:`<strong>Domanda ${qi+1}:</strong> errata — <strong>0 punti</strong>. Risposta corretta: ${correctText}`})}}});result.innerHTML=`<h2 style="margin-top:0">Risultato</h2>${auto?'<p><strong>Tempo scaduto:</strong> il test è stato consegnato automaticamente.</p>':''}<div class="score">${score} / ${questions.length*5}</div><div>${(score/(questions.length*5)*100).toFixed(1)}% del punteggio massimo</div><div class="summary"><span class="pill good">${correct} corrette</span><span class="pill blank">${blank} non date</span><span class="pill bad">${wrong} errate</span></div><div class="review"><h3>Dettaglio</h3>${rows.map(r=>`<div class="review-item ${r.cls}">${r.text}</div>`).join('')}</div><div style="margin-top:18px"><button class="secondary" onclick="location.reload()">Nuovo test randomizzato</button></div>`;result.classList.remove('hidden');result.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('input[type=radio]').forEach(r=>r.disabled=true);finishBtn.disabled=true;finishBtn.style.opacity=.55;timerEl.textContent=auto?'00:00':'Consegnato';if(window.MathJax?.typesetPromise)MathJax.typesetPromise([result])}
+function updateTimer(){const remaining=Math.max(0,deadline-Date.now()),totalSeconds=Math.ceil(remaining/1000),m=Math.floor(totalSeconds/60),sec=totalSeconds%60;timerEl.textContent=`${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;if(totalSeconds<=300)timerEl.classList.add('warning');if(remaining<=0)finishQuiz(true)}function startTimer(){deadline=Date.now()+60*60*1000;updateTimer();timerInterval=setInterval(updateTimer,250)}finishBtn.addEventListener('click',()=>finishQuiz(false));renderQuiz();updateProgress();startTimer();
+</script>
+</body>
+</html>

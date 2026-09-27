@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precorso Matematica Pisa 2025 — Simulatore</title>
+<script>
+window.MathJax = {tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},svg:{fontCache:'global'}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--text:#1f2933;--muted:#6b7280;--border:#d9dee5;--accent:#22577a;--accent-soft:#e8f1f7;--good:#176b3a;--good-bg:#eaf7ef;--bad:#a22b2b;--bad-bg:#fdecec;--blank:#8a5a00;--blank-bg:#fff6dc}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+header{background:var(--accent);color:#fff;padding:28px 20px 24px} header .wrap,main,footer{max-width:950px;margin:auto} h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.4rem)} header p{margin:5px 0;line-height:1.45}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(244,246,248,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)} .toolbar-inner{max-width:950px;margin:auto;padding:10px 18px;display:flex;gap:16px;align-items:center;justify-content:space-between}.timer{font-weight:850;font-size:1.2rem;white-space:nowrap;color:var(--accent);background:white;border:1px solid var(--border);border-radius:10px;padding:8px 12px}.timer.warning{color:#a22b2b;background:#fdecec}.blank-option{background:#fffaf0}
+.progress{flex:1}.progressbar{height:8px;background:#dfe5ea;border-radius:999px;overflow:hidden;margin-top:5px}.progressbar>div{height:100%;width:0;background:var(--accent);transition:width .2s}
+button{border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:pointer} button.primary{background:var(--accent);color:#fff} button.secondary{background:#e2e8ee;color:#23313d}
+main{padding:24px 18px 50px}.question{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin:0 0 18px;box-shadow:0 2px 10px rgba(0,0,0,.035)}
+.qhead{display:flex;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:10px}.qnum{font-weight:800;color:var(--accent)}.topic{color:var(--muted);font-size:.92rem;font-weight:600}.prompt{line-height:1.55;margin-bottom:14px}.options{display:grid;gap:9px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:10px;padding:11px 12px;cursor:pointer;background:#fff}.option:hover{border-color:#9eb7c8;background:#f8fbfd}.option input{margin-top:4px;transform:scale(1.15)}.option.chosen{border-color:var(--accent);background:var(--accent-soft)}
+.result-box{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin:6px 0 24px}.score{font-size:2.3rem;font-weight:850;color:var(--accent);margin:4px 0}.summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{border-radius:999px;padding:7px 11px;font-weight:700;font-size:.95rem}.good{background:var(--good-bg);color:var(--good)}.bad{background:var(--bad-bg);color:var(--bad)}.blank{background:var(--blank-bg);color:var(--blank)}.review{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}.review-item{margin:10px 0;padding:10px 12px;border-radius:9px;line-height:1.45}.hidden{display:none}footer{padding:0 18px 35px;color:var(--muted);font-size:.9rem;text-align:center}
+@media(max-width:640px){.toolbar-inner{align-items:flex-start;flex-direction:column}.toolbar-inner button{width:100%}}
+
+.question-nav-wrap{max-width:950px;margin:auto;padding:0 18px 10px}
+.question-nav{display:grid;grid-template-columns:repeat(24,minmax(26px,1fr));gap:5px}
+.question-nav button{padding:7px 0;min-width:0;border-radius:6px;font-size:.82rem;line-height:1;background:#fff6dc;color:#8a5a00;border:1px solid #e6cf96}
+.question-nav button.answered{background:var(--accent);color:#fff;border-color:var(--accent)}
+.question-nav button:hover{filter:brightness(.97)}
+@media(max-width:900px){.question-nav{grid-template-columns:repeat(12,minmax(26px,1fr))}}
+@media(max-width:520px){.question-nav{grid-template-columns:repeat(8,minmax(26px,1fr))}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Precorso Matematica Pisa 2025 — Simulatore</h1><p>24 domande a risposta multipla. L'ordine delle domande e delle risposte viene mescolato a ogni nuovo test.</p><p><strong>Punteggio:</strong> 5 punti risposta corretta · 2 punti risposta non data · 0 punti risposta errata.</p></div></header>
+<div class="toolbar"><div class="toolbar-inner"><div class="progress"><div><strong id="answeredText">0/24 risposte date</strong></div><div class="progressbar"><div id="progressFill"></div></div><div class="timer" id="timer">60:00</div><button class="primary" id="finishBtn">Consegna e calcola</button></div><div class="question-nav-wrap"><div class="question-nav" id="questionNav"></div></div></div>
+<main><div id="result" class="result-box hidden"></div><div id="quiz"></div></main>
+<footer>Ricaricando la pagina si ottiene una nuova permutazione.</footer>
+<script>
+const Q=[
+[`Matematizzazione`,`Giacomo ha 8 anni meno di Giovanni. Quando si sono conosciuti, 39 anni fa, Giovanni aveva il doppio degli anni di Giacomo.<br><br>Determinare quanti anni ha oggi Giacomo.`,[`47`,`39`,`42`,`45`,`52`]],
+[`Percentuali`,`Le matricole di matematica nel 2023 sono state il 20% in più rispetto al 2022. Nel 2024, invece, sono state il 10% in meno rispetto al 2023.<br><br>Determinare di quanto sono aumentate le matricole di matematica dal 2022 al 2024.`,[`8%`,`10%`,`12%`,`9%`,`5%`]],
+[`Divisibilità`,`Determinare quale dei seguenti numeri <em>non</em> è divisibile per 45.`,[`\\(2030\\cdot2031\\)`,`\\(2040^2\\)`,`\\(2025\\cdot2026\\)`,`\\(30^3\\)`,`\\(75\\cdot57\\)`]],
+[`Polinomi`,`Dividendo il polinomio \\(3x^4+x^3+5x\\) per il polinomio \\(x^2+2\\) si ottiene come resto ...`,[`\\(3x+12\\)`,`\\(-2x+12\\)`,`\\(-2x-12\\)`,`\\(5x\\)`,`\\(30\\)`]],
+[`Potenze`,`Se \\(x=8^{200}\\), allora \\(\\sqrt[3]{x}\\cdot\\sqrt{x}=\\ldots\\)`,[`\\(4^{250}\\)`,`\\(4^{500}\\)`,`\\(4^{300}\\)`,`\\(2^{300}\\)`,`\\(2^{400}\\)`]],
+[`Logaritmi`,`Due numeri reali positivi \\(x\\) e \\(y\\) soddisfano l'uguaglianza \\[\\log_3 x+\\log_3 y=7\\] se e solo se ...`,[`\\(xy=3^7\\)`,`\\(x^3y^3=7\\)`,`\\(x+y=7^3\\)`,`\\(x+y=\\log_3 7\\)`,`\\(xy=7^3\\)`]],
+[`Algebra`,`L'espressione \\[\\frac{a^4-b^4}{a^2+b^2}+\\frac{a^3+b^3}{a+b}\\] è uguale a ...`,[`\\(a(2a-b)\\)`,`\\(2a^2\\)`,`\\(2a^2+2ab\\)`,`\\(2(a^2-b^2)\\)`,`\\(\\dfrac{2a^5}{a^3+b^3}\\)`]],
+[`Disequazioni`,`Determinare l'insieme dei numeri reali \\(x\\) che soddisfano il sistema \\[\\begin{cases}9-x^2\\geq0,\\\\x+8>0.\\end{cases}\\]`,[`\\([-3,3]\\)`,`\\((-8,-3]\\cup[3,+\\infty)\\)`,`\\((-8,3]\\)`,`\\((-8,-3]\\)`,`\\([-3,+\\infty)\\)`]],
+[`Disequazioni fratte`,`Determinare l'insieme dei numeri reali \\(x\\) tali che \\[\\frac{x+2}{1-x^4}\\leq0.\\]`,[`\\([-2,-1)\\cup(1,+\\infty)\\)`,`\\((-1,1)\\)`,`\\([-2,-1]\\cup[1,+\\infty)\\)`,`\\([-2,-1)\\)`,`\\(( -\\infty,-2]\\)`]],
+[`Esponenziali`,`Nell'insieme dei numeri reali, l'equazione \\(27^{x+4}=3^{x+5}\\) ha ...`,[`una sola soluzione, la quale sta nell'intervallo \\((-4,-3)\\)`,`nessuna soluzione`,`una sola soluzione, la quale è un numero intero`,`esattamente due soluzioni`,`una sola soluzione, la quale sta nell'intervallo \\( (2,3) \\)`]],
+[`Valore assoluto`,`Nell'insieme dei numeri reali, l'equazione \\(|3x+7|=5\\) ha ...`,[`esattamente due soluzioni, entrambe negative`,`esattamente due soluzioni, una positiva e una negativa`,`nessuna soluzione`,`esattamente una soluzione, e questa è positiva`,`esattamente una soluzione, e questa è negativa`]],
+[`Trigonometria`,`Sia \\(P\\) il punto sulla circonferenza trigonometrica individuato da un angolo di \\(120^\\circ\\).<br><br>Determinare quale dei seguenti archi, espressi in radianti, individua lo stesso punto \\(P\\).`,[`\\(-\\dfrac{4\\pi}{3}\\)`,`\\(\\dfrac{5\\pi}{6}\\)`,`\\(-\\dfrac{\\pi}{3}\\)`,`\\(-\\dfrac{5\\pi}{6}\\)`,`\\(\\dfrac{5\\pi}{3}\\)`]],
+[`Trigonometria`,`Determinare in quale dei seguenti intervalli esiste un <em>unico</em> valore di \\(x\\) tale che \\(\\sin x=-\\dfrac12\\).`,[`\\(\\left(\\dfrac{\\pi}{2},\\dfrac{3\\pi}{2}\\right)\\)`,`\\((0,\\pi)\\)`,`\\((\\pi,2\\pi)\\)`,`\\(\\left(\\dfrac{\\pi}{2},\\pi\\right)\\)`,`\\(\\left(0,\\dfrac{\\pi}{2}\\right)\\)`]],
+[`Trigonometria e triangoli`,`In un triangolo \\(ABC\\), rettangolo in \\(A\\), la lunghezza del cateto \\(AB\\) è 3, e la tangente dell'angolo in \\(C\\) è 7.<br><br>Determinare la lunghezza del cateto \\(AC\\).`,[`\\(\\dfrac37\\)`,`\\(21\\)`,`\\(\\sqrt{40}\\)`,`\\(\\sqrt{58}\\)`,`\\(\\dfrac{\\sqrt3}{4}\\)`]],
+[`Geometria analitica — retta`,`Determinare, nel piano cartesiano, quale delle seguenti rette è perpendicolare alla retta di equazione \\(y=3x-7\\).`,[`\\(x+3y=95\\)`,`\\(x-3y+7=0\\)`,`\\(y=3x-7\\)`,`\\(y+3x=85\\)`,`\\(x=3y+7\\)`]],
+[`Geometria analitica — circonferenza`,`Determinare l'equazione della circonferenza del piano cartesiano con centro nel punto \\((3,4)\\) e tangente all'asse \\(x\\).`,[`\\((x-3)^2+(y-4)^2=16\\)`,`\\(x^2+y^2-6x-8y=0\\)`,`\\((x-3)^2+(y-4)^2=0\\)`,`\\(x^2+y^2=25\\)`,`\\(x^2+y^2-6x-8y=25\\)`]],
+[`Insiemi nel piano`,`Determinare in quale delle seguenti figure la regione ombreggiata rappresenta l'insieme dei punti \\((x,y)\\) del piano cartesiano tali che \\[y\\geq0\\qquad\\text{e}\\qquad x+y\\geq0.\\]`,[`<svg viewBox="-22 -22 44 44" width="150" height="110" aria-label="figura A"><polygon points="-22,-22 0,0 22,0 22,-22" fill="#a7d7a9"/><line x1="0" y1="22" x2="0" y2="-22" stroke="#333"/><line x1="-22" y1="0" x2="22" y2="0" stroke="#333"/><line x1="-22" y1="-22" x2="22" y2="22" stroke="#333"/></svg>`,`<svg viewBox="-22 -22 44 44" width="150" height="110" aria-label="figura B"><polygon points="-22,-22 0,0 22,0 22,-22" fill="#a7d7a9"/><polygon points="-22,0 0,0 22,22 -22,22" fill="#a7d7a9"/><line x1="0" y1="22" x2="0" y2="-22" stroke="#333"/><line x1="-22" y1="0" x2="22" y2="0" stroke="#333"/><line x1="-22" y1="-22" x2="22" y2="22" stroke="#333"/></svg>`,`<svg viewBox="-22 -22 44 44" width="150" height="110" aria-label="figura C"><polygon points="-22,-22 0,0 -22,0" fill="#a7d7a9"/><line x1="0" y1="22" x2="0" y2="-22" stroke="#333"/><line x1="-22" y1="0" x2="22" y2="0" stroke="#333"/><line x1="-22" y1="-22" x2="22" y2="22" stroke="#333"/></svg>`,`<svg viewBox="-22 -22 44 44" width="150" height="110" aria-label="figura D"><polygon points="-22,0 0,0 22,-22 -22,-22" fill="#a7d7a9"/><line x1="0" y1="22" x2="0" y2="-22" stroke="#333"/><line x1="-22" y1="0" x2="22" y2="0" stroke="#333"/><line x1="-22" y1="22" x2="22" y2="-22" stroke="#333"/></svg>`,`<svg viewBox="-22 -22 44 44" width="150" height="110" aria-label="figura E"><polygon points="0,0 22,0 22,-22" fill="#a7d7a9"/><line x1="0" y1="22" x2="0" y2="-22" stroke="#333"/><line x1="-22" y1="0" x2="22" y2="0" stroke="#333"/><line x1="-22" y1="22" x2="22" y2="-22" stroke="#333"/></svg>`]],
+[`Geometria`,`In un triangolo equilatero l'altezza ha lunghezza unitaria.<br><br>Determinare l'area del triangolo.`,[`\\(\\dfrac1{\\sqrt3}\\)`,`\\(\\dfrac4{\\sqrt3}\\)`,`\\(\\dfrac12\\)`,`\\(\\dfrac{\\sqrt3}{2}\\)`,`\\(\\dfrac{\\sqrt3}{6}\\)`]],
+[`Geometria — poligoni`,`I punti \\(A,B,C,D,E\\), presi nell'ordine su una circonferenza, sono i vertici di un pentagono regolare.<br><br>Determinare l'ampiezza dell'angolo \\(E\\widehat{A}C\\).`,[`\\(72^\\circ\\)`,`\\(75^\\circ\\)`,`\\(54^\\circ\\)`,`\\(108^\\circ\\)`,`\\(84^\\circ\\)`]],
+[`Geometria solida`,`In un cubo di lato 2, il punto \\(P\\) è il centro di una faccia, e il punto \\(Q\\) è il punto medio di un lato della faccia opposta.<br><br>Determinare la lunghezza del segmento \\(PQ\\).`,[`\\(\\sqrt5\\)`,`\\(\\sqrt3\\)`,`\\(\\sqrt4\\)`,`\\(\\sqrt6\\)`,`\\(\\sqrt7\\)`]],
+[`Geometria analitica`,`Nel piano cartesiano, tre vertici di un quadrato sono nei punti \\((-1,-1)\\), \\((3,1)\\), \\((2,-2)\\).<br><br>Determinare le coordinate del quarto vertice.`,[`\\((0,2)\\)`,`\\((0,1)\\)`,`\\((1,2)\\)`,`\\((1,1)\\)`,`\\((1,3)\\)`]],
+[`Disequazioni`,`Quattro delle disequazioni indicate nelle risposte hanno come soluzione lo stesso insieme.<br><br>Determinare la restante.`,[`\\(x^3\\geq8\\)`,`\\(|x|\\geq2\\)`,`\\(|x|^3\\geq8\\)`,`\\(x^2\\geq4\\)`,`\\((x+2)(x-2)\\geq0\\)`]],
+[`Radici`,`\\(\\sqrt2+\\sqrt2+\\sqrt2=\\ldots\\)`,[`\\(\\sqrt{18}\\)`,`\\(\\sqrt6\\)`,`\\(\\sqrt8\\)`,`\\(\\sqrt[8]6\\)`,`\\(\\sqrt[6]8\\)`]],
+[`Quantificatori`,`Determinare quale delle seguenti affermazioni è <em>falsa</em>.<br><br><span style='color:#6b7280'>Nelle risposte si sottintende che \\(a\\) e \\(b\\) sono numeri interi (positivi, negativi o nulli).</span>`,[`Esiste \\(a\\) tale che \\(a^2\\geq b\\) per ogni \\(b\\)`,`Per ogni \\(a\\) esiste \\(b\\) tale che \\(a^2\\geq b\\)`,`Per ogni \\(b\\) esiste \\(a\\) tale che \\(a^2\\geq b\\)`,`Esiste \\(b\\) tale che \\(a^2\\geq b\\) per ogni \\(a\\)`,`Esistono \\(a\\) e \\(b\\) tali che \\(a^2\\geq b\\)`]]
+];
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let questions=shuffle(Q.map((q,originalIndex)=>({topic:q[0],prompt:q[1],originalIndex,answers:shuffle(q[2].map((text,i)=>({text,isCorrect:i===0})))})));
+const quiz=document.getElementById('quiz'),result=document.getElementById('result'),finishBtn=document.getElementById('finishBtn'),answeredText=document.getElementById('answeredText'),progressFill=document.getElementById('progressFill'),timerEl=document.getElementById('timer'),questionNav=document.getElementById('questionNav');let submitted=false,timerInterval=null,deadline=null;
+function renderQuiz(){
+  quiz.innerHTML='';
+  questionNav.innerHTML='';
+  questions.forEach((q,qi)=>{
+    const card=document.createElement('section');
+    card.className='question';
+    card.id=`question-${qi}`;
+    card.innerHTML=`<div class="qhead"><div class="qnum">Domanda ${qi+1}</div><div class="topic">${q.topic}</div></div><div class="prompt">${q.prompt}</div><div class="options"><label class="option blank-option chosen"><input type="radio" name="q${qi}" value="blank" checked><span><strong>Non rispondo</strong></span></label>${q.answers.map((a,ai)=>`<label class="option"><input type="radio" name="q${qi}" value="${ai}"><span><strong>${String.fromCharCode(65+ai)}.</strong> ${a.text}</span></label>`).join('')}</div>`;
+    quiz.appendChild(card);
+
+    const navBtn=document.createElement('button');
+    navBtn.type='button';
+    navBtn.textContent=qi+1;
+    navBtn.dataset.q=qi;
+    navBtn.title=`Domanda ${qi+1}: non risposta`;
+    navBtn.addEventListener('click',()=>{const y=card.getBoundingClientRect().top+window.scrollY-document.querySelector('.toolbar').offsetHeight-10;window.scrollTo({top:y,behavior:'smooth'})});
+    questionNav.appendChild(navBtn);
+  });
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',()=>{
+    r.closest('.options').querySelectorAll('.option').forEach(o=>o.classList.remove('chosen'));
+    r.closest('.option').classList.add('chosen');
+    updateProgress();
+  }));
+  if(window.MathJax?.typesetPromise)MathJax.typesetPromise([quiz]);
+}
+
+function updateProgress(){
+  let n=0;
+  questions.forEach((_,qi)=>{
+    const c=document.querySelector(`input[name=q${qi}]:checked`);
+    const answered=!!(c&&c.value!=='blank');
+    if(answered)n++;
+    const btn=questionNav.querySelector(`button[data-q="${qi}"]`);
+    if(btn){
+      btn.classList.toggle('answered',answered);
+      btn.title=answered?`Domanda ${qi+1}: risposta data`:`Domanda ${qi+1}: non risposta`;
+    }
+  });
+  answeredText.textContent=`${n}/${questions.length} risposte date`;
+  progressFill.style.width=`${100*n/questions.length}%`;
+}
+
+function finishQuiz(auto=false){if(submitted)return;submitted=true;if(timerInterval)clearInterval(timerInterval);let correct=0,wrong=0,blank=0,score=0;const rows=[];questions.forEach((q,qi)=>{const checked=document.querySelector(`input[name=q${qi}]:checked`),correctText=q.answers.find(a=>a.isCorrect).text;if(!checked||checked.value==='blank'){blank++;score+=2;rows.push({cls:'blank',text:`<strong>Domanda ${qi+1}:</strong> non risposta — <strong>2 punti</strong>. Risposta corretta: ${correctText}`})}else{const selected=q.answers[Number(checked.value)];if(selected.isCorrect){correct++;score+=5;rows.push({cls:'good',text:`<strong>Domanda ${qi+1}:</strong> corretta — <strong>5 punti</strong>.`})}else{wrong++;rows.push({cls:'bad',text:`<strong>Domanda ${qi+1}:</strong> errata — <strong>0 punti</strong>. Risposta corretta: ${correctText}`})}}});result.innerHTML=`<h2 style="margin-top:0">Risultato</h2>${auto?'<p><strong>Tempo scaduto:</strong> il test è stato consegnato automaticamente.</p>':''}<div class="score">${score} / ${questions.length*5}</div><div>${(score/(questions.length*5)*100).toFixed(1)}% del punteggio massimo</div><div class="summary"><span class="pill good">${correct} corrette</span><span class="pill blank">${blank} non date</span><span class="pill bad">${wrong} errate</span></div><div class="review"><h3>Dettaglio</h3>${rows.map(r=>`<div class="review-item ${r.cls}">${r.text}</div>`).join('')}</div><div style="margin-top:18px"><button class="secondary" onclick="location.reload()">Nuovo test randomizzato</button></div>`;result.classList.remove('hidden');result.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('input[type=radio]').forEach(r=>r.disabled=true);finishBtn.disabled=true;finishBtn.style.opacity=.55;timerEl.textContent=auto?'00:00':'Consegnato';if(window.MathJax?.typesetPromise)MathJax.typesetPromise([result])}
+function updateTimer(){const remaining=Math.max(0,deadline-Date.now()),totalSeconds=Math.ceil(remaining/1000),m=Math.floor(totalSeconds/60),sec=totalSeconds%60;timerEl.textContent=`${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;if(totalSeconds<=300)timerEl.classList.add('warning');if(remaining<=0)finishQuiz(true)}function startTimer(){deadline=Date.now()+60*60*1000;updateTimer();timerInterval=setInterval(updateTimer,250)}finishBtn.addEventListener('click',()=>finishQuiz(false));renderQuiz();updateProgress();startTimer();
+</script>
+</body>
+</html>
