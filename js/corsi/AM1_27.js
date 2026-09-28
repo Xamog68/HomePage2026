@@ -34,6 +34,8 @@ Lezioni[1] = [ "1", "23/09/2026", "14:00", "15:00", "Logica elementare (a livell
 Lezioni[2] = [ "2", "23/09/2026", "15:00", "16:00", "Negazione di implicazioni, altri modi di scrivere un'implicazione, tavole di verità. Insiemi e notazioni insiemistiche. Operazioni tra insiemi: unione, intersezione, differenza, insieme delle parti, prodotto cartesiano." ];
 Lezioni[3] = [ "3", "24/09/2026", "09:00", "10:00", "Funzioni tra insiemi: definizione operativa e formale. Grafico, composizione, iniettività, surgettività, funzione inversa. Immagine e controimmagine di sottoinsiemi." ];
 Lezioni[4] = [ "4", "24/09/2026", "10:00", "11:00", "Principio di induzione. Dimostrazione di uguaglianze e disuguaglianze mediante il principio di induzione. Disuguaglianza di Bernoulli." ];
+Lezioni[5] = [ "5", "28/09/2026", "11:00", "12:00", "Insiemi numerici. Definizione assiomatica dei numeri reali (assiomi algebrici, di ordinamento, di continuità). Enunciato dei teoremi di esistenza ed unicità dei reali." ];
+Lezioni[6] = [ "6", "28/09/2026", "12:00", "13:00", "Maggioranti, minoranti, massimo, minimo, estremo inferiore e superiore. Dimostrazione dell'esistenza di inf e sup. Caratterizzazione di inf e sup. Dimostrazione che l'insieme dei naturali non è superiormente limitato." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -43,9 +45,6 @@ Lezioni[4] = [ "4", "24/09/2026", "10:00", "11:00", "Principio di induzione. Dim
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "23/09/2026", "15:00", "16:00", "" ];
-Lezioni[__] = [ "__", "24/09/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "24/09/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "28/09/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "28/09/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "30/09/2026", "14:00", "15:00", "" ];
