@@ -18,7 +18,7 @@ button{border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:point
 main{padding:24px 18px 50px}.question{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin:0 0 18px;box-shadow:0 2px 10px rgba(0,0,0,.035)}
 .qhead{display:flex;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:10px}.qnum{font-weight:800;color:var(--accent)}.topic{color:var(--muted);font-size:.92rem;font-weight:600}.prompt{line-height:1.55;margin-bottom:14px}.options{display:grid;gap:9px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:10px;padding:11px 12px;cursor:pointer;background:#fff}.option:hover{border-color:#9eb7c8;background:#f8fbfd}.option input{margin-top:4px;transform:scale(1.15)}.option.chosen{border-color:var(--accent);background:var(--accent-soft)}
 .result-box{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin:6px 0 24px}.score{font-size:2.3rem;font-weight:850;color:var(--accent);margin:4px 0}.summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{border-radius:999px;padding:7px 11px;font-weight:700;font-size:.95rem}.good{background:var(--good-bg);color:var(--good)}.bad{background:var(--bad-bg);color:var(--bad)}.blank{background:var(--blank-bg);color:var(--blank)}.review{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}.review-item{margin:10px 0;padding:10px 12px;border-radius:9px;line-height:1.45}.hidden{display:none}footer{padding:0 18px 35px;color:var(--muted);font-size:.9rem;text-align:center}
-@media(max-width:640px){.toolbar-inner{align-items:flex-start;flex-direction:column}.toolbar-inner button{width:100%}}
+@media(max-width:640px){.toolbar-inner{gap:8px;flex-wrap:wrap}.progress{flex-basis:100%}.toolbar-inner button{flex:1}.timer{flex:0 0 auto}}
 
 .question-nav-wrap{max-width:950px;margin:auto;padding:0 18px 10px}
 .question-nav{display:grid;grid-template-columns:repeat(24,minmax(26px,1fr));gap:5px}
@@ -31,7 +31,17 @@ main{padding:24px 18px 50px}.question{background:var(--card);border:1px solid va
 </head>
 <body>
 <header><div class="wrap"><h1>Precorso Matematica Pisa 2025 — Simulatore</h1><p>24 domande a risposta multipla. L'ordine delle domande e delle risposte viene mescolato a ogni nuovo test.</p><p><strong>Punteggio:</strong> 5 punti risposta corretta · 2 punti risposta non data · 0 punti risposta errata.</p></div></header>
-<div class="toolbar"><div class="toolbar-inner"><div class="progress"><div><strong id="answeredText">0/24 risposte date</strong></div><div class="progressbar"><div id="progressFill"></div></div><div class="timer" id="timer">60:00</div><button class="primary" id="finishBtn">Consegna e calcola</button></div><div class="question-nav-wrap"><div class="question-nav" id="questionNav"></div></div></div>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="progress">
+      <div><strong id="answeredText">0/24 risposte date</strong></div>
+      <div class="progressbar"><div id="progressFill"></div></div>
+    </div>
+    <div class="timer" id="timer">60:00</div>
+    <button class="primary" id="finishBtn">Consegna e calcola</button>
+  </div>
+  <div class="question-nav-wrap"><div class="question-nav" id="questionNav"></div></div>
+</div>
 <main><div id="result" class="result-box hidden"></div><div id="quiz"></div></main>
 <footer>Ricaricando la pagina si ottiene una nuova permutazione.</footer>
 <script>
