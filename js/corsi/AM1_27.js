@@ -36,6 +36,8 @@ Lezioni[3] = [ "3", "24/09/2026", "09:00", "10:00", "Funzioni tra insiemi: defin
 Lezioni[4] = [ "4", "24/09/2026", "10:00", "11:00", "Principio di induzione. Dimostrazione di uguaglianze e disuguaglianze mediante il principio di induzione. Disuguaglianza di Bernoulli." ];
 Lezioni[5] = [ "5", "28/09/2026", "11:00", "12:00", "Insiemi numerici. Definizione assiomatica dei numeri reali (assiomi algebrici, di ordinamento, di continuità). Enunciato dei teoremi di esistenza ed unicità dei reali." ];
 Lezioni[6] = [ "6", "28/09/2026", "12:00", "13:00", "Maggioranti, minoranti, massimo, minimo, estremo inferiore e superiore. Dimostrazione dell'esistenza di inf e sup. Caratterizzazione di inf e sup. Dimostrazione che l'insieme dei naturali non è superiormente limitato." ];
+Lezioni[7] = [ "7", "30/09/2026", "14:00", "15:00", "Funzioni reali: proprietà di simmetria (funzioni pari/dispari/periodiche) e di monotonia. Minimo periodo. Funzioni elementari: potenze a esponente intero positivo e loro inverse. Interpretazione di equazioni e disequazioni in termini di grafico. Valore assoluto." ];
+Lezioni[8] = [ "8", "30/09/2026", "15:00", "16:00", "Funzioni elementari: esponenziali e logaritmi. Accenno ad una possibile definizione rigorosa via equazione funzionale. Operazioni sui grafici. Iniettività ed equazioni. Monotonia e disequazioni. Esercizi su equazioni parametriche e disequazioni interpretate graficamente." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -47,8 +49,6 @@ Lezioni[6] = [ "6", "28/09/2026", "12:00", "13:00", "Maggioranti, minoranti, mas
 
 Lezioni[__] = [ "__", "28/09/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "28/09/2026", "12:00", "13:00", "" ];
-Lezioni[__] = [ "__", "30/09/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "30/09/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "01/10/2026", "09:00", "10:00", "" ];
 Lezioni[__] = [ "__", "01/10/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "05/10/2026", "11:00", "12:00", "" ];
@@ -131,13 +131,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-1. Logica elementare (a livello intuitivo). Proposizioni e operazioni sulle proposizioni: negazione, and e vel, implicazione, doppia implicazione. Tavole di verità. Modi equivalenti di scrivere una implicazione e legami con le dimostrazioni per assurdo.
-2. Predicati e quantificatori. Negazione di una proposizione con uno o più quantificatori. Insiemi e notazioni insiemistiche. Insieme delle parti. Prodotto cartesiano.
-3. Funzioni tra insiemi: definizione operativa e formale. Grafico, composizione, iniettività, surgettività, funzione inversa. Immagine e controimmagine.
-4. Principio di induzione. Dimostrazione di uguaglianze e disuguaglianze mediante il principio di induzione. Disuguaglianza di Bernoulli.
-5. Insiemi numerici. Definizione assiomatica dei numeri reali (assiomi algebrici, di ordinamento, di continuità). Enunciato dei teoremi di esistenza ed unicità dei reali.
-6. Maggioranti, minoranti, massimo, minimo, estremo inferiore e superiore. Dimostrazione dell'esistenza di inf e sup. Caratterizzazione di inf e sup. Dimostrazione che l'insieme dei naturali non è superiormente limitato.
-7. Funzioni reali: proprietà di simmetria (funzioni pari/dispari/periodiche) e di monotonia. Minimo periodo. Funzioni elementari: potenze a esponente intero positivo e loro inverse. Valore assoluto.
 8. Funzioni elementari: esponenziali e logaritmi. Accenno ad una possibile definizione rigorosa via equazione funzionale. Funzioni elementari: funzioni trigonometriche e relative inverse (definizione geometrica, grafici, interpretazione nella circonferenza trigonometrica).
 9. Operazioni sui grafici. Iniettività ed equazioni. Monotonia e disequazioni.
 10. Esercizi riassuntivi sulle funzioni elementari.
