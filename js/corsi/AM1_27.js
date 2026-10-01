@@ -38,6 +38,8 @@ Lezioni[5] = [ "5", "28/09/2026", "11:00", "12:00", "Insiemi numerici. Definizio
 Lezioni[6] = [ "6", "28/09/2026", "12:00", "13:00", "Maggioranti, minoranti, massimo, minimo, estremo inferiore e superiore. Dimostrazione dell'esistenza di inf e sup. Caratterizzazione di inf e sup. Dimostrazione che l'insieme dei naturali non è superiormente limitato." ];
 Lezioni[7] = [ "7", "30/09/2026", "14:00", "15:00", "Funzioni reali: proprietà di simmetria (funzioni pari/dispari/periodiche) e di monotonia. Minimo periodo. Funzioni elementari: potenze a esponente intero positivo e loro inverse. Interpretazione di equazioni e disequazioni in termini di grafico. Valore assoluto." ];
 Lezioni[8] = [ "8", "30/09/2026", "15:00", "16:00", "Funzioni elementari: esponenziali e logaritmi. Accenno ad una possibile definizione rigorosa via equazione funzionale. Operazioni sui grafici. Iniettività ed equazioni. Monotonia e disequazioni. Esercizi su equazioni parametriche e disequazioni interpretate graficamente." ];
+Lezioni[9] = [ "9", "01/10/2026", "09:00", "10:00", "Funzioni elementari: funzioni trigonometriche e relative inverse (definizione geometrica, grafici, interpretazione nella circonferenza trigonometrica)." ];
+Lezioni[10] = [ "10", "01/10/2026", "10:00", "11:00", "Esercizi riassuntivi sulle funzioni elementari. Interpretazione grafica di immagine e controimmagine." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -47,10 +49,6 @@ Lezioni[8] = [ "8", "30/09/2026", "15:00", "16:00", "Funzioni elementari: espone
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "28/09/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "28/09/2026", "12:00", "13:00", "" ];
-Lezioni[__] = [ "__", "01/10/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "01/10/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "05/10/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "05/10/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "07/10/2026", "14:00", "15:00", "" ];
