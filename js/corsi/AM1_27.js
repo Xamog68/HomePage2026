@@ -40,6 +40,8 @@ Lezioni[7] = [ "7", "30/09/2026", "14:00", "15:00", "Funzioni reali: proprietà 
 Lezioni[8] = [ "8", "30/09/2026", "15:00", "16:00", "Funzioni elementari: esponenziali e logaritmi. Accenno ad una possibile definizione rigorosa via equazione funzionale. Operazioni sui grafici. Iniettività ed equazioni. Monotonia e disequazioni. Esercizi su equazioni parametriche e disequazioni interpretate graficamente." ];
 Lezioni[9] = [ "9", "01/10/2026", "09:00", "10:00", "Funzioni elementari: funzioni trigonometriche e relative inverse (definizione geometrica, grafici, interpretazione nella circonferenza trigonometrica)." ];
 Lezioni[10] = [ "10", "01/10/2026", "10:00", "11:00", "Esercizi riassuntivi sulle funzioni elementari. Interpretazione grafica di immagine e controimmagine." ];
+Lezioni[11] = [ "11", "05/10/2026", "11:00", "12:00", "Significato dei termini 'definitivamente' e 'frequentemente'. Definizione di successione e metodi per visualizzarla. Definizioni di limite per successioni. Limiti da destra e da sinistra. Primi esempi e controesempi." ];
+Lezioni[12] = [ "12", "05/10/2026", "12:00", "13:00", "Primi risultati sui limiti di successione: legami tra esistenza del limite e limitatezza, permanenza del segno e questioni collegate, unicità del limite (nel caso reale). Teorema di confronto a 2 (con avvertenza su possibili abusi), teorema di confronto a 3 (teorema dei carabinieri)." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -49,8 +51,6 @@ Lezioni[10] = [ "10", "01/10/2026", "10:00", "11:00", "Esercizi riassuntivi sull
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "05/10/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "05/10/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "07/10/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "07/10/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "08/10/2026", "09:00", "10:00", "" ];
@@ -129,10 +129,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-8. Funzioni elementari: esponenziali e logaritmi. Accenno ad una possibile definizione rigorosa via equazione funzionale. Funzioni elementari: funzioni trigonometriche e relative inverse (definizione geometrica, grafici, interpretazione nella circonferenza trigonometrica).
-9. Operazioni sui grafici. Iniettività ed equazioni. Monotonia e disequazioni.
-10. Esercizi riassuntivi sulle funzioni elementari.
-11. Significato dei termini 'definitivamente' e 'frequentemente'. Definizione di successione e metodi per visualizzarla. Definizioni di limite per successioni. Primi esempi e controesempi.
 12. Altri esempi e primi risultati sui limiti di successione: legami tra esistenza del limite e limitatezza, permanenza del segno, teorema di confronto a 2 (con avvertenza su possibili abusi), teorema di confronto a 3 (teorema dei carabinieri).
 13. Definizioni di limitatezza e monotonia per successioni. Teorema delle successioni monotone. Il numero e (monotonia e limitatezza della successione che lo definisce).
 14. Retta reale estesa. Enunciato del teorema algebrico sui limiti di successione. Dimostrazione di alcuni casi del teorema sul limite della somma e del prodotto. Primi esempi di calcolo di limiti di successioni.
