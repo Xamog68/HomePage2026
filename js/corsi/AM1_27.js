@@ -46,6 +46,8 @@ Lezioni[13] = [ "13", "07/10/2026", "14:00", "15:00", "Teorema delle successioni
 Lezioni[14] = [ "14", "07/10/2026", "15:00", "16:00", "Retta reale estesa. Enunciato del teorema algebrico sui limiti di successione. Dimostrazione di alcuni casi del teorema sul limite della somma e del prodotto. Primi esempi di calcolo di limiti di successioni." ];
 Lezioni[15] = [ "15", "08/10/2026", "09:00", "10:00", "Limiti dell'esponenziale e della radice n-esima di una costante. Criterio della radice, del rapporto e rapporto -> radice per limiti di successione: enunciati e dimostrazioni." ];
 Lezioni[16] = [ "16", "08/10/2026", "10:00", "11:00", "Confronto tra ordini di infinito. Esercizi sui limiti che sfruttano le tecniche viste finora." ];
+Lezioni[17] = [ "17", "12/10/2026", "11:00", "12:00", "Limiti di funzioni: definizioni. Definizione di funzione continua in un punto." ];
+Lezioni[18] = [ "18", "12/10/2026", "12:00", "13:00", "Enunciato della continuità delle funzioni ottenute a partire da quelle elementari. Dimostrazione della continuità di una funzione esponenziale. Dimostrazione della continuità della composizione di due funzioni continue in un caso semplice. Enunciato dei limiti notevoli. Primi esempi di limiti calcolati mediante cambi di variabili e limiti notevoli." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -55,8 +57,7 @@ Lezioni[16] = [ "16", "08/10/2026", "10:00", "11:00", "Confronto tra ordini di i
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "12/10/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "12/10/2026", "12:00", "13:00", "" ];
+
 Lezioni[__] = [ "__", "14/10/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "14/10/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "15/10/2026", "09:00", "10:00", "" ];
@@ -129,10 +130,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-13. Definizioni di limitatezza e monotonia per successioni. Teorema delle successioni monotone. Il numero e (monotonia e limitatezza della successione che lo definisce).
-14. Retta reale estesa. Enunciato del teorema algebrico sui limiti di successione. Dimostrazione di alcuni casi del teorema sul limite della somma e del prodotto. Primi esempi di calcolo di limiti di successioni.
-15. Limiti dell'esponenziale e della radice n-esima di una costante. Criterio della radice, del rapporto e rapporto -> radice per limiti di successione: enunciati e dimostrazioni.
-16. Confronto tra ordini di infinito. Esercizi sui limiti che sfruttano le tecniche viste finora.
 17. Limiti di funzioni: definizioni. Definizione di funzione continua in un punto ed in un insieme.
 18. Enunciato della continuità delle funzioni ottenute a partire da quelle elementari. Dimostrazione della continuità di una funzione esponenziale. Dimostrazione della continuità della composizione di due funzioni continue in un caso semplice. Enunciato dei limiti notevoli. Primi esempi di limiti calcolati mediante cambi di variabili e limiti notevoli.
 19. Criterio successioni -> funzioni. Dimostrazione dei limiti notevoli classici.
