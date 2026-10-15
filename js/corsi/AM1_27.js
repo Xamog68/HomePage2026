@@ -48,6 +48,8 @@ Lezioni[15] = [ "15", "08/10/2026", "09:00", "10:00", "Limiti dell'esponenziale 
 Lezioni[16] = [ "16", "08/10/2026", "10:00", "11:00", "Confronto tra ordini di infinito. Esercizi sui limiti che sfruttano le tecniche viste finora." ];
 Lezioni[17] = [ "17", "12/10/2026", "11:00", "12:00", "Limiti di funzioni: definizioni. Definizione di funzione continua in un punto." ];
 Lezioni[18] = [ "18", "12/10/2026", "12:00", "13:00", "Enunciato della continuità delle funzioni ottenute a partire da quelle elementari. Dimostrazione della continuità di una funzione esponenziale. Dimostrazione della continuità della composizione di due funzioni continue in un caso semplice. Enunciato dei limiti notevoli. Primi esempi di limiti calcolati mediante cambi di variabili e limiti notevoli." ];
+Lezioni[19] = [ "19", "14/10/2026", "14:00", "15:00", "Criterio successioni -> funzioni. Dimostrazione dei limiti notevoli classici." ];
+Lezioni[20] = [ "20", "14/10/2026", "15:00", "16:00", "Criterio funzioni -> successioni. Trucco del passaggio all'esponenziale e del valore assoluto. Esempi di limiti calcolati sfruttando i limiti notevoli." ];
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -57,11 +59,6 @@ Lezioni[18] = [ "18", "12/10/2026", "12:00", "13:00", "Enunciato della continuit
    e completare/adattare l'argomento.
    ============================================================
 
-
-Lezioni[__] = [ "__", "14/10/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "14/10/2026", "15:00", "16:00", "" ];
-Lezioni[__] = [ "__", "15/10/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "15/10/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "19/10/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "19/10/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "21/10/2026", "14:00", "15:00", "" ];
