@@ -52,6 +52,9 @@ Lezioni[19] = [ "19", "14/10/2026", "14:00", "15:00", "Criterio successioni -> f
 Lezioni[20] = [ "20", "14/10/2026", "15:00", "16:00", "Criterio funzioni -> successioni. Trucco del passaggio all'esponenziale e del valore assoluto. Esempi di limiti calcolati sfruttando i limiti notevoli." ];
 Lezioni[21] = [ "21", "19/10/2026", "11:00", "12:00", "Sottosuccessioni e loro limiti. Utilizzo di successioni e sottosuccessioni per mostrare la non esistenza di limiti di funzioni e successioni." ];
 Lezioni[22] = [ "22", "19/10/2026", "12:00", "13:00", "Esercizi misti sui limiti: razionalizzazioni di radici, limiti in punti diversi da zero/infinito, limiti di sommatorie, limiti delle medie p-esime." ];
+Lezioni[23] = [ "23", "21/10/2026", "14:00", "15:00", "Definizione di o piccolo e di equivalenza asintotica. Principali proprietà di o piccolo." ];
+Lezioni[24] = [ "24", "21/10/2026", "15:00", "16:00", "Sviluppini delle funzioni elementari. Limiti notevoli come sviluppini e come equivalenze asintotiche. Utilizzo degli sviluppini per il calcolo di limiti." ];
+
 
 /* ============================================================
    CALENDARIO PREVISTO 2026/27 -- FINO A NATALE
@@ -62,8 +65,6 @@ Lezioni[22] = [ "22", "19/10/2026", "12:00", "13:00", "Esercizi misti sui limiti
    ============================================================
 
 
-Lezioni[__] = [ "__", "21/10/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "21/10/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "22/10/2026", "09:00", "10:00", "" ];
 Lezioni[__] = [ "__", "22/10/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "26/10/2026", "11:00", "12:00", "" ];
