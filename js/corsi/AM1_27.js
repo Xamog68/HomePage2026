@@ -54,6 +54,8 @@ Lezioni[21] = [ "21", "19/10/2026", "11:00", "12:00", "Sottosuccessioni e loro l
 Lezioni[22] = [ "22", "19/10/2026", "12:00", "13:00", "Esercizi misti sui limiti: razionalizzazioni di radici, limiti in punti diversi da zero/infinito, limiti di sommatorie, limiti delle medie p-esime." ];
 Lezioni[23] = [ "23", "21/10/2026", "14:00", "15:00", "Definizione di o piccolo e di equivalenza asintotica. Principali proprietà di o piccolo." ];
 Lezioni[24] = [ "24", "21/10/2026", "15:00", "16:00", "Sviluppini delle funzioni elementari. Limiti notevoli come sviluppini e come equivalenze asintotiche. Utilizzo degli sviluppini per il calcolo di limiti." ];
+Lezioni[25] = [ "25", "22/10/2026", "09:00", "10:00", "Rapporto incrementale, derivata e differenziale. Equivalenza tra le definizioni e interpretazione geometrica. Limiti notevoli vs sviluppini vs derivate delle funzioni elementari. Continuità delle funzioni derivabili." ];
+Lezioni[26] = [ "26", "22/10/2026", "10:00", "11:00", "Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa: enunciati e argomentazioni euristiche. Derivata di alcune funzioni elementari e delle relative inverse." ];
 
 
 /* ============================================================
@@ -65,8 +67,7 @@ Lezioni[24] = [ "24", "21/10/2026", "15:00", "16:00", "Sviluppini delle funzioni
    ============================================================
 
 
-Lezioni[__] = [ "__", "22/10/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "22/10/2026", "10:00", "11:00", "" ];
+
 Lezioni[__] = [ "__", "26/10/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "26/10/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "28/10/2026", "14:00", "15:00", "" ];
@@ -129,11 +130,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-17. 
-21. Sottosuccessioni e loro limiti. Utilizzo di successioni e sottosuccessioni per mostrare la non esistenza di limiti di funzioni e successioni.
-22. Esercizi misti sui limiti: razionalizzazioni di radici, limiti in punti diversi da zero/infinito, limiti di sommatorie, limiti delle medie p-esime.
-23. Definizione di o piccolo e di equivalenza asintotica. Principali proprietà di o piccolo.
-24. Sviluppini delle funzioni elementari. Utilizzo degli sviluppini per il calcolo di limiti.
 25. Rapporto incrementale, derivata e differenziale. Retta tangente ad un grafico. Equivalenza tra le definizioni e interpretazione geometrica. Limiti notevoli vs sviluppini vs derivate delle funzioni elementari. Continuità delle funzioni derivabili.
 26. Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa (enunciati). Derivata delle funzioni elementari e delle relative inverse.
 27. Enunciato del teorema di De L'Hôpital. Esempi in cui si può e non si può applicare. Pericoli del \"fare i limiti metà per volta\" o mediante equivalenza asintotica.
