@@ -56,6 +56,9 @@ Lezioni[23] = [ "23", "21/10/2026", "14:00", "15:00", "Definizione di o piccolo 
 Lezioni[24] = [ "24", "21/10/2026", "15:00", "16:00", "Sviluppini delle funzioni elementari. Limiti notevoli come sviluppini e come equivalenze asintotiche. Utilizzo degli sviluppini per il calcolo di limiti." ];
 Lezioni[25] = [ "25", "22/10/2026", "09:00", "10:00", "Rapporto incrementale, derivata e differenziale. Equivalenza tra le definizioni e interpretazione geometrica. Limiti notevoli vs sviluppini vs derivate delle funzioni elementari. Continuità delle funzioni derivabili." ];
 Lezioni[26] = [ "26", "22/10/2026", "10:00", "11:00", "Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa: enunciati e argomentazioni euristiche. Derivata di alcune funzioni elementari e delle relative inverse." ];
+Lezioni[27] = [ "27", "26/10/2026", "11:00", "12:00", "Enunciato del teorema di De L'Hôpital. Esempi in cui si può e non si può applicare. Pericoli del \"fare i limiti metà per volta\" o mediante equivalenza asintotica." ];
+Lezioni[28] = [ "28", "26/10/2026", "12:00", "13:00", "Enunciato della formula di Taylor con resto di Peano e centro in 0. Unicità del polinomio di Taylor. Dimostrazione degli sviluppi di Taylor delle funzioni elementari." ];
+
 
 
 /* ============================================================
@@ -68,8 +71,6 @@ Lezioni[26] = [ "26", "22/10/2026", "10:00", "11:00", "Teoremi algebrici sulle d
 
 
 
-Lezioni[__] = [ "__", "26/10/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "26/10/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "28/10/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "28/10/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "29/10/2026", "09:00", "10:00", "" ];
@@ -130,9 +131,8 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-25. Rapporto incrementale, derivata e differenziale. Retta tangente ad un grafico. Equivalenza tra le definizioni e interpretazione geometrica. Limiti notevoli vs sviluppini vs derivate delle funzioni elementari. Continuità delle funzioni derivabili.
-26. Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa (enunciati). Derivata delle funzioni elementari e delle relative inverse.
-27. Enunciato del teorema di De L'Hôpital. Esempi in cui si può e non si può applicare. Pericoli del \"fare i limiti metà per volta\" o mediante equivalenza asintotica.
+25.
+27. 
 28. Enunciato della formula di Taylor con resto di Peano e centro in 0. Unicità del polinomio di Taylor. Dimostrazione degli sviluppi di Taylor delle funzioni elementari.
 29. Formula di Taylor con resto di Peano e centro in un punto qualunque: enunciato e deduzione dal caso con centro in 0. Operazioni con i polinomi di Taylor: polinomio di Taylor della somma/differenza, del prodotto e della composizione.
 30. Definizione di ordine di infinitesimo e parte principale. Esempi di calcolo di polinomi di Taylor.
