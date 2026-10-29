@@ -58,6 +58,10 @@ Lezioni[25] = [ "25", "22/10/2026", "09:00", "10:00", "Rapporto incrementale, de
 Lezioni[26] = [ "26", "22/10/2026", "10:00", "11:00", "Teoremi algebrici sulle derivate. Derivata della composizione e dell'inversa: enunciati e argomentazioni euristiche. Derivata di alcune funzioni elementari e delle relative inverse." ];
 Lezioni[27] = [ "27", "26/10/2026", "11:00", "12:00", "Enunciato del teorema di De L'Hôpital. Esempi in cui si può e non si può applicare. Pericoli del \"fare i limiti metà per volta\" o mediante equivalenza asintotica." ];
 Lezioni[28] = [ "28", "26/10/2026", "12:00", "13:00", "Enunciato della formula di Taylor con resto di Peano e centro in 0. Unicità del polinomio di Taylor. Dimostrazione degli sviluppi di Taylor delle funzioni elementari." ];
+Lezioni[29] = [ "29", "28/10/2026", "14:00", "15:00", "Formula di Taylor con resto di Peano e centro in un punto qualunque: enunciato e deduzione dal caso con centro in 0. Operazioni con i polinomi di Taylor: polinomio di Taylor della somma/differenza, del prodotto e della composizione." ];
+Lezioni[30] = [ "30", "28/10/2026", "15:00", "16:00", "Definizione di ordine di infinitesimo e parte principale. Esempi di calcolo di polinomi di Taylor e parti principali." ];
+Lezioni[31] = [ "31", "29/10/2026", "09:00", "10:00", "Funzioni iperboliche: definizione, analogie e differenze rispetto alle funzioni trigonometriche classiche, interpretazione geometrica." ];
+Lezioni[32] = [ "32", "29/10/2026", "10:00", "11:00", "Esercizi misti sui limiti, sviluppi di Taylor, parti principali." ];
 
 
 
@@ -69,12 +73,6 @@ Lezioni[28] = [ "28", "26/10/2026", "12:00", "13:00", "Enunciato della formula d
    e completare/adattare l'argomento.
    ============================================================
 
-
-
-Lezioni[__] = [ "__", "28/10/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "28/10/2026", "15:00", "16:00", "" ];
-Lezioni[__] = [ "__", "29/10/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "29/10/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "02/11/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "02/11/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "04/11/2026", "14:00", "15:00", "" ];
@@ -131,8 +129,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-25.
-27. 
 28. Enunciato della formula di Taylor con resto di Peano e centro in 0. Unicità del polinomio di Taylor. Dimostrazione degli sviluppi di Taylor delle funzioni elementari.
 29. Formula di Taylor con resto di Peano e centro in un punto qualunque: enunciato e deduzione dal caso con centro in 0. Operazioni con i polinomi di Taylor: polinomio di Taylor della somma/differenza, del prodotto e della composizione.
 30. Definizione di ordine di infinitesimo e parte principale. Esempi di calcolo di polinomi di Taylor.
