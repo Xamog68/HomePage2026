@@ -62,6 +62,8 @@ Lezioni[29] = [ "29", "28/10/2026", "14:00", "15:00", "Formula di Taylor con res
 Lezioni[30] = [ "30", "28/10/2026", "15:00", "16:00", "Definizione di ordine di infinitesimo e parte principale. Esempi di calcolo di polinomi di Taylor e parti principali." ];
 Lezioni[31] = [ "31", "29/10/2026", "09:00", "10:00", "Funzioni iperboliche: definizione, analogie e differenze rispetto alle funzioni trigonometriche classiche, interpretazione geometrica." ];
 Lezioni[32] = [ "32", "29/10/2026", "10:00", "11:00", "Esercizi misti sui limiti, sviluppi di Taylor, parti principali." ];
+Lezioni[33] = [ "33", "02/11/2026", "11:00", "12:00", "Serie numeriche: definizione come limite delle somme parziali. Serie telescopiche e geometriche. Proprietà algebriche." ];
+Lezioni[34] = [ "34", "02/11/2026", "12:00", "13:00", "Condizione necessaria per la convergenza di una serie numerica. Serie a termini di segno costante. Criteri di convergenza: confronto, radice, rapporto. Primi esempi di studio della convergenza." ];
 
 
 
@@ -72,9 +74,6 @@ Lezioni[32] = [ "32", "29/10/2026", "10:00", "11:00", "Esercizi misti sui limiti
    Sostituire i due __ con il numero effettivo della lezione
    e completare/adattare l'argomento.
    ============================================================
-
-Lezioni[__] = [ "__", "02/11/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "02/11/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "04/11/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "04/11/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "05/11/2026", "09:00", "10:00", "" ];
@@ -129,13 +128,8 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-28. Enunciato della formula di Taylor con resto di Peano e centro in 0. Unicità del polinomio di Taylor. Dimostrazione degli sviluppi di Taylor delle funzioni elementari.
-29. Formula di Taylor con resto di Peano e centro in un punto qualunque: enunciato e deduzione dal caso con centro in 0. Operazioni con i polinomi di Taylor: polinomio di Taylor della somma/differenza, del prodotto e della composizione.
-30. Definizione di ordine di infinitesimo e parte principale. Esempi di calcolo di polinomi di Taylor.
-31. Funzioni iperboliche.
-32. Esercizi misti sui limiti, sviluppi di Taylor, parti principali.
-33. Serie numeriche: definizione come limite delle somme parziali. Serie telescopiche e geometriche. Proprietà algebriche.
-34. Condizione necessaria per la convergenza di una serie numerica. Serie a termini di segno costante. Criteri di convergenza: confronto, radice, rapporto. Primi esempi di studio della convergenza.
+33. 
+34. 
 35. Criteri di convergenza per serie numeriche: confronto asintotico (casi standard e casi limite). Serie armonica generalizzata: dimostrazione via criterio di condensazione di Cauchy e via disuguaglianze elementari.
 36. Esempi di studio della convergenza di serie numeriche a termini di segno costante, anche parametriche.
 37. Criterio di Leibniz per le serie a segno alterno. Assoluta convergenza. Teorema dei carabinieri per le serie. Esempi di serie convergenti ma non assolutamente convergenti.
