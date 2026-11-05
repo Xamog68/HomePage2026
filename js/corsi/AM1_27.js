@@ -66,6 +66,8 @@ Lezioni[33] = [ "33", "02/11/2026", "11:00", "12:00", "Serie numeriche: definizi
 Lezioni[34] = [ "34", "02/11/2026", "12:00", "13:00", "Condizione necessaria per la convergenza di una serie numerica. Serie a termini di segno costante. Criteri di convergenza: confronto, radice, rapporto. Primi esempi di studio della convergenza." ];
 Lezioni[35] = [ "35", "04/11/2026", "14:00", "15:00", "Criteri di convergenza per serie numeriche: confronto asintotico (casi standard e casi limite). Serie armonica generalizzata: dimostrazione via criterio di condensazione di Cauchy e via disuguaglianze elementari." ];
 Lezioni[36] = [ "36", "04/11/2026", "15:00", "16:00", "Esempi di studio della convergenza di serie numeriche a termini di segno costante, anche parametriche." ];
+Lezioni[37] = [ "37", "05/11/2026", "09:00", "10:00", "Criterio di Leibniz per le serie a segno alterno. Assoluta convergenza. Teorema dei carabinieri per le serie. Esempi di serie convergenti ma non assolutamente convergenti." ];
+Lezioni[38] = [ "38", "05/11/2026", "10:00", "11:00", "Esercizi riassuntivi sulle serie, anche parametriche." ];
 
 
 /* ============================================================
@@ -128,10 +130,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-35. Criteri di convergenza per serie numeriche: confronto asintotico (casi standard e casi limite). Serie armonica generalizzata: dimostrazione via criterio di condensazione di Cauchy e via disuguaglianze elementari.
-36. Esempi di studio della convergenza di serie numeriche a termini di segno costante, anche parametriche.
-37. Criterio di Leibniz per le serie a segno alterno. Assoluta convergenza. Teorema dei carabinieri per le serie. Esempi di serie convergenti ma non assolutamente convergenti.
-38. Esercizi riassuntivi sulle serie, anche parametriche.
 39. Teorema di esistenza degli zeri: enunciato e tre possibili dimostrazioni. Teorema dei valori intermedi. Sottoinsiemi connessi/convessi dei reali. Le funzioni continue assumono tutti i valori tra inf e sup in un insieme connesso.
 40. Teoremi che legano la monotonia di una funzione al segno della sua derivata prima. Primi esempi di applicazione allo studio di equazioni o della surgettività di una funzione.
 41. Definizioni di max/min e di punti di max/min. Teorema di Weierstrass in un intervallo: enunciato e dimostrazione via ordinamento. Ricerca dei punti di max/min: punti stazionari interni, singolari interni, bordo.
