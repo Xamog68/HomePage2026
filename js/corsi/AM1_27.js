@@ -68,6 +68,10 @@ Lezioni[35] = [ "35", "04/11/2026", "14:00", "15:00", "Criteri di convergenza pe
 Lezioni[36] = [ "36", "04/11/2026", "15:00", "16:00", "Esempi di studio della convergenza di serie numeriche a termini di segno costante, anche parametriche." ];
 Lezioni[37] = [ "37", "05/11/2026", "09:00", "10:00", "Criterio di Leibniz per le serie a segno alterno. Assoluta convergenza. Teorema dei carabinieri per le serie. Esempi di serie convergenti ma non assolutamente convergenti." ];
 Lezioni[38] = [ "38", "05/11/2026", "10:00", "11:00", "Esercizi riassuntivi sulle serie, anche parametriche." ];
+Lezioni[39] = [ "39", "11/11/2026", "14:00", "15:00", "Teorema di esistenza degli zeri: enunciato e tre possibili dimostrazioni. Teorema dei valori intermedi. Sottoinsiemi connessi/convessi dei reali. Le funzioni continue assumono tutti i valori tra inf e sup in un insieme connesso." ];
+Lezioni[40] = [ "40", "11/11/2026", "15:00", "16:00", "Teoremi che legano la monotonia di una funzione al segno della sua derivata prima, in un punto o in un insieme. Primi esempi di applicazione allo studio di equazioni o della surgettività di una funzione." ];
+Lezioni[41] = [ "41", "12/11/2026", "09:00", "10:00", "Definizioni di max/min e di punti di max/min. Teorema di Weierstrass in un intervallo: enunciato, dimostrazione per bisezione e idea della dimostrazione via ordinamento. Ricerca dei punti di max/min: punti stazionari interni, singolari interni, bordo." ];
+Lezioni[42] = [ "42", "12/11/2026", "10:00", "11:00", "Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor. Varianti del teorema di Weierstrass: funzioni periodiche, funzioni definite su tutta la retta con condizioni all'infinito. Primi esempi." ];
 
 
 /* ============================================================
@@ -78,14 +82,7 @@ Lezioni[38] = [ "38", "05/11/2026", "10:00", "11:00", "Esercizi riassuntivi sull
    e completare/adattare l'argomento.
    ============================================================
 
-Lezioni[__] = [ "__", "05/11/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "05/11/2026", "10:00", "11:00", "" ];
-Lezioni[__] = [ "__", "09/11/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "09/11/2026", "12:00", "13:00", "" ];
-Lezioni[__] = [ "__", "11/11/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "11/11/2026", "15:00", "16:00", "" ];
-Lezioni[__] = [ "__", "12/11/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "12/11/2026", "10:00", "11:00", "" ];
+
 Lezioni[__] = [ "__", "16/11/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "16/11/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "18/11/2026", "14:00", "15:00", "" ];
@@ -130,9 +127,6 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-39. Teorema di esistenza degli zeri: enunciato e tre possibili dimostrazioni. Teorema dei valori intermedi. Sottoinsiemi connessi/convessi dei reali. Le funzioni continue assumono tutti i valori tra inf e sup in un insieme connesso.
-40. Teoremi che legano la monotonia di una funzione al segno della sua derivata prima. Primi esempi di applicazione allo studio di equazioni o della surgettività di una funzione.
-41. Definizioni di max/min e di punti di max/min. Teorema di Weierstrass in un intervallo: enunciato e dimostrazione via ordinamento. Ricerca dei punti di max/min: punti stazionari interni, singolari interni, bordo.
 42. Varianti del teorema di Weierstrass: funzioni periodiche, funzioni definite su tutta la retta con condizioni all'infinito. Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor.
 43. Schema classico per lo studio di funzioni: simmetrie, continuità, limiti agli estremi, zeri e segno, derivata prima e monotonia, punti di massimo/minimo locale/globale. Definizione di asintoti orizzontali, verticali, obliqui.
 44. Calcolo dei coefficienti degli asintoti obliqui e loro interpretazione come sviluppi di Taylor all'infinito. Definizione geometrica di convessità/concavità. Legami tra convessità e derivata seconda. Punti di flesso.
