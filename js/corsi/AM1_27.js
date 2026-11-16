@@ -72,6 +72,8 @@ Lezioni[39] = [ "39", "11/11/2026", "14:00", "15:00", "Teorema di esistenza degl
 Lezioni[40] = [ "40", "11/11/2026", "15:00", "16:00", "Teoremi che legano la monotonia di una funzione al segno della sua derivata prima, in un punto o in un insieme. Primi esempi di applicazione allo studio di equazioni o della surgettività di una funzione." ];
 Lezioni[41] = [ "41", "12/11/2026", "09:00", "10:00", "Definizioni di max/min e di punti di max/min. Teorema di Weierstrass in un intervallo: enunciato, dimostrazione per bisezione e idea della dimostrazione via ordinamento. Ricerca dei punti di max/min: punti stazionari interni, singolari interni, bordo." ];
 Lezioni[42] = [ "42", "12/11/2026", "10:00", "11:00", "Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor. Varianti del teorema di Weierstrass: funzioni periodiche, funzioni definite su tutta la retta con condizioni all'infinito. Primi esempi." ];
+Lezioni[43] = [ "43", "16/11/2026", "11:00", "12:00", "" ];
+Lezioni[44] = [ "44", "16/11/2026", "12:00", "13:00", "" ];
 
 
 /* ============================================================
@@ -83,8 +85,6 @@ Lezioni[42] = [ "42", "12/11/2026", "10:00", "11:00", "Studio locale di una funz
    ============================================================
 
 
-Lezioni[__] = [ "__", "16/11/2026", "11:00", "12:00", "" ];
-Lezioni[__] = [ "__", "16/11/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "18/11/2026", "14:00", "15:00", "" ];
 Lezioni[__] = [ "__", "18/11/2026", "15:00", "16:00", "" ];
 Lezioni[__] = [ "__", "19/11/2026", "09:00", "10:00", "" ];
