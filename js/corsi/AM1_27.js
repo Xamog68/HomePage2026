@@ -72,8 +72,12 @@ Lezioni[39] = [ "39", "11/11/2026", "14:00", "15:00", "Teorema di esistenza degl
 Lezioni[40] = [ "40", "11/11/2026", "15:00", "16:00", "Teoremi che legano la monotonia di una funzione al segno della sua derivata prima, in un punto o in un insieme. Primi esempi di applicazione allo studio di equazioni o della surgettività di una funzione." ];
 Lezioni[41] = [ "41", "12/11/2026", "09:00", "10:00", "Definizioni di max/min e di punti di max/min. Teorema di Weierstrass in un intervallo: enunciato, dimostrazione per bisezione e idea della dimostrazione via ordinamento. Ricerca dei punti di max/min: punti stazionari interni, singolari interni, bordo." ];
 Lezioni[42] = [ "42", "12/11/2026", "10:00", "11:00", "Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor. Varianti del teorema di Weierstrass: funzioni periodiche, funzioni definite su tutta la retta con condizioni all'infinito. Primi esempi." ];
-Lezioni[43] = [ "43", "16/11/2026", "11:00", "12:00", "" ];
-Lezioni[44] = [ "44", "16/11/2026", "12:00", "13:00", "" ];
+Lezioni[43] = [ "43", "16/11/2026", "11:00", "12:00", "Schema classico per lo studio di funzioni: simmetrie, continuità, limiti agli estremi, zeri e segno, derivata prima e monotonia, punti di massimo/minimo locale/globale. Definizione di asintoti orizzontali, verticali, obliqui. Calcolo dei coefficienti degli asintoti obliqui." ];
+Lezioni[44] = [ "44", "16/11/2026", "12:00", "13:00", "Definizione geometrica di convessità/concavità. Legami tra convessità e derivata seconda. Punti di flesso. Asintoti obliqui come sviluppi di Taylor all'infinito." ];
+Lezioni[45] = [ "45", "18/11/2026", "14:00", "15:00", "Enunciato della Formula di Taylor con resto di Lagrange. Applicazioni classiche: approssimazione di funzioni, dimostrazione di disuguaglianze, convergenza di serie di Taylor. Calcolo della somma della serie armonica a segni alterni." ];
+Lezioni[46] = [ "46", "18/11/2026", "15:00", "16:00", "Funzioni lipschitziane. Legami tra lipschitzianità e limitatezza della derivata prima. Come dedurre la limitatezza di una funzione dai suoi limiti all'infitnito." ];
+Lezioni[47] = [ "47", "19/11/2026", "09:00", "10:00", "Esempi di utilizzo dello studio di funzione: dimostrazione delle disuguaglianze che legano seno e coseno ai rispettivi polinomi di Taylor; studio di disequazioni ed equazioni." ];
+Lezioni[48] = [ "48", "19/11/2026", "10:00", "11:00", "Esempi di utilizzo dello studio di funzione: esistenza o non esistenza di max/min su insiemi non limitati, studio di iniettività/surgettività. Esercizi con parametri." ];
 
 
 /* ============================================================
@@ -84,11 +88,6 @@ Lezioni[44] = [ "44", "16/11/2026", "12:00", "13:00", "" ];
    e completare/adattare l'argomento.
    ============================================================
 
-
-Lezioni[__] = [ "__", "18/11/2026", "14:00", "15:00", "" ];
-Lezioni[__] = [ "__", "18/11/2026", "15:00", "16:00", "" ];
-Lezioni[__] = [ "__", "19/11/2026", "09:00", "10:00", "" ];
-Lezioni[__] = [ "__", "19/11/2026", "10:00", "11:00", "" ];
 Lezioni[__] = [ "__", "23/11/2026", "11:00", "12:00", "" ];
 Lezioni[__] = [ "__", "23/11/2026", "12:00", "13:00", "" ];
 Lezioni[__] = [ "__", "25/11/2026", "14:00", "15:00", "" ];
@@ -127,15 +126,8 @@ Lezioni[__] = [ "__", "23/12/2026", "15:00", "16:00", "" ];
    lezione effettivamente svolta nel 2026/27.
    ============================================================
 
-42. Varianti del teorema di Weierstrass: funzioni periodiche, funzioni definite su tutta la retta con condizioni all'infinito. Studio locale di una funzione nell'intorno di un punto stazionario: criterio delle derivate successive e sua interpretazione in termini di polinomi di Taylor.
-43. Schema classico per lo studio di funzioni: simmetrie, continuità, limiti agli estremi, zeri e segno, derivata prima e monotonia, punti di massimo/minimo locale/globale. Definizione di asintoti orizzontali, verticali, obliqui.
-44. Calcolo dei coefficienti degli asintoti obliqui e loro interpretazione come sviluppi di Taylor all'infinito. Definizione geometrica di convessità/concavità. Legami tra convessità e derivata seconda. Punti di flesso.
-45. Enunciato della Formula di Taylor con resto di Lagrange. Applicazioni classiche: approssimazione di funzioni, dimostrazione di disuguaglianze, convergenza di serie di Taylor. Classi di regolarità e accenno alle funzioni analitiche.
-46. Funzioni lipschitziane. Legami tra lipschitzianità e limitatezza della derivata prima.
-47. Esempi di utilizzo dello studio di funzione: calcolo di inf/sup/min/max di funzioni su insiemi, studio di iniettività e surgettività.
-48. Esempi di utilizzo dello studio di funzione: dimostrazione delle disuguaglianze che legano seno e coseno ai rispettivi polinomi di Taylor; studio di disequazioni ed equazioni con parametro.
-49. Esercizi misti sullo studio di funzioni.
-50. Esercizi misti sullo studio di funzioni.
+Classi di regolarità mai fatte!
+
 51. Introduzione agli integrali: notazioni, significato geometrico, funzioni a gradino, definizione di integrale inferiore e superiore. Funzione di Dirichlet.
 52. Criterio di integrabilità. Enunciato dell'integrabilità delle funzioni monotone e delle funzioni continue (con dimostrazione nel caso delle monotone). Prime proprietà dell'integrale: linearità, monotonia, disuguaglianza con il valore assoluto, integrabilità del prodotto, proprietà di reticolo.
 53. Additività dell'integrale rispetto alla zona di integrazione. Primitive, funzioni integrali e loro ruolo nel calcolo degli integrali. Lipschitzianità della funzione integrale. Teorema della media integrale.
